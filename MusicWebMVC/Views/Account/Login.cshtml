@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Music Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
+    <div class="back-buttons">
+        <a href="~/Home/Index"><i class="fas fa-arrow-left"></i>Introduction</a>
+        <a href="~/Home/NewFeed"><i class="fas fa-arrow-left"></i>Home</a>
+    </div>
+    <div class="container" id="container">
+        <!-- Form Đăng ký -->
+        <div class="form-container sign-up-container">
+            <form method="post" asp-action="Register" asp-controller="Account">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+                @if (ViewBag.RegisterError != null)
+                {
+                    <p style="color: red;">@ViewBag.RegisterError</p>
+                }
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Form Đăng nhập -->
+        <div class="form-container sign-in-container">
+            <form method="post" asp-action="Login" asp-controller="Account">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <a href="#">Forgot your password?</a>
+                @if (ViewBag.Error != null)
+                {
+                    <p style="color: red;">@ViewBag.Error</p>
+                }
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Hiệu ứng chuyển đổi -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/Login.js"> </script>
+
+    @* <footer> *@
+    @*     <p> *@
+    @*         Created with <i class="fa fa-heart"></i> by *@
+    @*         <a target="_blank" href="#">Melofy</a> *@
+    @*     </p> *@
+    @* </footer> *@
+</body>
+</html>

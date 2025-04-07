@@ -1,0 +1,284 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "NewFeed - Admin";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var userId = Context.Session.GetString("UserId");
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/admin.jpg";
+    @model List<MusicWebMVC.Models.Post>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Music Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/newfeed.css">
+</head>
+<body onclick="closeAll(event)">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <button class="sidebar-toggle" onclick="toggleSidebar(event)">☰</button>
+        <div class="logoimg"> <img src="~/img/lgo.png" /></div>
+        <div class="logo">Your Library</div>
+        <div class="sidebar-section">
+            <p>Your music, our community!</p>
+            <button class="sidebar-button" onclick="toggleChatBox(event, 'playlistBox')">Create playlist</button>
+        </div>
+
+        <div class="sidebar-section">
+            <p>Your sound, your story, your stage</p>
+            <button class="sidebar-button" onclick="toggleChatBox(event, 'storyBox')">Share your story</button>
+        </div>
+
+        <div class="">
+            <h3>Trending artists ...</h3>
+            <div class="artist-list">
+                <div class="artist"></div>
+                <div class="artist"></div>
+                <div class="artist more">+1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Boxes -->
+    <div class="chat-box" id="playlistBox">
+        <h3>Create Playlist</h3>
+        @if (isAuthenticated)
+        {
+            <input type="text" placeholder="Enter playlist name" />
+            <button class="message-login-button">Create</button>
+        }
+    </div>
+
+    <div class="chat-box" id="storyBox">
+        <h3>Share Your Story</h3>
+        @if (isAuthenticated)
+        {
+            <textarea placeholder="Write your story..."></textarea>
+            <button class="message-login-button">Post</button>
+        }
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="What do you want to hear?">
+                </div>
+                <div class="auth-buttons">
+                    @if (isAuthenticated)
+                    {
+                        <div class="auth-button">
+                            <button class="manage-button" onclick="location.href='@Url.Action("Manage", "Account")'">Manage</button>
+                        </div>
+                        <a href="@Url.Action("ProfileAdmin", "Account")" class="avatar-container">
+                            <img src="/img/admin.jpg" alt="Avatar" class="user-avatar">
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- NewFeed Content -->
+        <div class="main-content">
+
+            <div class="filter-tabs">
+                <button class="filter-tab active">All</button>
+                <button class="filter-tab">Posts</button>
+                <button class="filter-tab">Cover</button>
+                <button class="filter-tab">Self Instrumented</button>
+
+                @if (isAuthenticated)
+                {
+                    <button onclick="location.href='@Url.Action("UploadPage", "Song")'" class="add-post"><p>+</p></button>
+                }
+            </div>
+
+            <h2>New Feed</h2>
+
+
+            <div class="post-topuser">
+                <div class="post-topuser-left">
+                    @if (Model == null || !Model.Any())
+
+                    {
+                        <p>No posts available.</p>
+                    }
+                    else
+                    {
+                        @foreach (var post in Model)
+                        {
+                            <div class="post" data-post-id="@post.Id">
+                                <!-- Post Header -->
+                                <div class="post-header">
+                                    <a href="@Url.Action("ProfileUser", "Home", new { id = post.UserId })"
+                                       class="post-avatar">@post.User.Username[0]</a>
+                                    <div class="post-info">
+                                        <div class="post-author">@post.User.Username</div>
+                                        <div class="post-time">@post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+                                    </div>
+                                </div>
+
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <p>@post.Content</p>
+                                    @if (!string.IsNullOrEmpty(post.ImageUrl))
+                                    {
+                                        <img src="@post.ImageUrl" class="post-image" />
+                                    }
+                                </div>
+
+                                <!-- Songs -->
+                                @if (post.Song != null)
+                                {
+                                    <div class="song-item">
+                                        <div class="song-info">
+                                            <div class="song-container">
+                                                <div class="custom-audio-player" data-song-url="@post.Song.FileUrl">
+                                                    <div class="play-button">
+                                                        <i class="fas fa-play" id="play-icon-@post.Song.Id"></i>
+                                                    </div>
+
+                                                    <div class="play-progress">
+                                                        <div class="time-display">0:00</div>
+                                                        <div class="progress-container" id="progress-container-@post.Song.Id">
+                                                            <div class="progress-bar" id="progress-bar-@post.Song.Id"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <audio id="audio-@post.Song.Id" style="display: none;">
+                                                        <source src="@post.Song.FileUrl" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                                <div class="volume-control">
+                                                    <i class="fas fa-volume-up"></i>
+                                                    <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider" id="volume-slider-@post.Song.Id">
+                                                </div>
+                                            </div>
+
+                                            <span onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = post.Id })'" style="cursor: pointer;">
+                                                @post.Song.Title
+                                            </span>
+                                        </div>
+                                    </div>
+                                }
+
+                                <!-- Post Actions -->
+                                <div class="post-actions">
+                                    <!-- Action buttons with integrated count -->
+                                    <div class="action-buttons-container">
+                                        @{
+                                            bool userLiked = ViewData[$"UserLiked_{post.Id}"] != null && (bool)ViewData[$"UserLiked_{post.Id}"];
+                                            bool userDisliked = ViewData[$"UserDisliked_{post.Id}"] != null && (bool)ViewData[$"UserDisliked_{post.Id}"];
+                                        }
+                                        <button class="fb-action-btn like-btn @(userLiked ? "active" : "")" onclick="likePost(this, @post.Id)">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            <span>Like</span>
+                                            <span class="count-badge">@(post.Likes?.Count ?? 0)</span>
+                                        </button>
+                                        <button class="fb-action-btn dislike-btn @(userDisliked ? "active" : "")" onclick="dislikePost(this, @post.Id)">
+                                            <i class="fas fa-thumbs-down"></i>
+                                            <span>Dislike</span>
+                                            <span class="count-badge">@(post.Dislikes?.Count ?? 0)</span>
+                                        </button>
+                                        <button class="fb-action-btn comment-btn" onclick="toggleCommentSection(this, @post.Id)">
+                                            <i class="fas fa-comment"></i>
+                                            <span>Comment</span>
+                                            <span class="count-badge">@(post.Comments?.Count ?? 0)</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="top-user">
+
+                    <div class="panel-header">
+                        Melofy VIP members
+                    </div>
+
+                    <div class="vip-members">
+                        <div class="member-icon">
+                            <img src="/api/placeholder/30/30" alt="Member 1">
+                        </div>
+                        <div class="member-icon">
+                            <img src="/api/placeholder/30/30" alt="Member 2">
+                        </div>
+                        <div class="member-icon">
+                            <img src="/api/placeholder/30/30" alt="Member 3">
+                        </div>
+                        <div class="member-icon">
+                            #1
+                        </div>
+                    </div>
+
+                    <div class="top-artists">
+                        <div class="section-title">
+                            UK most streamed artists
+                        </div>
+
+                        <div class="artist-item">
+                            <div class="artist-rank rank-1">No.1</div>
+                            <div class="artist-icon">
+                                <img src="/api/placeholder/30/30" alt="Artist 1">
+                            </div>
+                            <div class="artist-desc">Description</div>
+                        </div>
+
+                        <div class="artist-item">
+                            <div class="artist-rank rank-2">No.2</div>
+                            <div class="artist-icon">
+                                <img src="/api/placeholder/30/30" alt="Artist 2">
+                            </div>
+                            <div class="artist-desc">Description</div>
+                        </div>
+
+                        <div class="artist-item">
+                            <div class="artist-rank rank-3">No.3</div>
+                            <div class="artist-icon">
+                                <img src="/api/placeholder/30/30" alt="Artist 3">
+                            </div>
+                            <div class="artist-desc">Description</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Separated Comment Section - This will be displayed as an overlay -->
+    <div id="comment-overlay" class="comment-overlay">
+        <div class="comment-container">
+            <div class="comment-header">
+                <h3>Comments</h3>
+                <button class="close-comment-btn" onclick="closeCommentSection()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="fb-comment-section">
+                <div class="fb-comment-input-container">
+                    <div class="comment-avatar">
+                        <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                    </div>
+                    <div class="fb-comment-input-wrapper">
+                        <input type="text" placeholder="Write a comment..." class="fb-comment-input">
+                        <div class="fb-comment-tools">
+                            <i class="fas fa-smile"></i>
+                            <i class="fas fa-camera"></i>
+                            <i class="fas fa-paper-plane" onclick="submitComment(event)"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="fb-comments-list">
+                    <!-- Comments will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/NewFeed.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "_LayoutWithSideBar";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style-carousel.css">
+</head>
+<body>
+    <!-- Gọi Sidebar từ ViewComponent -->
+    @await Component.InvokeAsync("Sidebar")
+
+    <div class="navbar">
+        <span>My Website</span>
+        <div class="nav-links">
+            <a href="@Url.Action("Profile", "Account")">Profile</a>
+            <a href="@Url.Action("Logout", "Account")">Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+</body>

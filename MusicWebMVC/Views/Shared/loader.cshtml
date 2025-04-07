@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Loader Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="/css/loader.css">
+    <script>
+        setTimeout(function () {
+            // Sử dụng thông tin từ ViewBag để quyết định chuyển hướng
+            var userRole = '@ViewBag.UserRole';  // Lấy thông tin vai trò từ ViewBag
+            if (userRole === "Admin") {
+                window.location.href = '@Url.Action("Dashboard", "Admin")';  // Dành cho Admin
+            } else {
+                window.location.href = '@Url.Action("NewFeed", "Home")';  // Dành cho User
+            }
+        }, 2000); // 2 giây
+    </script>
+</head>
+<body>
+    <div class="loader">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</body>
+</html>

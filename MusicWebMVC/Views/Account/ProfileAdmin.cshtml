@@ -1,0 +1,307 @@
+﻿@model User
+
+@{
+    Layout = null;
+    ViewData["Title"] = "ProfileAdmin";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/default-avatar.png";
+    var username = Model.Username ?? "User";
+    var email = Model.Email ?? "example@mail.com";
+    var bio = Model.Bio ?? "No bio provided";
+    var password = "********"; // Mật khẩu hiển thị là dấu sao mặc định
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Music Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="~/css/profile.css">
+</head>
+<body>
+    <div class="top-nav-logo">
+        <div class="logoimg">
+            <a href="@Url.Action("NewFeedAdmin", "Home")">
+                <img src="~/img/lgo.png" alt="Logo" />
+            </a>
+        </div>
+
+        <div class="navbar">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="What do you want to hear?">
+                </div>
+                @if (isAuthenticated)
+                {
+                    <div class="avatar-container" onclick="toggleProfileMenu(event)">
+                        <img src="~/img/avatar.jpg" alt="User Avatar" class="user-avatar">
+                        <div class="profile-menu" id="profileMenu">
+                            <a href="@Url.Action("Logout", "Account")">Logout</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="information-account">
+            <div class="information-tab">
+                <button class="tab-button active" onclick="showTab(event, 'account')">Account</button>
+                <button class="tab-button" onclick="showTab(event, 'support')">Support</button>
+                <button class="tab-button" onclick="showTab(event, 'upgrade')">Upgrade</button>
+            </div>
+            <div class="information-detail">
+                <div id="account" class="tab-content active">
+                    <h3>Account Information</h3>
+                    <button class="edit-button" onclick="openModal()">Edit</button>
+                    <div class="info-box">Username: <span id="displayUsername">@username</span></div>
+                    <div class="info-box">
+                        Password:
+                        <span id="displayPassword">@password</span>
+                        <button type="button" id="togglePassword" onclick="togglePassword()" class="password-toggle-btn">
+                            <i id="passwordIcon" class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="info-box">Email: <span id="displayEmail">@email</span></div>
+                    <div class="info-box">Bio: <span id="displayBio">@bio</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="updateInfoModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h5><i class="fas fa-user-edit"></i> Update Account Information</h5>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="updateInfoForm">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="username" value="@username">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" value="@email">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea id="bio">@bio</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="newPassword" class="form-control" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm new password">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" id="saveChanges">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <style>
+        /* Enhanced Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(3px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-container {
+            background: white;
+            border-radius: 12px;
+            width: 450px;
+            max-width: 90%;
+            position: relative;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+        }
+
+            .modal-overlay.show .modal-container {
+                transform: scale(1);
+            }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+            .modal-header h5 {
+                font-size: 18px;
+                margin: 0;
+                color: #333;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+                .modal-header h5 i {
+                    color: #0d6efd;
+                }
+
+        .modal-close {
+            cursor: pointer;
+            font-size: 22px;
+            color: #6c757d;
+            transition: color 0.2s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+            .modal-close:hover {
+                color: #dc3545;
+                background-color: rgba(220, 53, 69, 0.1);
+            }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+                color: #495057;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 12px 15px;
+                border: 1px solid #ced4da;
+                border-radius: 6px;
+                font-size: 16px;
+                transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            }
+
+                .form-group input:focus {
+                    border-color: #86b7fe;
+                    outline: 0;
+                    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+                }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 20px 25px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5c636a;
+            }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+            }
+
+        .modal-container {
+            animation: modalFadeIn 0.3s forwards;
+        }
+
+        .avatar-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            left: 350px;
+            img
+
+        {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        }
+
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            min-width: 120px;
+        }
+
+            .profile-menu a {
+                display: block;
+                padding: 8px;
+                text-decoration: none;
+                color: black;
+            }
+
+            .profile-menu.show {
+                display: block;
+            }
+    </style>
+
+    <script src="~/js/Profile.js">
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using MusicWebMVC.Models
+@model IEnumerable<MusicWebMVC.Models.Post>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Music - Melofy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/newfeed.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="search-container">
+            <a href="@Url.Action("Newfeed", "Home")" class="home-btn">
+                @if (ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true)
+                {
+                    <i class="fa-solid fa-home home-icon @(ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true ? "active" : "")"></i>
+                }
+                else
+                {
+                    <i class="fa-solid fa-home home-icon @(ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true ? "" : "inactive")"></i>
+                }
+            </a>
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="What do you want to hear?">
+            </div>
+            <div class="auth-buttons">
+                @if (Context.Session.GetString("UserId") != null)
+                {
+                    <a href="@Url.Action("Profile", "Account")" class="avatar-container">
+                        <img src="~/img/avatar.jpg" alt="Avatar" class="user-avatar">
+                    </a>
+                }
+                else
+                {
+                    <button class="auth-button login" onclick="location.href='@Url.Action("Login", "Account")'">Login</button>
+                }
+            </div>
+        </div>
+    </div>
+
+</body>
