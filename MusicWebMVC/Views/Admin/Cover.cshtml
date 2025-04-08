@@ -3,7 +3,7 @@
 *@
 @{
     Layout = null;
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "Cover";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
 }
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Music Web</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="~/css/dashboard.css">
+    <link rel="stylesheet" href="~/css/cover.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -23,7 +23,7 @@
         <div class="logoimg"><img src="~/img/lgo.png" /></div>
         <div class="logo">Melofy</div>
         <div>
-            <button class="sidebar-button active">Dashboard</button>
+            <button class="sidebar-button" onclick="location.href='@Url.Action("Dashboard", "Admin")'">Dashboard</button>
         </div>
         <div>
             <button class="sidebar-button" onclick="location.href='@Url.Action("User", "Admin")'">User</button>
@@ -32,23 +32,12 @@
             <button class="sidebar-button" onclick="location.href='@Url.Action("Post", "Admin")'">Post</button>
         </div>
         <div>
-            <button class="sidebar-button" onclick="location.href='@Url.Action("Cover", "Admin")'">Cover Song</button>
+            <button class="sidebar-button active">Cover Song</button>
         </div>
     </div>
 
     <div class="content-wrapper">
 
-        @* <div class="navbar"> *@
-        @*     <div class="search-container"> *@
-        @*         <div class="search-box"> *@
-        @*             <i class="fas fa-search search-icon"></i> *@
-        @*             <input type="text" placeholder="What do you want to hear?" /> *@
-        @*         </div> *@
-        @*         <div> *@
-        @*             <button></button> *@
-        @*         </div> *@
-        @*     </div> *@
-        @* </div> *@
         <div class="navbar">
             <div class="search-container">
                 <div class="search-box">
@@ -66,47 +55,60 @@
             </div>
         </div>
 
-        <div class="main-content">
-            <div class="card-box">
-                <div class="cardBox">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-circle-user"></i>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-name">Visitors</div>
-                        <div class="number">1000</div>
-                    </div>
-                </div>
-                <div class="cardBox">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="card-content">
+        <div class="cover-management">
+            <h2>Manage</h2>
+            <table class="cover-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Title</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User1</td>
+                        <td>Title1</td>
+                        <td>
+                            <button class="btn delete">Delete</button>
+                            <button class="btn more">More</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User1</td>
+                        <td>Title1</td>
+                        <td>
+                            <button class="btn delete">Delete</button>
+                            <button class="btn more">More</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User1</td>
+                        <td>Title1</td>
+                        <td>
+                            <button class="btn delete">Delete</button>
+                            <button class="btn more">More</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User1</td>
+                        <td>Title1</td>
+                        <td>
+                            <button class="btn delete">Delete</button>
+                            <button class="btn more">More</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-                        <div class="card-name">Subcribers</div>
-                        <div class="number">1000</div>
-                    </div>
-                </div>
-                <div class="cardBox">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-arrow-up"></i>
-                    </div>
-                    <div class="card-content">
-
-                        <div class="card-name">Upgrade</div>
-                        <div class="number">1000</div>
-                    </div>
-                </div>
-            </div>
-            <div class="graph-box">
-                <div class="graphBox">
-                    @* <canvas id="my-chart-1"> </canvas> *@
-                    <canvas id="userChart"></canvas>
-                </div>
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
             </div>
         </div>
     </div>
-
+   
     <script>
         function toggleSidebar(event) {
             event.stopPropagation();
@@ -117,3 +119,5 @@
     <script src="~/js/chart.js"></script>
 </body>
 </html>
+
+
