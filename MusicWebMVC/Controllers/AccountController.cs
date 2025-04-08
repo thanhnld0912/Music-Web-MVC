@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Models;
+using System.Security.Claims;
 
 namespace MusicWebMVC.Controllers
 {
@@ -186,6 +191,116 @@ namespace MusicWebMVC.Controllers
 
             return RedirectToAction("Login");
         }
+
+
+        public async Task LoginByGoogle()
+        {
+            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties
+            {
+                RedirectUri = Url.Action("GoogleResponse")
+            });
+        }
+
+        public async Task<IActionResult> GoogleResponse()
+        {
+            // Lấy kết quả xác thực
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            if (!result.Succeeded)
+            {
+                TempData["Error"] = "Không thể đăng nhập bằng Google. Vui lòng thử lại.";
+                return RedirectToAction("Login");
+            }
+
+            // Lấy thông tin từ claims
+            var claims = result.Principal.Identities.FirstOrDefault()?.Claims.ToList();
+
+            // Trích xuất email và tên
+            var email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            var name = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrEmpty(email))
+            {
+                TempData["Error"] = "Không thể lấy thông tin email từ tài khoản Google.";
+                return RedirectToAction("Login");
+            }
+
+            // Kiểm tra xem user đã tồn tại chưa
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+            if (existingUser == null)
+            {
+                // Tạo user mới nếu chưa tồn tại
+                var newUser = new User
+                {
+                    Email = email,
+                    Username = name ?? email.Split('@')[0], // Dùng tên hoặc phần đầu của email làm username
+                    Password = Convert.ToBase64String(Guid.NewGuid().ToByteArray()), // Password ngẫu nhiên
+                    Role = "User", // Role mặc định
+                    CreatedAt = DateTime.Now,
+                    Bio = ""
+                };
+
+                try
+                {
+                    _context.Users.Add(newUser);
+                    await _context.SaveChangesAsync();
+
+                    // Đăng nhập với user vừa tạo
+                    await SignInUser(newUser);
+
+                    return RedirectToAction("NewFeed", "Home");
+                }
+                catch (Exception ex)
+                {
+                    // Log lỗi
+                    TempData["Error"] = "Không thể lưu thông tin người dùng. Lỗi: " + ex.Message;
+                    return RedirectToAction("Login");
+                }
+            }
+            else
+            {
+                // Đăng nhập với user đã tồn tại
+                await SignInUser(existingUser);
+                return RedirectToAction("NewFeed", "Home");
+            }
+        }
+
+        // Phương thức helper để đăng nhập user
+        private async Task SignInUser(User user)
+        {
+            var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Username),
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role)
+        };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                principal,
+                new AuthenticationProperties
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = DateTime.UtcNow.AddDays(30)
+                }
+            );
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
+            HttpContext.Session.SetString("Username", user.Username);
+            HttpContext.Session.SetString("AvatarUrl",  "/img/avatar.jpg");
+            HttpContext.Session.SetString("Role", user.Role);
+        }
+
+
+
+
+
+
+
     }
 
 }
