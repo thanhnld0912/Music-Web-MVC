@@ -4007,23 +4007,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\phamd\\.nuget\\packages\\": {},
+    "C:\\Users\\HELLO\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj",
+      "projectUniqueName": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\MusicWebMVC.csproj",
       "projectName": "MusicWebMVC",
-      "projectPath": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj",
-      "packagesPath": "C:\\Users\\phamd\\.nuget\\packages\\",
-      "outputPath": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\obj\\",
+      "projectPath": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\MusicWebMVC.csproj",
+      "packagesPath": "C:\\Users\\HELLO\\.nuget\\packages\\",
+      "outputPath": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\phamd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HELLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4032,7 +4032,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

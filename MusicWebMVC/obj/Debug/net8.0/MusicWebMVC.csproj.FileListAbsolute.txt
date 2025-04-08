@@ -295,3 +295,4 @@ E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\refint\MusicWeb
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.pdb
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.genruntimeconfig.cache
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\ref\MusicWebMVC.dll
+D:\FPT\CN6\MusicWebMVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.sourcelink.json
