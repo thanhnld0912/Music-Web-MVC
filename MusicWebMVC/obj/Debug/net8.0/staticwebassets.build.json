@@ -1,6 +1,14 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "U18a5k9PcfxFAS6+MVMR1IIl529giIaeT6jHz2zjNxY=",
+=======
+<<<<<<< HEAD
+  "Hash": "3RVZOviBmaaRHKnNxXSl5l6CFlTBEd4PmA+ECLa6wgU=",
+=======
+  "Hash": "C6JdTJp+WD4xzXvjjS3rgJ7pyVJP7iFzZQC9I5ne+E4=",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
   "Source": "MusicWebMVC",
   "BasePath": "_content/MusicWebMVC",
   "Mode": "Default",
@@ -10,19 +18,30 @@
     {
       "Name": "MusicWebMVC\\wwwroot",
       "Source": "MusicWebMVC",
+<<<<<<< HEAD
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MusicWebMVC.styles.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Computed",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MusicWebMVC.styles.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "MusicWebMVC#[.{fingerprint}]?.styles.css",
+      "RelativePath": "MusicWebMVC.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -31,10 +50,9 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "vkvu46hx0s",
-      "Integrity": "X6dChTMTea4DliWtM+9DNV+EYJB7CkoXYlRJ1QR8NSE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MusicWebMVC.styles.css"
     },
     {
@@ -42,8 +60,17 @@
       "SourceId": "MusicWebMVC",
       "SourceType": "Computed",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+=======
+      "OriginalItemSpec": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MusicWebMVC.styles.css"
+    },
+    {
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MusicWebMVC.bundle.scp.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "MusicWebMVC#[.{fingerprint}]!.bundle.scp.css",
+      "RelativePath": "MusicWebMVC.bundle.scp.css",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Primary",
@@ -52,19 +79,27 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "vkvu46hx0s",
-      "Integrity": "X6dChTMTea4DliWtM+9DNV+EYJB7CkoXYlRJ1QR8NSE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MusicWebMVC.bundle.scp.css"
     },
     {
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
+=======
+      "OriginalItemSpec": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MusicWebMVC.bundle.scp.css"
+    },
+    {
+<<<<<<< HEAD
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
+=======
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/globalplayer#[.{fingerprint}]?.css",
+      "RelativePath": "css/cover#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -73,103 +108,171 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0ibfqtin1b",
-      "Integrity": "+LUNUXrKaNF5ZEsNNATy8P9RGVIrAPQAyDJ8pR81Oaw=",
+      "Fingerprint": "4jp2tjc4rw",
+      "Integrity": "QOljQUxkOS+i4rwX4SNyHWhIpLxjh/pmrEIrJ4sV+ug=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\cover.css"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "css/dashboard#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "io49u620qg",
+      "Integrity": "DqqQM6r297GcYpL4jlRQsuMsqRFR1vBilYR0DvE0XrA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "css/globalplayer.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\globalplayer.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\loader.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\loader.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/loader#[.{fingerprint}]?.css",
+      "RelativePath": "css/loader.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dfsm5h754o",
-      "Integrity": "afIpLNR8CdkVTc5EOAI0CeHFbvMw7yvvGEYf39SrA/Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\loader.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\login.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\login.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/login#[.{fingerprint}]?.css",
+      "RelativePath": "css/login.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9eya0wo7uk",
-      "Integrity": "oYzXMfsBvwAzFe8FAJqMHwgf2Szrgk9Kt1bkE7WeL34=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/newfeed#[.{fingerprint}]?.css",
+      "RelativePath": "css/newfeed.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5ovzph090z",
-      "Integrity": "FWhrJv7GRLE0vKQLzN8kXvIGqpLqeO/hyfWzJtGs+Tc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\newfeed.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/playlist#[.{fingerprint}]?.css",
+      "RelativePath": "css/playlist.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vg1lwdhywf",
-      "Integrity": "r/4d3RTfOMlwzGz2Iwk3FOikLy9pjG7uPdmJzr/OSZc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\playlist.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+=======
+<<<<<<< HEAD
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+=======
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/profile#[.{fingerprint}]?.css",
+      "RelativePath": "css/post#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -178,124 +281,181 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "0c5sgsuytb",
       "Integrity": "AJZmdBN/rf/W3HAu+/OOi6JW6zVROrW7qNoQauXgGOc=",
+=======
+      "Fingerprint": "vqgrzh4str",
+      "Integrity": "h7RdkTnQhsNL+05OlLygzCr4ieYJ66bbfZq1UAn/6ek=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\post.css"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "css/profile.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\profile.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\profileuser.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profileuser.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/profileuser#[.{fingerprint}]?.css",
+      "RelativePath": "css/profileuser.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4sct66svx2",
-      "Integrity": "DPwoulTCSoGj+PQOErg0G4mSUeQOtK7UfpZY4HCLlv8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\profileuser.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\site.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\site.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "RelativePath": "css/site.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "mgsso4ty1p",
-      "Integrity": "FnekkcrUk4wIQERmVrxVS4B1IXID1YQax9vxhnzYMZM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\songpage.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\songpage.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/songpage#[.{fingerprint}]?.css",
+      "RelativePath": "css/songpage.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "l8p1si5wxd",
-      "Integrity": "+1WpqH5a8pTkdapwAJ3VsC3/cvmBk/IRmDeXKHyHncY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\songpage.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\style-carousel.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\style-carousel.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/style-carousel#[.{fingerprint}]?.css",
+      "RelativePath": "css/style-carousel.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nkitp2i8yj",
-      "Integrity": "udtV9peOmcDbQ4Ky6ak4Y/j0R638Fifrf1ARu7ud6yY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style-carousel.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\upload.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\upload.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "css/upload#[.{fingerprint}]?.css",
+      "RelativePath": "css/upload.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "84m11k986q",
-      "Integrity": "yNhoC2R/OZ+N+M9AiuQ2cmg2FKQykSL3BU2nEH3SCtU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\upload.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\favicon.ico",
+=======
+<<<<<<< HEAD
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
+=======
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "RelativePath": "css/user#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -304,208 +464,280 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "61n19gt1b8",
-      "Integrity": "Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "Fingerprint": "bm6xle0486",
+      "Integrity": "w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\user.css"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\1.gif",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\1.gif",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/1#[.{fingerprint}]?.gif",
+      "RelativePath": "img/1.gif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xcc3hrngzk",
-      "Integrity": "Uc5WbTpWE5op4z7LBTHlG2YsE91nAISen2I+uOLe8j0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\1.gif"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\admin.jpg",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\admin.jpg",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/admin#[.{fingerprint}]?.jpg",
+      "RelativePath": "img/admin.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zq8bvmmnhq",
-      "Integrity": "C7hYb7s7ZP8GyNHIYH05lCh4BgPc1ejaYbu0Q9uGcRc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\admin.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\avatar.jpg",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\avatar.jpg",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/avatar#[.{fingerprint}]?.jpg",
+      "RelativePath": "img/avatar.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vbmoaf2e31",
-      "Integrity": "Cw3uBdn6Il5U8xiXNm2DBD9T3sNSoqUBIXfzys8IifM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\avatar.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\background.png",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.png",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/background#[.{fingerprint}]?.png",
+      "RelativePath": "img/background.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nlcj9mg0jb",
-      "Integrity": "i4e+VSBBBvgI1KBpPdA3X9zD63fc31jGNs+CxoWBu5Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\background.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\download.gif",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\download.gif",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/download#[.{fingerprint}]?.gif",
+      "RelativePath": "img/download.gif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4tfp0uz3sj",
-      "Integrity": "SESD1vgjmxoVox93Q7zAo/nQ2gJHIBBQCroOqauW5z0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\download.gif"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\Image1.jpg",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image1.jpg",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/Image1#[.{fingerprint}]?.jpg",
+      "RelativePath": "img/Image1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "6soeuvejt9",
-      "Integrity": "9s632sjVGXsaJQl+cA2l7bOGatCLA9UX/OaDboNpvFY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Image1.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\Image2.jpg",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image2.jpg",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/Image2#[.{fingerprint}]?.jpg",
+      "RelativePath": "img/Image2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "iar7d9chj9",
-      "Integrity": "Fom/QM0DZ6CviNH0yCSb6vZ0sZqcfolXVIt3XsFTyVk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Image2.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\Image3.jpg",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image3.jpg",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/Image3#[.{fingerprint}]?.jpg",
+      "RelativePath": "img/Image3.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "39xk9wx1oi",
-      "Integrity": "V15ZtDtCm9QY+qbX0iiR/dA17ZsaZtyQhCTLwtnlfbM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Image3.jpg"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\img\\lgo.png",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\lgo.png",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "img/lgo#[.{fingerprint}]?.png",
+      "RelativePath": "img/lgo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ztl6nwgrum",
-      "Integrity": "+ZQxTuytvGn81K97uhQuKhM1MeiRrLK/lZpmA6oKpnI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\lgo.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
+=======
+<<<<<<< HEAD
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
+=======
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/globalplayer#[.{fingerprint}]?.js",
+      "RelativePath": "js/chart#[.{fingerprint}]?.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -514,1400 +746,2071 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "jyegke2pt8",
-      "Integrity": "RWSfrQvmTiXTsUQW+WHJRgzyaIxOAPfhUA7eT4g8xlg=",
+      "Fingerprint": "ucluwzf6f2",
+      "Integrity": "nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\chart.js"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "js/globalplayer.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\globalplayer.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\layout.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\layout.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/layout#[.{fingerprint}]?.js",
+      "RelativePath": "js/layout.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "w8uvosi254",
-      "Integrity": "IK3Xqm6r7+yxEp79fjW6QN0XasgspFpINXTtgGwyR3w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\layout.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\Login.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\Login.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/Login#[.{fingerprint}]?.js",
+      "RelativePath": "js/Login.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "7y3xexhddz",
-      "Integrity": "P9QfMS23VIFIxGEHxgVhA0TDoITY+eT4csJgHBJtFaI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Login.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\NewFeed.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\NewFeed.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/NewFeed#[.{fingerprint}]?.js",
+      "RelativePath": "js/NewFeed.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "n7n5qwrn4i",
-      "Integrity": "PbES1ZMqAcTgsUseYppmzer88KT2YvXstpEK06qSsNk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\NewFeed.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\playlistpage.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\playlistpage.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/playlistpage#[.{fingerprint}]?.js",
+      "RelativePath": "js/playlistpage.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vhy5wipwxg",
-      "Integrity": "43XZRrzCcOY4kxoAJsjNL277zp0XqH1XoNrvrjXHN0M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\playlistpage.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\Profile.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\Profile.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/Profile#[.{fingerprint}]?.js",
+      "RelativePath": "js/Profile.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "ec1dzoedsg",
       "Integrity": "DstRvvghufsq7qa1MK1n4YZJiT4/qOL37YIYntReyzg=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Profile.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/profileuser#[.{fingerprint}]?.js",
+      "RelativePath": "js/profileuser.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "bjux9lbs19",
-      "Integrity": "1+V307qontJdW0VwO+DE/1jE5mvww7fkFFBeC4m1034=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\profileuser.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\site.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\site.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "RelativePath": "js/site.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xtxxf3hu2r",
-      "Integrity": "hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\SongPage.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\SongPage.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/SongPage#[.{fingerprint}]?.js",
+      "RelativePath": "js/SongPage.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "kyh2hvcum7",
-      "Integrity": "lGvO97oVcxH4fdq+TSkUFS3nG24INQcP28flyWe8xmQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\SongPage.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "js/uploadfile#[.{fingerprint}]?.js",
+      "RelativePath": "js/uploadfile.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "9ch8m5wa1v",
       "Integrity": "yZM8sJ0IdfBhlDfHQkMiz53/eoy10ceIoRr7BruAJKs=",
+=======
+<<<<<<< HEAD
+=======
+      "Fingerprint": "9ch8m5wa1v",
+      "Integrity": "yZM8sJ0IdfBhlDfHQkMiz53/eoy10ceIoRr7BruAJKs=",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\uploadfile.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "mpyigms19s",
       "Integrity": "xlexqj9/k3uobVwGfciZcj/eDdooaNgcf4OFLtLUygM=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "73kdqttayv",
-      "Integrity": "DRvWr0gangj5/5Q3DRn6ttzpcWDzl3OpHoAwAzNDR5Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "bpk8xqwxhs",
       "Integrity": "z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8inm30yfxf",
-      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "ve6x09088i",
       "Integrity": "SZ2mKaD4A+b+HIvttwl+TvLFnVy8o8/X40j+EKVwyvY=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4gxs3k148c",
-      "Integrity": "VFvmi/ZSwQFmjS6Pry9B8zXeZ/GA168TXLyykDhNMZE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "9b9oa1qrmt",
       "Integrity": "22wR6QTidoeiRZXp6zkRQyMSUb/FB+Av11jqmZJF6uU=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "fctod5rc9n",
-      "Integrity": "j7uqK5VoTT4rUHMr911QEU5Sa94lR3uh9E28XBMlzrM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "agp80tu62r",
       "Integrity": "JtktgiuQAd+AXerCnPMrHCDz1h5AtkH5tobvpuG7xZ4=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "st1cbwfwo5",
-      "Integrity": "QO8cMbVkLiktUX1cHeXSUSe5nXMXUgyL9cjwnMyxPqc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "unj9p35syc",
       "Integrity": "ysBT/JYxH9gcMnwxT4+MB4sPxOx/JMg9wi77FA13T9A=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5vj65cig9w",
-      "Integrity": "72C/qDCGu+OwWeVA03bf9Ke0T8oIozCub0lfJkhzhvE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "q2ku51ktnl",
       "Integrity": "3vUJkZSpKL/zG7x6GNvDjs0TxYUo9zMt6dAc8hp9CVo=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2q4vfeazbq",
-      "Integrity": "qvA39OMlEs53jaewqVFmE8DQQrio47bZtlTs+Wu6U8g=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "n1oizzvkh6",
       "Integrity": "O6lb2kXarGgVw4/RDD42yYPhZIwREthThQFKGmD+3j0=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "o371a8zbv2",
-      "Integrity": "NDSZjIiMPRIoO7/w7+jHef8retP4riQa8PMj4BVRGok=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "7na4sro3qu",
       "Integrity": "4zbWr0QNFhpUwGkn4WdGWXt80KnhRFv0qXkZyVnhajY=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "jeal3x0ldm",
-      "Integrity": "FZG0KxbNqITUi4QY7QvPFRS/TccntMfFWfSTdHN/pws=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "f8imaxxbri",
       "Integrity": "z0OApR88UEocYXTXHU7Ueycaiib9XbDUmel9Gx0gbx4=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "okkk44j0xs",
-      "Integrity": "2BbRsE/+czX1ufmDPGpnEieC9u6I3m5BKNDSX1ob3lg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "0wve5yxp74",
       "Integrity": "8NXw3kF49FkQVPMdjnGDqoXXRU0TwzsLfCGbK9U8gnk=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "cwzlr5n8x4",
-      "Integrity": "/EdWHN6t5XYPplC88vixGfrBvfEii19kAssb+0YBVU8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "npxfuf8dg6",
       "Integrity": "a5KlgysZ4fQXw4rzIvXDHErFDPeHRSLccP7kX6HuvSQ=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "wmug9u23qg",
-      "Integrity": "GMDk5pA5dFkOimkBAWeEjYZ+7lgHPS0jYln6p/WJVYs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "tey0rigmnh",
       "Integrity": "NbFZxZLmBVNLzb/7B0WdFfb6+8jXHGX6XY190uwgbec=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "j75batdsum",
-      "Integrity": "4WIqPof/vrXYO/jeJ4fDOQKUYWIwe64V3d+9/qNju20=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "16095smhkz",
       "Integrity": "5+ExmMkiaI3keYQRLhNibJ5ZXnNuWRbwrXOAZoTXMFg=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vy0bq9ydhf",
-      "Integrity": "p1dop4slefZhL4zG2pa6+2HUrOY1UUArGJXmet8Md9c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "b4skse8du6",
       "Integrity": "peAGH8Gu/ZL9VnbUGSMN69Ji5MxwbvOb53gDXU2cPaQ=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ab1c3rmv7g",
-      "Integrity": "puDgKwvlFAord9R8G8of9P2CVYIJUFSoIbjDLEsKEH0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "u3xrusw2ol",
       "Integrity": "Wi5ZuFSHLfx6dlEgjvW3BY9TC/1NqdBjj+XFifSSqN4=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "56d2bn4wt9",
-      "Integrity": "02ka4ymoE5yEecLUncLG3/SouTQMnTJOktX+96Pt/88=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "l2av4jpuoj",
       "Integrity": "vQTf4d3WJi9vmWQNA4kJnjoedgEhMFXFDEMXqtHtgzk=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "kbynt5jhd9",
-      "Integrity": "gO4uhxfGuK0ONjRlHuwfghGfEXT5azm1oHWnTEFGTfk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "25iw1kog22",
       "Integrity": "KuvCVS19rfTjoLgMyDDCdOkRRlhNrY4psEM4uezts2M=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "c2nslu3uf3",
-      "Integrity": "xIBBxDPvWhk8/JdaFEZoejadfaKFUfZFwRS1D4Jkuro=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "m39kt2b5c9",
       "Integrity": "EuDXUJYKnfZuO8dSLN0f5iVbVasz36AROuAU3NJ3JBo=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2lgwfvgpvi",
-      "Integrity": "CllC/sbLvyLE9cQljmFRlITfqdZRnBv2ysX5LJtl/dg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "um2aeqy4ik",
       "Integrity": "Kj4irQWPwfSb5NFeos/h0IroI5/nIg0HtAjQ+w4v6TE=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "wsezl0heh6",
-      "Integrity": "sPqzWcSS9aRa2gpWTVNQzemajn8hrFjgXPj3j9QItQo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "o4kw7cc6tf",
       "Integrity": "6IStRQerBchYSw6J2GWTOWGOnDRrWXmaG0r6nCwN5s4=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "6ukhryfubh",
-      "Integrity": "Qkl5mZUZ64aYBaORRMP9jfD1kz8J6FwiV2M86JDJkdQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "zwph15dxgs",
       "Integrity": "c4Ll6eSIg6Eothk8pCWAF8aE923EvtU11pqjBy+NjNM=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
+      "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "u33ctipx7g",
-      "Integrity": "ui/FQI+y0IUsY8Pbi80b8s3GeEL+PsvdaLTONobpn88=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
+      "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "81b7ukuj9c",
-      "Integrity": "ZH6pA6BSx6fuHZvdaKph1DwUJ+VSYilIiEQu8ilnvqk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "fwhahm2icz",
       "Integrity": "H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "dd6z7egasc",
       "Integrity": "/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
+      "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5pze98is44",
-      "Integrity": "OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
+      "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "mlv21k5csn",
-      "Integrity": "hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ay5nd8zt9x",
-      "Integrity": "4jrcLBsi0Ugm8iLKdqDsAyaCDjkscYZdoGuNH/zqs4E=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9oaff4kq20",
-      "Integrity": "N11IyJpHTgDcSCb3AfX4VrBnpGQeem1NoNzzgcXVyCc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "pzqfkb6aqo",
       "Integrity": "m0l81WDPiG7CcG7CDsTuZzvcGvyFmrQY5DLIxx3aRGw=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "b7iojwaux1",
       "Integrity": "JwUksNJ6/R07ZiLRoXbGeNrtlFZMFDKX4hemPiHOmCA=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
+      "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "x0q3zqp4vz",
-      "Integrity": "geHEkw/WGPdaHQMRq5HuNY9snliNzU/y2OW8ycnhGXw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "47otxtyo56",
       "Integrity": "wJQaJ0XynBE2fq6CexXXhxKu7fstVmQc7V2MHNTo+WQ=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
+      "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "4v8eqarkd7",
       "Integrity": "YJa7W8EiQdQpkk93iGEjjnLSUWRpRJbSfzfURh1kxz4=",
+=======
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\",
+=======
+      "Identity": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "BasePath": "_content/MusicWebMVC",
-      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
+      "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "356vix0kms",
-      "Integrity": "16aFlqtpsG9RyieKZUUUjkJpqTgcJtWXwT312I4Iz1s=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     }
+<<<<<<< HEAD
+=======
   ],
   "Endpoints": [
+    {
+      "Route": "css/cover.4jp2tjc4rw.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QOljQUxkOS+i4rwX4SNyHWhIpLxjh/pmrEIrJ4sV+ug=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 06:56:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4jp2tjc4rw"
+        },
+        {
+          "Name": "label",
+          "Value": "css/cover.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QOljQUxkOS+i4rwX4SNyHWhIpLxjh/pmrEIrJ4sV+ug="
+        }
+      ]
+    },
+    {
+      "Route": "css/cover.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QOljQUxkOS+i4rwX4SNyHWhIpLxjh/pmrEIrJ4sV+ug=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 06:56:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QOljQUxkOS+i4rwX4SNyHWhIpLxjh/pmrEIrJ4sV+ug="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4855"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DqqQM6r297GcYpL4jlRQsuMsqRFR1vBilYR0DvE0XrA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Apr 2025 08:23:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DqqQM6r297GcYpL4jlRQsuMsqRFR1vBilYR0DvE0XrA="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.io49u620qg.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4855"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DqqQM6r297GcYpL4jlRQsuMsqRFR1vBilYR0DvE0XrA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Apr 2025 08:23:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "io49u620qg"
+        },
+        {
+          "Name": "label",
+          "Value": "css/dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DqqQM6r297GcYpL4jlRQsuMsqRFR1vBilYR0DvE0XrA="
+        }
+      ]
+    },
     {
       "Route": "css/globalplayer.0ibfqtin1b.css",
       "AssetFile": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
@@ -2319,8 +3222,95 @@
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "css/profile.0c5sgsuytb.css",
       "AssetFile": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+=======
+      "Route": "css/post.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6259"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"h7RdkTnQhsNL+05OlLygzCr4ieYJ66bbfZq1UAn/6ek=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 06:57:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-h7RdkTnQhsNL+05OlLygzCr4ieYJ66bbfZq1UAn/6ek="
+        }
+      ]
+    },
+    {
+      "Route": "css/post.vqgrzh4str.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6259"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"h7RdkTnQhsNL+05OlLygzCr4ieYJ66bbfZq1UAn/6ek=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 06:57:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vqgrzh4str"
+        },
+        {
+          "Name": "label",
+          "Value": "css/post.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-h7RdkTnQhsNL+05OlLygzCr4ieYJ66bbfZq1UAn/6ek="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile.5boc66y1us.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2807,6 +3797,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-yNhoC2R/OZ+N+M9AiuQ2cmg2FKQykSL3BU2nEH3SCtU="
+        }
+      ]
+    },
+    {
+      "Route": "css/user.bm6xle0486.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6279"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 06:55:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bm6xle0486"
+        },
+        {
+          "Name": "label",
+          "Value": "css/user.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE="
+        }
+      ]
+    },
+    {
+      "Route": "css/user.css",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6279"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 06:55:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE="
         }
       ]
     },
@@ -3631,6 +4703,88 @@
       ]
     },
     {
+      "Route": "js/chart.js",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2409"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 07:15:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg="
+        }
+      ]
+    },
+    {
+      "Route": "js/chart.ucluwzf6f2.js",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2409"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 07:15:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ucluwzf6f2"
+        },
+        {
+          "Name": "label",
+          "Value": "js/chart.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg="
+        }
+      ]
+    },
+    {
       "Route": "js/globalplayer.js",
       "AssetFile": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
       "Selectors": [],
@@ -4370,7 +5524,11 @@
     },
     {
       "Route": "js/uploadfile.9ch8m5wa1v.js",
+<<<<<<< HEAD
       "AssetFile": "D:\\FPT\\CN6\\MusicWebMVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
+=======
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4391,7 +5549,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Apr 2025 06:07:41 GMT"
+=======
+          "Value": "Tue, 08 Apr 2025 06:13:44 GMT"
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
         },
         {
           "Name": "Cache-Control",
@@ -4436,7 +5598,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 08 Apr 2025 06:07:41 GMT"
+=======
+          "Value": "Tue, 08 Apr 2025 06:13:44 GMT"
+>>>>>>> aec646823863fccd4b887053c11259ae7ebdc97d
         },
         {
           "Name": "Cache-Control",
@@ -9288,5 +10454,6 @@
         }
       ]
     }
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
   ]
 }
