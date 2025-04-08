@@ -73,7 +73,7 @@
                     @if (isAuthenticated)
                     {
                         <div class="auth-button">
-                            <button class="manage-button" onclick="location.href='@Url.Action("Manage", "Account")'">Manage</button>
+                            <button class="manage-button" onclick="location.href='@Url.Action("Dashboard", "Admin")'">Manage</button>
                         </div>
                         <a href="@Url.Action("ProfileAdmin", "Account")" class="avatar-container">
                             <img src="/img/admin.jpg" alt="Avatar" class="user-avatar">
