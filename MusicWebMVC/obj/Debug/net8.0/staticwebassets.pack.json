@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\MusicWebMVC.vkvu46hx0s.bundle.scp.css"
     },
     {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+      "PackagePath": "staticwebassets\\css\\cover.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
       "PackagePath": "staticwebassets\\css\\globalplayer.css"
     },
@@ -23,6 +31,10 @@
     {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
       "PackagePath": "staticwebassets\\css\\playlist.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+      "PackagePath": "staticwebassets\\css\\post.css"
     },
     {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
@@ -47,6 +59,10 @@
     {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\upload.css",
       "PackagePath": "staticwebassets\\css\\upload.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+      "PackagePath": "staticwebassets\\css\\user.css"
     },
     {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
@@ -103,6 +119,10 @@
     {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\SongPage.js",
       "PackagePath": "staticwebassets\\js\\SongPage.js"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "PackagePath": "staticwebassets\\js\\chart.js"
     },
     {
       "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
