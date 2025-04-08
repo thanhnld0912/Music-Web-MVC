@@ -5,7 +5,19 @@
       "PackagePath": "staticwebassets\\MusicWebMVC.bundle.scp.css"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
+=======
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+      "PackagePath": "staticwebassets\\css\\cover.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
       "PackagePath": "staticwebassets\\css\\globalplayer.css"
     },
     {
@@ -25,7 +37,15 @@
       "PackagePath": "staticwebassets\\css\\playlist.css"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+=======
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+      "PackagePath": "staticwebassets\\css\\post.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
@@ -49,7 +69,15 @@
       "PackagePath": "staticwebassets\\css\\upload.css"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
+=======
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+      "PackagePath": "staticwebassets\\css\\user.css"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
@@ -105,7 +133,15 @@
       "PackagePath": "staticwebassets\\js\\SongPage.js"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
+=======
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "PackagePath": "staticwebassets\\js\\chart.js"
+    },
+    {
+      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
+>>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
       "PackagePath": "staticwebassets\\js\\globalplayer.js"
     },
     {

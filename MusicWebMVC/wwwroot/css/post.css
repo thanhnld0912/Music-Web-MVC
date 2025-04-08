@@ -1,0 +1,341 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Baloo+Bhaijaan+2:wght@400..800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Baloo Bhaijaan 2", serif;
+}
+
+body {
+    background-image: url('/img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background-color: black;
+    color: #fff;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 270px;
+    height: 96vh;
+    background-color: #363636;
+    padding: 20px;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+    flex-shrink: 0;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+    margin: 10px 10px 30px 10px;
+    border-radius: 15px;
+}
+
+    .sidebar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+
+    .sidebar .logo {
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+
+/* Nút ẩn sidebar */
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Section */
+
+.sidebar-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #363636;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+    .sidebar-button.active {
+        background-color: white;
+        color: black;
+    }
+
+    .sidebar-button:hover {
+        background-color: #387ABB;
+        color: white;
+    }
+
+/* Add these styles to your existing CSS */
+
+/* Sidebar collapsed state */
+.sidebar.collapsed {
+    width: 70px;
+}
+
+    /* Hide elements when sidebar is collapsed */
+    .sidebar.collapsed .logo {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+s
+/* Keep the toggle button visible */
+.sidebar.collapsed .sidebar-toggle {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.sidebar {
+    position: relative;
+}
+
+.logoimg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    img
+
+{
+    width: 50px;
+    height: 50px;
+}
+
+}
+
+.sidebar.collapsed .logoimg {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+}
+
+.sidebar.collapsed .logo {
+    display: none;
+}
+
+
+.sidebar.collapsed h3,
+.sidebar.collapsed .sidebar-button,
+.sidebar.collapsed .artist-list {
+    display: none;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    padding: 15px;
+    background-color: #363636;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 15px 10px 0;
+    border-radius: 15px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: 0 0 0 80px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 15px;
+    flex-grow: 1;
+}
+
+    .search-box input {
+        border: none;
+        background: none;
+        color: black;
+        outline: none;
+        flex-grow: 1;
+        padding-left: 10px;
+        font-size: 15px;
+    }
+
+.search-icon {
+    color: #bbb;
+}
+
+.content-wrapper {
+    overflow: auto;
+}
+
+.card-box {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-gap: 30px;
+}
+
+    .card-box .cardBox {
+        color: black;
+        position: relative;
+        background: #fff;
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+        border-radius: 20px;
+    }
+
+.icon-box i {
+    font-size: 100px;
+}
+
+.graph-box {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+}
+
+    .graph-box .graphBox {
+        position: relative;
+        background: #fff;
+        padding: 20px;
+        width: 100%;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+        border-radius: 20px;
+    }
+
+
+@media (max-width: 780px) {
+    .graph-box {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+}
+
+.avatar-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    left: 230px;
+    img
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+}
+
+
+.post-management {
+    width: 90%;
+    margin: auto;
+    background: #2f2f2f;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.post-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .post-table thead {
+        background: #4a3b5e;
+        color: white;
+    }
+
+    .post-table th, .post-table td {
+        padding: 15px;
+        text-align: center;
+        color: white;
+    }
+
+    .post-table tbody tr {
+        background: #404040;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+        .post-table tbody tr td strong {
+            font-weight: bold;
+        }
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .btn.delete {
+        background: red;
+        color: white;
+    }
+
+    .btn.report {
+        background: blue;
+        color: white;
+    }
+
+    .btn.more {
+        background: gray;
+        color: white;
+    }
+
+.pagination {
+    margin-top: 15px;
+}
+
+.page-btn {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+    .page-btn.active {
+        background: white;
+        color: black;
+    }
