@@ -28,6 +28,23 @@ function togglePassword() {
         passwordIcon.classList.add("fa-eye"); // Hiển thị mắt mở
     }
 }
+function togglePasswordVisibility(passwordFieldId) {
+    var passwordField = document.getElementById(passwordFieldId);
+    var passwordIcon = document.getElementById(passwordFieldId + "Icon");
+
+    // Kiểm tra nếu mật khẩu hiện tại đang bị ẩn (kiểu "password")
+    if (passwordField.type === "password") {
+        passwordField.type = "text";  // Đổi kiểu input thành "text" để hiển thị mật khẩu
+        passwordIcon.classList.remove("fa-eye");
+        passwordIcon.classList.add("fa-eye-slash");  // Chuyển biểu tượng thành mắt kín
+    } else {
+        passwordField.type = "password";  // Đổi lại kiểu input thành "password" để ẩn mật khẩu
+        passwordIcon.classList.remove("fa-eye-slash");
+        passwordIcon.classList.add("fa-eye");  // Chuyển biểu tượng thành mắt mở
+    }
+}
+
+
 
 document.getElementById("saveChanges").addEventListener("click", function () {
     console.log("Save Changes clicked!"); // Kiểm tra sự kiện click
