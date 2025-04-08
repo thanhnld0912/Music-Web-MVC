@@ -1,14 +1,18 @@
+wwwroot\css\cover.css
+wwwroot\css\dashboard.css
 wwwroot\css\globalplayer.css
 wwwroot\css\loader.css
 wwwroot\css\login.css
 wwwroot\css\newfeed.css
 wwwroot\css\playlist.css
+wwwroot\css\post.css
 wwwroot\css\profile.css
 wwwroot\css\profileuser.css
 wwwroot\css\site.css
 wwwroot\css\songpage.css
 wwwroot\css\style-carousel.css
 wwwroot\css\upload.css
+wwwroot\css\user.css
 wwwroot\favicon.ico
 wwwroot\img\1.gif
 wwwroot\img\admin.jpg
@@ -19,6 +23,7 @@ wwwroot\img\Image1.jpg
 wwwroot\img\Image2.jpg
 wwwroot\img\Image3.jpg
 wwwroot\img\lgo.png
+wwwroot\js\chart.js
 wwwroot\js\globalplayer.js
 wwwroot\js\layout.js
 wwwroot\js\Login.js
