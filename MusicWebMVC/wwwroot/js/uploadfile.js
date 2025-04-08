@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             // Tạo request AJAX
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', '@Url.Action("Upload", "Song")', true);
+            xhr.open('POST', '/Song/Upload', true);
 
             // Xử lý tiến trình upload
             xhr.upload.onprogress = (e) => {
