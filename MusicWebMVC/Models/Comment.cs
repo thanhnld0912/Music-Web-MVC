@@ -22,7 +22,9 @@ namespace MusicWebMVC.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
         public virtual User User { get; set; }
         public virtual Post? Post { get; set; }
+        public virtual ICollection<CommentReport> CommentReports { get; set; }
     }
 }
