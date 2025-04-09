@@ -12,7 +12,7 @@ using MusicWebMVC.Data;
 namespace MusicWebMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250407031313_InitialCreate")]
+    [Migration("20250408102819_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -47,6 +47,9 @@ namespace MusicWebMVC.Migrations
                     b.Property<int?>("SongId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -59,6 +62,43 @@ namespace MusicWebMVC.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("MusicWebMVC.Models.CommentReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("Resolved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ResolvedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CommentReports");
                 });
 
             modelBuilder.Entity("MusicWebMVC.Models.Dislike", b =>
@@ -348,6 +388,25 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.CommentReport", b =>
+                {
+                    b.HasOne("MusicWebMVC.Models.Comment", "Comment")
+                        .WithMany("CommentReports")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MusicWebMVC.Models.User", "User")
+                        .WithMany("CommentReports")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Dislike", b =>
                 {
                     b.HasOne("MusicWebMVC.Models.Post", "Post")
@@ -481,6 +540,11 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.Comment", b =>
+                {
+                    b.Navigation("CommentReports");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Playlist", b =>
                 {
                     b.Navigation("PlaylistSongs");
@@ -510,6 +574,8 @@ namespace MusicWebMVC.Migrations
 
             modelBuilder.Entity("MusicWebMVC.Models.User", b =>
                 {
+                    b.Navigation("CommentReports");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Followers");
