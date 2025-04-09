@@ -344,19 +344,108 @@ namespace MusicWebMVC.Controllers
                 });
             }
         }
-    }
 
-    // Model cho việc nhận comment từ client
-    public class CommentInputModel
-    {
-        public string Content { get; set; }
-        public int UserId { get; set; }
-    }
-    // Model cho việc chỉnh sửa bài đăng
-    public class PostEditModel
-    {
-        public int UserId { get; set; }
-        public string Content { get; set; }
-        public string ImageUrl { get; set; }
+        [HttpPost]
+        public async Task<IActionResult> EditComment(int id, [FromBody] CommentEditModel model)
+        {
+            try
+            {
+                var comment = await _context.Comments.FindAsync(id);
+
+                if (comment == null)
+                {
+                    return NotFound(new { message = "Comment not found" });
+                }
+
+                // Check if the user is the comment owner
+                if (comment.UserId != model.UserId)
+                {
+                    return Forbid();
+                }
+
+                // Update comment content
+                comment.Content = model.Content;
+                comment.UpdatedAt = DateTime.UtcNow;
+
+                _context.Comments.Update(comment);
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = "Comment updated successfully",
+                    comment = new
+                    {
+                        id = comment.Id,
+                        content = comment.Content,
+                        updatedAt = comment.UpdatedAt
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred", error = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteComment(int id, [FromBody] int userId)
+        {
+            try
+            {
+                var comment = await _context.Comments.FindAsync(id);
+
+                if (comment == null)
+                {
+                    return NotFound(new { message = "Comment not found" });
+                }
+
+                // Check if the user is the comment owner
+                if (comment.UserId != userId)
+                {
+                    return Forbid();
+                }
+
+                _context.Comments.Remove(comment);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Comment deleted successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred", error = ex.Message });
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> ReportComment(int id, [FromBody] CommentReportModel model)
+        {
+            try
+            {
+                var comment = await _context.Comments.FindAsync(id);
+
+                if (comment == null)
+                {
+                    return NotFound(new { message = "Comment not found" });
+                }
+
+                // Create a new report
+                var report = new CommentReport
+                {
+                    CommentId = id,
+                    UserId = model.UserId,
+                    Reason = model.Reason,
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                _context.CommentReports.Add(report);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Comment reported successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred", error = ex.Message });
+            }
+        }
+
     }
 }
