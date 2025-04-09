@@ -72,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/SearchPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2hQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Playlist/PlaylistPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RcUGxheWxpc3RQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
