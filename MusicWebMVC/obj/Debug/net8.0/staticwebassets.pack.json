@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\css\\profileuser.css"
     },
     {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\searchpage.css",
+      "PackagePath": "staticwebassets\\css\\searchpage.css"
+    },
+    {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -139,6 +143,10 @@
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
       "PackagePath": "staticwebassets\\js\\profileuser.js"
+    },
+    {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\searchpage.js",
+      "PackagePath": "staticwebassets\\js\\searchpage.js"
     },
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\site.js",
