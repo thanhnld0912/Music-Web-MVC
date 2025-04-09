@@ -50,7 +50,6 @@ function createGlobalPlayerUI() {
         return;
     }
 
-    // Tạo HTML của global player
     const playerHTML = `
     <div id="global-player" class="global-player" style="display: none;">
         <div class="player-container">
@@ -80,6 +79,9 @@ function createGlobalPlayerUI() {
                 <div class="volume-section">
                     <i id="volume-icon" class="fas fa-volume-up volume-icon"></i>
                     <input type="range" id="global-volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1">
+                    <button id="btn-close-player" class="close-button" title="Close Player">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -113,7 +115,11 @@ function setupPlayerEvents() {
     if (prevBtn) {
         prevBtn.addEventListener('click', playPreviousSong);
     }
-
+    // Close button
+    const closeBtn = document.getElementById('btn-close-player');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeGlobalPlayer);
+    }
     // Progress bar
     const progressContainer = document.getElementById('global-progress-container');
     if (progressContainer) {
@@ -732,3 +738,35 @@ function updatePlaylistNameInPlayer(playlistName) {
 }
 
 // Thiết lập sự kiện cho local player
+
+
+function closeGlobalPlayer() {
+    const player = document.getElementById('global-player');
+
+    if (player) {
+        // Hide the player
+        player.style.display = 'none';
+
+        // Pause audio if playing
+        if (globalAudio && !globalAudio.paused) {
+            globalAudio.pause();
+
+            // Reset play/pause icon
+            const playPauseIcon = document.getElementById('play-pause-icon');
+            if (playPauseIcon) {
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+
+            // Stop album rotation animation
+            const albumCover = document.querySelector('.album-rotating');
+            if (albumCover) albumCover.classList.remove('playing');
+        }
+
+        // Update local player UI
+        updateLocalPlayerUI();
+
+        // Set flag indicating player is not active
+        isGlobalPlayerActive = false;
+    }
+}
