@@ -40,6 +40,7 @@
 .song-info {
     display: flex;
     flex-direction: column;
+    gap: 0.1px;
 }
 
 .song-title {
@@ -185,3 +186,18 @@ body {
     .album-rotating.playing {
         animation-play-state: running;
     }
+
+
+.playlist-info {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+#global-playlist-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
