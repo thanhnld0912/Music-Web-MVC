@@ -1,0 +1,218 @@
+﻿@model List<MusicWebMVC.Models.Song>
+@{
+    Layout = null;
+    ViewData["Title"] = "SearchPage";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var userId = Context.Session.GetString("UserId");
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
+
+    // Convert arrays to lists for Contains method support
+    var selectedGenres = ViewBag.SelectedGenres != null ? ((string[])ViewBag.SelectedGenres).ToList() : new List<string>();
+    var selectedEras = ViewBag.SelectedEras != null ? ((string[])ViewBag.SelectedEras).ToList() : new List<string>();
+    var selectedTypes = ViewBag.SelectedTypes != null ? ((string[])ViewBag.SelectedTypes).ToList() : new List<string>();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Music</title>
+    <link rel="stylesheet" type="text/css" href="~/css/searchpage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    @await Component.InvokeAsync("Sidebar")
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        @await Component.InvokeAsync("Navbar")
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="container">
+                <header>
+                    <h1>Discover Music</h1>
+                </header>
+                <div class="search-section">
+                    <form method="get" action="@Url.Action("SearchPage", "Home")" id="searchForm">
+                        <div class="search-bar">
+                            <input type="text" name="searchTerm" placeholder="Search for songs, artists, lyrics..." value="@ViewBag.SearchTerm">
+                            <button type="submit" class="search-button">Search</button>
+                        </div>
+                        <!-- Hidden inputs will be populated by JavaScript -->
+                        <div id="genreInputs"></div>
+                        <div id="eraInputs"></div>
+                        <div id="typeInputs"></div>
+                        <input type="hidden" name="sortBy" id="sortInput" value="@ViewBag.SelectedSort">
+                    </form>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-row">
+                        <div class="filter-label">Genre:</div>
+                        <div class="filter-options" data-filter-type="genre">
+                            <div class="filter-chip @(selectedGenres.Contains("All") ? "active" : "")" data-value="All">All</div>
+                            <div class="filter-chip @(selectedGenres.Contains("pop") ? "active" : "")" data-value="pop">Pop</div>
+                            <div class="filter-chip @(selectedGenres.Contains("rock") ? "active" : "")" data-value="rock">Rock</div>
+                            <div class="filter-chip @(selectedGenres.Contains("hiphop") ? "active" : "")" data-value="hiphop">Hip Hop</div>
+                            <div class="filter-chip @(selectedGenres.Contains("rnb") ? "active" : "")" data-value="rnb">R&B</div>
+                            <div class="filter-chip @(selectedGenres.Contains("jazz") ? "active" : "")" data-value="jazz">Jazz</div>
+                            <div class="filter-chip @(selectedGenres.Contains("classical") ? "active" : "")" data-value="classical">Classical</div>
+                            <div class="filter-chip @(selectedGenres.Contains("electronic") ? "active" : "")" data-value="electronic">Electronic</div>
+                            <div class="filter-chip @(selectedGenres.Contains("folk") ? "active" : "")" data-value="folk">Folk</div>
+                            <div class="filter-chip @(selectedGenres.Contains("other") ? "active" : "")" data-value="other">Other</div>
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <div class="filter-label">Era:</div>
+                        <div class="filter-options" data-filter-type="era">
+                            <div class="filter-chip @(selectedEras.Contains("All") ? "active" : "")" data-value="All">All</div>
+                            <div class="filter-chip @(selectedEras.Contains("60s") ? "active" : "")" data-value="60s">60s</div>
+                            <div class="filter-chip @(selectedEras.Contains("70s") ? "active" : "")" data-value="70s">70s</div>
+                            <div class="filter-chip @(selectedEras.Contains("80s") ? "active" : "")" data-value="80s">80s</div>
+                            <div class="filter-chip @(selectedEras.Contains("90s") ? "active" : "")" data-value="90s">90s</div>
+                            <div class="filter-chip @(selectedEras.Contains("00s") ? "active" : "")" data-value="00s">2000s</div>
+                            <div class="filter-chip @(selectedEras.Contains("10s") ? "active" : "")" data-value="10s">2010s</div>
+                            <div class="filter-chip @(selectedEras.Contains("20s") ? "active" : "")" data-value="20s">2020s</div>
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <div class="filter-label">Type:</div>
+                        <div class="filter-options" data-filter-type="type">
+                            <div class="filter-chip @(selectedTypes.Contains("All") ? "active" : "")" data-value="All">All</div>
+                            <div class="filter-chip @(selectedTypes.Contains("cover") ? "active" : "")" data-value="cover">Cover</div>
+                            <div class="filter-chip @(selectedTypes.Contains("original") ? "active" : "")" data-value="original">Original</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="results-header">
+                        <h2>Results (@ViewBag.ResultCount)</h2>
+                        <select class="sort-dropdown" id="sortDropdown">
+                            <option value="Most Popular" selected="@(ViewBag.SelectedSort == "Most Popular")">Most Popular</option>
+                            <option value="Newest" selected="@(ViewBag.SelectedSort == "Newest")">Newest</option>
+                            <option value="Oldest" selected="@(ViewBag.SelectedSort == "Oldest")">Oldest</option>
+                            <option value="A-Z" selected="@(ViewBag.SelectedSort == "A-Z")">A-Z</option>
+                        </select>
+                    </div>
+
+                    <div class="layout-container">
+                        <div class="content-area">
+                            <div class="music-grid">
+                                @foreach (var song in Model)
+                                {
+                                    <div class="music-card" data-audio-url="@song.FileUrl">
+                                        <div class="music-image">
+                                            <img src="@(string.IsNullOrEmpty(song.CoverImage) ? "/api/placeholder/200/200" : song.CoverImage)" alt="Album Cover">
+                                        </div>
+                                        <div class="music-info">
+                                            <div class="music-info-primary">
+                                                <div class="music-title">@song.Title</div>
+                                                <div class="music-artist">@song.User.Username</div>
+                                            </div>
+                                            <div class="music-duration">
+                                                00:00
+                                            </div>
+                                            <div class="music-actions">
+                                                <button class="music-menu-button" onclick="toggleMenu(event, 'menu-@song.Id')">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                                <div class="music-menu" id="menu-@song.Id">
+                                                    <div class="menu-item" onclick="playSongFromSearch(this); event.stopPropagation();">
+                                                        <i class="fas fa-play"></i> Play
+                                                    </div>
+                                                    <div class="menu-item" onclick="location.href='@Url.Action("SongPage", "Song", new { id = song.PostId })'">
+                                                        <i class="fas fa-info-circle"></i> View Details
+                                                    </div>
+                                                    <div class="menu-item" onclick="showAddToPlaylistModal('@song.Id')">
+                                                        <i class="fas fa-plus"></i> Add to Playlist
+                                                    </div>
+                                                    <div class="menu-item" onclick="location.href='@Url.Action("ProfileUser", "Home", new { id = song.ArtistId })'">
+                                                        <i class="fas fa-user"></i> Go to Artist
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (!Model.Any())
+                                {
+                                    <div class="no-results">
+                                        <p>No songs found matching your criteria. Try a different search or filter.</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="artist-search-area">
+                            <h3 class="artist-search-heading">Find Artists</h3>
+                            <div class="artist-search-bar">
+                                <input type="text" id="artistSearchInput" placeholder="Search for artists...">
+                                <button class="artist-search-button" id="artistSearchBtn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            <div class="artist-list" id="artistList">
+                                <!-- Artist results will be loaded here via JavaScript -->
+                                <div class="loading-artists" id="artistsLoading" style="text-align: center; color: #999; display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Searching...
+                                </div>
+                                <div class="no-artists" id="noArtistsFound" style="text-align: center; color: #999; display: none;">
+                                    No artists found. Try another search.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Updated Add to Playlist Modal -->
+                <div id="addToPlaylistModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Add to Playlist</h3>
+                            <span class="close-modal" onclick="closeAddToPlaylistModal()">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="playlist-list" id="playlist-container">
+                                @if (Context.Session.GetString("UserId") != null && ViewBag.UserPlaylists != null && ViewBag.UserPlaylists.Any())
+                                {
+                                    @foreach (var playlist in ViewBag.UserPlaylists)
+                                    {
+                                        <div class="playlist-item">
+                                            <div class="playlist-icon">🎵</div>
+                                            <div class="playlist-name">@playlist.Name</div>
+                                            <button class="add-to-playlist-btn" onclick="addSongToPlaylist('@playlist.Id')">
+                                                Add
+                                            </button>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p id="no-playlists-message">
+                                        You don't have any playlists yet. Create one below.
+                                    </p>
+                                }
+                            </div>
+
+                            <div class="create-playlist">
+                                <input type="text" placeholder="Create new playlist" id="new-playlist-name">
+                                <button class="create-playlist-btn" onclick="createPlaylist()">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("GlobalPlayer")
+
+    <script src="~/js/searchpage.js"></script>
+    <script src="~/js/globalplayer.js"></script>
+</body>
+</html>

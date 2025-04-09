@@ -8,6 +8,7 @@ wwwroot\css\playlist.css
 wwwroot\css\post.css
 wwwroot\css\profile.css
 wwwroot\css\profileuser.css
+wwwroot\css\searchpage.css
 wwwroot\css\site.css
 wwwroot\css\songpage.css
 wwwroot\css\style-carousel.css
@@ -31,6 +32,7 @@ wwwroot\js\NewFeed.js
 wwwroot\js\playlistpage.js
 wwwroot\js\Profile.js
 wwwroot\js\profileuser.js
+wwwroot\js\searchpage.js
 wwwroot\js\site.js
 wwwroot\js\SongPage.js
 wwwroot\js\uploadfile.js
