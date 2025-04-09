@@ -153,6 +153,7 @@ namespace MusicWebMVC.Migrations
                     PostId = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SongId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -270,6 +271,46 @@ namespace MusicWebMVC.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "CommentReports",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CommentId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Reason = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Resolved = table.Column<bool>(type: "bit", nullable: false),
+                    ResolvedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CommentReports", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CommentReports_Comments_CommentId",
+                        column: x => x.CommentId,
+                        principalTable: "Comments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CommentReports_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CommentReports_CommentId",
+                table: "CommentReports",
+                column: "CommentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CommentReports_UserId",
+                table: "CommentReports",
+                column: "UserId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
                 table: "Comments",
@@ -361,7 +402,7 @@ namespace MusicWebMVC.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comments");
+                name: "CommentReports");
 
             migrationBuilder.DropTable(
                 name: "Dislikes");
@@ -374,6 +415,9 @@ namespace MusicWebMVC.Migrations
 
             migrationBuilder.DropTable(
                 name: "PlaylistSongs");
+
+            migrationBuilder.DropTable(
+                name: "Comments");
 
             migrationBuilder.DropTable(
                 name: "Playlists");
