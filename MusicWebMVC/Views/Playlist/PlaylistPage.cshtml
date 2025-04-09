@@ -110,7 +110,8 @@
                 {
                     @foreach (var playlistSong in Model.PlaylistSongs)
                     {
-                        <div class="song-item" onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = @playlistSong.Song.Post.Id })'">
+
+                        <div class="song-item" onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = @playlistSong.Song.Id })'" data-song-id="@playlistSong.Song.Id" data-song-url="@playlistSong.Song.FileUrl">
                             <div class="song-thumbnail">
                                 @if (!string.IsNullOrEmpty(playlistSong.Song.CoverImage))
                                 {
