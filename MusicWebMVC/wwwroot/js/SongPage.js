@@ -1,4 +1,6 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿/*songpage */
+
+document.addEventListener('DOMContentLoaded', function () {
     const currentUserId = document.getElementById('current-user-id').value;
     const postId = document.getElementById('post-id').value;
     const likeButton = document.querySelector('.like-btn');
@@ -200,6 +202,7 @@
     }
 
     // Comment Submission
+    // Updated submitComment function to include edit, delete, report buttons
     function submitComment(event) {
         const commentInput = document.getElementById('comment-input');
         const commentsSection = document.getElementById('comments-section');
@@ -226,24 +229,62 @@
                         try {
                             const newComment = JSON.parse(xhr.responseText);
 
+                            // Create new comment element with action buttons
                             const commentItem = document.createElement('div');
                             commentItem.className = 'comment';
-                            commentItem.innerHTML = `
-                                <div class="left-comment-user">
-                                    <div class="user-icon-commentcontent">${newComment.userName[0] || 'A'}</div>
+                            commentItem.setAttribute('data-comment-id', newComment.id);
+
+                            // Check if this is the current user's comment to show edit/delete buttons
+                            const isCurrentUserComment = currentUserId == newComment.userId;
+
+                            // Generate action buttons based on user ownership
+                            let actionButtons = '';
+                            if (isCurrentUserComment) {
+                                actionButtons = `
+                                <div class="comment-actions">
+                                    <span class="comment-action edit-comment-btn" onclick="showEditCommentForm(${newComment.id})">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </span>
+                                    <span class="comment-action delete-comment-btn" onclick="confirmDeleteComment(${newComment.id})">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </span>
                                 </div>
-                                <div class="comment-user">
-                                    <div class="comment-username">
-                                        <p>${newComment.userName}</p>
+                            `;
+                            } else {
+                                actionButtons = `
+                                <div class="comment-actions">
+                                    <span class="comment-action report-comment-btn" onclick="showReportCommentForm(${newComment.id})">
+                                        <i class="fas fa-flag"></i> Report
+                                    </span>
+                                </div>
+                            `;
+                            }
+
+                            commentItem.innerHTML = `
+                            <div class="left-comment-user">
+                                <div class="user-icon-commentcontent">${newComment.userName[0] || 'A'}</div>
+                            </div>
+                            <div class="comment-user">
+                                <div class="comment-username">
+                                    <p>${newComment.userName}</p>
+                                </div>
+                                <div class="comment-content">
+                                    <p id="comment-text-${newComment.id}">${newComment.content}</p>
+                                    <div class="comment-meta">
+                                        <span class="comment-time">${new Date(newComment.createdAt).toLocaleString()}</span>
+                                        ${actionButtons}
                                     </div>
-                                    <div class="comment-content">
-                                        <p>${newComment.content}</p>
-                                        <div class="comment-meta">
-                                            <span class="comment-time">${new Date(newComment.createdAt).toLocaleString()}</span>
+                                    <!-- Edit form (hidden by default) -->
+                                    <div class="edit-form" id="edit-form-${newComment.id}" style="display: none;">
+                                        <textarea class="edit-comment-textarea">${newComment.content}</textarea>
+                                        <div class="edit-buttons">
+                                            <button class="cancel-edit-btn" onclick="cancelEditComment(${newComment.id})">Cancel</button>
+                                            <button class="save-edit-btn" onclick="saveCommentEdit(${newComment.id})">Save</button>
                                         </div>
                                     </div>
                                 </div>
-                            `;
+                            </div>
+                        `;
 
                             commentsSection.appendChild(commentItem);
                             commentInput.value = '';
@@ -262,6 +303,244 @@
             xhr.send(JSON.stringify(commentData));
         }
     }
+
+    // Add these new functions to handle edit, delete and report
+    function showEditCommentForm(commentId) {
+        // Hide the comment text and show the edit form
+        document.getElementById(`comment-text-${commentId}`).style.display = 'none';
+        document.getElementById(`edit-form-${commentId}`).style.display = 'block';
+    }
+
+    function cancelEditComment(commentId) {
+        // Show the comment text and hide the edit form
+        document.getElementById(`comment-text-${commentId}`).style.display = 'block';
+        document.getElementById(`edit-form-${commentId}`).style.display = 'none';
+    }
+
+    function saveCommentEdit(commentId) {
+        const editForm = document.querySelector(`#edit-form-${commentId} .edit-comment-textarea`);
+        const newContent = editForm.value.trim();
+
+        if (!newContent) {
+            showNotification("Bình luận không được để trống", "warning");
+            return;
+        }
+
+        const editData = {
+            userId: currentUserId,
+            content: newContent
+        };
+
+        // Send AJAX request to update the comment
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/EditComment/${commentId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        // Update the comment content
+                        const commentTextEl = document.getElementById(`comment-text-${commentId}`);
+                        commentTextEl.textContent = newContent;
+
+                        // Hide the edit form and show the updated comment text
+                        cancelEditComment(commentId);
+
+                        showNotification("Bình luận đã được cập nhật", "success");
+                    } catch (error) {
+                        console.error("Lỗi khi cập nhật bình luận:", error);
+                        showNotification("Không thể cập nhật bình luận", "error");
+                    }
+                } else {
+                    console.error("Lỗi khi cập nhật bình luận:", xhr.responseText);
+                    showNotification("Không thể cập nhật bình luận", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(editData));
+    }
+
+    function confirmDeleteComment(commentId) {
+        if (confirm("Bạn có chắc chắn muốn xóa bình luận này?")) {
+            deleteComment(commentId);
+        }
+    }
+
+    function deleteComment(commentId) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/DeleteComment/${commentId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // Remove the comment from the DOM
+                    const commentElement = document.querySelector(`.comment[data-comment-id="${commentId}"]`);
+                    if (commentElement) {
+                        commentElement.remove();
+                    }
+
+                    showNotification("Bình luận đã được xóa", "success");
+                } else {
+                    console.error("Lỗi khi xóa bình luận:", xhr.responseText);
+                    showNotification("Không thể xóa bình luận", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(currentUserId));
+    }
+
+    function showReportCommentForm(commentId) {
+        // Use existing reportModal for consistency but customize it for comments
+        const reportModal = document.getElementById('reportModal');
+        const modalTitle = reportModal.querySelector('.modal-header h3');
+
+        // Set the comment ID as a data attribute on the modal for use when submitting
+        reportModal.setAttribute('data-comment-id', commentId);
+
+        // Change title to indicate we're reporting a comment
+        modalTitle.textContent = 'Báo cáo bình luận';
+
+        // Display the modal
+        reportModal.style.display = 'block';
+    }
+
+    function submitReport() {
+        // Get the comment ID from the modal's data attribute
+        const reportModal = document.getElementById('reportModal');
+        const commentId = reportModal.getAttribute('data-comment-id');
+
+        // Get selected reason
+        let reason = '';
+        const radioButtons = document.querySelectorAll('input[name="report-reason"]');
+        for (const radioButton of radioButtons) {
+            if (radioButton.checked) {
+                reason = radioButton.value;
+                break;
+            }
+        }
+
+        // Check if "other" was selected and get the text if so
+        if (reason === 'other') {
+            const otherText = document.getElementById('other-reason-text').value.trim();
+            if (otherText) {
+                reason += ': ' + otherText;
+            }
+        }
+
+        if (!reason) {
+            showNotification("Vui lòng chọn lý do báo cáo", "warning");
+            return;
+        }
+
+        // Prepare report data
+        const reportData = {
+            userId: currentUserId,
+            reason: reason
+        };
+
+        // Send AJAX request to report the comment
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/ReportComment/${commentId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    closeModal('reportModal');
+                    showNotification("Đã gửi báo cáo bình luận", "success");
+                } else {
+                    console.error("Lỗi khi báo cáo bình luận:", xhr.responseText);
+                    showNotification("Không thể báo cáo bình luận", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(reportData));
+    }
+
+    // When the page loads, we need to update all existing comments to have the action buttons
+    document.addEventListener('DOMContentLoaded', function () {
+        // Process existing comments to add action buttons
+        const existingComments = document.querySelectorAll('.comment');
+
+        existingComments.forEach(comment => {
+            const commentId = comment.getAttribute('data-comment-id');
+            if (!commentId) return;
+
+            // Get the userId from a data attribute (need to add this to the HTML)
+            // or make an AJAX call to get the comment owner
+            const commentUserId = comment.getAttribute('data-user-id');
+            const commentContent = comment.querySelector('.comment-content p');
+            const commentMeta = comment.querySelector('.comment-meta');
+
+            if (commentMeta && commentContent) {
+                // Check if this comment belongs to the current user
+                const isCurrentUserComment = currentUserId && commentUserId && currentUserId == commentUserId;
+
+                // Create action buttons container if it doesn't exist
+                let actionsContainer = commentMeta.querySelector('.comment-actions');
+                if (!actionsContainer) {
+                    actionsContainer = document.createElement('div');
+                    actionsContainer.className = 'comment-actions';
+                    commentMeta.appendChild(actionsContainer);
+                } else {
+                    // Clear existing actions
+                    actionsContainer.innerHTML = '';
+                }
+
+                // Add appropriate action buttons
+                if (isCurrentUserComment) {
+                    actionsContainer.innerHTML = `
+                    <span class="comment-action edit-comment-btn" onclick="showEditCommentForm(${commentId})">
+                        <i class="fas fa-edit"></i> Edit
+                    </span>
+                    <span class="comment-action delete-comment-btn" onclick="confirmDeleteComment(${commentId})">
+                        <i class="fas fa-trash"></i> Delete
+                    </span>
+                `;
+                } else {
+                    actionsContainer.innerHTML = `
+                    <span class="comment-action report-comment-btn" onclick="showReportCommentForm(${commentId})">
+                        <i class="fas fa-flag"></i> Report
+                    </span>
+                `;
+                }
+
+                // Add edit form if it doesn't exist
+                if (!comment.querySelector(`.edit-form`)) {
+                    const contentText = commentContent.textContent || '';
+                    commentContent.id = `comment-text-${commentId}`;
+
+                    const editForm = document.createElement('div');
+                    editForm.className = 'edit-form';
+                    editForm.id = `edit-form-${commentId}`;
+                    editForm.style.display = 'none';
+                    editForm.innerHTML = `
+                    <textarea class="edit-comment-textarea">${contentText}</textarea>
+                    <div class="edit-buttons">
+                        <button class="cancel-edit-btn" onclick="cancelEditComment(${commentId})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveCommentEdit(${commentId})">Save</button>
+                    </div>
+                `;
+
+                    commentContent.after(editForm);
+                }
+            }
+        });
+    });
+
+    // Make sure to expose the new functions for inline event handlers
+    window.showEditCommentForm = showEditCommentForm;
+    window.cancelEditComment = cancelEditComment;
+    window.saveCommentEdit = saveCommentEdit;
+    window.confirmDeleteComment = confirmDeleteComment;
+    window.deleteComment = deleteComment;
+    window.showReportCommentForm = showReportCommentForm;
+    window.submitComment = submitComment;
 
     // Notification Modal Functions
     function createNotificationModal() {
