@@ -1157,3 +1157,84 @@ button span {
         }
 
 
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 0.8em;
+}
+
+.comment-action {
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+    .comment-action:hover {
+        color: #007bff;
+    }
+
+.edit-comment-btn:hover {
+    color: #28a745;
+}
+
+.delete-comment-btn:hover {
+    color: #dc3545;
+}
+
+.report-comment-btn:hover {
+    color: #ffc107;
+}
+
+/* Edit form styling */
+.edit-form {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.edit-comment-textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 10px;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.cancel-edit-btn, .save-edit-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.cancel-edit-btn {
+    background-color: #f8f9fa;
+    color: #212529;
+    border: 1px solid #ddd;
+}
+
+.save-edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.cancel-edit-btn:hover {
+    background-color: #e2e6ea;
+}
+
+.save-edit-btn:hover {
+    background-color: #0069d9;
+}
