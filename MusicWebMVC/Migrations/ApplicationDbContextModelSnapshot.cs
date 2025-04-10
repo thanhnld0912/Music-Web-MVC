@@ -495,7 +495,7 @@ namespace MusicWebMVC.Migrations
                     b.HasOne("MusicWebMVC.Models.Song", "Song")
                         .WithMany("PlaylistSongs")
                         .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Playlist");
