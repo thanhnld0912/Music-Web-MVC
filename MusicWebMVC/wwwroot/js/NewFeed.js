@@ -16,8 +16,37 @@ function toggleSidebar(event) {
 
 function toggleChatBox(event, boxId) {
     event.stopPropagation();
-    closeAll(event);
+
+    // Close all chat boxes first
+    document.querySelectorAll('.chat-box').forEach(box => {
+        box.style.display = 'none';
+    });
+
+    // Then open the selected box
     document.getElementById(boxId).style.display = 'block';
+}
+
+function closeAll(event) {
+    if (event && (event.target.closest('.chat-box') ||
+        event.target.closest('.sidebar-button') ||
+        event.target.closest('.post-options') ||
+        event.target.closest('.avatar-container') ||
+        event.target.closest('#comment-overlay'))) return;
+
+    // Close all chat boxes
+    document.querySelectorAll('.chat-box').forEach(box => {
+        box.style.display = 'none';
+    });
+
+    // Close all post menus and profile menus
+    document.querySelectorAll('.post-menu, .profile-menu').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    // Don't close comment overlay if clicked inside it
+    if (!event || !event.target.closest('#comment-overlay')) {
+        closeCommentSection();
+    }
 }
 function createPlaylist() {
     const playlistNameInput = document.querySelector('#playlistBox input[type="text"]');
@@ -65,20 +94,7 @@ function createPlaylist() {
     xhr.send(`playlistName=${encodeURIComponent(playlistName)}`);
 }
 
-function closeAll(event) {
-    if (event && (event.target.closest('.chat-box') ||
-        event.target.closest('.sidebar-button') ||
-        event.target.closest('.post-options') ||
-        event.target.closest('.avatar-container') ||
-        event.target.closest('#comment-overlay'))) return;
 
-    document.querySelectorAll('.chat-box, .post-menu, .profile-menu').forEach(el => el.style.display = 'none');
-
-    // Don't close comment overlay if clicked inside it
-    if (!event || !event.target.closest('#comment-overlay')) {
-        closeCommentSection();
-    }
-}
 
 
 function likePost(button, postId) {
@@ -391,7 +407,7 @@ function createCommentElement(comment) {
     const isCurrentUserComment = parseInt(currentUserId) === comment.userId;
 
     // Generate action buttons based on user ownership
-    let actionButtons = `<span class="fb-comment-action">Like</span>`;
+    let actionButtons = ``;
 
     if (isCurrentUserComment) {
         actionButtons += `
@@ -628,14 +644,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load all comment counts when page loads
     loadAllCommentCounts();
 
-    // Handle Enter key for comments
-    document.querySelectorAll('.fb-comment-input').forEach(input => {
-        input.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                submitComment({ target: this.closest('.fb-comment-input-wrapper').querySelector('.fa-paper-plane') });
-            }
-        });
-    });
 
     // Close comment overlay when clicked outside
     document.addEventListener('click', function (event) {
