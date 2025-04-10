@@ -123,7 +123,7 @@ namespace MusicWebMVC.Data
                 .HasOne(ps => ps.Song)
                 .WithMany(s => s.PlaylistSongs)
                 .HasForeignKey(ps => ps.SongId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             // Quan hệ User - Song (qua ArtistId)
             modelBuilder.Entity<Song>()
                 .HasOne(s => s.User)

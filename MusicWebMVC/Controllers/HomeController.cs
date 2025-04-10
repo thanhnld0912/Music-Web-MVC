@@ -161,7 +161,24 @@ namespace MusicWebMVC.Controllers
             }
 
             var songs = await songsQuery.ToListAsync();
+            var currentUserId = 0;
+            int.TryParse(HttpContext.Session.GetString("UserId"), out currentUserId);
 
+            if (currentUserId > 0)
+            {
+                var userPlaylists = await _context.Playlists
+                    .Where(p => p.UserId == currentUserId)
+                    .Include(p => p.PlaylistSongs)
+                        .ThenInclude(ps => ps.Song)
+                            .ThenInclude(s => s.User)
+                    .ToListAsync();
+
+                ViewBag.UserPlaylists = userPlaylists;
+            }
+            else
+            {
+                ViewBag.UserPlaylists = new List<Playlist>();
+            }
             // Pass data to view
             ViewBag.SearchTerm = searchTerm;
             ViewBag.SelectedGenres = genre ?? new string[] { "All" };

@@ -16,6 +16,14 @@ body {
     background-color: black;
     color: #fff;
     overflow: hidden;
+    background-image: url('../img/background.png');
+    background-size: cover; /* Phủ toàn bộ màn hình */
+    background-repeat: no-repeat; /* Không lặp ảnh */
+    background-position: center; /* Căn giữa ảnh */
+    background-attachment: fixed; /* Ảnh không cuộn theo nội dung */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 /* Sidebar */
@@ -165,16 +173,22 @@ body {
 .search-box {
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: #444;
+    border: 2px solid #111;
     border-radius: 20px;
     padding: 10px 15px;
+    transition: border 0.3s ease, background-color 0.3s ease;
     flex-grow: 1;
 }
-
+    .search-box:focus-within {
+        border: 2px solid #fff; /* Tăng độ dày và đổi màu sáng hơn */
+        background-color: #555; /* Optional: sáng hơn 1 chút */
+    }
+    
     .search-box input {
         border: none;
         background: none;
-        color: black;
+        color: white;
         outline: none;
         flex-grow: 1;
         padding-left: 10px;
@@ -468,6 +482,57 @@ body {
     width: 70px;
 }
 
+    .sidebar.collapsed .logoimg {
+        display: none;
+    }
+
+    .sidebar.collapsed .logo {
+        display: none;
+    }
+
+    .sidebar.collapsed .sidebar-section {
+        display: none;
+    }
+
+    .sidebar.collapsed .create-playlist {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: -2px;
+    }
+
+    .sidebar.collapsed .melody-card {
+        padding: 0 1px;
+        justify-content: center;
+    }
+
+    .sidebar.collapsed .melody-info {
+        display: none;
+    }
+
+    .sidebar.collapsed .melody-image {
+        margin-right: 0;
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar.collapsed .create-playlist span {
+        display: none;
+    }
+
+
+
+    /* Hide artist sections when collapsed */
+    .sidebar.collapsed .artist-list {
+        display: none;
+    }
+
+/* Ensure smooth transition for all elements */
+.sidebar, .sidebar * {
+    transition: all 0.3s ease;
+}
+
     /* Hide elements when sidebar is collapsed */
     .sidebar.collapsed .logo {
         font-size: 16px;
@@ -525,18 +590,56 @@ s
     position: relative;
     top: 100px;
 }
-
 .chat-box {
     display: none;
-    position: fixed;
-    right: 20px;
-    bottom: 100px;
-    background: #363636;
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    background: #2c2c2c;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
     z-index: 1000;
+    width: 300px;
+    max-width: 90%;
+    color: #f1f1f1;
+    transition: all 0.3s ease;
 }
+
+    .chat-box input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background: #3a3a3a;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        transition: border 0.3s ease-in-out;
+    }
+
+        .chat-box input:focus {
+            border-color: #4caf50;
+        }
+
+    .chat-box .close-button,
+    .chat-box .message-login-button {
+        background-color: #8e189f;
+        border: none;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 8px 12px;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .chat-box .close-button:hover,
+        .chat-box .message-login-button:hover {
+            background-color: #ff3b3b;
+        }
 
 .post-menu {
     display: none;
@@ -558,14 +661,7 @@ s
     }
 
 
-.chat-box .close-button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 5px 10px;
-}
+
 
 .chat-box .message-login-button {
     background: none;
@@ -871,10 +967,10 @@ s
 .count-badge {
     display: inline-block;
     margin-left: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
+    
     border-radius: 10px;
     padding: 0 6px;
-    font-size: 12px;
+    font-size: 16px;
     min-width: 16px;
     text-align: center;
 }
@@ -884,17 +980,6 @@ s
     align-items: center;
 }
 
-    .fb-action-btn.active .count-badge {
-        background-color: rgba(59, 89, 152, 0.2);
-    }
-
-    .fb-action-btn.like-btn.active .count-badge {
-        background-color: rgba(231, 76, 60, 0.2);
-    }
-
-    .fb-action-btn.comment-btn.active .count-badge {
-        background-color: rgba(52, 152, 219, 0.2);
-    }
 
 
 .custom-audio-player {
@@ -1619,5 +1704,184 @@ input {
     to {
         opacity: 0;
         transform: translateX(100%);
+    }
+}
+.search-box {
+    position: relative;
+}
+
+.clear-icon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    display: none;
+
+}
+
+    .clear-icon:hover {
+        color: white;
+    }
+
+.home-btn {
+    position: relative;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #181818; /* Nền mặc định /
+    color: #b3b3b3; / Màu icon mặc định */
+    font-size: 24px;
+    transition: background 0.3s, color 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    /* Ẩn phần top user */
+    .top-user {
+        display: none !important;
+    }
+
+    /* Thu nhỏ sidebar */
+    .sidebar {
+        width: 60px;
+        padding: 10px 5px;
+        transition: all 0.3s ease;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+    }
+
+
+    /* Force sidebar to stay in collapsed state */
+    .sidebar {
+        width: 60px !important; /* Force width with !important */
+        padding: 10px 5px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+        transition: none; /* Remove transition */
+    }
+
+    /* Hide elements that should not appear in collapsed state */
+    .logo,
+    .logoimg,
+    .sidebar-section,
+    .melody-card,
+    .melody-info,
+    .trending,
+    .create-playlist {
+        display: none !important;
+    }
+
+    .home-btn {
+        right: 20px;
+    }
+
+    .melody-card {
+        display: none;
+    }
+
+    /* Điều chỉnh main content */
+    .main-content {
+        margin-left: 60px;
+        width: calc(100% - 20px);
+        transition: all 0.3s ease;
+    }
+
+    .sidebar.collapsed .sidebar-toggle {
+        /* Post card full width gọn gàng */
+    }
+
+    /* Search bar & tab nav responsive */
+    .search-bar,
+    .tab-nav {
+        margin-left: 70px;
+        width: calc(100% - 80px);
+    }
+
+    .create-playlist {
+        display: none;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .avatar-container {
+        right: 25px;
+    }
+
+    .empty-playlist {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .logoimg {
+        display: none;
+    }
+
+    .sidebar-section {
+        display: none;
+    }
+
+    .trending {
+        display: none;
+    }
+
+    .sidebar {
+        height: 50px;
+    }
+
+    .sidebar-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .navbar {
+        margin-left: 10px;
+    }
+
+    .main-content {
+        margin-left: 20px
+    }
+
+    .post-topuser-left {
+        width: 100%;
+    }
+
+    .post {
+        padding: 30px 50px;
+    }
+
+
+    .auth-button {
+        position: absolute;
+    }
+
+    .search-box {
+        width: 72%;
+    }
+
+    .add-post {
+        right: 20px;
+        top: 100px;
+    }
+
+    .filter-tabs {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
