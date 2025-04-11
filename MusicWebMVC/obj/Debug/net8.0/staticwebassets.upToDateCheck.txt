@@ -18,8 +18,8 @@ wwwroot\favicon.ico
 wwwroot\img\1.gif
 wwwroot\img\admin.jpg
 wwwroot\img\avatar.jpg
-wwwroot\img\background.jpg
 wwwroot\img\background.mp4
+wwwroot\img\background.png
 wwwroot\img\download.gif
 wwwroot\img\Image1.jpg
 wwwroot\img\Image2.jpg
