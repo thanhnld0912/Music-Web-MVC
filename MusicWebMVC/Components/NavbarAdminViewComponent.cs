@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using MusicWebMVC.Data;  // Đảm bảo đúng namespace của ApplicationDbContext
 using MusicWebMVC.Models; // Nếu có Model Playlist, Post
 
+
 namespace MusicWebMVC.Components
 {
-    public class SidebarAdminViewComponent : ViewComponent
+    public class NavbarAdminViewComponent : ViewComponent
     {
         private readonly ApplicationDbContext _context;
 
-        public SidebarAdminViewComponent(ApplicationDbContext context)
+        public NavbarAdminViewComponent(ApplicationDbContext context)
         {
             _context = context;
         }

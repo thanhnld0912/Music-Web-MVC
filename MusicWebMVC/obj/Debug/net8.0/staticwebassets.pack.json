@@ -1,419 +1,419 @@
 {
   "Files": [
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MusicWebMVC.bundle.scp.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MusicWebMVC.bundle.scp.css",
       "PackagePath": "staticwebassets\\MusicWebMVC.vkvu46hx0s.bundle.scp.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
       "PackagePath": "staticwebassets\\css\\cover.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
       "PackagePath": "staticwebassets\\css\\globalplayer.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\loader.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\loader.css",
       "PackagePath": "staticwebassets\\css\\loader.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\login.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
       "PackagePath": "staticwebassets\\css\\newfeed.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
       "PackagePath": "staticwebassets\\css\\playlist.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
       "PackagePath": "staticwebassets\\css\\post.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profileuser.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profileuser.css",
       "PackagePath": "staticwebassets\\css\\profileuser.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\searchpage.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\searchpage.css",
       "PackagePath": "staticwebassets\\css\\searchpage.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\site.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\songpage.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\songpage.css",
       "PackagePath": "staticwebassets\\css\\songpage.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\style-carousel.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\style-carousel.css",
       "PackagePath": "staticwebassets\\css\\style-carousel.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\upload.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\upload.css",
       "PackagePath": "staticwebassets\\css\\upload.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
       "PackagePath": "staticwebassets\\css\\user.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\1.gif",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\1.gif",
       "PackagePath": "staticwebassets\\img\\1.gif"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image1.jpg",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image1.jpg",
       "PackagePath": "staticwebassets\\img\\Image1.jpg"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image2.jpg",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image2.jpg",
       "PackagePath": "staticwebassets\\img\\Image2.jpg"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image3.jpg",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image3.jpg",
       "PackagePath": "staticwebassets\\img\\Image3.jpg"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\admin.jpg",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\admin.jpg",
       "PackagePath": "staticwebassets\\img\\admin.jpg"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\avatar.jpg",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\avatar.jpg",
       "PackagePath": "staticwebassets\\img\\avatar.jpg"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.jpg",
-      "PackagePath": "staticwebassets\\img\\background.jpg"
-    },
-    {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.mp4",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.mp4",
       "PackagePath": "staticwebassets\\img\\background.mp4"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\download.gif",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.png",
+      "PackagePath": "staticwebassets\\img\\background.png"
+    },
+    {
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\download.gif",
       "PackagePath": "staticwebassets\\img\\download.gif"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\lgo.png",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\lgo.png",
       "PackagePath": "staticwebassets\\img\\lgo.png"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\Login.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\Login.js",
       "PackagePath": "staticwebassets\\js\\Login.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\NewFeed.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\NewFeed.js",
       "PackagePath": "staticwebassets\\js\\NewFeed.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\Profile.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\Profile.js",
       "PackagePath": "staticwebassets\\js\\Profile.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\SongPage.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\SongPage.js",
       "PackagePath": "staticwebassets\\js\\SongPage.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
       "PackagePath": "staticwebassets\\js\\chart.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
       "PackagePath": "staticwebassets\\js\\globalplayer.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\layout.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\layout.js",
       "PackagePath": "staticwebassets\\js\\layout.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
       "PackagePath": "staticwebassets\\js\\profileuser.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\search.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\search.js",
       "PackagePath": "staticwebassets\\js\\search.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\searchpage.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\searchpage.js",
       "PackagePath": "staticwebassets\\js\\searchpage.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\site.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
       "PackagePath": "staticwebassets\\js\\uploadfile.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3",
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3",
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3",
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3",
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3",
       "PackagePath": "staticwebassets\\uploads\\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3",
       "PackagePath": "staticwebassets\\uploads\\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3",
+      "Id": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3",
       "PackagePath": "staticwebassets\\uploads\\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3"
     },
     {
