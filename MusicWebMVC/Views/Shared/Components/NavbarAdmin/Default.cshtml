@@ -1,0 +1,109 @@
+﻿@using MusicWebMVC.Models
+@model IEnumerable<MusicWebMVC.Models.Post>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Music - Melofy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/newfeed.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="search-container">
+            <a href="@Url.Action("NewFeedAdmin", "Home")" class="home-btn">
+                @if (ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true)
+                {
+                    <i class="fa-solid fa-home home-icon @(ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true ? "active" : "")"></i>
+                }
+                else
+                {
+                    <i class="fa-solid fa-home home-icon @(ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true ? "" : "inactive")"></i>
+                }
+            </a>
+            <div class="search-box">
+                <form action="@Url.Action("SearchPageAdmin", "Home")" method="get" id="searchForm">
+                    <i class="fas fa-search search-icon" id="searchIcon"></i>
+                    <input type="text" name="searchTerm" placeholder="What do you want to hear?" id="searchInput"
+                           value="@Context.Request.Query["searchTerm"]">
+                    <i class="fas fa-times clear-icon" id="clearSearchIcon" style="display: none;"></i>
+                </form>
+            </div>
+            <div class="auth-buttons">
+                @if (Context.Session.GetString("UserId") != null)
+                {
+                    <div class="auth-button">
+                        <button class="manage-button" onclick="location.href='@Url.Action("Dashboard", "Admin")'">Manage</button>
+                    </div>
+                    <a href="@Url.Action("ProfileAdmin", "Account")" class="avatar-container">
+                        <img src="/img/admin.jpg" alt="Avatar" class="user-avatar">
+                    </a>
+                }
+                else
+                {
+                    <button class="auth-button login" onclick="location.href='@Url.Action("Login", "Account")'">Login</button>
+                }
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const clearIcon = document.getElementById('clearSearchIcon');
+
+                    if (searchInput.value.length > 0) {
+            clearIcon.style.display = 'block';
+        }
+            // Hiện nút clear khi có text
+            searchInput.addEventListener('input', function () {
+                clearIcon.style.display = this.value.length > 0 ? 'block' : 'none';
+            });
+
+            // Nhấn Enter để search
+            searchInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Ngăn form submit mặc định
+                    performSearch(this.value);
+                }
+            });
+
+            // Rời khỏi input cũng sẽ search
+            searchInput.addEventListener('blur', function () {
+                if (this.value.trim() !== '') {
+                    performSearch(this.value);
+                }
+            });
+
+            // Clear button
+            clearIcon.addEventListener('click', function (e) {
+                e.preventDefault();
+                searchInput.value = '';
+                this.style.display = 'none';
+                searchInput.focus();
+            });
+
+            // Click search icon để search
+            document.getElementById('searchIcon').addEventListener('click', function () {
+                if (searchInput.value.trim() !== '') {
+                    performSearch(searchInput.value);
+                }
+            });
+
+        function performSearch(searchTerm) {
+            if (searchTerm.trim() !== '') {
+                // Khởi tạo URL cơ bản
+                let searchUrl = '@Url.Action("SearchPageAdmin", "Home")' + '?searchTerm=' + encodeURIComponent(searchTerm);
+
+                // Thêm các bộ lọc mặc định (tất cả đều là "All")
+                searchUrl += '&genre=All&era=All&type=All';
+
+                // Thêm tham số sắp xếp mặc định nếu cần
+                searchUrl += '&sortBy=Most%20Popular';
+
+                window.location.href = searchUrl;
+            }
+        }
+        });
+    </script>
+</body>
