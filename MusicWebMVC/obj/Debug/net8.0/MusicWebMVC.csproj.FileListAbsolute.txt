@@ -299,3 +299,4 @@ D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.pdb
 D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.genruntimeconfig.cache
 D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\ref\MusicWebMVC.dll
 D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\appsettings.json
+D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\post.css"
     },
     {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\postdetail.css",
+      "PackagePath": "staticwebassets\\css\\postdetail.css"
+    },
+    {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
@@ -97,12 +101,12 @@
       "PackagePath": "staticwebassets\\img\\avatar.jpg"
     },
     {
-      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.jpg",
-      "PackagePath": "staticwebassets\\img\\background.jpg"
-    },
-    {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.mp4",
       "PackagePath": "staticwebassets\\img\\background.mp4"
+    },
+    {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\background.png",
+      "PackagePath": "staticwebassets\\img\\background.png"
     },
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\download.gif",
@@ -139,6 +143,10 @@
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\layout.js",
       "PackagePath": "staticwebassets\\js\\layout.js"
+    },
+    {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\postdetail.js",
+      "PackagePath": "staticwebassets\\js\\postdetail.js"
     },
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
@@ -389,6 +397,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_083ce449507341889f73c85339a81bc9.mp3",
+      "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_083ce449507341889f73c85339a81bc9.mp3"
+    },
+    {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3",
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3"
     },
@@ -401,6 +413,18 @@
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3"
     },
     {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3",
+      "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3"
+    },
+    {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3",
+      "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3"
+    },
+    {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3",
+      "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3"
+    },
+    {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3",
       "PackagePath": "staticwebassets\\uploads\\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3"
     },
@@ -411,6 +435,10 @@
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3",
       "PackagePath": "staticwebassets\\uploads\\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3"
+    },
+    {
+      "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3",
+      "PackagePath": "staticwebassets\\uploads\\Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3"
     },
     {
       "Id": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3",
