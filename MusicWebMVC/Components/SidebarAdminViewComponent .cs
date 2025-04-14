@@ -7,11 +7,11 @@ using MusicWebMVC.Models; // Nếu có Model Playlist, Post
 
 namespace MusicWebMVC.Components
 {
-    public class SidebarAdminViewComponent : ViewComponent
+    public class SidebarViewComponent : ViewComponent
     {
         private readonly ApplicationDbContext _context;
 
-        public SidebarAdminViewComponent(ApplicationDbContext context)
+        public SidebarViewComponent(ApplicationDbContext context)
         {
             _context = context;
         }

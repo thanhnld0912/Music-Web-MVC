@@ -247,6 +247,91 @@ namespace MusicWebMVC.Controllers
 
             return View(songs);
         }
+        public async Task<IActionResult> SearchPageAdmin(string searchTerm, string[] genre = null, string[] era = null, string[] type = null, string sortBy = "Most Popular")
+        {
+            // Start with all songs
+            var songsQuery = _context.Songs
+                .Include(s => s.User)
+                .Include(s => s.Likes)
+                .AsQueryable();
+
+            // Apply search term filter if provided
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                songsQuery = songsQuery.Where(s =>
+                    s.Title.Contains(searchTerm) ||
+                    s.User.Username.Contains(searchTerm) ||
+                    (s.Lyrics != null && s.Lyrics.Contains(searchTerm)));
+            }
+
+            // Apply genre filter (now supports multiple selections)
+            if (genre != null && genre.Length > 0 && !genre.Contains("All"))
+            {
+                songsQuery = songsQuery.Where(s => genre.Contains(s.Genre));
+            }
+
+            // Apply era filter (now supports multiple selections)
+            if (era != null && era.Length > 0 && !era.Contains("All"))
+            {
+                songsQuery = songsQuery.Where(s => era.Contains(s.Era));
+            }
+
+            // Apply type filter (now supports multiple selections)
+            if (type != null && type.Length > 0 && !type.Contains("All"))
+            {
+                songsQuery = songsQuery.Where(s => type.Contains(s.Type));
+            }
+
+            // Only include songs with "Approved" status
+            songsQuery = songsQuery.Where(s => s.Status == "Public");
+
+            // Apply sorting
+            switch (sortBy)
+            {
+                case "Newest":
+                    songsQuery = songsQuery.OrderByDescending(s => s.UploadDate);
+                    break;
+                case "Oldest":
+                    songsQuery = songsQuery.OrderBy(s => s.UploadDate);
+                    break;
+                case "A-Z":
+                    songsQuery = songsQuery.OrderBy(s => s.Title);
+                    break;
+                case "Most Popular":
+                default:
+                    songsQuery = songsQuery.OrderByDescending(s => s.Likes.Count);
+                    break;
+            }
+
+            var songs = await songsQuery.ToListAsync();
+            var currentUserId = 0;
+            int.TryParse(HttpContext.Session.GetString("UserId"), out currentUserId);
+
+            if (currentUserId > 0)
+            {
+                var userPlaylists = await _context.Playlists
+                    .Where(p => p.UserId == currentUserId)
+                    .Include(p => p.PlaylistSongs)
+                        .ThenInclude(ps => ps.Song)
+                            .ThenInclude(s => s.User)
+                    .ToListAsync();
+
+                ViewBag.UserPlaylists = userPlaylists;
+            }
+            else
+            {
+                ViewBag.UserPlaylists = new List<Playlist>();
+            }
+            // Pass data to view
+            ViewBag.SearchTerm = searchTerm;
+            ViewBag.SelectedGenres = genre ?? new string[] { "All" };
+            ViewBag.SelectedEras = era ?? new string[] { "All" };
+            ViewBag.SelectedTypes = type ?? new string[] { "All" };
+            ViewBag.SelectedSort = sortBy;
+            ViewBag.ResultCount = songs.Count;
+
+            return View(songs);
+        }
         public IActionResult Loader()
         {
             return View();

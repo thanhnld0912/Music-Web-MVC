@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj": {}
+    "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj": {}
   },
   "projects": {
-    "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj": {
+    "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj",
+        "projectUniqueName": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj",
         "projectName": "MusicWebMVC",
-        "projectPath": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\obj\\",
+        "projectPath": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\MusicWebMVC.csproj",
+        "packagesPath": "C:\\Users\\HELLO\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\CN6\\MusicMVC\\Music-Web-MVC\\MusicWebMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HELLO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,224 @@
+﻿@using System.Linq
+
+@{
+    Layout = null;
+    ViewData["Title"] = "PlaylistPage";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var userId = Context.Session.GetString("UserId");
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Music Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="~/css/playlist.css" rel="stylesheet" />
+
+</head>
+
+<body onclick="closeAll(event)">
+    <!-- Sidebar - Keeping original -->
+    @await Component.InvokeAsync("SidebarAdmin")
+
+    <!-- Chat Boxes - Keeping original -->
+    <div class="chat-box" id="playlistBox">
+        <h3>Create Playlist</h3>
+        @if (isAuthenticated)
+        {
+            <input type="text" placeholder="Enter playlist name" />
+            <button class="message-login-button">Create</button>
+        }
+        else
+        {
+            <button onclick="location.href='@Url.Action("Login", "Account")'" class="message-login-button">Login</button>
+        }
+    </div>
+
+
+    <div class="chat-box" id="storyBox">
+        <h3>Share Your Story</h3>
+        @if (isAuthenticated)
+        {
+            <textarea placeholder="Write your story..."></textarea>
+            <button class="message-login-button">Post</button>
+        }
+        else
+        {
+            <button onclick="location.href='@Url.Action("Login", "Account")'" class="message-login-button">Login</button>
+        }
+    </div>
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        @await Component.InvokeAsync("NavbarAdmin")
+
+
+        <!-- Modified: Main content area to match design in image -->
+        <div class="main-content">
+            <!-- Playlist header section -->
+            <div class="playlist-header">
+                <div class="playlist-cover">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="playlist-info">
+                    <div class="playlist-label">Playlist</div>
+                    <h1 class="playlist-title">@Model.Name</h1>
+                    <div class="playlist-artists">
+                        @if (ViewBag.PlaylistArtists != null && ViewBag.PlaylistArtists.Count > 0)
+                        {
+                            @string.Join(", ", ViewBag.PlaylistArtists)
+                        }
+                        else
+                        {
+                            <span>No artists found</span>
+                        }
+                    </div>
+                    <div class="more-options-container">
+                        <button class="more-options-btn" onclick="toggleDropdownMenu(event, this)">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                        <div class="dropdown-menu" id="playlist-dropdown">
+                            <div class="dropdown-menu-item" onclick="editPlaylistDetails()">
+                                <i class="fas fa-edit"></i> Edit details
+                            </div>
+                            <div class="dropdown-menu-item" onclick="removePlaylist()">
+                                <i class="fas fa-trash"></i> Remove
+                            </div>
+                            <div class="dropdown-menu-item" onclick="sharePlaylist()">
+                                <i class="fas fa-share-alt"></i> Share
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="play-button-large">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+
+            <!-- Controls bar -->
+            <div class="controls-bar"></div>
+
+            <!-- Song list -->
+            <div class="song-list">
+                @if (@Model.PlaylistSongs != null && @Model.PlaylistSongs.Count > 0)
+                {
+                    @foreach (var playlistSong in Model.PlaylistSongs)
+                    {
+
+                        <div class="song-item" onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = @playlistSong.Song.Id })'" data-song-id="@playlistSong.Song.Id" data-song-url="@playlistSong.Song.FileUrl">
+                            <div class="song-thumbnail">
+                                @if (!string.IsNullOrEmpty(playlistSong.Song.CoverImage))
+                                {
+                                    <img src="@playlistSong.Song.CoverImage" alt="Song Cover" />
+                                }
+                                else
+                                {
+                                    <i class="fas fa-music"></i>
+                                }
+                            </div>
+                            <div class="song-details">
+                                <div class="song-name">@playlistSong.Song.Title</div>
+                                <div class="song-artist">@playlistSong.Song.User.Username</div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="empty-playlist">
+                        <p>No songs in this playlist yet.</p>
+                    </div>
+                }
+                <div class="modal" id="editPlaylistModal">
+                    <div class="modal-content">
+                        <span class="close-modal" onclick="closeModal('editPlaylistModal')">&times;</span>
+                        <h2>Edit Playlist</h2>
+
+                        <div class="edit-playlist-section">
+                            <h3>Change Playlist Name</h3>
+                            <div class="input-group">
+                                <input type="text" id="editPlaylistName" value="@Model.Name" />
+                                <button onclick="updatePlaylistName(@Model.Id)">Save Name</button>
+                            </div>
+                        </div>
+
+                        <div class="edit-playlist-section">
+                            <h3>Remove Songs</h3>
+                            <div class="edit-song-list">
+                                @if (@Model.PlaylistSongs != null && @Model.PlaylistSongs.Count > 0)
+                                {
+                                    @foreach (var playlistSong in Model.PlaylistSongs)
+                                    {
+                                        <div class="edit-song-item">
+                                            <div class="song-info">
+                                                <div class="song-title">@playlistSong.Song.Title</div>
+                                                <div class="song-artist">@playlistSong.Song.User.Username</div>
+                                            </div>
+                                            <button class="remove-song-btn" onclick="removeSongFromPlaylist(@Model.Id, @playlistSong.Song.Id)">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <p class="no-songs">No songs in this playlist</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirm Delete Playlist Modal -->
+                <div class="modal" id="deletePlaylistModal">
+                    <div class="modal-content">
+                        <span class="close-modal" onclick="closeModal('deletePlaylistModal')">&times;</span>
+                        <h2>Delete Playlist</h2>
+                        <p>Are you sure you want to delete this playlist? This action cannot be undone.</p>
+
+                        <div class="modal-buttons">
+                            <button class="cancel-btn" onclick="closeModal('deletePlaylistModal')">Cancel</button>
+                            <button class="delete-btn" onclick="deletePlaylist(@Model.Id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Playlist Modal -->
+                <div class="modal" id="sharePlaylistModal">
+                    <div class="modal-content">
+                        <span class="close-modal" onclick="closeModal('sharePlaylistModal')">&times;</span>
+                        <h2>Share Playlist</h2>
+                        <p>Share this playlist with your friends</p>
+
+                        <div class="share-link">
+                            <input type="text" id="shareLink" readonly value="@Context.Request.Scheme://@Context.Request.Host@Url.Action("PlaylistPage", "Playlist", new { id = Model.Id })" />
+                            <button onclick="copyShareLink()">Copy</button>
+                        </div>
+
+                        <div class="share-options">
+                            <button class="share-option facebook">
+                                <i class="fab fa-facebook"></i> Facebook
+                            </button>
+                            <button class="share-option twitter">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </button>
+                            <button class="share-option whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync("GlobalPlayer")
+
+            <script src="~/js/playlistpage.js"></script>
+            <script src="~/js/globalplayer.js"></script>
+</body>
+
+</html>
