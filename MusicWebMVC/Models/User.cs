@@ -35,6 +35,8 @@ namespace MusicWebMVC.Models
         public virtual ICollection<Playlist> Playlists { get; set; }
 
         public virtual ICollection<Follow> Followers { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
+
         public virtual ICollection<CommentReport> CommentReports { get; set; }
     }
 }

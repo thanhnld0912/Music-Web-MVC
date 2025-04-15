@@ -299,6 +299,9 @@ D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.pdb
 D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.genruntimeconfig.cache
 D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\ref\MusicWebMVC.dll
 D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\appsettings.json
+<<<<<<< HEAD
+D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\Newtonsoft.Json.dll
+=======
 D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\appsettings.Development.json
 D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\appsettings.json
 D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\bin\Debug\net8.0\MusicWebMVC.staticwebassets.runtime.json
@@ -449,6 +452,7 @@ D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\refint\MusicWebMV
 D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.pdb
 D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.genruntimeconfig.cache
 D:\FPT\CN6\MusicMVC\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\ref\MusicWebMVC.dll
+<<<<<<< HEAD
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.csproj.AssemblyReference.cache
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.GeneratedMSBuildEditorConfig.editorconfig
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.AssemblyInfoInputs.cache
@@ -465,3 +469,6 @@ E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\scopedcss\proje
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.dll
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\refint\MusicWebMVC.dll
 E:\Coding\.NET\Melofy\Music-Web-MVC\MusicWebMVC\obj\Debug\net8.0\MusicWebMVC.pdb
+=======
+>>>>>>> c6a950de7d28ad9cbf17bd1a9304f8dd61b309e6
+>>>>>>> main
