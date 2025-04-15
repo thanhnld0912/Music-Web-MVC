@@ -3,6 +3,7 @@ let currentPostId = null;
 const currentUserId = document.getElementById('current-user-id').value;
 let commentsStore = {};
 let currentAudio = null;
+const avatarUrl = document.getElementById('avatar-url').value;
 
 // Make sure notification container is created when the page loads
 document.addEventListener('DOMContentLoaded', function () {
@@ -345,7 +346,7 @@ function submitComment(event) {
                         commentsStore[currentPostId].push(response);
 
                         // Tạo và hiển thị comment mới
-                        const commentItem = createCommentElement(response);
+                        const commentItem = createCommentElementForMySelf(response);
                         commentsList.appendChild(commentItem);
 
                         // Update comment count badge
@@ -379,7 +380,31 @@ function createCommentElement(comment) {
 
     commentItem.innerHTML = `
                 <div class="comment-avatar">
-                    <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                    <img src="${comment.avatarUrl}" alt="avatar" class="comment-user-avatar">
+                </div>
+                <div class="fb-comment-content">
+                    <div class="fb-comment-author">${comment.userName || 'User'}</div>
+                    <div class="fb-comment-text">${comment.content}</div>
+                    <div class="fb-comment-time">${formattedDate}</div>
+                    <div class="fb-comment-actions">
+                        <span class="fb-comment-action">Like</span>
+                        <span class="fb-comment-action">Reply</span>
+                    </div>
+                </div>
+            `;
+
+    return commentItem;
+}
+function createCommentElementForMySelf(comment) {
+    const commentItem = document.createElement('div');
+    commentItem.className = 'fb-comment-item';
+
+    const commentDate = comment.createdAt ? new Date(comment.createdAt) : new Date();
+    const formattedDate = commentDate.toLocaleString();
+
+    commentItem.innerHTML = `
+                <div class="comment-avatar">
+                    <img src="${avatarUrl}" alt="avatar" class="comment-user-avatar">
                 </div>
                 <div class="fb-comment-content">
                     <div class="fb-comment-author">${comment.userName || 'User'}</div>

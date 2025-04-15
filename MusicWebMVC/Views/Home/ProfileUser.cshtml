@@ -9,7 +9,7 @@
     var followingCount = ViewBag.FollowingCount ?? 0;
     var userPosts = ViewBag.UserPosts as List<MusicWebMVC.Models.Post> ?? new List<MusicWebMVC.Models.Post>();
     var userSongs = ViewBag.UserSongs as List<MusicWebMVC.Models.Song> ?? new List<MusicWebMVC.Models.Song>();
-
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
 
     try
     {
@@ -36,6 +36,7 @@
 <body onclick="closeAll(event)">
     <!-- Sidebar -->
     @await Component.InvokeAsync("Sidebar")
+    <input id="avatar-url" value="@avatarUrl" hidden></input>
     <input id="current-user-id" value="@userId" hidden></input>
     <!-- Chat Boxes -->
     <div class="chat-box" id="playlistBox">
@@ -73,7 +74,9 @@
         <div class="main-content">
             <div class="main-content-top">
                 <div class="top-profile">
-                    <div class="avatar"></div>
+                    <div class="avatar">
+                        <img src="@ViewData[$"avatar-url"]" alt="Alternate Text" />
+                    </div>
                     <div class="name-id">
                         <div class="username">@(Model?.Username ?? "User")</div>
                         <div class="handle" data-user-id="@(Model?.Id ?? 0)">@("@" + (Model?.Username ?? "user"))</div>
@@ -120,7 +123,7 @@
                         <div class="post" data-post-id="@post.Id">
                             <!-- Post Header -->
                             <div class="post-header">
-                                <div class="post-avatar">@post.User.Username[0]</div>
+                                <div class="post-avatar"><img src="@post.User.AvatarUrl"/></div>
                                 <div class="post-info">
                                     <div class="post-author">@post.User.Username</div>
                                     <div class="post-time">@post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
@@ -341,7 +344,7 @@
             <div class="fb-comment-section">
                 <div class="fb-comment-input-container">
                     <div class="comment-avatar">
-                        <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                        <img src="@avatarUrl" alt="avatar" class="comment-user-avatar">
                     </div>
                     <div class="fb-comment-input-wrapper">
                         <input type="text" placeholder="Write a comment..." class="fb-comment-input">

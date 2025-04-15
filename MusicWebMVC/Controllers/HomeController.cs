@@ -368,6 +368,9 @@ namespace MusicWebMVC.Controllers
             var followingCount = await _context.Follows
                 .CountAsync(f => f.FollowerId == id);
 
+
+           
+
             ViewBag.FollowerCount = followerCount;
             ViewBag.FollowingCount = followingCount;
 
@@ -395,6 +398,9 @@ namespace MusicWebMVC.Controllers
                     ViewData[$"UserDisliked_{post.Id}"] = post.Dislikes?.Any(d => d.UserId == int.Parse(currentUserId)) ?? false;
                 }
             }
+            var avatarUrl = user.AvatarUrl;
+            ViewData[$"avatar-url"] = avatarUrl;
+
 
             // Pass the user's posts and songs to the view
             ViewBag.UserPosts = userPosts;
