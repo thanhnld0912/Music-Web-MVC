@@ -1,4 +1,5 @@
-﻿let currentPostId = null;
+﻿
+let currentPostId = null;
 const currentUserId = document.getElementById('current-user-id').value;
 let commentsStore = {};
 
@@ -15,8 +16,37 @@ function toggleSidebar(event) {
 
 function toggleChatBox(event, boxId) {
     event.stopPropagation();
-    closeAll(event);
+
+    // Close all chat boxes first
+    document.querySelectorAll('.chat-box').forEach(box => {
+        box.style.display = 'none';
+    });
+
+    // Then open the selected box
     document.getElementById(boxId).style.display = 'block';
+}
+
+function closeAll(event) {
+    if (event && (event.target.closest('.chat-box') ||
+        event.target.closest('.sidebar-button') ||
+        event.target.closest('.post-options') ||
+        event.target.closest('.avatar-container') ||
+        event.target.closest('#comment-overlay'))) return;
+
+    // Close all chat boxes
+    document.querySelectorAll('.chat-box').forEach(box => {
+        box.style.display = 'none';
+    });
+
+    // Close all post menus and profile menus
+    document.querySelectorAll('.post-menu, .profile-menu').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    // Don't close comment overlay if clicked inside it
+    if (!event || !event.target.closest('#comment-overlay')) {
+        closeCommentSection();
+    }
 }
 function createPlaylist() {
     const playlistNameInput = document.querySelector('#playlistBox input[type="text"]');
@@ -64,20 +94,7 @@ function createPlaylist() {
     xhr.send(`playlistName=${encodeURIComponent(playlistName)}`);
 }
 
-function closeAll(event) {
-    if (event && (event.target.closest('.chat-box') ||
-        event.target.closest('.sidebar-button') ||
-        event.target.closest('.post-options') ||
-        event.target.closest('.avatar-container') ||
-        event.target.closest('#comment-overlay'))) return;
 
-    document.querySelectorAll('.chat-box, .post-menu, .profile-menu').forEach(el => el.style.display = 'none');
-
-    // Don't close comment overlay if clicked inside it
-    if (!event || !event.target.closest('#comment-overlay')) {
-        closeCommentSection();
-    }
-}
 
 
 function likePost(button, postId) {
@@ -381,27 +398,241 @@ function submitComment(event) {
 function createCommentElement(comment) {
     const commentItem = document.createElement('div');
     commentItem.className = 'fb-comment-item';
+    commentItem.setAttribute('data-comment-id', comment.id);
 
     const commentDate = comment.createdAt ? new Date(comment.createdAt) : new Date();
     const formattedDate = commentDate.toLocaleString();
 
+    // Check if this is the current user's comment
+    const isCurrentUserComment = parseInt(currentUserId) === comment.userId;
+
+    // Generate action buttons based on user ownership
+    let actionButtons = ``;
+
+    if (isCurrentUserComment) {
+        actionButtons += `
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
+            `;
+    } else {
+        actionButtons += `<span class="fb-comment-action report-comment-btn" onclick="showReportCommentForm(${comment.id})">Report</span>`;
+    }
+
     commentItem.innerHTML = `
-                                <div class="comment-avatar">
-                                    <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
-                                </div>
-                                <div class="fb-comment-content">
-                                    <div class="fb-comment-author">${comment.userName || 'User'}</div>
-                                    <div class="fb-comment-text">${comment.content}</div>
-                                    <div class="fb-comment-time">${formattedDate}</div>
-                                    <div class="fb-comment-actions">
-                                        <span class="fb-comment-action">Like</span>
-                                        <span class="fb-comment-action">Reply</span>
-                                    </div>
-                                </div>
-                            `;
+            <div class="comment-avatar">
+                <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+            </div>
+            <div class="fb-comment-content">
+                <div class="fb-comment-author">${comment.userName || 'User'}</div>
+                <div class="fb-comment-text" id="comment-text-${comment.id}">${comment.content}</div>
+                <div class="fb-comment-time">${formattedDate}</div>
+                <div class="fb-comment-actions">
+                    ${actionButtons}
+                </div>
+            
+                <!-- Edit form (hidden by default) -->
+                <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
+                    <textarea class="edit-comment-textarea">${comment.content}</textarea>
+                    <div class="edit-comment-buttons">
+                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
+                    </div>
+                </div>
+            </div>
+        `;
 
     return commentItem;
 }
+
+// Handle showing the edit form
+function showEditCommentForm(commentId) {
+    // Hide the comment text and show the edit form
+    document.getElementById(`comment-text-${commentId}`).style.display = 'none';
+    document.getElementById(`edit-form-${commentId}`).style.display = 'block';
+}
+
+// Handle canceling edit
+function cancelEditComment(commentId) {
+    // Show the comment text and hide the edit form
+    document.getElementById(`comment-text-${commentId}`).style.display = 'block';
+    document.getElementById(`edit-form-${commentId}`).style.display = 'none';
+}
+
+// Save edited comment
+function saveCommentEdit(commentId) {
+    const commentItem = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
+    const editForm = commentItem.querySelector('.edit-comment-textarea');
+    const newContent = editForm.value.trim();
+
+    if (!newContent) {
+        showNotification("Comment cannot be empty", "warning");
+        return;
+    }
+
+    const editData = {
+        userId: parseInt(currentUserId),
+        content: newContent
+    };
+
+    // Send AJAX request to update the comment
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/EditComment/${commentId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+
+                    // Update the comment content
+                    const commentTextEl = document.getElementById(`comment-text-${commentId}`);
+                    commentTextEl.textContent = newContent;
+
+                    // Hide the edit form and show the updated comment text
+                    cancelEditComment(commentId);
+
+                    // Update the comment in the comments store
+                    if (commentsStore[currentPostId]) {
+                        const commentIndex = commentsStore[currentPostId].findIndex(c => c.id === commentId);
+                        if (commentIndex !== -1) {
+                            commentsStore[currentPostId][commentIndex].content = newContent;
+                        }
+                    }
+
+                    showNotification("Comment updated successfully", "success");
+                } catch (error) {
+                    console.error("Error parsing response:", error);
+                    showNotification("Failed to update comment", "error");
+                }
+            } else {
+                console.error("Error updating comment:", xhr.responseText);
+                showNotification("Failed to update comment", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(editData));
+}
+
+// Confirm before deleting comment
+function confirmDeleteComment(commentId) {
+    if (confirm("Are you sure you want to delete this comment?")) {
+        deleteComment(commentId);
+    }
+}
+
+// Delete comment
+function deleteComment(commentId) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/DeleteComment/${commentId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                // Remove the comment from the DOM
+                const commentElement = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
+                if (commentElement) {
+                    commentElement.remove();
+                }
+
+                // Remove from comments store
+                if (commentsStore[currentPostId]) {
+                    commentsStore[currentPostId] = commentsStore[currentPostId].filter(c => c.id !== commentId);
+
+                    // Update comment count badge
+                    updateCommentCountBadge(currentPostId, commentsStore[currentPostId].length);
+                }
+
+                showNotification("Comment deleted successfully", "success");
+            } else {
+                console.error("Error deleting comment:", xhr.responseText);
+                showNotification("Failed to delete comment", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(parseInt(currentUserId)));
+}
+
+// Show the report comment form
+function showReportCommentForm(commentId) {
+    // Create a modal for reporting
+    const reportModal = document.createElement('div');
+    reportModal.className = 'report-modal';
+    reportModal.id = 'report-modal';
+
+    reportModal.innerHTML = `
+            <div class="report-container">
+                <div class="report-header">
+                    <h3>Report Comment</h3>
+                    <button class="close-report-btn" onclick="closeReportForm()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="report-body">
+                    <p>Please select a reason for reporting this comment:</p>
+                    <select id="report-reason">
+                        <option value="spam">Spam</option>
+                        <option value="harassment">Harassment</option>
+                        <option value="inappropriate">Inappropriate content</option>
+                        <option value="offensive">Offensive language</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea id="report-details" placeholder="Additional details (optional)"></textarea>
+                </div>
+                <div class="report-footer">
+                    <button class="cancel-btn" onclick="closeReportForm()">Cancel</button>
+                    <button class="report-btn" onclick="submitReport(${commentId})">Submit Report</button>
+                </div>
+            </div>
+        `;
+
+    document.body.appendChild(reportModal);
+}
+
+// Close the report form
+function closeReportForm() {
+    const reportModal = document.getElementById('report-modal');
+    if (reportModal) {
+        reportModal.remove();
+    }
+}
+
+// Submit report
+function submitReport(commentId) {
+    const reasonSelect = document.getElementById('report-reason');
+    const detailsField = document.getElementById('report-details');
+
+    const reason = reasonSelect.value;
+    const details = detailsField.value.trim();
+
+    const reportData = {
+        userId: parseInt(currentUserId),
+        reason: reason + (details ? `: ${details}` : '')
+    };
+
+    // Send AJAX request to report the comment
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/ReportComment/${commentId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                closeReportForm();
+                showNotification("Comment reported successfully", "success");
+            } else {
+                console.error("Error reporting comment:", xhr.responseText);
+                showNotification("Failed to report comment", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(reportData));
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Script is loaded and running');
@@ -413,14 +644,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Load all comment counts when page loads
     loadAllCommentCounts();
 
-    // Handle Enter key for comments
-    document.querySelectorAll('.fb-comment-input').forEach(input => {
-        input.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                submitComment({ target: this.closest('.fb-comment-input-wrapper').querySelector('.fa-paper-plane') });
-            }
-        });
-    });
 
     // Close comment overlay when clicked outside
     document.addEventListener('click', function (event) {
@@ -444,69 +667,80 @@ document.addEventListener('DOMContentLoaded', function () {
         const timeDisplay = player.querySelector('.time-display');
         const audio = player.querySelector('audio');
 
+        // Basic time formatting function
         function formatTime(seconds) {
             const minutes = Math.floor(seconds / 60);
             const secs = Math.floor(seconds % 60);
             return `${minutes}:${secs < 10 ? '0' + secs : secs}`;
         }
 
-        audio.addEventListener('timeupdate', function () {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-            timeDisplay.textContent = formatTime(audio.currentTime);
-        });
+        // Play button click handler to trigger global player
+        // Play button click handler to trigger global player
+        playBtn.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent event bubbling
 
-        audio.addEventListener('loadedmetadata', function () {
-            timeDisplay.textContent = formatTime(audio.duration);
-        });
+            // Find song information
+            const songItem = player.closest('.song-item');
+            const post = songItem.closest('.post');
 
-        playBtn.addEventListener('click', function () {
-            if (audio.paused) {
-                document.querySelectorAll('audio').forEach(a => {
-                    if (a !== audio && !a.paused) {
-                        a.pause();
+            const songTitle = songItem.querySelector('.song-info span')?.textContent.trim() ||
+                "Unknown Song";
+            const artistName = post.querySelector('.post-author')?.textContent ||
+                "Unknown Artist";
+            const imageUrl = post.querySelector('.post-image')?.src || null;
 
-                        const otherPlayer = a.closest('.custom-audio-player');
-                        if (otherPlayer) {
-                            const otherIcon = otherPlayer.querySelector('.play-button i');
-                            otherIcon.classList.remove('fa-pause');
-                            otherIcon.classList.add('fa-play');
-                        }
-                    }
-                });
+            // Create song info object
+            const songInfo = {
+                url: songUrl,
+                title: songTitle,
+                artist: artistName,
+                imageUrl: imageUrl,
+                element: player
+            };
 
-                audio.play();
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-            } else {
-                audio.pause();
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
+            // Just play the song without modifying any playlist
+            if (typeof window.playWithGlobalPlayer === 'function') {
+                window.playWithGlobalPlayer(songUrl, songInfo, true); // true flag indicates standalone play
             }
         });
 
-        // Click on progress bar to seek
-        progressContainer.addEventListener('click', function (e) {
-            const rect = this.getBoundingClientRect();
-            const clickPosition = (e.clientX - rect.left) / rect.width;
-            audio.currentTime = clickPosition * audio.duration;
-        });
+        // These event listeners are just for visual feedback in the local player UI
+        // The actual playback happens in the global player
+        if (audio) {
+            audio.addEventListener('timeupdate', function () {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                if (progressBar) progressBar.style.width = `${progress}%`;
+                if (timeDisplay) timeDisplay.textContent = formatTime(audio.currentTime);
+            });
 
-        // Reset when audio ends
-        audio.addEventListener('ended', function () {
-            audio.currentTime = 0;
-            playIcon.classList.remove('fa-pause');
-            playIcon.classList.add('fa-play');
-        });
+            audio.addEventListener('loadedmetadata', function () {
+                if (timeDisplay) timeDisplay.textContent = formatTime(audio.duration);
+            });
+        }
+
+        // Click on progress bar to seek - this will be handled by global player
+        if (progressContainer) {
+            progressContainer.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // We'll let the global player handle actual seeking
+            });
+        }
     });
 
-    // Volume slider functionality
+    // Volume slider functionality - will be handled by global player
     document.querySelectorAll(".volume-slider").forEach(slider => {
         slider.addEventListener("input", function () {
-            let songId = this.id.replace("volume-slider-", ""); // Lấy ID bài hát từ thanh trượt
+            let songId = this.id.replace("volume-slider-", "");
             let audio = document.getElementById(`audio-${songId}`);
-            if (audio) {
-                audio.volume = this.value;
+
+            // Set volume on global player if playing this song
+            if (typeof window.globalAudio !== 'undefined' && audio) {
+                window.globalAudio.volume = this.value;
+
+                // Update volume UI if function exists
+                if (typeof window.updateVolumeIcon === 'function') {
+                    window.updateVolumeIcon(this.value);
+                }
             }
         });
     });

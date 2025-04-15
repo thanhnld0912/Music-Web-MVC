@@ -21,6 +21,10 @@ namespace MusicWebMVC.Controllers
         {
             return View();
         }
+        public IActionResult UploadPageAdmin()
+        {
+            return View();
+        }
 
         public IActionResult SongPage(int postId)
         {

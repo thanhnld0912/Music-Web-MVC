@@ -96,13 +96,22 @@
                     </div>
                     <div class="form-group">
                         <label>New Password</label>
-                        <input type="password" id="newPassword" class="form-control" placeholder="Enter new password">
+                        <div class="password-container">
+                            <input type="password" id="newPassword" class="form-control" placeholder="Enter new password">
+                            <button type="button" id="toggleNewPassword" onclick="togglePasswordVisibility('newPassword')" class="password-toggle-btn">
+                                <i id="newPasswordIcon" class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Confirm New Password</label>
-                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm new password">
+                        <div class="password-container">
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm new password">
+                            <button type="button" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPassword')" class="password-toggle-btn">
+                                <i id="confirmPasswordIcon" class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
-
                 </form>
             </div>
             <div class="modal-footer">

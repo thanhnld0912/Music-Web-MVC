@@ -17,6 +17,9 @@ namespace MusicWebMVC.Data
         public DbSet<Follow> Follows { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
         public DbSet<PlaylistSong> PlaylistSongs { get; set; }
+        public DbSet<CommentReport> CommentReports { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -101,6 +104,7 @@ namespace MusicWebMVC.Data
                 .WithMany(u => u.Followers)
                 .HasForeignKey(f => f.FollowingId)
                 .OnDelete(DeleteBehavior.Restrict);
+
             // Quan hệ giữa User và Playlist
             modelBuilder.Entity<Playlist>()
                 .HasOne(p => p.User)
@@ -122,16 +126,56 @@ namespace MusicWebMVC.Data
                 .HasOne(ps => ps.Song)
                 .WithMany(s => s.PlaylistSongs)
                 .HasForeignKey(ps => ps.SongId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
+
             // Quan hệ User - Song (qua ArtistId)
             modelBuilder.Entity<Song>()
                 .HasOne(s => s.User)
                 .WithMany()
                 .HasForeignKey(s => s.ArtistId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // CommentReport - User relationship (who reported the comment)
+            modelBuilder.Entity<CommentReport>()
+                .HasOne(cr => cr.User)
+                .WithMany(u => u.CommentReports)
+                .HasForeignKey(cr => cr.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // CommentReport - Comment relationship (which comment was reported)
+            modelBuilder.Entity<CommentReport>()
+                .HasOne(cr => cr.Comment)
+                .WithMany(c => c.CommentReports)
+                .HasForeignKey(cr => cr.CommentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Notification - User (Người nhận thông báo)
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.User)
+                .WithMany(u => u.Notifications)
+                .HasForeignKey(n => n.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Notification - FromUser (Người thực hiện hành động)
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.FromUser)
+                .WithMany()
+                .HasForeignKey(n => n.FromUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Message relationships
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Sender)
+                .WithMany()
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Receiver)
+                .WithMany()
+                .HasForeignKey(m => m.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
-
-
 
         public static void Seed(ApplicationDbContext context)
         {

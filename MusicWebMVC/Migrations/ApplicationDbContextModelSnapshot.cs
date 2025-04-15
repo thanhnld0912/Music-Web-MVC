@@ -44,6 +44,9 @@ namespace MusicWebMVC.Migrations
                     b.Property<int?>("SongId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -56,6 +59,43 @@ namespace MusicWebMVC.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("MusicWebMVC.Models.CommentReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("Resolved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ResolvedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CommentReports");
                 });
 
             modelBuilder.Entity("MusicWebMVC.Models.Dislike", b =>
@@ -144,6 +184,85 @@ namespace MusicWebMVC.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("MusicWebMVC.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReceiverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("MusicWebMVC.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("FromUserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SongId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FromUserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("MusicWebMVC.Models.Playlist", b =>
@@ -345,6 +464,25 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.CommentReport", b =>
+                {
+                    b.HasOne("MusicWebMVC.Models.Comment", "Comment")
+                        .WithMany("CommentReports")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MusicWebMVC.Models.User", "User")
+                        .WithMany("CommentReports")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Dislike", b =>
                 {
                     b.HasOne("MusicWebMVC.Models.Post", "Post")
@@ -414,6 +552,43 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.Message", b =>
+                {
+                    b.HasOne("MusicWebMVC.Models.User", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MusicWebMVC.Models.User", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("MusicWebMVC.Models.Notification", b =>
+                {
+                    b.HasOne("MusicWebMVC.Models.User", "FromUser")
+                        .WithMany()
+                        .HasForeignKey("FromUserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MusicWebMVC.Models.User", "User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FromUser");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Playlist", b =>
                 {
                     b.HasOne("MusicWebMVC.Models.User", "User")
@@ -436,7 +611,7 @@ namespace MusicWebMVC.Migrations
                     b.HasOne("MusicWebMVC.Models.Song", "Song")
                         .WithMany("PlaylistSongs")
                         .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Playlist");
@@ -478,6 +653,11 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.Comment", b =>
+                {
+                    b.Navigation("CommentReports");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Playlist", b =>
                 {
                     b.Navigation("PlaylistSongs");
@@ -507,6 +687,8 @@ namespace MusicWebMVC.Migrations
 
             modelBuilder.Entity("MusicWebMVC.Models.User", b =>
                 {
+                    b.Navigation("CommentReports");
+
                     b.Navigation("Comments");
 
                     b.Navigation("Followers");
@@ -514,6 +696,8 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("Following");
 
                     b.Navigation("Likes");
+
+                    b.Navigation("Notifications");
 
                     b.Navigation("Playlists");
 

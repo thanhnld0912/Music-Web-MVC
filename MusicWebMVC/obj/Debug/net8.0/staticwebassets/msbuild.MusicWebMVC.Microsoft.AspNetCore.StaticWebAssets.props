@@ -1,5 +1,41 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\cover.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>css/cover.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4jp2tjc4rw</Fingerprint>
+      <Integrity>QOljQUxkOS+i4rwX4SNyHWhIpLxjh/pmrEIrJ4sV+ug=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\cover.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\dashboard.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>css/dashboard.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>io49u620qg</Fingerprint>
+      <Integrity>DqqQM6r297GcYpL4jlRQsuMsqRFR1vBilYR0DvE0XrA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\dashboard.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\globalplayer.css'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -12,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0ibfqtin1b</Fingerprint>
-      <Integrity>+LUNUXrKaNF5ZEsNNATy8P9RGVIrAPQAyDJ8pR81Oaw=</Integrity>
+      <Fingerprint>z3xv2wipfh</Fingerprint>
+      <Integrity>X9vEUHhCg9AAwCmZBlkg6yIatkEVkZ+sbazfLwbDi6c=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\globalplayer.css'))</OriginalItemSpec>
@@ -66,8 +102,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5ovzph090z</Fingerprint>
-      <Integrity>FWhrJv7GRLE0vKQLzN8kXvIGqpLqeO/hyfWzJtGs+Tc=</Integrity>
+<<<<<<< HEAD
+      <Fingerprint>n9d9xal5au</Fingerprint>
+      <Integrity>lZvrkR2YKTS795JyFNykO2faiTzXx6sjEAXSOq//X88=</Integrity>
+=======
+      <Fingerprint>ehybvhgzo5</Fingerprint>
+      <Integrity>rlnYj/AqzTLEyYtABUjb2o/FBTeTeFhg9+SSIM6t4Os=</Integrity>
+>>>>>>> c6a950de7d28ad9cbf17bd1a9304f8dd61b309e6
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\newfeed.css'))</OriginalItemSpec>
@@ -90,6 +131,42 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\playlist.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\post.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>css/post.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>vqgrzh4str</Fingerprint>
+      <Integrity>h7RdkTnQhsNL+05OlLygzCr4ieYJ66bbfZq1UAn/6ek=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\post.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\postdetail.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>css/postdetail.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>bp5tdewet8</Fingerprint>
+      <Integrity>H2dNP78Y6uM8SX8KsYQnZZGej3yjn+vDt+OCRwrHcsc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\postdetail.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\profile.css'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -102,8 +179,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5boc66y1us</Fingerprint>
-      <Integrity>EQRfa6o7w89++p/9Hi4csGiFkjJLSgqPH4SqzVLWdtA=</Integrity>
+      <Fingerprint>0c5sgsuytb</Fingerprint>
+      <Integrity>AJZmdBN/rf/W3HAu+/OOi6JW6zVROrW7qNoQauXgGOc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\profile.css'))</OriginalItemSpec>
@@ -125,6 +202,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\profileuser.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\searchpage.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>css/searchpage.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>y98scygs24</Fingerprint>
+      <Integrity>GpO8xNqN1huIc7EmvARsWuhPOfQ5IdlCM7gycxIonOY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\searchpage.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))">
       <SourceType>Package</SourceType>
@@ -156,8 +251,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>l8p1si5wxd</Fingerprint>
-      <Integrity>+1WpqH5a8pTkdapwAJ3VsC3/cvmBk/IRmDeXKHyHncY=</Integrity>
+      <Fingerprint>zozevrbmd1</Fingerprint>
+      <Integrity>zVjr5R/OWSLK7TqiFe7F0dcdpxEKvSlAFytRSx2Jh64=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\songpage.css'))</OriginalItemSpec>
@@ -192,11 +287,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>84m11k986q</Fingerprint>
-      <Integrity>yNhoC2R/OZ+N+M9AiuQ2cmg2FKQykSL3BU2nEH3SCtU=</Integrity>
+      <Fingerprint>2kv40xsj31</Fingerprint>
+      <Integrity>PuOhCqKv2yKPz0bnIYBDay4e8TuF+alSGn7XPIKWjGs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\upload.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\user.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>css/user.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>bm6xle0486</Fingerprint>
+      <Integrity>w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\user.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))">
       <SourceType>Package</SourceType>
@@ -270,6 +383,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\avatar.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\background.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>img/background.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0bufrf1ofu</Fingerprint>
+      <Integrity>1BFFptOzWeOLn8SmwhMZMze5H0Ju3RrRwLi6gH4Od7E=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\background.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\background.png'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -282,8 +413,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>nlcj9mg0jb</Fingerprint>
-      <Integrity>i4e+VSBBBvgI1KBpPdA3X9zD63fc31jGNs+CxoWBu5Y=</Integrity>
+      <Fingerprint>tl0wuhieqy</Fingerprint>
+      <Integrity>79L6lbbqeCi0jFWbjAZWflIS/+Eyn6V+mOzzt+jhFUs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\background.png'))</OriginalItemSpec>
@@ -378,6 +509,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\lgo.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\chart.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>js/chart.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ucluwzf6f2</Fingerprint>
+      <Integrity>nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\chart.js'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\globalplayer.js'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -390,8 +539,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jyegke2pt8</Fingerprint>
-      <Integrity>RWSfrQvmTiXTsUQW+WHJRgzyaIxOAPfhUA7eT4g8xlg=</Integrity>
+      <Fingerprint>eluc13s9kd</Fingerprint>
+      <Integrity>Hk0f16dH1gu53nLie1uCk2KEaeZ7f0Bl06ZwA7KlAKY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\globalplayer.js'))</OriginalItemSpec>
@@ -444,29 +593,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>n7n5qwrn4i</Fingerprint>
-      <Integrity>PbES1ZMqAcTgsUseYppmzer88KT2YvXstpEK06qSsNk=</Integrity>
+      <Fingerprint>pk1eqltukx</Fingerprint>
+      <Integrity>eR0c/thqx/tUPTC3OxZKQ+lk3w/MkEAFUGaIDUfdyXM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\NewFeed.js'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\playlistpage.js'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\postdetail.js'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/MusicWebMVC</BasePath>
-      <RelativePath>js/playlistpage.js</RelativePath>
+      <RelativePath>js/postdetail.js</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vhy5wipwxg</Fingerprint>
-      <Integrity>43XZRrzCcOY4kxoAJsjNL277zp0XqH1XoNrvrjXHN0M=</Integrity>
+      <Fingerprint>i4djwvhc75</Fingerprint>
+      <Integrity>MtVx5bk87s0/TiTv6Hy6sH9Hoj7EbZsLsHacMwQ1Wzc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\playlistpage.js'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\postdetail.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Profile.js'))">
       <SourceType>Package</SourceType>
@@ -480,8 +629,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>a71ac6ffks</Fingerprint>
-      <Integrity>ljiG6PuJu+F7psJAVIActR2DX5G0yRDBpzcSWC+uQ4c=</Integrity>
+      <Fingerprint>ec1dzoedsg</Fingerprint>
+      <Integrity>DstRvvghufsq7qa1MK1n4YZJiT4/qOL37YIYntReyzg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Profile.js'))</OriginalItemSpec>
@@ -503,6 +652,42 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\profileuser.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\search.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>js/search.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>1qpwmdukje</Fingerprint>
+      <Integrity>OVQBXF1ttTZQ7VMhGb1AW9Auj2IG37xogpO6wXg4sfI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\search.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\searchpage.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>js/searchpage.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3r8b2a0bt1</Fingerprint>
+      <Integrity>8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\searchpage.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>
@@ -534,8 +719,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kyh2hvcum7</Fingerprint>
-      <Integrity>lGvO97oVcxH4fdq+TSkUFS3nG24INQcP28flyWe8xmQ=</Integrity>
+      <Fingerprint>7d0pl60mgb</Fingerprint>
+      <Integrity>G1sxT7eBNqcUOBhStyXBN/oWw6Dp+BySNzNx3Y7nBFQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\SongPage.js'))</OriginalItemSpec>
@@ -552,8 +737,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>aaxsdie4re</Fingerprint>
-      <Integrity>giygM7NSCMZtk4VdtKQ0nU0G9m958/v1E2JWhhf0oZ0=</Integrity>
+      <Fingerprint>9ch8m5wa1v</Fingerprint>
+      <Integrity>yZM8sJ0IdfBhlDfHQkMiz53/eoy10ceIoRr7BruAJKs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\uploadfile.js'))</OriginalItemSpec>
@@ -1601,6 +1786,222 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MusicWebMVC.vkvu46hx0s.bundle.scp.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_083ce449507341889f73c85339a81bc9.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_083ce449507341889f73c85339a81bc9.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_083ce449507341889f73c85339a81bc9.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>
