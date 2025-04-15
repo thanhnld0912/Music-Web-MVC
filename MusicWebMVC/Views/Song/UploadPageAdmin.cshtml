@@ -1,0 +1,157 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Upload";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var userId = Context.Session.GetString("UserId");
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/default-avatar.png";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Music - Melofy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/upload.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    @await Component.InvokeAsync("SidebarAdmin")
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        @await Component.InvokeAsync("NavbarAdmin")
+
+        <!-- Main content -->
+        <div class="main-content">
+
+
+            <!-- Post with Upload Form -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-avatar avatar-red">M</div>
+                    <div class="post-info">
+                        <div class="post-author">Your Profile <span class="verified-badge"></span></div>
+                    </div>
+                    <div class="post-options"></div>
+                    <i class="fa fa-paper-plane airplane" id="shareButton"></i>
+                </div>
+
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="post-content">
+                        <textarea id="postContent" name="content" placeholder="Share your music with the world..." rows="3" class="post-content-textarea"></textarea>
+                    </div>
+
+                    <div class="upload-container" id="dropZone">
+                        <input type="file" id="songFile" name="file" accept=".mp3,.m4a" style="display: none;">
+                        <i class="fa fa-upload upload-icon" id="uploadTrigger"></i>
+                        <span class="upload-text">Upload Songs</span>
+                        <i class="fa fa-trash trashcan" id="clearUpload"></i>
+                    </div>
+
+                    <div class="file-details" id="fileDetails" style="display: none;">
+                        <p id="fileName"></p>
+                        <p id="fileSize"></p>
+                        <p id="fileDuration"></p>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="songTitle">Song Title</label>
+                        <input type="text" id="songTitle" name="title" placeholder="Enter song title...">
+                        <input type="hidden" id="artistId" name="artistId" value="@userId">
+                    </div>
+
+                    <div class="audio-player" id="audioPreview" style="display: none;">
+                        <button type="button" class="play-button" id="playButton">▶</button>
+                        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        <div class="song-progress">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="package-weight">
+                        <p>Acceptable formats: <strong>.m4a, .mp3</strong> | Max length: <strong>10 minutes</strong> | Max size: <strong>20MB</strong></p>
+                    </div>
+
+                    <div class="upload-actions">
+                        <p>By uploading this song, you confirm that you are complying with all legal guidelines set forth by our Community Guidelines and Terms of Service.</p>
+                        <button type="button" id="submitUpload" class="upload-button">Upload Song</button>
+                    </div>
+                </form>
+
+                <div id="uploadStatus" style="display: none;">
+                    <div class="upload-progress">
+                        <div class="progress-bar" id="uploadProgressBar"></div>
+                    </div>
+                    <p id="uploadMessage"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Share Your Music</h2>
+
+            <div class="modal-form">
+                <div class="form-group">
+                    <label for="song-genre">Genre</label>
+                    <select id="song-genre">
+                        <option value="">Select genre...</option>
+                        <option value="pop">Pop</option>
+                        <option value="rock">Rock</option>
+                        <option value="hiphop">Hip Hop</option>
+                        <option value="rnb">R&B</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="classical">Classical</option>
+                        <option value="electronic">Electronic</option>
+                        <option value="folk">Folk</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Type</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="song-type" value="cover" checked>
+                            Cover
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="song-type" value="original">
+                            Original
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="song-era">Era</label>
+                    <select id="song-era">
+                        <option value="">Select era...</option>
+                        <option value="60s">60s</option>
+                        <option value="70s">70s</option>
+                        <option value="80s">80s</option>
+                        <option value="90s">90s</option>
+                        <option value="00s">2000s</option>
+                        <option value="10s">2010s</option>
+                        <option value="20s">2020s</option>
+                    </select>
+                </div>
+
+
+
+                <div class="modal-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="share-btn">Share Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/uploadfile.js"></script>
+</body>
+</html>

@@ -17,6 +17,7 @@ namespace MusicWebMVC.Data
         public DbSet<Follow> Follows { get; set; }
         public DbSet<Playlist> Playlists { get; set; }
         public DbSet<PlaylistSong> PlaylistSongs { get; set; }
+        public DbSet<CommentReport> CommentReports { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -122,13 +123,26 @@ namespace MusicWebMVC.Data
                 .HasOne(ps => ps.Song)
                 .WithMany(s => s.PlaylistSongs)
                 .HasForeignKey(ps => ps.SongId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
             // Quan hệ User - Song (qua ArtistId)
             modelBuilder.Entity<Song>()
                 .HasOne(s => s.User)
                 .WithMany()
                 .HasForeignKey(s => s.ArtistId)
                 .OnDelete(DeleteBehavior.Restrict);
+            // CommentReport - User relationship (who reported the comment)
+            modelBuilder.Entity<CommentReport>()
+                .HasOne(cr => cr.User)
+                .WithMany(u => u.CommentReports)
+                .HasForeignKey(cr => cr.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // CommentReport - Comment relationship (which comment was reported)
+            modelBuilder.Entity<CommentReport>()
+                .HasOne(cr => cr.Comment)
+                .WithMany(c => c.CommentReports)
+                .HasForeignKey(cr => cr.CommentId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
 

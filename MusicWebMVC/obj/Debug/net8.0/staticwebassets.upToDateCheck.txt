@@ -8,6 +8,7 @@ wwwroot\css\playlist.css
 wwwroot\css\post.css
 wwwroot\css\profile.css
 wwwroot\css\profileuser.css
+wwwroot\css\searchpage.css
 wwwroot\css\site.css
 wwwroot\css\songpage.css
 wwwroot\css\style-carousel.css
@@ -17,6 +18,7 @@ wwwroot\favicon.ico
 wwwroot\img\1.gif
 wwwroot\img\admin.jpg
 wwwroot\img\avatar.jpg
+wwwroot\img\background.mp4
 wwwroot\img\background.png
 wwwroot\img\download.gif
 wwwroot\img\Image1.jpg
@@ -28,9 +30,10 @@ wwwroot\js\globalplayer.js
 wwwroot\js\layout.js
 wwwroot\js\Login.js
 wwwroot\js\NewFeed.js
-wwwroot\js\playlistpage.js
 wwwroot\js\Profile.js
 wwwroot\js\profileuser.js
+wwwroot\js\search.js
+wwwroot\js\searchpage.js
 wwwroot\js\site.js
 wwwroot\js\SongPage.js
 wwwroot\js\uploadfile.js
@@ -91,3 +94,10 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\uploads\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3
+wwwroot\uploads\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3
+wwwroot\uploads\HEHE-BOY-ORIGINAL-MEME_78b93a5a101249b9835e38dbed1243b2.mp3
+wwwroot\uploads\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3
+wwwroot\uploads\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3
+wwwroot\uploads\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3
+wwwroot\uploads\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3
