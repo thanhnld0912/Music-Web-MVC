@@ -5,7 +5,8 @@
     Layout = null;
     ViewData["Title"] = "User";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
-    @model List<MusicWeb.Models.UserViewModel>
+    @model PagedResult<MusicWeb.Models.UserViewModel>
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +70,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var user in Model)
+                    @foreach (var user in Model.Items)
                     {
                         <tr>
                             <td>@user.Id</td>
@@ -77,71 +78,131 @@
                             <td>@user.Email</td>
                             <td>@user.PostCount</td>
                             <td>
-                                <button class="btn delete">Delete</button>
-                                <button class="btn disable">Disable</button>
+                                <button class="btn delete" onclick="confirmModal(@user.Id)">Delete</button>
+                                @if ((user.IsDisabled ?? false))
+                                {
+                                    <button class="btn disable" onclick="enableUser(@user.Id)">Enable</button>
+                                }
+                                else
+                                {
+                                    <button class="btn disable" onclick="disableModal(@user.Id)">Disable</button>
+                                }
                                 <button class="btn more">More</button>
                             </td>
                         </tr>
                     }
-                    @* <tr> *@
-                    @*     <td>1</td> *@
-                    @*     <td>User1</td> *@
-                    @*     <td><strong>User1@gmail.com</strong></td> *@
-                    @*     <td>23</td> *@
-                    @*     <td> *@
-                    @*         <button class="btn delete">Delete</button> *@
-                    @*         <button class="btn disable">Disable</button> *@
-                    @*         <button class="btn more">More</button> *@
-                    @*     </td> *@
-                    @* </tr> *@
-                    @* <tr> *@
-                    @*     <td>2</td> *@
-                    @*     <td>User2</td> *@
-                    @*     <td><strong>User2@gmail.com</strong></td> *@
-                    @*     <td>142</td> *@
-                    @*     <td> *@
-                    @*         <button class="btn delete">Delete</button> *@
-                    @*         <button class="btn disable">Disable</button> *@
-                    @*         <button class="btn more">More</button> *@
-                    @*     </td> *@
-                    @* </tr> *@
-                    @* <tr> *@
-                    @*     <td>3</td> *@
-                    @*     <td>User3</td> *@
-                    @*     <td><strong>User3@gmail.com</strong></td> *@
-                    @*     <td>98</td> *@
-                    @*     <td> *@
-                    @*         <button class="btn delete">Delete</button> *@
-                    @*         <button class="btn disable">Disable</button> *@
-                    @*         <button class="btn more">More</button> *@
-                    @*     </td> *@
-                    @* </tr> *@
-                    @* <tr> *@
-                    @*     <td>4</td> *@
-                    @*     <td>User4</td> *@
-                    @*     <td><strong>User4@gmail.com</strong></td> *@
-                    @*     <td>65</td> *@
-                    @*     <td> *@
-                    @*         <button class="btn delete">Delete</button> *@
-                    @*         <button class="btn disable">Disable</button> *@
-                    @*         <button class="btn more">More</button> *@
-                    @*     </td> *@
-                    @* </tr> *@
                 </tbody>
             </table>
 
             <div class="pagination">
-                <button class="page-btn active">1</button>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
+                @if (Model.HasPrevious)
+                {
+                    <button class="page-redirect-btn"  onclick="window.location.href='@Url.Action("User", "Admin", new { page = Model.CurrentPage - 1 })'">
+                        &laquo;
+                    </button>
+                }
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <button class="page-btn @(i == Model.CurrentPage ? "active" : "")"
+                                onclick="window.location.href='@Url.Action("User", "Admin", new { page = i})'">
+                        @i
+                    </button>
+                }
+
+                @if (Model.HasNext)
+                {
+                    <button class="page-redirect-btn" onclick="window.location.href='@Url.Action("User", "Admin", new { page = Model.CurrentPage + 1 })'">
+                        &raquo;
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="confirm-modal">
+        <div class="confirm-modal-content">
+            <h3>CONFIRM</h3>
+            <p>Are you sure you want to delete this user?</p>
+            <div class="confirm-modal-buttons">
+                <button class="btn no" onclick="closeConfirmModal()">No</button>
+                <button class="btn yes" onclick="confirmDelete()">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="disableModal" class="disable-modal" style="display: none">
+        <div class="disable-modal-content">
+            <div class="disable-modal-header">
+                <h1>INFORMATION</h1>
+                <span class="modal-close" onclick="closeDisableModal()">&#10006;</span>
+            </div>
+
+            <div class="disable-modal-body">
+                <p style="font-weight: bold;">
+                    Status: <span style="color: red;">Disable 365 days</span>
+                    <span style="font-size: 22px; color: red;">&#x26A0;</span>
+                </p>
+                @* <form method="post" id="disableForm" asp-action="DisableUser"> *@
+                @*     <input type="hidden" name="userId" id="disableUserId"/> *@
+                @*     <div class="disable-modal-buttons"> *@
+                @*         <button type="button" class="btn-no" onclick="closeDisableModal()">No</button> *@
+                @*         <button type="submit" class="btn-yes">Yes</button> *@
+                @*     </div> *@
+                @* </form> *@
+                <div class="disable-modal-buttons">
+                    <button class="btn-no" onclick="closeDisableModal()">No</button>
+                    <button class="btn-yes" onclick="confirmDisable()">Yes</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        let selectedConfirmUserId = null;
+        let selectedDisableUserId = null;
+
         function toggleSidebar(event) {
             event.stopPropagation();
             document.getElementById('sidebar').classList.toggle('collapsed');
+        }
+
+        function confirmModal(userId) {
+            selectedConfirmUserId = userId;
+            document.getElementById("confirmModal").style.display = "flex";
+        }
+
+        function closeConfirmModal() {
+            document.getElementById("confirmModal").style.display = "none";
+            selectedConfirmUserId = null;
+        }
+
+        function confirmDelete() {
+            if (selectedConfirmUserId !== null) {
+                window.location.href = `/Admin/DeleteUser?id=${selectedConfirmUserId}`;
+            }
+        }
+
+        function disableModal(userId) {
+            selectedDisableUserId = userId;
+            document.getElementById("disableModal").style.display = "flex";
+        }
+
+        function closeDisableModal() {
+            document.getElementById("disableModal").style.display = "none";
+            selectedDisableUserId = null;
+        }
+
+        function confirmDisable() {
+            if (selectedDisableUserId !== null) {
+                window.location.href = `/Admin/DisableUser?id=${selectedDisableUserId}`;
+            }
+        }
+
+        function enableUser(userId) {
+            if (userId !== null) {
+                window.location.href = `/Admin/EnableUser?id=${userId}`;
+            }
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>

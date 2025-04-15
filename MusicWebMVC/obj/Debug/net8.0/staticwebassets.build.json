@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "C6JdTJp+WD4xzXvjjS3rgJ7pyVJP7iFzZQC9I5ne+E4=",
+  "Hash": "l5HgbbDoXDDLrS3bTKHZRQWjbK//J9VguL4gm/JxAGA=",
   "Source": "MusicWebMVC",
   "BasePath": "_content/MusicWebMVC",
   "Mode": "Default",
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "bm6xle0486",
-      "Integrity": "w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=",
+      "Fingerprint": "6kg3ytjn24",
+      "Integrity": "aqOZrTseHmOdYxUpkktm5SqYT0xxouBajqSuaaR6eRA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\user.css"
@@ -3162,7 +3162,7 @@
       ]
     },
     {
-      "Route": "css/user.bm6xle0486.css",
+      "Route": "css/user.6kg3ytjn24.css",
       "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3172,7 +3172,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6279"
+          "Value": "9428"
         },
         {
           "Name": "Content-Type",
@@ -3180,11 +3180,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=\""
+          "Value": "\"aqOZrTseHmOdYxUpkktm5SqYT0xxouBajqSuaaR6eRA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 06:55:25 GMT"
+          "Value": "Thu, 10 Apr 2025 08:25:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3194,7 +3194,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "bm6xle0486"
+          "Value": "6kg3ytjn24"
         },
         {
           "Name": "label",
@@ -3202,7 +3202,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE="
+          "Value": "sha256-aqOZrTseHmOdYxUpkktm5SqYT0xxouBajqSuaaR6eRA="
         }
       ]
     },
@@ -3217,7 +3217,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6279"
+          "Value": "9428"
         },
         {
           "Name": "Content-Type",
@@ -3225,11 +3225,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE=\""
+          "Value": "\"aqOZrTseHmOdYxUpkktm5SqYT0xxouBajqSuaaR6eRA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 04 Apr 2025 06:55:25 GMT"
+          "Value": "Thu, 10 Apr 2025 08:25:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3239,7 +3239,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-w8x/O9F0AAtTVCEAmrMsjsMNL96A3WBCTNoPBOrAyoE="
+          "Value": "sha256-aqOZrTseHmOdYxUpkktm5SqYT0xxouBajqSuaaR6eRA="
         }
       ]
     },
@@ -9662,7 +9662,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 06:01:19 GMT"
+          "Value": "Wed, 09 Apr 2025 09:45:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9699,7 +9699,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 06:01:19 GMT"
+          "Value": "Wed, 09 Apr 2025 09:45:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9736,7 +9736,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 06:01:19 GMT"
+          "Value": "Wed, 09 Apr 2025 09:45:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9781,7 +9781,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 08 Apr 2025 06:01:19 GMT"
+          "Value": "Wed, 09 Apr 2025 09:45:01 GMT"
         },
         {
           "Name": "Cache-Control",
