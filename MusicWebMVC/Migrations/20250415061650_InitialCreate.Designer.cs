@@ -12,7 +12,7 @@ using MusicWebMVC.Data;
 namespace MusicWebMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250414075444_InitialCreate")]
+    [Migration("20250415061650_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -414,6 +414,10 @@ namespace MusicWebMVC.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AvatarUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Bio")
                         .IsRequired()

@@ -1,5 +1,9 @@
 ﻿@using MusicWebMVC.Models
 @model IEnumerable<MusicWebMVC.Models.Post>
+@{
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
+}
+ 
 
 
 
@@ -62,7 +66,7 @@
                         <div class="message-dropdown" id="messageDropdown">
                             <div class="message-header">
                                 <h3>Messages</h3>
-                                <a href="@Url.Action("Messages", "Chat")" class="view-all-messages">View All</a>
+                            
                             </div>
                             <div class="message-list" id="messageList">
                                 <!-- Recent conversations will be loaded here -->
@@ -73,7 +77,7 @@
                         </div>
                     </div>
                     <div class="avatar-container" id="avatarContainer">
-                        <img src="~/img/avatar.jpg" alt="Avatar" class="user-avatar">
+                        <img src="@avatarUrl" alt="Avatar" class="user-avatar">
                         <!-- Avatar Dropdown Menu -->
                         <div class="avatar-dropdown" id="avatarDropdown">
                             <ul class="avatar-dropdown-list">
@@ -621,6 +625,7 @@
                     align-items: center;
                     justify-content: center;
                     z-index: 2000;
+                    color : black;
                 }
                 .new-message-dialog-content {
                     width: 400px;

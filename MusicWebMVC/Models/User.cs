@@ -19,6 +19,9 @@ namespace MusicWebMVC.Models
 
         public string Role { get; set; } // Listener, Uploader, VIP
 
+
+
+        public string AvatarUrl { get; set; } = "/img/default-avatar.png";
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         [StringLength(500)]

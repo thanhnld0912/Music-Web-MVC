@@ -202,7 +202,8 @@ using MusicWebMVC.Hubs;
                             content = c.Content,
                             userId = c.UserId,
                             userName = c.User.Username,
-                            createdAt = c.CreatedAt
+                            createdAt = c.CreatedAt,
+                            avatarUrl = c.User.AvatarUrl
                         })
                         .ToListAsync();
 
