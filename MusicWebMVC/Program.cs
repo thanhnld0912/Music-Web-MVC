@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
+using MusicWebMVC.Hubs;
 using MusicWebMVC.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSignalR();
 
 // Thêm dịch vụ Session
 builder.Services.AddDistributedMemoryCache(); // Sử dụng bộ nhớ tạm
@@ -22,7 +25,9 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout trong 30 phút
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+
 });
+
 
 
 // Thêm HttpContextAccessor để truy cập Session từ view
@@ -86,5 +91,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
+
+
+app.MapHub<NotificationHub>("/notificationHub");
+app.MapHub<ChatHub>("/chatHub");
 
 app.Run();

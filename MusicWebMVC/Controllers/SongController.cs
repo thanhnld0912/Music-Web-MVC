@@ -84,7 +84,7 @@ namespace MusicWebMVC.Controllers
                     .ToList<object>();
             }
             Console.WriteLine($"Found {userPlaylists.Count} playlists for user {currentUserId}");
-
+            var avatarUrl = post.User.AvatarUrl;
             // Prepare view data
             ViewData["PostId"] = post.Id;
             ViewData["SongTitle"] = song.Title;
@@ -97,6 +97,7 @@ namespace MusicWebMVC.Controllers
             ViewData["LikeCount"] = likeCount;
             ViewData["Comments"] = post.Comments.OrderByDescending(c => c.CreatedAt);
             ViewData["UserPlaylists"] = userPlaylists;
+            ViewData["avatarUrl"] = avatarUrl;
 
             return View(post);
         }

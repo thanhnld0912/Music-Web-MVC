@@ -238,14 +238,14 @@ body {
     border-radius: 10px;
 }
 
-.avatar {
+.avatar img{
     width: 150px;
     height: 150px;
     background: gray;
     border-radius: 50%;
     display: inline-block;
     margin: 15px 100px;
-    max-width: 30%;
+
 }
 
 .username {
@@ -337,7 +337,7 @@ body {
     gap: 10px;
 }
 
-.post-avatar {
+.post-avatar img {
     width: 60px;
     height: 60px;
     border-radius: 50%;

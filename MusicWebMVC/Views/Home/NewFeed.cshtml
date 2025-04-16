@@ -23,6 +23,7 @@
     @await Component.InvokeAsync("Sidebar")
     <!-- Chat Boxes -->
     <input id="current-user-id" value="@userId" hidden></input>
+    <input id="avatar-url" value="@avatarUrl" hidden></input>
     <div class="chat-box" id="playlistBox">
         <h3>Create Playlist</h3>
         @if (isAuthenticated)
@@ -86,11 +87,17 @@
                     {
                         @foreach (var post in Model)
                         {
+                           
                             <div class="post" data-post-id="@post.Id">
                                 <!-- Post Header -->
                                 <div class="post-header">
-                                    <a href="@Url.Action("ProfileUser", "Home", new { id = post.UserId })"
-                                       class="post-avatar">@post.User.Username[0]</a>
+                                    <div onclick="window.location.href='@Url.Action("ProfileUser", "Home", new { id = post.UserId })'" class="post-avatar-container">
+                                        <img src="@post.User.AvatarUrl" />
+                                    </div>
+        
+                               
+                                
+                                       
                                     <div class="post-info">
                                         <div class="post-author">@post.User.Username</div>
                                         <div class="post-time">@post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
@@ -315,7 +322,7 @@
             <div class="fb-comment-section">
                 <div class="fb-comment-input-container">
                     <div class="comment-avatar">
-                        <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                        <img src="@avatarUrl" alt="avatar" class="comment-user-avatar">
                     </div>
                     <div class="fb-comment-input-wrapper">
                         <input type="text" placeholder="Write a comment..." class="fb-comment-input">
