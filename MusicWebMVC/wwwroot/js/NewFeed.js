@@ -1,7 +1,9 @@
 ﻿
+
 let currentPostId = null;
 const currentUserId = document.getElementById('current-user-id').value;
 let commentsStore = {};
+const avatarUrl = document.getElementById('avatar-url').value;
 
 
 function toggleProfileMenu(event) {
@@ -373,7 +375,7 @@ function submitComment(event) {
                         commentsStore[currentPostId].push(response);
 
                         // Tạo và hiển thị comment mới
-                        const commentItem = createCommentElement(response);
+                        const commentItem = createCommentElementForMySelf(response);
                         commentsList.appendChild(commentItem);
 
                         // Update comment count badge
@@ -420,7 +422,55 @@ function createCommentElement(comment) {
 
     commentItem.innerHTML = `
             <div class="comment-avatar">
-                <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                <img src="${comment.avatarUrl}" alt="avatar" class="comment-user-avatar">
+            </div>
+            <div class="fb-comment-content">
+                <div class="fb-comment-author">${comment.userName || 'User'}</div>
+                <div class="fb-comment-text" id="comment-text-${comment.id}">${comment.content}</div>
+                <div class="fb-comment-time">${formattedDate}</div>
+                <div class="fb-comment-actions">
+                    ${actionButtons}
+                </div>
+            
+                <!-- Edit form (hidden by default) -->
+                <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
+                    <textarea class="edit-comment-textarea">${comment.content}</textarea>
+                    <div class="edit-comment-buttons">
+                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+    return commentItem;
+}
+function createCommentElementForMySelf(comment) {
+    const commentItem = document.createElement('div');
+    commentItem.className = 'fb-comment-item';
+    commentItem.setAttribute('data-comment-id', comment.id);
+
+    const commentDate = comment.createdAt ? new Date(comment.createdAt) : new Date();
+    const formattedDate = commentDate.toLocaleString();
+
+    // Check if this is the current user's comment
+    const isCurrentUserComment = parseInt(currentUserId) === comment.userId;
+
+    // Generate action buttons based on user ownership
+    let actionButtons = ``;
+
+    if (isCurrentUserComment) {
+        actionButtons += `
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
+            `;
+    } else {
+        actionButtons += `<span class="fb-comment-action report-comment-btn" onclick="showReportCommentForm(${comment.id})">Report</span>`;
+    }
+
+    commentItem.innerHTML = `
+            <div class="comment-avatar">
+                <img src="${avatarUrl}" alt="avatar" class="comment-user-avatar">
             </div>
             <div class="fb-comment-content">
                 <div class="fb-comment-author">${comment.userName || 'User'}</div>

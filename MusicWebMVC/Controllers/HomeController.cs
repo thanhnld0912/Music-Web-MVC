@@ -84,6 +84,64 @@ namespace MusicWebMVC.Controllers
 
             return View(posts);
         }
+        public async Task<IActionResult> PostDetail(int id)
+        {
+            // Get the post with all related data
+            var post = await _context.Posts
+                .Include(p => p.User)
+                .Include(p => p.Song)
+                .Include(p => p.Likes)
+                .Include(p => p.Dislikes)
+                .Include(p => p.Comments)
+                    .ThenInclude(c => c.User)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            // Get the current user ID from session
+            int currentUserId = 0;
+            int.TryParse(HttpContext.Session.GetString("UserId"), out currentUserId);
+
+            // Check if the current user has liked or disliked the post
+            if (currentUserId > 0)
+            {
+                ViewData["SongId"] = post.Song.Id;
+                ViewData["UserLiked"] = post.Likes?.Any(l => l.UserId == currentUserId) ?? false;
+                ViewData["UserDisliked"] = post.Dislikes?.Any(d => d.UserId == currentUserId) ?? false;
+
+                // Check if current user is following the post's author
+                var isFollowing = await _context.Follows
+                    .AnyAsync(f => f.FollowerId == currentUserId && f.FollowingId == post.UserId);
+                ViewBag.IsFollowing = isFollowing;
+
+                // Get user's playlists if a song is attached to the post
+                if (post.Song != null)
+                {
+                    var userPlaylists = await _context.Playlists
+                        .Where(p => p.UserId == currentUserId)
+                        .ToListAsync();
+                    ViewBag.UserPlaylists = userPlaylists;
+                }
+            }
+
+            // Get related posts (other posts by the same user, excluding the current post)
+            var relatedPosts = await _context.Posts
+                .Include(p => p.Likes)
+                .Include(p => p.Comments)
+                .Where(p => p.UserId == post.UserId && p.Id != post.Id)
+                .OrderByDescending(p => p.CreatedAt)
+                .Take(5) // Limit to 5 related posts
+                .ToListAsync();
+            ViewBag.RelatedPosts = relatedPosts;
+
+
+            await _context.SaveChangesAsync();
+
+            return View(post);
+        }
         public async Task<IActionResult> NewFeedAdmin()
         {
             var posts = await _context.Posts
@@ -310,6 +368,9 @@ namespace MusicWebMVC.Controllers
             var followingCount = await _context.Follows
                 .CountAsync(f => f.FollowerId == id);
 
+
+           
+
             ViewBag.FollowerCount = followerCount;
             ViewBag.FollowingCount = followingCount;
 
@@ -337,6 +398,9 @@ namespace MusicWebMVC.Controllers
                     ViewData[$"UserDisliked_{post.Id}"] = post.Dislikes?.Any(d => d.UserId == int.Parse(currentUserId)) ?? false;
                 }
             }
+            var avatarUrl = user.AvatarUrl;
+            ViewData[$"avatar-url"] = avatarUrl;
+
 
             // Pass the user's posts and songs to the view
             ViewBag.UserPosts = userPosts;
@@ -365,6 +429,40 @@ namespace MusicWebMVC.Controllers
 
             return Json(artists);
         }
-    }
 
+        [HttpGet]
+        [Route("Home/GetNotifications/{userId}")]
+        public async Task<IActionResult> GetNotifications(int userId)
+        {
+            var notifications = await _context.Notifications
+                .Where(n => n.UserId == userId)
+                .OrderByDescending(n => n.CreatedAt)
+                .Select(n => new {
+                    n.Id,
+                    n.Type,
+                    n.Message,
+                    n.IsRead,
+                    n.CreatedAt,
+                    n.Url
+                })
+                .Take(30) // Limit to 30 most recent notifications
+                .ToListAsync();
+
+            return Json(notifications);
+        }
+
+        [HttpPost]
+        [Route("Home/mark-as-read/{id}")]
+        public async Task<IActionResult> MarkAsRead(int id)
+        {
+            var notification = await _context.Notifications.FindAsync(id);
+            if (notification == null)
+                return NotFound();
+
+            notification.IsRead = true;
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+      
+    }
 }

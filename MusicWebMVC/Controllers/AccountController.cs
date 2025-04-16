@@ -6,16 +6,19 @@ using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MusicWebMVC.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public IActionResult Profile()
@@ -71,44 +74,89 @@ namespace MusicWebMVC.Controllers
             return Json(new { success = true, password = password });
         }
 
-
         [HttpPost]
-        public IActionResult UpdateProfile([FromBody] User updatedUser)
+        public async Task<IActionResult> UpdateProfile()
         {
-            // Lấy UserId từ session
-            var userId = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userId))
+            try
             {
-                return Json(new { success = false, message = "User not authenticated" });
-            }
+                // Get user ID from session
+                var userId = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Json(new { success = false, message = "User not authenticated" });
+                }
 
-            // Tìm kiếm người dùng trong cơ sở dữ liệu
-            var user = _context.Users.FirstOrDefault(u => u.Id.ToString() == userId);
-            if (user == null)
+                // Find the user in database
+                var user = _context.Users.FirstOrDefault(u => u.Id.ToString() == userId);
+                if (user == null)
+                {
+                    return Json(new { success = false, message = "User not found" });
+                }
+
+                // Get form data
+                var username = Request.Form["Username"].ToString();
+                var email = Request.Form["Email"].ToString();
+                var bio = Request.Form["Bio"].ToString();
+
+                // Validate required fields
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email))
+                {
+                    return Json(new { success = false, message = "Username and email are required" });
+                }
+
+                // Update user information
+                user.Username = username;
+                user.Email = email;
+                user.Bio = bio;
+
+                // Update password if provided
+                var password = Request.Form["Password"].ToString();
+                if (!string.IsNullOrEmpty(password))
+                {
+                    user.Password = password;
+                }
+
+                // Handle profile image upload
+                var profileImage = Request.Form.Files.GetFile("ProfileImage");
+                if (profileImage != null && profileImage.Length > 0)
+                {
+                    // Create uploads directory if it doesn't exist
+                    var uploadsDir = Path.Combine(_env.WebRootPath, "uploadsImage");
+                    if (!Directory.Exists(uploadsDir))
+                    {
+                        Directory.CreateDirectory(uploadsDir);
+                    }
+
+                    // Generate unique filename
+                    var fileName = $"{Guid.NewGuid()}_{profileImage.FileName}";
+                    var filePath = Path.Combine(uploadsDir, fileName);
+
+                    // Save file
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await profileImage.CopyToAsync(fileStream);
+                    }
+
+                    // Update user's avatar URL
+                    user.AvatarUrl = $"/uploadsImage/{fileName}";
+
+                    // Update session
+                    HttpContext.Session.SetString("AvatarUrl", user.AvatarUrl);
+                }
+
+                // Save changes
+                await _context.SaveChangesAsync();
+
+                // Update session
+                HttpContext.Session.SetString("Username", user.Username);
+                HttpContext.Session.SetString("Email", user.Email);
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
             {
-                return Json(new { success = false, message = "User not found" });
+                return Json(new { success = false, message = $"Error updating profile: {ex.Message}" });
             }
-
-            // Cập nhật thông tin người dùng
-            user.Username = updatedUser.Username;
-            user.Email = updatedUser.Email;
-            user.Bio = updatedUser.Bio;
-
-            // Cập nhật mật khẩu nếu có
-            if (!string.IsNullOrEmpty(updatedUser.Password))
-            {
-                user.Password = updatedUser.Password;
-            }
-
-            // Lưu thay đổi vào cơ sở dữ liệu
-            _context.SaveChanges();
-
-            // Cập nhật lại thông tin trong session
-            HttpContext.Session.SetString("Username", user.Username);
-            HttpContext.Session.SetString("Email", user.Email);
-            HttpContext.Session.SetString("Bio", user.Bio);
-
-            return Json(new { success = true });
         }
         public IActionResult Login()
         {
@@ -131,6 +179,7 @@ namespace MusicWebMVC.Controllers
                 HttpContext.Session.SetString("UserId", user.Id.ToString());
                 HttpContext.Session.SetString("UserRole", user.Role);
                 HttpContext.Session.SetString("Username", user.Username);
+                HttpContext.Session.SetString("AvatarUrl", user.AvatarUrl);
 
                 // Kiểm tra nếu người dùng là admin và chuyển hướng đến newfeedadmin
                 if (user.Email == "admin@example.com")
@@ -183,7 +232,8 @@ namespace MusicWebMVC.Controllers
                 Email = email,
                 Password = password,
                 Role = "User",
-                Bio = ""  // Giá trị mặc định cho Bio nếu không có thông tin
+                Bio = "",
+                AvatarUrl = "/img/avatar.jpg"
             };
 
             _context.Users.Add(newUser);
