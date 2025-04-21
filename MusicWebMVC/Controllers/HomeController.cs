@@ -23,7 +23,7 @@ namespace MusicWebMVC.Controllers
             int.TryParse(HttpContext.Session.GetString("UserId"), out currentUserId);
             ViewData["IsHome"] = true;
             ViewData["CurrentFilter"] = filter; // Store current filter for UI active state
-            
+
             if (currentUserId < 0)
             {
                 return RedirectToAction("Login", "Account");
@@ -46,12 +46,12 @@ namespace MusicWebMVC.Controllers
                     .ToListAsync();
 
                 // Filter posts by these users
-                postsQuery = postsQuery = postsQuery
-            .Where(p => followingIds.Contains(p.UserId)).Include(p => p.User)
-                .Include(p => p.Song)
-                .Include(p => p.Likes)
-                .Include(p => p.Dislikes)
-            .Include(p => p.Comments);
+                postsQuery = postsQuery.Where(p => followingIds.Contains(p.UserId))
+                    .Include(p => p.User)
+                    .Include(p => p.Song)
+                    .Include(p => p.Likes)
+                    .Include(p => p.Dislikes)
+                    .Include(p => p.Comments);
             }
 
             // Get the final posts list
@@ -85,6 +85,21 @@ namespace MusicWebMVC.Controllers
             {
                 ViewBag.UserPlaylists = new List<Playlist>();
             }
+
+            // Get top 3 users by follower count
+            var topUsers = await _context.Users
+                .OrderByDescending(u => u.Followers.Count)
+                .Take(3)
+                .Select(u => new
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    AvatarUrl = u.AvatarUrl,
+                    FollowerCount = u.Followers.Count
+                })
+                .ToListAsync();
+
+            ViewBag.TopUsers = topUsers;
 
             return View(posts);
         }
