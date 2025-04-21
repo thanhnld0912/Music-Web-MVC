@@ -539,7 +539,7 @@ button {
 
 .modal-content {
     background-color: white;
-    margin: 50px auto;
+    margin: 10% auto 0 auto;
     padding: 0;
     width: 90%;
     max-width: 500px;
@@ -666,16 +666,7 @@ button {
 }
 
 
-/* Top Navigation Wrapper */
-.top-nav-logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px 20px;
-    width: 100%;
-    position: fixed;
-    z-index: 2000;
-}
+
 
 /* Logo Image - Positioned Separately */
 .logoimg {
@@ -691,14 +682,11 @@ button {
 
 /* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
     flex-grow: 1;
     background: linear-gradient(to right, #222, #333, #444, #555);
-    border-radius: 25px;
-    padding: 15px 20px;
-    width: calc(100% - 20px);
+
+    width: calc(100%-20px);
 
 }
 
@@ -736,8 +724,7 @@ button {
 
 /* Auth Buttons */
 .auth-buttons {
-    display: flex;
-    gap: 10px;
+    position : relative !important;
 }
 
 .auth-button {
