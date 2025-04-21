@@ -121,11 +121,19 @@
                                 </div>
 
                                 <!-- Post Content -->
+                                <!-- Post Content -->
                                 <div class="post-content">
                                     <p>@post.Content</p>
                                     @if (!string.IsNullOrEmpty(post.ImageUrl))
                                     {
                                         <img src="@post.ImageUrl" class="post-image" />
+                                    }
+                                    @if (!string.IsNullOrEmpty(post.LinkYoutube))
+                                    {
+                                        <a href="@post.LinkYoutube" target="_blank" class="youtube-link">
+                                            <i class="fab fa-youtube"></i>
+                                            <h3>Youtube</h3>
+                                        </a>
                                     }
                                 </div>
 
@@ -151,10 +159,7 @@
                                                         <source src="@post.Song.FileUrl" type="audio/mpeg">
                                                     </audio>
                                                 </div>
-                                                <div class="volume-control">
-                                                    <i class="fas fa-volume-up"></i>
-                                                    <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider" id="volume-slider-@post.Song.Id">
-                                                </div>
+   
                                             </div>
 
                                             <span onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = post.Id })'" style="cursor: pointer;">
@@ -242,20 +247,7 @@
                         Melofy VIP members
                     </div>
 
-                    <div class="vip-members">
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 1">
-                        </div>
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 2">
-                        </div>
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 3">
-                        </div>
-                        <div class="member-icon">
-                            #1
-                        </div>
-                    </div>
+                  
 
                     <div class="top-artists">
                         <div class="section-title">
@@ -285,28 +277,10 @@
                             </div>
                             <div class="artist-desc">Description</div>
                         </div>
-                    </div>
-
-                    <div class="time-section">
-                        <div class="time-label">Time</div>
-                        <div class="time-slider">
-                            <div class="time-progress"></div>
-                        </div>
-                        <div class="time-remaining">30 days left</div>
-                    </div>
-
-                    <div class="logo-section">
-                        <div class="logo">M</div>
-                        <div>Melofy VIP Member</div>
-                    </div>
+                    </div>                  
                 </div>
-
             </div>
-
-
         </div>
-
-
     </div>
     </div>
 

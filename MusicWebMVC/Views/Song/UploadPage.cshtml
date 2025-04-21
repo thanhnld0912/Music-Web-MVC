@@ -87,6 +87,61 @@
                     </div>
                     <p id="uploadMessage"></p>
                 </div>
+                <!-- Replace the SoundCloud checkbox with YouTube -->
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="upload-to-youtube" name="upload-to-youtube">
+                        Upload to YouTube
+                    </label>
+                </div>
+
+                <!-- YouTube info display area (when connected) -->
+                <div id="youtube-info" style="display: none;">
+                    <div class="youtube-user-info">
+                        <img id="youtube-avatar" src="" alt="YouTube Avatar" class="youtube-avatar">
+                        <div class="youtube-details">
+                            <p id="youtube-username">Not connected</p>
+                            <p id="youtube-quota-info">Upload quota: N/A</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Additional fields for YouTube -->
+                    <div class="form-group">
+                        <label for="youtube-description">YouTube Description</label>
+                        <textarea id="youtube-description" rows="3" placeholder="Description for YouTube..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="youtube-tags">Tags (comma separated)</label>
+                        <input type="text" id="youtube-tags" placeholder="music, cover, original, ...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Privacy Setting</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="youtube-privacy" value="public" checked>
+                                Public
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="youtube-privacy" value="unlisted">
+                                Unlisted
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="youtube-privacy" value="private">
+                                Private
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="disconnect-youtube" class="secondary-btn">Disconnect from YouTube</button>
+                </div>
+
+                <!-- YouTube Connect button -->
+                <div id="connect-youtube-container">
+                    <button type="button" id="connect-youtube" class="secondary-btn">Connect to YouTube</button>
+                </div>
             </div>
         </div>
     </div>

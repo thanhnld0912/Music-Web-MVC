@@ -1311,7 +1311,7 @@ input {
     margin-bottom: 10px;
 }
 
-.melody-image {
+.melody-image img{
     width: 50px;
     height: 50px;
     background-color: #555;
@@ -1711,6 +1711,7 @@ input {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: black;
 }
 
 .notification {
@@ -2177,27 +2178,27 @@ input {
 .message-icon-container {
     position: relative;
     margin-right: 15px;
+    top : 15px;
+ 
 }
 
 .message-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
-    background-color: #f0f2f5;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-    .message-icon:hover {
-        background-color: #e4e6e9;
+    .message-icon:hover i{
+        color : #555;
     }
 
     .message-icon i {
         font-size: 16px;
-        color: #65676b;
+        color: #888;
+        font-size: 20px;
     }
 
 .message-badge {
@@ -2264,6 +2265,7 @@ input {
     border-bottom: 1px solid #f0f2f5;
     cursor: pointer;
     transition: background-color 0.2s;
+    color : black;
 }
 
     .message-item:hover {
@@ -2452,4 +2454,30 @@ input {
         background-color: #e4e6e9;
         color: #bcc0c4;
         cursor: not-allowed;
+    }
+
+
+.youtube-link {
+
+    margin-top: 10px;
+    text-decoration: none;
+    display: flex;
+}
+
+    .youtube-link .fa-youtube {
+        color: red;
+        font-size: 54px;
+        margin-left : 10px;
+        transition: transform 0.2s ease;
+    }
+    .youtube-link h3 {
+      
+        color: White;
+        font-size: 34px;
+        margin-left: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .youtube-link:hover .fa-youtube {
+        transform: scale(1.2);
     }

@@ -37,44 +37,53 @@ namespace MusicWebMVC.Controllers
         [HttpGet("Chat/GetRecentConversations/{userId}")]
         public async Task<IActionResult> GetRecentConversations(int userId)
         {
-            // Get all messages where current user is sender or receiver
-            var messages = await _context.Messages
-                .Where(m => m.SenderId == userId || m.ReceiverId == userId)
-                .OrderByDescending(m => m.SentAt)
-                .ToListAsync();
-
-            // Group by conversation
-            var conversations = messages
-                .GroupBy(m => m.SenderId == userId ? m.ReceiverId : m.SenderId)
-                .Select(g => new
-                {
-                    UserId = g.Key,
-                    LastMessage = g.First().Content,
-                    LastMessageTime = g.First().SentAt,
-                    UnreadCount = g.Count(m => m.ReceiverId == userId && !m.IsRead)
-                })
-                .ToList();
-
-            // Get user details for each conversation
-            var result = new List<object>();
-            foreach (var conv in conversations)
+            try
             {
-                var user = await _context.Users.FindAsync(conv.UserId);
-                if (user != null)
-                {
-                    result.Add(new
-                    {
-                        UserId = user.Id,
-                        Username = user.Username,
-                        AvatarUrl = "/img/avatar.jpg", // Replace with actual avatar URL when available
-                        LastMessage = conv.LastMessage,
-                        LastMessageTime = conv.LastMessageTime,
-                        UnreadCount = conv.UnreadCount
-                    });
-                }
-            }
+                // Get all messages where current user is sender or receiver
+                var messages = await _context.Messages
+                    .Where(m => m.SenderId == userId || m.ReceiverId == userId)
+                    .OrderByDescending(m => m.SentAt)
+                    .ToListAsync();
 
-            return Json(result);
+                // Group by conversation
+                var conversations = messages
+                    .GroupBy(m => m.SenderId == userId ? m.ReceiverId : m.SenderId)
+                    .Select(g => new
+                    {
+                        UserId = g.Key,
+                        LastMessage = g.First().Content,
+                        LastMessageTime = g.First().SentAt,
+                        UnreadCount = g.Count(m => m.ReceiverId == userId && !m.IsRead)
+                    })
+                    .ToList();
+
+                // Get user details for each conversation
+                var result = new List<object>();
+                foreach (var conv in conversations)
+                {
+                    var user = await _context.Users.FindAsync(conv.UserId);
+                    if (user != null)
+                    {
+                        result.Add(new
+                        {
+                            UserId = user.Id,
+                            Username = user.Username,
+                            AvatarUrl = user.AvatarUrl ?? "/img/avatar.jpg", // Use user's avatar if available
+                            LastMessage = conv.LastMessage,
+                            LastMessageTime = conv.LastMessageTime,
+                            UnreadCount = conv.UnreadCount
+                        });
+                    }
+                }
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                Console.WriteLine($"Error in GetRecentConversations: {ex.Message}");
+                return Json(new { error = "Failed to load conversations" });
+            }
         }
         [HttpGet("Chat/GetMessages/{otherUserId}")]
         public async Task<IActionResult> GetMessages(int otherUserId)
@@ -122,10 +131,12 @@ namespace MusicWebMVC.Controllers
             if (receiver == null)
                 return Json(new { success = false, message = "Receiver not found" });
 
-            // Check if users can message each other (they follow each other or receiver is admin)
-            bool canMessage = await _context.Follows.AnyAsync(f =>
-                                  (f.FollowerId == currentUserId && f.FollowingId == model.ReceiverId) &&
-                                  (f.FollowerId == model.ReceiverId && f.FollowingId == currentUserId));
+            int followCount = await _context.Follows
+                .CountAsync(f =>
+                    (f.FollowerId == currentUserId && f.FollowingId == model.ReceiverId) ||
+                    (f.FollowerId == model.ReceiverId && f.FollowingId == currentUserId));
+
+            bool canMessage = followCount == 2;
 
             // Allow admin to message anyone
             var currentUser = await _context.Users.FindAsync(currentUserId);
@@ -149,7 +160,7 @@ namespace MusicWebMVC.Controllers
 
             // Send real-time notification
             var sender = await _context.Users.FindAsync(currentUserId);
-            await _chatHubContext.Clients.User(model.ReceiverId.ToString())
+            await _chatHubContext.Clients.Group(model.ReceiverId.ToString())
                 .SendAsync("ReceiveMessage", currentUserId, sender.Username, model.Content);
 
             return Json(new { success = true, messageId = message.Id });
@@ -208,7 +219,7 @@ namespace MusicWebMVC.Controllers
                 {
                     Id = u.Id,
                     Username = u.Username,
-                    AvatarUrl = "/img/avatar.jpg" // Replace with actual avatar URL when available
+                    AvatarUrl = u.AvatarUrl // Replace with actual avatar URL when available
                 })
                 .ToListAsync();
 
@@ -242,4 +253,5 @@ namespace MusicWebMVC.Controllers
         public int ReceiverId { get; set; }
         public string Content { get; set; }
     }
+
 }
