@@ -19,6 +19,8 @@ namespace MusicWebMVC.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
+        public String? LinkYoutube { get; set; }
+
         public virtual User User { get; set; }
 
         [ForeignKey("Song")]

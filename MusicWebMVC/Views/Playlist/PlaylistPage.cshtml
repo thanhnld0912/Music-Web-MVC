@@ -64,7 +64,12 @@
             <!-- Playlist header section -->
             <div class="playlist-header">
                 <div class="playlist-cover">
-                    <i class="fas fa-music"></i>
+                    @if (@Model.ImageUrl != "") {
+                        <img src="@Model.ImageUrl"/>
+                    } else {
+                        <i class="fas fa-music"></i>
+                    }
+                    
                 </div>
                 <div class="playlist-info">
                     <div class="playlist-label">Playlist</div>
@@ -149,6 +154,28 @@
                         </div>
 
                         <div class="edit-playlist-section">
+                            <h3>Change Playlist Image</h3>
+                            <div class="playlist-image-upload">
+                                <div class="current-image">
+                                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                    {
+                                        <img src="@Model.ImageUrl" alt="Playlist Cover" />
+                                    }
+                                    else
+                                    {
+                                        <div class="placeholder-image">
+                                            <i class="fas fa-music"></i>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="upload-controls">
+                                    <input type="file" id="playlistImageUpload" accept="image/*" />
+                                    <button onclick="updatePlaylistImage(@Model.Id)">Upload Image</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="edit-playlist-section">
                             <h3>Remove Songs</h3>
                             <div class="edit-song-list">
                                 @if (@Model.PlaylistSongs != null && @Model.PlaylistSongs.Count > 0)
@@ -174,7 +201,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Confirm Delete Playlist Modal -->
                 <div class="modal" id="deletePlaylistModal">
                     <div class="modal-content">
@@ -199,18 +225,6 @@
                         <div class="share-link">
                             <input type="text" id="shareLink" readonly value="@Context.Request.Scheme://@Context.Request.Host@Url.Action("PlaylistPage", "Playlist", new { id = Model.Id })" />
                             <button onclick="copyShareLink()">Copy</button>
-                        </div>
-
-                        <div class="share-options">
-                            <button class="share-option facebook">
-                                <i class="fab fa-facebook"></i> Facebook
-                            </button>
-                            <button class="share-option twitter">
-                                <i class="fab fa-twitter"></i> Twitter
-                            </button>
-                            <button class="share-option whatsapp">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
                         </div>
                     </div>
                 </div>

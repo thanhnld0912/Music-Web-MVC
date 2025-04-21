@@ -85,7 +85,7 @@
                     <div class="follow-zone">
                         <div class="follow-stats">
                             <div class="stat-item">
-                                <span class="stat-count">@followerCount</span>
+                                <span class="stat-count" id="stat-follower" data-follower="@followerCount">@followerCount</span>
                                 <span class="stat-label">Followers</span>
                             </div>
                             <div class="stat-item">
@@ -153,8 +153,14 @@
                                 {
                                     <img src="@post.ImageUrl" class="post-image" />
                                 }
+                                @if (!string.IsNullOrEmpty(post.LinkYoutube))
+                                {
+                                    <a href="@post.LinkYoutube" target="_blank" class="youtube-link">
+                                        <i class="fab fa-youtube"></i>
+                                        <h3>Youtube</h3>
+                                    </a>
+                                }
                             </div>
-
                             <!-- Songs -->
                             @if (post.Song != null)
                             {
@@ -270,9 +276,7 @@
                 else
                 {
                     <div class="song-grid">
-                        @{
-                            int songCounter = 1;
-                        }
+
                         @foreach (var song in userSongs)
                         {
                             <div class="song">
@@ -285,7 +289,7 @@
                                         else
                                         {
                                             <div class="default-cover">
-                                                <span class="song-number">#@(songCounter)</span>
+                                                <span class="song-number">@song.Title</span>
                                             </div>
                                         }
                                     </div>
@@ -300,7 +304,7 @@
                                                     <div class="play-progress">
                                                         <div class="time-title">
                                                             <div class="time-display">0:00 </div>
-                                                            <span>@song.Title</span>
+                                                            
                                                         </div>
 
                                                         <div class="progress-container" id="progress-container-@song.Id">
@@ -316,6 +320,13 @@
                                                     <i class="fas fa-volume-up"></i>
                                                     <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider" id="volume-slider-@song.Id">
                                                 </div>
+                                                @if (!string.IsNullOrEmpty(song.Post.LinkYoutube))
+                                                {
+                                                    <a href="@song.Post.LinkYoutube" target="_blank" class="youtube-link">
+                                                        <i class="fab fa-youtube"></i>
+                                                        <h3>Youtube</h3>
+                                                    </a>
+                                                }
                                             </div>
 
 
@@ -324,7 +335,7 @@
                                 </div>
 
                             </div>
-                            songCounter++;
+      
                         }
                     </div>
                 }

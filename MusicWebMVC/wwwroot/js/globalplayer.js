@@ -55,7 +55,7 @@ function createGlobalPlayerUI() {
         <div class="player-container">
             <div class="album-container">
                 <div class="album-rotating">
-                    <img id="global-album-cover" src="~/img/default-album.jpg" alt="Album Cover">
+                    <img id="global-album-cover" src="" alt="Album Cover">
                 </div>
             </div>
             <div class="player-controls">
@@ -298,83 +298,11 @@ function playPreviousSong() {
     }
 }
 
-// Xây dựng playlist từ trang hiện tại
-function buildPagePlaylist() {
-    const pagePlaylist = [];
 
-    // Tìm tất cả các audio trên trang
-    const songElements = document.querySelectorAll('.song-item');
-    songElements.forEach((songElement, index) => {
-        const audioElement = songElement.querySelector('audio');
-        const customPlayer = songElement.querySelector('.custom-audio-player');
-
-        if (audioElement && customPlayer) {
-            const songUrl = customPlayer.getAttribute('data-song-url') ||
-                audioElement.querySelector('source')?.src ||
-                audioElement.src;
-
-            const songTitle = songElement.querySelector('.song-info span')?.textContent.trim() ||
-                `Song ${index + 1}`;
-
-            const postElement = songElement.closest('.post');
-            const artistName = postElement?.querySelector('.post-author')?.textContent ||
-                'Unknown Artist';
-
-            const imageUrl = postElement?.querySelector('.post-image')?.src || null;
-
-            if (songUrl) {
-                pagePlaylist.push({
-                    url: songUrl,
-                    title: songTitle,
-                    artist: artistName,
-                    imageUrl: imageUrl,
-                    element: customPlayer
-                });
-            }
-        }
-    });
-
-    // Nếu đã có playlist từ localStorage, hợp nhất và tránh trùng lặp
-    const savedPlaylistJSON = localStorage.getItem('melofyCurrentPlaylist');
-    if (savedPlaylistJSON) {
-        const savedPlaylist = JSON.parse(savedPlaylistJSON);
-
-        // Chỉ hợp nhất nếu trang hiện tại có bài hát
-        if (pagePlaylist.length > 0) {
-            // Hợp nhất danh sách mà không trùng lặp
-            savedPlaylist.forEach(savedSong => {
-                if (!pagePlaylist.some(pageSong => pageSong.url === savedSong.url)) {
-                    pagePlaylist.push(savedSong);
-                }
-            });
-
-            // Cập nhật playlist hiện tại
-            currentPlaylist = pagePlaylist;
-        } else {
-            // Nếu trang không có bài hát, sử dụng playlist đã lưu
-            currentPlaylist = savedPlaylist;
-        }
-    } else {
-        // Nếu không có playlist đã lưu, sử dụng playlist trang hiện tại
-        currentPlaylist = pagePlaylist;
-
-        // Cập nhật tên playlist khi tự tạo từ trang
-        if (pagePlaylist.length > 0) {
-            currentPlaylistName = "NewFeed Playlist";
-            updatePlaylistNameInPlayer(currentPlaylistName);
-
-            // Lưu tên playlist vào localStorage
-            localStorage.setItem('melofyCurrentPlaylistName', currentPlaylistName);
-        }
-    }
-
-    return currentPlaylist;
-}
 
 // Phát bài hát với global player
 function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
     if (!globalAudio || !songUrl) return;
-
 
     isPlayingStandalone = isStandalone;
 
@@ -435,6 +363,7 @@ function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
         });
     }
 }
+
 // Cập nhật UI của global player
 function updateGlobalPlayerUI(songInfo) {
     if (!songInfo) return;
@@ -447,19 +376,25 @@ function updateGlobalPlayerUI(songInfo) {
     if (titleElement) titleElement.textContent = songInfo.title || 'Unknown Title';
     if (artistElement) artistElement.textContent = songInfo.artist || 'Unknown Artist';
 
-    // Cập nhật ảnh album nếu có
-    if (albumCover && songInfo.imageUrl) {
-        albumCover.src = songInfo.imageUrl;
-    } else if (albumCover) {
-        albumCover.src = '~/img/default-album.jpg'; // Ảnh mặc định
+    // Use playlist image instead of song image
+    if (albumCover) {
+        // Try to get the playlist image from the document
+        const playlistCoverImg = document.querySelector('.playlist-cover img');
+        if (playlistCoverImg && playlistCoverImg.src) {
+            albumCover.src = playlistCoverImg.src;
+        } else if (songInfo.imageUrl) {
+            // Fallback to song image if playlist image is not available
+            albumCover.src = songInfo.imageUrl;
+        } else {
+            // Default image if neither is available
+            albumCover.src = '~/img/default-album.jpg';
+        }
     }
 
     // Hiển thị player
     if (player) player.style.display = 'flex';
     isGlobalPlayerActive = true;
 }
-
-// Cập nhật UI của local player
 function updateLocalPlayerUI() {
     if (!globalAudio || currentSongIndex < 0 || !currentPlaylist[currentSongIndex]) return;
 
@@ -599,8 +534,19 @@ function restorePlayerState() {
                 updatePlaylistNameInPlayer(currentPlaylistName);
             }
 
+            // Try to get current playlist image
+            const playlistCoverImg = document.querySelector('.playlist-cover img');
+            const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
             // Chỉ khôi phục nếu có bài hát
             if (loadedPlaylist && loadedPlaylist.length > 0) {
+                // Update image URLs to use playlist image if available
+                if (playlistImageUrl) {
+                    loadedPlaylist.forEach(song => {
+                        song.imageUrl = playlistImageUrl;
+                    });
+                }
+
                 // Gán playlist đã lưu
                 currentPlaylist = loadedPlaylist;
 
@@ -679,8 +625,60 @@ function restorePlayerState() {
     }
 }
 
+function buildPagePlaylist() {
+    // Check for songs on the current page
+    const songElements = document.querySelectorAll('.song-item');
+    if (songElements.length === 0) return;
+
+    // Get playlist information
+    const playlistTitle = document.querySelector('.playlist-title')?.textContent || "Unknown Playlist";
+    const playlistCoverImg = document.querySelector('.playlist-cover img');
+    const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
+    // Build playlist from page songs
+    const pagePlaylist = [];
+    songElements.forEach((songElement, index) => {
+        // Get song data
+        const songName = songElement.querySelector('.song-name')?.textContent || `Song ${index + 1}`;
+        const artistName = songElement.querySelector('.song-artist')?.textContent || 'Unknown Artist';
+
+        // Always use playlist image
+        const imageUrl = playlistImageUrl;
+
+        // Get song URL
+        let songUrl = null;
+        if (songElement.hasAttribute('data-song-url')) {
+            songUrl = songElement.getAttribute('data-song-url');
+        } else {
+            const songId = songElement.getAttribute('data-song-id');
+            if (songId) {
+                songUrl = `/Song/GetSongUrl?id=${songId}`;
+            }
+        }
+
+        if (songUrl) {
+            pagePlaylist.push({
+                url: songUrl,
+                title: songName,
+                artist: artistName,
+                imageUrl: imageUrl
+            });
+        }
+    });
+
+    if (pagePlaylist.length > 0) {
+        currentPlaylist = pagePlaylist;
+        currentPlaylistName = playlistTitle;
+    }
+}
+
+
 // Sửa lại phần xử lý cho local player
 function setupLocalPlayers() {
+    // Get playlist image if available
+    const playlistCoverImg = document.querySelector('.playlist-cover img');
+    const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
     document.querySelectorAll('.custom-audio-player').forEach((player, index) => {
         const playButton = player.querySelector('.play-button');
         const songUrl = player.getAttribute('data-song-url');
@@ -695,7 +693,8 @@ function setupLocalPlayers() {
             const artistName = postElement?.querySelector('.post-author')?.textContent ||
                 'Unknown Artist';
 
-            const imageUrl = postElement?.querySelector('.post-image')?.src || null;
+            // Use playlist image instead of post image
+            const imageUrl = playlistImageUrl || postElement?.querySelector('.post-image')?.src || null;
 
             const songInfo = {
                 title: songTitle,
