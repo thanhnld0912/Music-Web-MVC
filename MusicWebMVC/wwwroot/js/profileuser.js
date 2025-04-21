@@ -48,10 +48,11 @@ function showContent(type) {
 function toggleFollow() {
     const button = document.querySelector('.follow-btn');
     const followingId = document.querySelector('.handle').getAttribute('data-user-id');
+    const statFollowerElement = document.querySelector('#stat-follower');
+    let followerCount = parseInt(statFollowerElement.getAttribute('data-follower'), 10);
 
     // Create XMLHttpRequest object
     const xhr = new XMLHttpRequest();
-
     // Define the endpoint based on current follow status
     const isFollowing = button.classList.contains('followed');
     const endpoint = isFollowing ? '/User/Unfollow' : '/User/Follow';
@@ -75,10 +76,16 @@ function toggleFollow() {
                 if (isFollowing) {
                     button.classList.remove('followed');
                     button.innerHTML = 'Follow';
+                    followerCount -= 1;
                 } else {
                     button.classList.add('followed');
                     button.innerHTML = 'Followed ✓';
+                    followerCount += 1;
                 }
+
+                // Update the follower count in the DOM
+                statFollowerElement.setAttribute('data-follower', followerCount);
+                statFollowerElement.textContent = followerCount;
             } else {
                 // Display error if needed
                 console.error('Follow action failed:', response.message);
@@ -106,7 +113,6 @@ function toggleFollow() {
     // Send the request with the following user's ID
     xhr.send('followingId=' + followingId);
 }
-
 function togglePostMenu(event, element) {
     event.stopPropagation();
     closeAll();

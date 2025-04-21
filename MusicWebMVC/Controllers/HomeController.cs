@@ -23,7 +23,11 @@ namespace MusicWebMVC.Controllers
             int.TryParse(HttpContext.Session.GetString("UserId"), out currentUserId);
             ViewData["IsHome"] = true;
             ViewData["CurrentFilter"] = filter; // Store current filter for UI active state
-
+            
+            if (currentUserId < 0)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             // Base query
             var postsQuery = _context.Posts
                 .Include(p => p.User)
@@ -422,7 +426,7 @@ namespace MusicWebMVC.Controllers
                 {
                     id = u.Id,
                     username = u.Username,
-                    //avatarUrl = u.AvatarUrl
+                    avatarUrl = u.AvatarUrl
                 })
                 .Take(15)
                 .ToListAsync();

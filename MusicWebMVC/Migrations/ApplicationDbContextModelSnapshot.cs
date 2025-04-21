@@ -276,6 +276,10 @@ namespace MusicWebMVC.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -328,6 +332,9 @@ namespace MusicWebMVC.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkYoutube")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("SongId")
@@ -391,6 +398,12 @@ namespace MusicWebMVC.Migrations
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("YouTubeUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YouTubeVideoId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -1,5 +1,779 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\04869116ff60470ca044e6643d834d87.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/04869116ff60470ca044e6643d834d87.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6tjtcostfz</Fingerprint>
+      <Integrity>dgoaE0BwaMLOZe1CCKq+REvTtYUaAAurbkVnIreep2s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\04869116ff60470ca044e6643d834d87.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\144246af97ba4b4bbbf43dbadcdb126a.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/144246af97ba4b4bbbf43dbadcdb126a.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>06u5zi6i70</Fingerprint>
+      <Integrity>+JJmPJbebborROaGY1IDPP/k9djS5UDJk7fxgmsmW7A=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\144246af97ba4b4bbbf43dbadcdb126a.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\21d3ec55569847dcb106e644db523f76.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/21d3ec55569847dcb106e644db523f76.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>06u5zi6i70</Fingerprint>
+      <Integrity>+JJmPJbebborROaGY1IDPP/k9djS5UDJk7fxgmsmW7A=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\21d3ec55569847dcb106e644db523f76.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\22ff40296628472688eecfbb46c55416.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/22ff40296628472688eecfbb46c55416.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6tjtcostfz</Fingerprint>
+      <Integrity>dgoaE0BwaMLOZe1CCKq+REvTtYUaAAurbkVnIreep2s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\22ff40296628472688eecfbb46c55416.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\30688035b60d4618aabd959a9791867d.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/30688035b60d4618aabd959a9791867d.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pnltcuhmw5</Fingerprint>
+      <Integrity>G5kaw9yHaAuz0AsVMxfsHQHEu7HplR2Pn3qqZqzTlr0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\30688035b60d4618aabd959a9791867d.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\3be6cf64f8a3427c86f0c8fe323599ae.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/3be6cf64f8a3427c86f0c8fe323599ae.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4scgdw7y29</Fingerprint>
+      <Integrity>tEHBgAPLnhAex1TZYzsZc5Vti5f51BkkSpFGxU6ZFpY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\3be6cf64f8a3427c86f0c8fe323599ae.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\3d797b2e743d4328a70bdad9b50ee87a.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/3d797b2e743d4328a70bdad9b50ee87a.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ogtd1omas</Fingerprint>
+      <Integrity>pMoZJtFNakoDYm8AEw7iwhFrwX53KSh6CAqBopDDRgA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\3d797b2e743d4328a70bdad9b50ee87a.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\40b77673013441bba08489f2bc98b2eb.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/40b77673013441bba08489f2bc98b2eb.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ytor7dscjr</Fingerprint>
+      <Integrity>djEh7+44k1JBsHolAmRPpI+EWk4xSQ+8lHtK0E2L5Js=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\40b77673013441bba08489f2bc98b2eb.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\552bba715fd8455a8c40d3db1a48f2b0.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/552bba715fd8455a8c40d3db1a48f2b0.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>wlzfn894hj</Fingerprint>
+      <Integrity>BInLybQOqC8dfWhKNvG7iKBL2F5nmTZ0Xw+6PtFzMLA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\552bba715fd8455a8c40d3db1a48f2b0.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5c0186d64e6b42838637d1a6afb79387.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/5c0186d64e6b42838637d1a6afb79387.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>kj2h81qal0</Fingerprint>
+      <Integrity>IPNON69tC9xvpGcAIOoMNZQculNDf2+WdVx0d+sI3QI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5c0186d64e6b42838637d1a6afb79387.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5e26813b27b344fa91057b53e0c2a62b.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/5e26813b27b344fa91057b53e0c2a62b.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pnltcuhmw5</Fingerprint>
+      <Integrity>G5kaw9yHaAuz0AsVMxfsHQHEu7HplR2Pn3qqZqzTlr0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5e26813b27b344fa91057b53e0c2a62b.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5eed9a6bf1f34dbe8a0267320761c00e.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/5eed9a6bf1f34dbe8a0267320761c00e.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pgk17qql9c</Fingerprint>
+      <Integrity>2Qyl/TXm0v4ah/LWYFP/ws6PLYbOW5tdlxgqLDQ/lbY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5eed9a6bf1f34dbe8a0267320761c00e.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5fd0fb52d5164c0d9da7903b1f3c80b1.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/5fd0fb52d5164c0d9da7903b1f3c80b1.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pnltcuhmw5</Fingerprint>
+      <Integrity>G5kaw9yHaAuz0AsVMxfsHQHEu7HplR2Pn3qqZqzTlr0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\5fd0fb52d5164c0d9da7903b1f3c80b1.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\61b71044c98045fa87aab9e34764b861.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/61b71044c98045fa87aab9e34764b861.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4scgdw7y29</Fingerprint>
+      <Integrity>tEHBgAPLnhAex1TZYzsZc5Vti5f51BkkSpFGxU6ZFpY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\61b71044c98045fa87aab9e34764b861.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\6ef24b43d97d4cfbb16aceecdfb74aa3.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/6ef24b43d97d4cfbb16aceecdfb74aa3.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cipazrwmen</Fingerprint>
+      <Integrity>XJGyv8Wqu9Wh/81cH0iKCu0ctFSxRWQdRCylO9gZWjA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\6ef24b43d97d4cfbb16aceecdfb74aa3.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\70368faffab644f48518ea4ff9f14d38.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/70368faffab644f48518ea4ff9f14d38.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pnltcuhmw5</Fingerprint>
+      <Integrity>G5kaw9yHaAuz0AsVMxfsHQHEu7HplR2Pn3qqZqzTlr0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\70368faffab644f48518ea4ff9f14d38.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7802fb6287dd4c3aa999b57d20410d3f.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/7802fb6287dd4c3aa999b57d20410d3f.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4scgdw7y29</Fingerprint>
+      <Integrity>tEHBgAPLnhAex1TZYzsZc5Vti5f51BkkSpFGxU6ZFpY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7802fb6287dd4c3aa999b57d20410d3f.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\795de11820524f5390fcb68a26d083b7.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/795de11820524f5390fcb68a26d083b7.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>f85umb7drw</Fingerprint>
+      <Integrity>/wcsAILEKkg65fl0bZVK1kPvqvqQqxZtdqJ0LDtdEe4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\795de11820524f5390fcb68a26d083b7.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7d57c20944694f8c8c75b7411e76ae55.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/7d57c20944694f8c8c75b7411e76ae55.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7m7lzz12va</Fingerprint>
+      <Integrity>zxgXNDPoNC1TqI80sAcxwSY37QUIo0Jtn3pGGnB1eQg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7d57c20944694f8c8c75b7411e76ae55.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7e64e64a50c446ae883e6eca1ede79c8.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/7e64e64a50c446ae883e6eca1ede79c8.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>cy5exsnm9q</Fingerprint>
+      <Integrity>XEkJwmJ5GAaS8x4wf9/CkMZCKwduLB70E9Q/Zw2B2l0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7e64e64a50c446ae883e6eca1ede79c8.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7e674b544f394008bb285878be3bd46e.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/7e674b544f394008bb285878be3bd46e.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0vb9ingfdr</Fingerprint>
+      <Integrity>THKYGZq3WM5knFZMFQEBvuvGc5HEoFeRKfdcJZhZJKs=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\7e674b544f394008bb285878be3bd46e.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\84171d497dd74d5d9dc36807c036c42b.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/84171d497dd74d5d9dc36807c036c42b.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ogtd1omas</Fingerprint>
+      <Integrity>pMoZJtFNakoDYm8AEw7iwhFrwX53KSh6CAqBopDDRgA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\84171d497dd74d5d9dc36807c036c42b.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\a3f28bf617e2434d8102ae220a24c19f.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/a3f28bf617e2434d8102ae220a24c19f.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pk2800ppzb</Fingerprint>
+      <Integrity>CY+RDTS/Ig1JDTgQlndBzM85yBAT7jKWNG4UOC7RWGM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\a3f28bf617e2434d8102ae220a24c19f.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\b1c0adac40cf445ea40c280e0098057c.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/b1c0adac40cf445ea40c280e0098057c.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>kj2h81qal0</Fingerprint>
+      <Integrity>IPNON69tC9xvpGcAIOoMNZQculNDf2+WdVx0d+sI3QI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\b1c0adac40cf445ea40c280e0098057c.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\beb50f929b9c44ee940714d68dbf6b09.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/beb50f929b9c44ee940714d68dbf6b09.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6tjtcostfz</Fingerprint>
+      <Integrity>dgoaE0BwaMLOZe1CCKq+REvTtYUaAAurbkVnIreep2s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\beb50f929b9c44ee940714d68dbf6b09.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\c1e10acee53941a5b42ca24eacce28ae.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/c1e10acee53941a5b42ca24eacce28ae.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ogtd1omas</Fingerprint>
+      <Integrity>pMoZJtFNakoDYm8AEw7iwhFrwX53KSh6CAqBopDDRgA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\c1e10acee53941a5b42ca24eacce28ae.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\c515a4ce9d20480a85eb1de1affef8f0.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/c515a4ce9d20480a85eb1de1affef8f0.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pgk17qql9c</Fingerprint>
+      <Integrity>2Qyl/TXm0v4ah/LWYFP/ws6PLYbOW5tdlxgqLDQ/lbY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\c515a4ce9d20480a85eb1de1affef8f0.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\c5f1110550f949f3a806648b421495e2.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/c5f1110550f949f3a806648b421495e2.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>f85umb7drw</Fingerprint>
+      <Integrity>/wcsAILEKkg65fl0bZVK1kPvqvqQqxZtdqJ0LDtdEe4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\c5f1110550f949f3a806648b421495e2.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\ce3c48c6d78f4e69a453154bf74f0aa8.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/ce3c48c6d78f4e69a453154bf74f0aa8.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mnp9x2gqjz</Fingerprint>
+      <Integrity>InNc8lxOmQkm6EiD5WbflSlH8E3xekQW3+fordzL89I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\ce3c48c6d78f4e69a453154bf74f0aa8.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\d09054dd1ccb4a92a5ffde75e4f10f43.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/d09054dd1ccb4a92a5ffde75e4f10f43.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>romyfjzjo2</Fingerprint>
+      <Integrity>pc3OY65wrX7Q+Np/7Msmpd36WYvGcXqKZji9qy/cKy8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\d09054dd1ccb4a92a5ffde75e4f10f43.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\d470f6f4b4bf4123be5ac6e1c6b89991.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/d470f6f4b4bf4123be5ac6e1c6b89991.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>romyfjzjo2</Fingerprint>
+      <Integrity>pc3OY65wrX7Q+Np/7Msmpd36WYvGcXqKZji9qy/cKy8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\d470f6f4b4bf4123be5ac6e1c6b89991.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\d61d5119026348899e5096e9776a61ca.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/d61d5119026348899e5096e9776a61ca.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>romyfjzjo2</Fingerprint>
+      <Integrity>pc3OY65wrX7Q+Np/7Msmpd36WYvGcXqKZji9qy/cKy8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\d61d5119026348899e5096e9776a61ca.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\e394624352a748f2a7ef96d3462c2bd4.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/e394624352a748f2a7ef96d3462c2bd4.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>gzwvxnfagw</Fingerprint>
+      <Integrity>RFo2M2NoyA2G6iWpcZ4k9Gz4KSn83H4SFLLagnjqGJY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\e394624352a748f2a7ef96d3462c2bd4.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\e7939ecca3184612848fc6f5f43dba5e.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/e7939ecca3184612848fc6f5f43dba5e.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ogtd1omas</Fingerprint>
+      <Integrity>pMoZJtFNakoDYm8AEw7iwhFrwX53KSh6CAqBopDDRgA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\e7939ecca3184612848fc6f5f43dba5e.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\f725e076497a44ffa5db91b718283a9b.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/f725e076497a44ffa5db91b718283a9b.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>f85umb7drw</Fingerprint>
+      <Integrity>/wcsAILEKkg65fl0bZVK1kPvqvqQqxZtdqJ0LDtdEe4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\f725e076497a44ffa5db91b718283a9b.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\fa78aa2a38824a5c9b58930e990c1ca2.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/fa78aa2a38824a5c9b58930e990c1ca2.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>21lem7ekpr</Fingerprint>
+      <Integrity>CmxiZrKjEjrj05n4JjtOFIEd+9pzYileFgZBG2c9kA8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\fa78aa2a38824a5c9b58930e990c1ca2.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__281f30ede8fc4fdf9f7f18f338937f75.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__281f30ede8fc4fdf9f7f18f338937f75.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>romyfjzjo2</Fingerprint>
+      <Integrity>pc3OY65wrX7Q+Np/7Msmpd36WYvGcXqKZji9qy/cKy8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__281f30ede8fc4fdf9f7f18f338937f75.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__3bbb93be5e6a4e32b6086ea85098b83b.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__3bbb93be5e6a4e32b6086ea85098b83b.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7m7lzz12va</Fingerprint>
+      <Integrity>zxgXNDPoNC1TqI80sAcxwSY37QUIo0Jtn3pGGnB1eQg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__3bbb93be5e6a4e32b6086ea85098b83b.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__46861fdc128148d2856b32396334f539.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__46861fdc128148d2856b32396334f539.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a1mooeqybq</Fingerprint>
+      <Integrity>ckrDvg/mtjP7Tr/piHaf9qfo+llLgirUA3wsA/L/dqo=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__46861fdc128148d2856b32396334f539.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__4e0f6596461240aea5ce8c73754cc876.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__4e0f6596461240aea5ce8c73754cc876.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>f85umb7drw</Fingerprint>
+      <Integrity>/wcsAILEKkg65fl0bZVK1kPvqvqQqxZtdqJ0LDtdEe4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__4e0f6596461240aea5ce8c73754cc876.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__aabaf5a46b7e4467b927a145ea6be61e.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__aabaf5a46b7e4467b927a145ea6be61e.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ogtd1omas</Fingerprint>
+      <Integrity>pMoZJtFNakoDYm8AEw7iwhFrwX53KSh6CAqBopDDRgA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__aabaf5a46b7e4467b927a145ea6be61e.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__ad87d059561243af9cb00089f1b33151.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__ad87d059561243af9cb00089f1b33151.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>pgk17qql9c</Fingerprint>
+      <Integrity>2Qyl/TXm0v4ah/LWYFP/ws6PLYbOW5tdlxgqLDQ/lbY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__ad87d059561243af9cb00089f1b33151.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__d36f00f56cff46938a0feed84dee6cdc.mp4'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>converted/Why-are-you-running__d36f00f56cff46938a0feed84dee6cdc.mp4</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4ogtd1omas</Fingerprint>
+      <Integrity>pMoZJtFNakoDYm8AEw7iwhFrwX53KSh6CAqBopDDRgA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\converted\Why-are-you-running__d36f00f56cff46938a0feed84dee6cdc.mp4'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\cover.css'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -102,8 +876,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hxqv10ue1o</Fingerprint>
-      <Integrity>FZssBJHhg5INvIZ5m0emGsHze8RQZ+x72qzKeghiDbE=</Integrity>
+      <Fingerprint>mmitm92210</Fingerprint>
+      <Integrity>jj2UhugUstF0hlhh+QGq5169ZiQaPtNLIvvS2U3UNyc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\newfeed.css'))</OriginalItemSpec>
@@ -120,8 +894,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vg1lwdhywf</Fingerprint>
-      <Integrity>r/4d3RTfOMlwzGz2Iwk3FOikLy9pjG7uPdmJzr/OSZc=</Integrity>
+      <Fingerprint>9z8dd0vi5m</Fingerprint>
+      <Integrity>tQu3v/EiDxJre39Mt5XZWHU1iU2oY6dJisEJ9lMK1DQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\playlist.css'))</OriginalItemSpec>
@@ -192,8 +966,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>2qofdtp6sg</Fingerprint>
-      <Integrity>6vs2fgkIMIY4K2R2p5S0p9jDfUGRM6aSkFn6Lbs+9lg=</Integrity>
+      <Fingerprint>biyjkp63k7</Fingerprint>
+      <Integrity>jRKCPasseqWYzKziIPIcW6kBrEO1ajrCREWHeuXQxVY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\profileuser.css'))</OriginalItemSpec>
@@ -246,8 +1020,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>zozevrbmd1</Fingerprint>
-      <Integrity>zVjr5R/OWSLK7TqiFe7F0dcdpxEKvSlAFytRSx2Jh64=</Integrity>
+      <Fingerprint>l0o5ht79hn</Fingerprint>
+      <Integrity>KwI9lrkZJ3PUfFxHfW5CMgKEAe/UpFiJraQdhl+H7pE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\songpage.css'))</OriginalItemSpec>
@@ -282,8 +1056,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>41o9ux7ip0</Fingerprint>
-      <Integrity>GCyW4h2k2hCe+D2J8gwOxl9xZUAAT4NHoieFiVxZKCg=</Integrity>
+      <Fingerprint>sfotd9zxcv</Fingerprint>
+      <Integrity>CH6AKALwXeTL8ZJPjffy3KkYuSifuorqiqQUade+f0M=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\upload.css'))</OriginalItemSpec>
@@ -534,8 +1308,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>eluc13s9kd</Fingerprint>
-      <Integrity>Hk0f16dH1gu53nLie1uCk2KEaeZ7f0Bl06ZwA7KlAKY=</Integrity>
+      <Fingerprint>yrp4a1llcr</Fingerprint>
+      <Integrity>giaCvDp4gM+E6Chus2J8XdlGnHreiQifk19+yn08Bys=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\globalplayer.js'))</OriginalItemSpec>
@@ -594,6 +1368,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\NewFeed.js'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\playlistpage.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>js/playlistpage.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>185vvj3aba</Fingerprint>
+      <Integrity>z3hW9lpQHrGPt4vz9aBL9Nl2PxzestADq4DPoPPFBZ8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\playlistpage.js'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\postdetail.js'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -642,8 +1434,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>sl1yiegws9</Fingerprint>
-      <Integrity>YHk8nAHZMLG3ImQwTpbf49kfq/yew5nqAqGgROAu+NY=</Integrity>
+      <Fingerprint>gbnhyk6d6o</Fingerprint>
+      <Integrity>TGIi5P0ndpZYdrc6M80BAW4dLknsF2crnhoQkyUeYpk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\profileuser.js'))</OriginalItemSpec>
@@ -732,8 +1524,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9ch8m5wa1v</Fingerprint>
-      <Integrity>yZM8sJ0IdfBhlDfHQkMiz53/eoy10ceIoRr7BruAJKs=</Integrity>
+      <Fingerprint>y98lvnjebt</Fingerprint>
+      <Integrity>2vccMFEydvmth94VJG7gTy232flN9qhzJFARCphbB2U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\uploadfile.js'))</OriginalItemSpec>
@@ -1800,6 +2592,114 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_083ce449507341889f73c85339a81bc9.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_0d44ceab72634f2caa68db08cd11c953.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_0d44ceab72634f2caa68db08cd11c953.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_0d44ceab72634f2caa68db08cd11c953.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_14952f5a5496421f96cbe3a4b8cf5111.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_14952f5a5496421f96cbe3a4b8cf5111.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_14952f5a5496421f96cbe3a4b8cf5111.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_275afc6ae1ce43c9809562310f345b50.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_275afc6ae1ce43c9809562310f345b50.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_275afc6ae1ce43c9809562310f345b50.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_3a58a70cba6347bb8b0c2cc446277f2b.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_3a58a70cba6347bb8b0c2cc446277f2b.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_3a58a70cba6347bb8b0c2cc446277f2b.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_3f52aa33124f49dda6e847a8698e3298.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_3f52aa33124f49dda6e847a8698e3298.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_3f52aa33124f49dda6e847a8698e3298.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_48c7badef00a4530acc8570c77058051.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_48c7badef00a4530acc8570c77058051.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_48c7badef00a4530acc8570c77058051.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -1817,6 +2717,60 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_492995a4fe8d4c97a35e0be900b62a7c.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_4e060dfa382b49189d224906c4d4c785.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_4e060dfa382b49189d224906c4d4c785.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_4e060dfa382b49189d224906c4d4c785.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_6101b22015ce4bceb3a862d4cec33bd0.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_6101b22015ce4bceb3a862d4cec33bd0.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_6101b22015ce4bceb3a862d4cec33bd0.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_6646669b2ce94f1695c671960e85d483.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_6646669b2ce94f1695c671960e85d483.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_6646669b2ce94f1695c671960e85d483.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_677f77348a13490a9cb34ae1c2213169.mp3'))">
       <SourceType>Package</SourceType>
@@ -1872,6 +2826,42 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_7c4829ef9c7d409db2af5bb3ae882737.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_a0670c72c2784b4e9ff4d2519d276c38.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_a0670c72c2784b4e9ff4d2519d276c38.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_a0670c72c2784b4e9ff4d2519d276c38.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_aa38021698164c1ba36b95bca37d5623.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_aa38021698164c1ba36b95bca37d5623.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_aa38021698164c1ba36b95bca37d5623.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -1889,6 +2879,78 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b36f193f580243bfb63bb383ecf0d952.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b5e71753dfba4e809c1db75c6d7c1ae9.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_b5e71753dfba4e809c1db75c6d7c1ae9.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b5e71753dfba4e809c1db75c6d7c1ae9.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b7c4a00e96e5427db9306923ce64cf7e.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_b7c4a00e96e5427db9306923ce64cf7e.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_b7c4a00e96e5427db9306923ce64cf7e.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c0a18fb190a64936bc418f1de87602b9.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_c0a18fb190a64936bc418f1de87602b9.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c0a18fb190a64936bc418f1de87602b9.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c6c766d640174a01839baf2771f2a952.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_c6c766d640174a01839baf2771f2a952.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c6c766d640174a01839baf2771f2a952.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3'))">
       <SourceType>Package</SourceType>
@@ -1908,6 +2970,60 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_c834a4a8c1fb4effbbd8bb654a43a6ae.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_ccabb5c580eb4a8cacd01f1c3bcf1484.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_ccabb5c580eb4a8cacd01f1c3bcf1484.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_ccabb5c580eb4a8cacd01f1c3bcf1484.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_ce2777ce2ee34197b6e154b85ce04d72.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_ce2777ce2ee34197b6e154b85ce04d72.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_ce2777ce2ee34197b6e154b85ce04d72.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d0741ac7f42d4c7783a6bf6b24f9d402.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_d0741ac7f42d4c7783a6bf6b24f9d402.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d0741ac7f42d4c7783a6bf6b24f9d402.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -1925,6 +3041,78 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d0ac4b59c9c040faa8c9d8e4ad8960f3.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d58a11f255834d95ab9476f8f344d9d5.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_d58a11f255834d95ab9476f8f344d9d5.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d58a11f255834d95ab9476f8f344d9d5.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d5a3293810674e6bb47d9f268adb1764.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_d5a3293810674e6bb47d9f268adb1764.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_d5a3293810674e6bb47d9f268adb1764.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_e5700e88f5774d6ead57aba5e892e641.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_e5700e88f5774d6ead57aba5e892e641.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_e5700e88f5774d6ead57aba5e892e641.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_f0b551450a744c3a969156fce6d84327.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_f0b551450a744c3a969156fce6d84327.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_f0b551450a744c3a969156fce6d84327.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_f37fdcf24bbc48ee9f6b0c0a35fe3ec8.mp3'))">
       <SourceType>Package</SourceType>
@@ -1962,6 +3150,186 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_fa372dad43b44598b07668ca447dd07c.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_fa8aef12a21f4a2ba8335ff83d712bda.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/HEHE-BOY-ORIGINAL-MEME_fa8aef12a21f4a2ba8335ff83d712bda.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a9aid7mswn</Fingerprint>
+      <Integrity>kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\HEHE-BOY-ORIGINAL-MEME_fa8aef12a21f4a2ba8335ff83d712bda.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\10017e88-3136-4733-8b20-891d1b894381.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/10017e88-3136-4733-8b20-891d1b894381.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3q64jxlim9</Fingerprint>
+      <Integrity>C+L/RpMCMFIgpelDLxoXkPYvzNg/jPFTBKwKDYLjr6I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\10017e88-3136-4733-8b20-891d1b894381.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\6d650b6f-b239-4293-abb3-a3ba6e4cf9a0.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/6d650b6f-b239-4293-abb3-a3ba6e4cf9a0.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>n5fjvcsgbr</Fingerprint>
+      <Integrity>e8JI5Yr4ifV6gKdSeQe/QzC2VJyN/p1lvdwE7/wplKM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\6d650b6f-b239-4293-abb3-a3ba6e4cf9a0.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\730e5fdd-9c3a-4f87-a035-7b717724f6a8.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/730e5fdd-9c3a-4f87-a035-7b717724f6a8.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3q64jxlim9</Fingerprint>
+      <Integrity>C+L/RpMCMFIgpelDLxoXkPYvzNg/jPFTBKwKDYLjr6I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\730e5fdd-9c3a-4f87-a035-7b717724f6a8.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\cacf5df1-357b-400a-9cd7-3d58f9701a0f.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/cacf5df1-357b-400a-9cd7-3d58f9701a0f.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3q64jxlim9</Fingerprint>
+      <Integrity>C+L/RpMCMFIgpelDLxoXkPYvzNg/jPFTBKwKDYLjr6I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\cacf5df1-357b-400a-9cd7-3d58f9701a0f.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\d6d94224-d682-4ac6-9b78-22314f8fdd13.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/d6d94224-d682-4ac6-9b78-22314f8fdd13.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7dwylvk4ug</Fingerprint>
+      <Integrity>WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\d6d94224-d682-4ac6-9b78-22314f8fdd13.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\d907b39a-aa94-41a4-8e09-a17b852c0af4.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/d907b39a-aa94-41a4-8e09-a17b852c0af4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7dwylvk4ug</Fingerprint>
+      <Integrity>WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\d907b39a-aa94-41a4-8e09-a17b852c0af4.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__0ab613c99f804d9b9813100144087c1e.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__0ab613c99f804d9b9813100144087c1e.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__0ab613c99f804d9b9813100144087c1e.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__0b56cb85df6749148bd32fd0adf5d533.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__0b56cb85df6749148bd32fd0adf5d533.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__0b56cb85df6749148bd32fd0adf5d533.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__151e982766c647499ff428dc035d5a4c.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__151e982766c647499ff428dc035d5a4c.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__151e982766c647499ff428dc035d5a4c.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -1979,6 +3347,348 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__223eae7cd8694d61879af1e01cfcb399.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__223eae7cd8694d61879af1e01cfcb399.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__223eae7cd8694d61879af1e01cfcb399.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__22e0a0b80000437e8eaed5264adac6e8.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__22e0a0b80000437e8eaed5264adac6e8.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__22e0a0b80000437e8eaed5264adac6e8.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__2988a84c08ed4108beab74c3f5014486.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__2988a84c08ed4108beab74c3f5014486.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__2988a84c08ed4108beab74c3f5014486.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__2bf8ddd5e4b14360a73a4f7fbf5a1238.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__2bf8ddd5e4b14360a73a4f7fbf5a1238.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__2bf8ddd5e4b14360a73a4f7fbf5a1238.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__3462c6c50e404646aea83271ef3c3e3b.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__3462c6c50e404646aea83271ef3c3e3b.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__3462c6c50e404646aea83271ef3c3e3b.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__34f63a84214f44ce840011c1f1bfc88f.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__34f63a84214f44ce840011c1f1bfc88f.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__34f63a84214f44ce840011c1f1bfc88f.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__3a0d86deaa0246d0b1faed9a509f08aa.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__3a0d86deaa0246d0b1faed9a509f08aa.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__3a0d86deaa0246d0b1faed9a509f08aa.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__3f87a2b23aac4830b82102591d4944eb.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__3f87a2b23aac4830b82102591d4944eb.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__3f87a2b23aac4830b82102591d4944eb.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__406fd4b9d89842dda78a3fddd1d65bb5.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__406fd4b9d89842dda78a3fddd1d65bb5.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__406fd4b9d89842dda78a3fddd1d65bb5.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__407f64f0435746f4b89f6b1ccf7f9668.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__407f64f0435746f4b89f6b1ccf7f9668.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__407f64f0435746f4b89f6b1ccf7f9668.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__4511b52fecb441e7b6f5d74a777ac50a.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__4511b52fecb441e7b6f5d74a777ac50a.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__4511b52fecb441e7b6f5d74a777ac50a.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__452bbd9301c844bdbf3b9cb3c6e0e37d.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__452bbd9301c844bdbf3b9cb3c6e0e37d.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__452bbd9301c844bdbf3b9cb3c6e0e37d.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__45aa7214275e4efda1bb124f680a6c89.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__45aa7214275e4efda1bb124f680a6c89.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__45aa7214275e4efda1bb124f680a6c89.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__4a0734781668406bb6fd1aba0438fab3.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__4a0734781668406bb6fd1aba0438fab3.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__4a0734781668406bb6fd1aba0438fab3.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__50789400c9ea47aa9c194747503dbf87.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__50789400c9ea47aa9c194747503dbf87.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__50789400c9ea47aa9c194747503dbf87.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__53cda81fc8324d8ca40765a31f2a4f38.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__53cda81fc8324d8ca40765a31f2a4f38.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__53cda81fc8324d8ca40765a31f2a4f38.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__57337123368f4540ad07c4bc2e5e6ff7.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__57337123368f4540ad07c4bc2e5e6ff7.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__57337123368f4540ad07c4bc2e5e6ff7.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__5862425a7e914ca2b2b353fedf5524fa.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__5862425a7e914ca2b2b353fedf5524fa.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__5862425a7e914ca2b2b353fedf5524fa.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3'))">
       <SourceType>Package</SourceType>
@@ -1998,6 +3708,438 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__6296706e67ce4946af90413bf63daea6.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__6296706e67ce4946af90413bf63daea6.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__6296706e67ce4946af90413bf63daea6.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__63661e1429564d96812753b5699c0074.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__63661e1429564d96812753b5699c0074.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__63661e1429564d96812753b5699c0074.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__642acfdd17e04457b0da9138278571e0.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__642acfdd17e04457b0da9138278571e0.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__642acfdd17e04457b0da9138278571e0.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__682d1d5f61b445bf9a3af2aa1a1e5fd9.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__682d1d5f61b445bf9a3af2aa1a1e5fd9.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__682d1d5f61b445bf9a3af2aa1a1e5fd9.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__69548a7f672a471f8c9a3514cb16a729.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__69548a7f672a471f8c9a3514cb16a729.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__69548a7f672a471f8c9a3514cb16a729.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__6d15129abedd4daea01788b5cf4153a8.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__6d15129abedd4daea01788b5cf4153a8.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__6d15129abedd4daea01788b5cf4153a8.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__6f59d0c65f7d418cabd667e3c32a1904.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__6f59d0c65f7d418cabd667e3c32a1904.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__6f59d0c65f7d418cabd667e3c32a1904.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__78daa836183b49e0bf36fc59bf52871b.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__78daa836183b49e0bf36fc59bf52871b.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__78daa836183b49e0bf36fc59bf52871b.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__80f00c5489b245da8fe00883d1279f48.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__80f00c5489b245da8fe00883d1279f48.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__80f00c5489b245da8fe00883d1279f48.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__8353dc9ee97c40dd8543e9e797cdccee.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__8353dc9ee97c40dd8543e9e797cdccee.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__8353dc9ee97c40dd8543e9e797cdccee.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__861043ad3a704e23976e4bb00b46402b.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__861043ad3a704e23976e4bb00b46402b.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__861043ad3a704e23976e4bb00b46402b.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__8a5f9547228b4b67a8ba15fe707e40fb.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__8a5f9547228b4b67a8ba15fe707e40fb.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__8a5f9547228b4b67a8ba15fe707e40fb.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__8d92547c71bb4c068783711fbcc3c39f.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__8d92547c71bb4c068783711fbcc3c39f.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__8d92547c71bb4c068783711fbcc3c39f.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__92b697a4323547a39bd67d7401420065.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__92b697a4323547a39bd67d7401420065.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__92b697a4323547a39bd67d7401420065.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__93c903ceca274d1c95a2849df2bba0b1.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__93c903ceca274d1c95a2849df2bba0b1.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__93c903ceca274d1c95a2849df2bba0b1.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__960e6fd095a44a7cb1b1bad3143e1e5a.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__960e6fd095a44a7cb1b1bad3143e1e5a.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__960e6fd095a44a7cb1b1bad3143e1e5a.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__9957ed248d4c4ff0934d19020431d874.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__9957ed248d4c4ff0934d19020431d874.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__9957ed248d4c4ff0934d19020431d874.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__a2785d78b9744c71b8e3179d1de08941.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__a2785d78b9744c71b8e3179d1de08941.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__a2785d78b9744c71b8e3179d1de08941.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__a4d4d9a62e25437d938424fa70096f2e.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__a4d4d9a62e25437d938424fa70096f2e.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__a4d4d9a62e25437d938424fa70096f2e.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__ac2fc3ce5f2f47cea7e3651a1f9b6e3f.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__ac2fc3ce5f2f47cea7e3651a1f9b6e3f.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__ac2fc3ce5f2f47cea7e3651a1f9b6e3f.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__af4f08d7447044e4a2bbed26e2983c36.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__af4f08d7447044e4a2bbed26e2983c36.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__af4f08d7447044e4a2bbed26e2983c36.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b38d04b963354eff8ec025d44b9afb8b.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__b38d04b963354eff8ec025d44b9afb8b.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b38d04b963354eff8ec025d44b9afb8b.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b5d1d55d123b44b197b63b97d8f169f7.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__b5d1d55d123b44b197b63b97d8f169f7.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b5d1d55d123b44b197b63b97d8f169f7.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b62fd59bd35a4656b1251e8bcd3278e0.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__b62fd59bd35a4656b1251e8bcd3278e0.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b62fd59bd35a4656b1251e8bcd3278e0.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -2016,6 +4158,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__b6e819935d774bf6a4f98e8ff555b94a.mp3'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__bad386a00e8645399ed4a42b0447eff7.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__bad386a00e8645399ed4a42b0447eff7.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__bad386a00e8645399ed4a42b0447eff7.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3'))">
       <SourceType>Package</SourceType>
       <SourceId>MusicWebMVC</SourceId>
@@ -2033,6 +4193,240 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d28c2658cdb642d397bc786504ca9fc0.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__d28c2658cdb642d397bc786504ca9fc0.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d28c2658cdb642d397bc786504ca9fc0.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d3edfd37a7a3428087cbddf569521a09.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__d3edfd37a7a3428087cbddf569521a09.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d3edfd37a7a3428087cbddf569521a09.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d885554f49dc44b89c8b409c8532f68f.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__d885554f49dc44b89c8b409c8532f68f.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d885554f49dc44b89c8b409c8532f68f.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d9e28f217e664e92b487a6437542d33c.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__d9e28f217e664e92b487a6437542d33c.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__d9e28f217e664e92b487a6437542d33c.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__dd9231fad41941fa86c8e24abd23ddb1.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__dd9231fad41941fa86c8e24abd23ddb1.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__dd9231fad41941fa86c8e24abd23ddb1.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__df9be8226ff84afbbb7080bac3314ec4.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__df9be8226ff84afbbb7080bac3314ec4.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__df9be8226ff84afbbb7080bac3314ec4.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__e608474d729e4291a0342cf4d4f983e2.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__e608474d729e4291a0342cf4d4f983e2.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__e608474d729e4291a0342cf4d4f983e2.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__e76fb3ae197f4dfe99ac3932b4dca592.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__e76fb3ae197f4dfe99ac3932b4dca592.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__e76fb3ae197f4dfe99ac3932b4dca592.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__e9a29868634246e4a830a71aa1fa6af3.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__e9a29868634246e4a830a71aa1fa6af3.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__e9a29868634246e4a830a71aa1fa6af3.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__ec62a561c53841ca9202f568cf74a4d7.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__ec62a561c53841ca9202f568cf74a4d7.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__ec62a561c53841ca9202f568cf74a4d7.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__faca0f1e5e654150affa1fe417a8ac01.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__faca0f1e5e654150affa1fe417a8ac01.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__faca0f1e5e654150affa1fe417a8ac01.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__fc483f6ea6184ccc83bbde21a5261aee.mp3'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/Why-are-you-running__fc483f6ea6184ccc83bbde21a5261aee.mp3</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>dfj6969ie9</Fingerprint>
+      <Integrity>2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Why-are-you-running__fc483f6ea6184ccc83bbde21a5261aee.mp3'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\0acbec7f-7a1f-4860-b92e-7e52acc41a48_589cf441a6ea04b45dfb.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploadsImage/0acbec7f-7a1f-4860-b92e-7e52acc41a48_589cf441a6ea04b45dfb.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>n5fjvcsgbr</Fingerprint>
+      <Integrity>e8JI5Yr4ifV6gKdSeQe/QzC2VJyN/p1lvdwE7/wplKM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\0acbec7f-7a1f-4860-b92e-7e52acc41a48_589cf441a6ea04b45dfb.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\61b838f3-db92-49e7-9504-96a08eb5a836_9ec1d2c5-94e5-44a3-91cf-15f126686b25.jpg'))">
       <SourceType>Package</SourceType>
@@ -2087,6 +4481,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\911f72db-037f-4d60-8cf5-335119b1c516_9ec1d2c5-94e5-44a3-91cf-15f126686b25.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\91d3ab6f-a807-4550-bf05-47a7f27482e6_9ec1d2c5-94e5-44a3-91cf-15f126686b25.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploadsImage/91d3ab6f-a807-4550-bf05-47a7f27482e6_9ec1d2c5-94e5-44a3-91cf-15f126686b25.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3q64jxlim9</Fingerprint>
+      <Integrity>C+L/RpMCMFIgpelDLxoXkPYvzNg/jPFTBKwKDYLjr6I=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\91d3ab6f-a807-4550-bf05-47a7f27482e6_9ec1d2c5-94e5-44a3-91cf-15f126686b25.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploadsImage\94654e3b-6a62-40ef-aa7b-3e2e1427fa27_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg'))">
       <SourceType>Package</SourceType>

@@ -77,7 +77,8 @@ namespace MusicWebMVC.Controllers
                     Name = playlistName,
                     UserId = userId,
                     CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    UpdatedAt = DateTime.Now,
+                    ImageUrl = ""
                 };
 
                 _context.Playlists.Add(playlist);
@@ -382,6 +383,82 @@ namespace MusicWebMVC.Controllers
                         name = playlist.Name,
                         updatedAt = playlist.UpdatedAt
                     }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdatePlaylistImage(int playlistId, IFormFile image)
+        {
+            try
+            {
+                // Check current user
+                int userId = 0;
+                int.TryParse(HttpContext.Session.GetString("UserId"), out userId);
+
+                if (userId <= 0)
+                {
+                    return Unauthorized(new { success = false, message = "Bạn cần đăng nhập để thực hiện chức năng này" });
+                }
+
+                // Check if playlist exists and belongs to current user
+                var playlist = await _context.Playlists.FindAsync(playlistId);
+                if (playlist == null)
+                {
+                    return NotFound(new { success = false, message = "Không tìm thấy playlist" });
+                }
+
+                if (playlist.UserId != userId)
+                {
+                    return Unauthorized(new { success = false, message = "Bạn không có quyền chỉnh sửa playlist này" });
+                }
+
+                // Validate image
+                if (image == null || image.Length == 0)
+                {
+                    return BadRequest(new { success = false, message = "Bạn chưa chọn ảnh" });
+                }
+
+                // Check file extension
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                var extension = Path.GetExtension(image.FileName).ToLowerInvariant();
+                if (!allowedExtensions.Contains(extension))
+                {
+                    return BadRequest(new { success = false, message = "Chỉ chấp nhận file ảnh (jpg, jpeg, png, gif)" });
+                }
+
+                // Create upload directory if it doesn't exist
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "playlist-images");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                // Generate unique filename
+                var uniqueFileName = $"{Guid.NewGuid()}{extension}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                // Save the file
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(fileStream);
+                }
+
+                // Update playlist image URL
+                var imageUrl = $"/uploads/playlist-images/{uniqueFileName}";
+                playlist.ImageUrl = imageUrl;
+                playlist.UpdatedAt = DateTime.Now;
+                _context.Entry(playlist).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Cập nhật ảnh playlist thành công",
+                    imageUrl = imageUrl
                 });
             }
             catch (Exception ex)

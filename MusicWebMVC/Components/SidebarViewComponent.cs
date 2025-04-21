@@ -45,6 +45,7 @@ namespace MusicWebMVC.Components
                 .ThenInclude(ps => ps.Song)
                 .ToListAsync();
 
+
                 ViewBag.UserPlaylists = userPlaylists;
             }
             else
