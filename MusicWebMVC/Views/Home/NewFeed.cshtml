@@ -242,42 +242,37 @@
                     }
                 </div>
                 <div class="top-user">
-
                     <div class="panel-header">
-                        Melofy VIP members
+                        Melofy members
                     </div>
 
-                  
-
                     <div class="top-artists">
-                        <div class="section-title">
-                            UK most streamed artists
-                        </div>
 
-                        <div class="artist-item">
-                            <div class="artist-rank rank-1">No.1</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 1">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
 
-                        <div class="artist-item">
-                            <div class="artist-rank rank-2">No.2</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 2">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
-
-                        <div class="artist-item">
-                            <div class="artist-rank rank-3">No.3</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 3">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
-                    </div>                  
+                        @if (ViewBag.TopUsers != null && ViewBag.TopUsers.Count > 0)
+                        {
+                            var rank = 1;
+                            @foreach (var user in ViewBag.TopUsers)
+                            {
+                                <div class="artist-item" onclick="window.location.href='@Url.Action("ProfileUser", "Home", new { id = user.Id })'">
+                                    <div class="artist-rank rank-@rank">No.@rank</div>
+                                    <div class="artist-icon">
+                                        <img src="@user.AvatarUrl" alt="@user.Username">
+                                    </div>
+                                    <div class="artist-desc">
+                                        @user.Username
+                                        <br />
+                                        <span class="follower-count">(@user.FollowerCount followers)</span>
+                                    </div>
+                                </div>
+                                rank++;
+                            }
+                        }
+                        else
+                        {
+                            <p>No top users found.</p>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
