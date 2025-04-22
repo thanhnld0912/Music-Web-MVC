@@ -1,0 +1,224 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Payment";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var userId = Context.Session.GetString("UserId");
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
+    @model List<MusicWebMVC.Models.Post>
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Music Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/newfeed.css">
+
+</head>
+
+<body onclick="closeAll(event)">
+    @await Component.InvokeAsync("Sidebar")
+    <!-- Chat Boxes -->
+    <input id="current-user-id" value="@userId" hidden></input>
+    <input id="avatar-url" value="@avatarUrl" hidden></input>
+    <div class="chat-box" id="playlistBox">
+        <h3>Create Playlist</h3>
+        @if (isAuthenticated)
+        {
+            <input type="text" placeholder="Enter playlist name" />
+            <button class="message-login-button" onclick="createPlaylist()">Create</button>
+        }
+        else
+        {
+            <button onclick="location.href='@Url.Action("Login", "Account")'" class="message-login-button">Login</button>
+        }
+    </div>
+
+
+    <div class="chat-box" id="storyBox">
+        <h3>Share Your Story</h3>
+        @if (isAuthenticated)
+        {
+
+            <button class="message-login-button" onclick="location.href='@Url.Action("UploadPage", "Song")'">Post</button>
+        }
+        else
+        {
+            <button onclick="location.href='@Url.Action("Login", "Account")'" class="message-login-button">Login</button>
+        }
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        @await Component.InvokeAsync("Navbar")
+
+        <div class="payment-container">
+            <h2>Thanh toán <a href="#" class="change-plan">Thay đổi gói</a></h2>
+
+            <div class="plan-section">
+                <div class="plan-header">
+                    <strong>Premium Cá nhân</strong> <span class="badge">PREMIUM</span>
+                    <span class="price">150.000đ</span>
+                </div>
+                <div class="plan-options">
+                    <p><input type="radio" checked /> Bắt đầu từ 2/4/2025 • Gia hạn hằng tháng</p>
+                    <p><input type="radio" /> Hủy bất kỳ lúc nào • <a href="#">Điều khoản</a></p>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <h3>Phương thức thanh toán</h3>
+
+                <div class="payment-option selected">
+                    <input type="radio" name="method" checked />
+                    <strong>Ví điện tử</strong>
+                    <div class="note">
+                        Từ tháng 1 năm 2025, ví điện tử sẽ được sử dụng để thanh toán gói Premium của bạn hằng tháng.
+                        Vui lòng đảm bảo ví của bạn được liên kết và có đủ tiền để thanh toán đúng hạn.
+                    </div>
+                </div>
+
+                <div class="payment-option disabled">
+                    <input type="radio" name="method" disabled />
+                    Thẻ tín dụng/ghi nợ
+                </div>          
+                @if (isAuthenticated)
+                {
+                    <form asp-controller="Payment" asp-action="Checkout" method="post">
+                        @Html.AntiForgeryToken()
+                        <input id="current-user-id" name="UserID" value="@userId" hidden/>
+                        <input type="hidden" name="Amount" value="150000" />
+                        <input type="hidden" name="FullName" value="Nguyen Van A" />
+                        <button type="submit" class="btn-submit">Hoàn tất thanh toán</button>
+                    </form>
+                }
+
+            </div>
+
+            <div class="summary-section">
+                <h3>Tóm tắt</h3>
+                <table class="summary-table">
+                    <tr>
+                        <td>Gói Premium Cá nhân</td>
+                        <td>150.000đ</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày bắt đầu: 2/4/2025</td>
+                        <td>150.000đ/tháng</td>
+                    </tr>
+                    <tr class="total">
+                        <td><strong>Tổng cộng</strong></td>
+                        <td><strong>150.000đ</strong></td>
+                    </tr>
+                </table>
+
+                <div class="warning">
+                    Bằng cách nhấn "Hoàn tất thanh toán", bạn đồng ý cho phép hệ thống trừ tiền hàng tháng từ phương thức thanh toán bạn đã chọn.
+                    Bạn có thể hủy đăng ký bất kỳ lúc nào.
+                </div>
+
+                <label><input type="checkbox" required /> Bạn cần đăng nhập vào thiết bị để hoàn tất thanh toán</label>
+                <button class="btn-submit">Hoàn tất thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("GlobalPlayer")
+
+    <style>
+        .payment-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .change-plan {
+            font-size: 0.9rem;
+            float: right;
+        }
+
+        .plan-section, .payment-method, .summary-section {
+            margin-top: 2rem;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            background-color: orange;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        .payment-option {
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+            .payment-option.selected {
+                background-color: #e6f0ff;
+                border-color: #1e90ff;
+            }
+
+            .payment-option.disabled {
+                color: gray;
+            }
+
+        .note {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: #333;
+        }
+
+        .summary-table {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+            .summary-table td {
+                padding: 0.5rem 0;
+            }
+
+        .total {
+            border-top: 1px solid #ccc;
+        }
+
+        .warning {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .btn-submit {
+            background-color: #1db954;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+    <script src="~/js/globalplayer.js"></script>
+    <script src="~/js/newfeed.js"> </script>
+</body>
+</html>

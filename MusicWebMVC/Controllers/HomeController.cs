@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Models;
+using MusicWebMVC.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -339,6 +340,12 @@ namespace MusicWebMVC.Controllers
 
         public async Task<IActionResult> ProfileUser(int id)
         {
+
+            var model = new UserViewModel
+            {
+                IsVIP = TempData["IsVIP"] != null && (bool)TempData["IsVIP"]
+            };
+
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
