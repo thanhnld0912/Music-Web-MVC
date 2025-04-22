@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tWGCbK+OvYEHUigcZ1bJSy42GFOhw6DcwqnLnQtjNk8=",
+  "Hash": "5Ox3HUNlsUCpvaMa4lr1RQdWPzXn7G5GUG8OJc/b0Qs=",
   "Source": "MusicWebMVC",
   "BasePath": "_content/MusicWebMVC",
   "Mode": "Default",
@@ -1018,8 +1018,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "z3xv2wipfh",
-      "Integrity": "X9vEUHhCg9AAwCmZBlkg6yIatkEVkZ+sbazfLwbDi6c=",
+      "Fingerprint": "urt29c9qxn",
+      "Integrity": "xpPAuAmvJladrv07KhcZkxs/ZLovmgU5pPgcLoPPlvM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\globalplayer.css"
@@ -1081,8 +1081,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "2x1tqhs4gf",
-      "Integrity": "ClPRDhwqZ2fo1AsDBH4ONe3oOOV6HqTfHyIRkgKpvg0=",
+      "Fingerprint": "xbw1fnagag",
+      "Integrity": "E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\newfeed.css"
@@ -1102,8 +1102,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9z8dd0vi5m",
-      "Integrity": "tQu3v/EiDxJre39Mt5XZWHU1iU2oY6dJisEJ9lMK1DQ=",
+      "Fingerprint": "3vupt9ahdv",
+      "Integrity": "f0nLxEtBU+V0PsZDb5m2ZRWNXlFCKvTPUbUcPgchpsM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\playlist.css"
@@ -1585,8 +1585,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yrp4a1llcr",
-      "Integrity": "giaCvDp4gM+E6Chus2J8XdlGnHreiQifk19+yn08Bys=",
+      "Fingerprint": "uje49v8avd",
+      "Integrity": "qqcdwgZLkNFiPg1t93XqY1DkXueoAiz8Q8sprH1Pwo4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\globalplayer.js"
@@ -1648,8 +1648,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q5d6f890aw",
-      "Integrity": "4ljECMIRTbu/P2qQqcXtCFlpvYwH9SIkjFY2W5347WM=",
+      "Fingerprint": "p1uhnpdp5y",
+      "Integrity": "XT35dbv0uP8kBb/tVZDIyhiu9qW9zOZAmiUkKEhsPhA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\NewFeed.js"
@@ -1669,8 +1669,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "185vvj3aba",
-      "Integrity": "z3hW9lpQHrGPt4vz9aBL9Nl2PxzestADq4DPoPPFBZ8=",
+      "Fingerprint": "5963volg45",
+      "Integrity": "aXH0L5DkYHw43zvNBy7OUdTPnuZgiKWROeCO2/x5Z4k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\playlistpage.js"
@@ -1732,8 +1732,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gbnhyk6d6o",
-      "Integrity": "TGIi5P0ndpZYdrc6M80BAW4dLknsF2crnhoQkyUeYpk=",
+      "Fingerprint": "xvqjl1lcd9",
+      "Integrity": "I8gEAfFbIA3prKtlG+aXSCVAo6zT7IYuQ/asFRjbRgI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\profileuser.js"
@@ -1837,8 +1837,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "y98lvnjebt",
-      "Integrity": "2vccMFEydvmth94VJG7gTy232flN9qhzJFARCphbB2U=",
+      "Fingerprint": "iqmt8tcz31",
+      "Integrity": "WjQVlhUFpdZrBea6N58x/uUKgIGJOPxTMENYF6797cw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\uploadfile.js"
@@ -3860,6 +3860,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\playlist-images\\d907b39a-aa94-41a4-8e09-a17b852c0af4.jpg"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0625179175ac48ff899cb53f050920d7.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__0625179175ac48ff899cb53f050920d7#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__0625179175ac48ff899cb53f050920d7.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0ab613c99f804d9b9813100144087c1e.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -3902,6 +3923,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__0b56cb85df6749148bd32fd0adf5d533.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__151e982766c647499ff428dc035d5a4c.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -3923,6 +3965,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__151e982766c647499ff428dc035d5a4c.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__168a3487f4c64569b7c6c50d5315c786#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -3942,6 +4005,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.mp3"
     },
     {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__223eae7cd8694d61879af1e01cfcb399.mp3",
@@ -3984,6 +4068,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__22e0a0b80000437e8eaed5264adac6e8.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.mp3"
     },
     {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__2988a84c08ed4108beab74c3f5014486.mp3",
@@ -4089,6 +4194,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__3a0d86deaa0246d0b1faed9a509f08aa.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__3a56be980e264f5c8345e54ab3247d16#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.mp3"
     },
     {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3f87a2b23aac4830b82102591d4944eb.mp3",
@@ -4238,6 +4385,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__4a0734781668406bb6fd1aba0438fab3.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__4a164cb26480407b820132c8534b6f4b.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__4a164cb26480407b820132c8534b6f4b#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__4a164cb26480407b820132c8534b6f4b.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__50789400c9ea47aa9c194747503dbf87.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -4322,6 +4490,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__5862425a7e914ca2b2b353fedf5524fa.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__59393cae706b480282b1a3a43029fee6.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__59393cae706b480282b1a3a43029fee6#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__59393cae706b480282b1a3a43029fee6.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -4341,6 +4530,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.mp3"
     },
     {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5e77961773514a0f9d48b3ef60b2ee0a.mp3",
@@ -4763,6 +4973,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__9957ed248d4c4ff0934d19020431d874.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__a2785d78b9744c71b8e3179d1de08941.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -4973,6 +5204,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__bdd1a1f98ae1454083d159ef61c69c88.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__d28c2658cdb642d397bc786504ca9fc0.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -5141,6 +5393,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__e76fb3ae197f4dfe99ac3932b4dca592.mp3"
     },
     {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__e7b629dcc3f149cd803031ced248d796.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__e7b629dcc3f149cd803031ced248d796#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__e7b629dcc3f149cd803031ced248d796.mp3"
+    },
+    {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__e9a29868634246e4a830a71aa1fa6af3.mp3",
       "SourceId": "MusicWebMVC",
       "SourceType": "Discovered",
@@ -5181,6 +5454,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__ec62a561c53841ca9202f568cf74a4d7.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.mp3"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dfj6969ie9",
+      "Integrity": "2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.mp3"
     },
     {
       "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__faca0f1e5e654150affa1fe417a8ac01.mp3",
@@ -5370,6 +5706,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploadsImage\\9827208e-f64c-4881-a0ff-6080c57f8372_9ec1d2c5-94e5-44a3-91cf-15f126686b25.jpg"
+    },
+    {
+      "Identity": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploadsImage\\d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploadsImage/d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7dwylvk4ug",
+      "Integrity": "WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploadsImage\\d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg"
     }
   ],
   "Endpoints": [
@@ -9074,7 +9431,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4378"
+          "Value": "7608"
         },
         {
           "Name": "Content-Type",
@@ -9082,11 +9439,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"X9vEUHhCg9AAwCmZBlkg6yIatkEVkZ+sbazfLwbDi6c=\""
+          "Value": "\"xpPAuAmvJladrv07KhcZkxs/ZLovmgU5pPgcLoPPlvM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 09 Apr 2025 07:30:15 GMT"
+          "Value": "Tue, 22 Apr 2025 08:25:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9096,12 +9453,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-X9vEUHhCg9AAwCmZBlkg6yIatkEVkZ+sbazfLwbDi6c="
+          "Value": "sha256-xpPAuAmvJladrv07KhcZkxs/ZLovmgU5pPgcLoPPlvM="
         }
       ]
     },
     {
-      "Route": "css/globalplayer.z3xv2wipfh.css",
+      "Route": "css/globalplayer.urt29c9qxn.css",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -9111,7 +9468,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4378"
+          "Value": "7608"
         },
         {
           "Name": "Content-Type",
@@ -9119,11 +9476,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"X9vEUHhCg9AAwCmZBlkg6yIatkEVkZ+sbazfLwbDi6c=\""
+          "Value": "\"xpPAuAmvJladrv07KhcZkxs/ZLovmgU5pPgcLoPPlvM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 09 Apr 2025 07:30:15 GMT"
+          "Value": "Tue, 22 Apr 2025 08:25:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9133,7 +9490,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z3xv2wipfh"
+          "Value": "urt29c9qxn"
         },
         {
           "Name": "label",
@@ -9141,7 +9498,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-X9vEUHhCg9AAwCmZBlkg6yIatkEVkZ+sbazfLwbDi6c="
+          "Value": "sha256-xpPAuAmvJladrv07KhcZkxs/ZLovmgU5pPgcLoPPlvM="
         }
       ]
     },
@@ -9310,51 +9667,6 @@
       ]
     },
     {
-      "Route": "css/newfeed.2x1tqhs4gf.css",
-      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "45564"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ClPRDhwqZ2fo1AsDBH4ONe3oOOV6HqTfHyIRkgKpvg0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 09:23:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "2x1tqhs4gf"
-        },
-        {
-          "Name": "label",
-          "Value": "css/newfeed.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ClPRDhwqZ2fo1AsDBH4ONe3oOOV6HqTfHyIRkgKpvg0="
-        }
-      ]
-    },
-    {
       "Route": "css/newfeed.css",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
       "Selectors": [],
@@ -9365,7 +9677,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "45564"
+          "Value": "47525"
         },
         {
           "Name": "Content-Type",
@@ -9373,11 +9685,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ClPRDhwqZ2fo1AsDBH4ONe3oOOV6HqTfHyIRkgKpvg0=\""
+          "Value": "\"E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 09:23:49 GMT"
+          "Value": "Tue, 22 Apr 2025 05:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9387,13 +9699,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ClPRDhwqZ2fo1AsDBH4ONe3oOOV6HqTfHyIRkgKpvg0="
+          "Value": "sha256-E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po="
         }
       ]
     },
     {
-      "Route": "css/playlist.9z8dd0vi5m.css",
-      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
+      "Route": "css/newfeed.xbw1fnagag.css",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\newfeed.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9402,7 +9714,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16801"
+          "Value": "47525"
         },
         {
           "Name": "Content-Type",
@@ -9410,11 +9722,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"tQu3v/EiDxJre39Mt5XZWHU1iU2oY6dJisEJ9lMK1DQ=\""
+          "Value": "\"E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:57 GMT"
+          "Value": "Tue, 22 Apr 2025 05:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9424,7 +9736,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9z8dd0vi5m"
+          "Value": "xbw1fnagag"
+        },
+        {
+          "Name": "label",
+          "Value": "css/newfeed.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po="
+        }
+      ]
+    },
+    {
+      "Route": "css/playlist.3vupt9ahdv.css",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\playlist.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19494"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"f0nLxEtBU+V0PsZDb5m2ZRWNXlFCKvTPUbUcPgchpsM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 07:26:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3vupt9ahdv"
         },
         {
           "Name": "label",
@@ -9432,7 +9789,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-tQu3v/EiDxJre39Mt5XZWHU1iU2oY6dJisEJ9lMK1DQ="
+          "Value": "sha256-f0nLxEtBU+V0PsZDb5m2ZRWNXlFCKvTPUbUcPgchpsM="
         }
       ]
     },
@@ -9447,7 +9804,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16801"
+          "Value": "19494"
         },
         {
           "Name": "Content-Type",
@@ -9455,11 +9812,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"tQu3v/EiDxJre39Mt5XZWHU1iU2oY6dJisEJ9lMK1DQ=\""
+          "Value": "\"f0nLxEtBU+V0PsZDb5m2ZRWNXlFCKvTPUbUcPgchpsM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:57 GMT"
+          "Value": "Tue, 22 Apr 2025 07:26:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9469,7 +9826,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-tQu3v/EiDxJre39Mt5XZWHU1iU2oY6dJisEJ9lMK1DQ="
+          "Value": "sha256-f0nLxEtBU+V0PsZDb5m2ZRWNXlFCKvTPUbUcPgchpsM="
         }
       ]
     },
@@ -11288,7 +11645,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "29892"
+          "Value": "41038"
         },
         {
           "Name": "Content-Type",
@@ -11296,11 +11653,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"giaCvDp4gM+E6Chus2J8XdlGnHreiQifk19+yn08Bys=\""
+          "Value": "\"qqcdwgZLkNFiPg1t93XqY1DkXueoAiz8Q8sprH1Pwo4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 07:19:56 GMT"
+          "Value": "Tue, 22 Apr 2025 08:25:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11310,12 +11667,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-giaCvDp4gM+E6Chus2J8XdlGnHreiQifk19+yn08Bys="
+          "Value": "sha256-qqcdwgZLkNFiPg1t93XqY1DkXueoAiz8Q8sprH1Pwo4="
         }
       ]
     },
     {
-      "Route": "js/globalplayer.yrp4a1llcr.js",
+      "Route": "js/globalplayer.uje49v8avd.js",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -11325,7 +11682,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "29892"
+          "Value": "41038"
         },
         {
           "Name": "Content-Type",
@@ -11333,11 +11690,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"giaCvDp4gM+E6Chus2J8XdlGnHreiQifk19+yn08Bys=\""
+          "Value": "\"qqcdwgZLkNFiPg1t93XqY1DkXueoAiz8Q8sprH1Pwo4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 07:19:56 GMT"
+          "Value": "Tue, 22 Apr 2025 08:25:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11347,7 +11704,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yrp4a1llcr"
+          "Value": "uje49v8avd"
         },
         {
           "Name": "label",
@@ -11355,7 +11712,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-giaCvDp4gM+E6Chus2J8XdlGnHreiQifk19+yn08Bys="
+          "Value": "sha256-qqcdwgZLkNFiPg1t93XqY1DkXueoAiz8Q8sprH1Pwo4="
         }
       ]
     },
@@ -11534,7 +11891,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "45536"
+          "Value": "49051"
         },
         {
           "Name": "Content-Type",
@@ -11542,11 +11899,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4ljECMIRTbu/P2qQqcXtCFlpvYwH9SIkjFY2W5347WM=\""
+          "Value": "\"XT35dbv0uP8kBb/tVZDIyhiu9qW9zOZAmiUkKEhsPhA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 07:41:41 GMT"
+          "Value": "Tue, 22 Apr 2025 09:31:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11556,12 +11913,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4ljECMIRTbu/P2qQqcXtCFlpvYwH9SIkjFY2W5347WM="
+          "Value": "sha256-XT35dbv0uP8kBb/tVZDIyhiu9qW9zOZAmiUkKEhsPhA="
         }
       ]
     },
     {
-      "Route": "js/NewFeed.q5d6f890aw.js",
+      "Route": "js/NewFeed.p1uhnpdp5y.js",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\NewFeed.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -11571,7 +11928,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "45536"
+          "Value": "49051"
         },
         {
           "Name": "Content-Type",
@@ -11579,11 +11936,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4ljECMIRTbu/P2qQqcXtCFlpvYwH9SIkjFY2W5347WM=\""
+          "Value": "\"XT35dbv0uP8kBb/tVZDIyhiu9qW9zOZAmiUkKEhsPhA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 07:41:41 GMT"
+          "Value": "Tue, 22 Apr 2025 09:31:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11593,7 +11950,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q5d6f890aw"
+          "Value": "p1uhnpdp5y"
         },
         {
           "Name": "label",
@@ -11601,12 +11958,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4ljECMIRTbu/P2qQqcXtCFlpvYwH9SIkjFY2W5347WM="
+          "Value": "sha256-XT35dbv0uP8kBb/tVZDIyhiu9qW9zOZAmiUkKEhsPhA="
         }
       ]
     },
     {
-      "Route": "js/playlistpage.185vvj3aba.js",
+      "Route": "js/playlistpage.5963volg45.js",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\playlistpage.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -11616,7 +11973,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20210"
+          "Value": "31328"
         },
         {
           "Name": "Content-Type",
@@ -11624,11 +11981,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"z3hW9lpQHrGPt4vz9aBL9Nl2PxzestADq4DPoPPFBZ8=\""
+          "Value": "\"aXH0L5DkYHw43zvNBy7OUdTPnuZgiKWROeCO2/x5Z4k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 07:18:16 GMT"
+          "Value": "Tue, 22 Apr 2025 08:12:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11638,7 +11995,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "185vvj3aba"
+          "Value": "5963volg45"
         },
         {
           "Name": "label",
@@ -11646,7 +12003,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-z3hW9lpQHrGPt4vz9aBL9Nl2PxzestADq4DPoPPFBZ8="
+          "Value": "sha256-aXH0L5DkYHw43zvNBy7OUdTPnuZgiKWROeCO2/x5Z4k="
         }
       ]
     },
@@ -11661,7 +12018,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20210"
+          "Value": "31328"
         },
         {
           "Name": "Content-Type",
@@ -11669,11 +12026,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"z3hW9lpQHrGPt4vz9aBL9Nl2PxzestADq4DPoPPFBZ8=\""
+          "Value": "\"aXH0L5DkYHw43zvNBy7OUdTPnuZgiKWROeCO2/x5Z4k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 07:18:16 GMT"
+          "Value": "Tue, 22 Apr 2025 08:12:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11683,7 +12040,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-z3hW9lpQHrGPt4vz9aBL9Nl2PxzestADq4DPoPPFBZ8="
+          "Value": "sha256-aXH0L5DkYHw43zvNBy7OUdTPnuZgiKWROeCO2/x5Z4k="
         }
       ]
     },
@@ -11852,51 +12209,6 @@
       ]
     },
     {
-      "Route": "js/profileuser.gbnhyk6d6o.js",
-      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "36087"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"TGIi5P0ndpZYdrc6M80BAW4dLknsF2crnhoQkyUeYpk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 09:42:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gbnhyk6d6o"
-        },
-        {
-          "Name": "label",
-          "Value": "js/profileuser.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-TGIi5P0ndpZYdrc6M80BAW4dLknsF2crnhoQkyUeYpk="
-        }
-      ]
-    },
-    {
       "Route": "js/profileuser.js",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
       "Selectors": [],
@@ -11907,7 +12219,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "36087"
+          "Value": "49372"
         },
         {
           "Name": "Content-Type",
@@ -11915,11 +12227,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TGIi5P0ndpZYdrc6M80BAW4dLknsF2crnhoQkyUeYpk=\""
+          "Value": "\"I8gEAfFbIA3prKtlG+aXSCVAo6zT7IYuQ/asFRjbRgI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 09:42:13 GMT"
+          "Value": "Tue, 22 Apr 2025 09:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11929,7 +12241,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TGIi5P0ndpZYdrc6M80BAW4dLknsF2crnhoQkyUeYpk="
+          "Value": "sha256-I8gEAfFbIA3prKtlG+aXSCVAo6zT7IYuQ/asFRjbRgI="
+        }
+      ]
+    },
+    {
+      "Route": "js/profileuser.xvqjl1lcd9.js",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\profileuser.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49372"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"I8gEAfFbIA3prKtlG+aXSCVAo6zT7IYuQ/asFRjbRgI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:32:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xvqjl1lcd9"
+        },
+        {
+          "Name": "label",
+          "Value": "js/profileuser.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-I8gEAfFbIA3prKtlG+aXSCVAo6zT7IYuQ/asFRjbRgI="
         }
       ]
     },
@@ -12262,6 +12619,51 @@
       ]
     },
     {
+      "Route": "js/uploadfile.iqmt8tcz31.js",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55390"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WjQVlhUFpdZrBea6N58x/uUKgIGJOPxTMENYF6797cw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:55:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iqmt8tcz31"
+        },
+        {
+          "Name": "label",
+          "Value": "js/uploadfile.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WjQVlhUFpdZrBea6N58x/uUKgIGJOPxTMENYF6797cw="
+        }
+      ]
+    },
+    {
       "Route": "js/uploadfile.js",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
       "Selectors": [],
@@ -12272,7 +12674,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53414"
+          "Value": "55390"
         },
         {
           "Name": "Content-Type",
@@ -12280,11 +12682,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2vccMFEydvmth94VJG7gTy232flN9qhzJFARCphbB2U=\""
+          "Value": "\"WjQVlhUFpdZrBea6N58x/uUKgIGJOPxTMENYF6797cw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 06:35:14 GMT"
+          "Value": "Tue, 22 Apr 2025 06:55:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12294,52 +12696,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2vccMFEydvmth94VJG7gTy232flN9qhzJFARCphbB2U="
-        }
-      ]
-    },
-    {
-      "Route": "js/uploadfile.y98lvnjebt.js",
-      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\uploadfile.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "53414"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"2vccMFEydvmth94VJG7gTy232flN9qhzJFARCphbB2U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 21 Apr 2025 06:35:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "y98lvnjebt"
-        },
-        {
-          "Name": "label",
-          "Value": "js/uploadfile.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-2vccMFEydvmth94VJG7gTy232flN9qhzJFARCphbB2U="
+          "Value": "sha256-WjQVlhUFpdZrBea6N58x/uUKgIGJOPxTMENYF6797cw="
         }
       ]
     },
@@ -20380,6 +20737,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__0625179175ac48ff899cb53f050920d7.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0625179175ac48ff899cb53f050920d7.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:33:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__0625179175ac48ff899cb53f050920d7.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__0625179175ac48ff899cb53f050920d7.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0625179175ac48ff899cb53f050920d7.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:33:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__0ab613c99f804d9b9813100144087c1e.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0ab613c99f804d9b9813100144087c1e.mp3",
       "Selectors": [],
@@ -20544,6 +20983,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:30:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__0cd22a2fe511448abbe81ee4b9f9f01f.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:30:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__151e982766c647499ff428dc035d5a4c.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__151e982766c647499ff428dc035d5a4c.mp3",
       "Selectors": [],
@@ -20626,6 +21147,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__168a3487f4c64569b7c6c50d5315c786.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__1d75596e4b2c467eae77f27dc040782a.mp3",
       "Selectors": [],
@@ -20694,6 +21297,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Thu, 10 Apr 2025 08:32:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:32:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__219f6f48efb34b4a9f12df4b2629c78a.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:32:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20858,6 +21543,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Fri, 18 Apr 2025 06:23:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:30:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__24b5039a4fb643279cdeafce3c941f7e.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:30:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21268,6 +22035,170 @@
         {
           "Name": "Last-Modified",
           "Value": "Sat, 19 Apr 2025 04:34:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:56:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3a56be980e264f5c8345e54ab3247d16.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:56:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:09:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__3c7013041b9a4592849e27ba2bdd85ab.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:09:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21856,6 +22787,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__4a164cb26480407b820132c8534b6f4b.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__4a164cb26480407b820132c8534b6f4b.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:33:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__4a164cb26480407b820132c8534b6f4b.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__4a164cb26480407b820132c8534b6f4b.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__4a164cb26480407b820132c8534b6f4b.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:33:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__50789400c9ea47aa9c194747503dbf87.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__50789400c9ea47aa9c194747503dbf87.mp3",
       "Selectors": [],
@@ -22184,6 +23197,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__59393cae706b480282b1a3a43029fee6.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__59393cae706b480282b1a3a43029fee6.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:07:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__59393cae706b480282b1a3a43029fee6.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__59393cae706b480282b1a3a43029fee6.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__59393cae706b480282b1a3a43029fee6.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:07:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__59affbbe0f1245ed833a749cb6c0b24a.mp3",
       "Selectors": [],
@@ -22252,6 +23347,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Sat, 19 Apr 2025 04:54:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__5d295ce9a6dc428da9caba679fe9b092.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23906,6 +25083,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__a1135f8b94ad4c0b8306d0e92b6d43e5.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__a2785d78b9744c71b8e3179d1de08941.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__a2785d78b9744c71b8e3179d1de08941.mp3",
       "Selectors": [],
@@ -24726,6 +25985,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 07:21:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__c437f9cd814a4c86aea5d3567a3c85d0.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 07:21:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__d28c2658cdb642d397bc786504ca9fc0.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__d28c2658cdb642d397bc786504ca9fc0.mp3",
       "Selectors": [],
@@ -25382,6 +26723,88 @@
       ]
     },
     {
+      "Route": "uploads/Why-are-you-running__e7b629dcc3f149cd803031ced248d796.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__e7b629dcc3f149cd803031ced248d796.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 07:21:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__e7b629dcc3f149cd803031ced248d796.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__e7b629dcc3f149cd803031ced248d796.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__e7b629dcc3f149cd803031ced248d796.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 07:21:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
       "Route": "uploads/Why-are-you-running__e9a29868634246e4a830a71aa1fa6af3.dfj6969ie9.mp3",
       "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__e9a29868634246e4a830a71aa1fa6af3.mp3",
       "Selectors": [],
@@ -25532,6 +26955,252 @@
         {
           "Name": "Last-Modified",
           "Value": "Fri, 18 Apr 2025 07:08:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:33:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f6bb669b29b24de7a2c7f337993d77d4.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 09:33:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f8538c04d3fc48f4b1685e2ebe675e9d.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:34:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.dfj6969ie9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:33:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dfj6969ie9"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.mp3",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\Why-are-you-running__f9beb0d77034435da2cd077e95fe63a9.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "192317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ThlCSsyLOpIlguQYsltig4wXI035kRu+nlkXt+JQ4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 06:33:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -26280,6 +27949,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-C+L/RpMCMFIgpelDLxoXkPYvzNg/jPFTBKwKDYLjr6I="
+        }
+      ]
+    },
+    {
+      "Route": "uploadsImage/d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.7dwylvk4ug.jpg",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploadsImage\\d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45697"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 08:40:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7dwylvk4ug"
+        },
+        {
+          "Name": "label",
+          "Value": "uploadsImage/d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4="
+        }
+      ]
+    },
+    {
+      "Route": "uploadsImage/d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg",
+      "AssetFile": "D:\\.net\\ProjectGroup\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploadsImage\\d031b662-b2b7-438f-b338-334e644fcb39_61f11da9-fb7e-4e71-ada3-24817f091bdf.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45697"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 22 Apr 2025 08:40:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WymhzZKGqEAsWGg3bzvIvmV+00E79HKVpfcLTjWifH4="
         }
       ]
     }
