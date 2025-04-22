@@ -41,7 +41,8 @@
 
                 <form id="uploadForm" enctype="multipart/form-data">
                     <div class="post-content">
-                        <textarea id="postContent" name="content" placeholder="Share your music with the world..." rows="3" class="post-content-textarea"></textarea>
+                        <textarea id="postContent" name="content" placeholder="Share your music with the world..." rows="3" class="post-content-textarea" maxlength="300"></textarea>
+                        <span id="postContentLimit" class="char-limit-info">Max 300 characters</span>
                     </div>
 
                     <div class="upload-container" id="dropZone">
@@ -59,7 +60,8 @@
 
                     <div class="input-container">
                         <label for="songTitle">Song Title</label>
-                        <input type="text" id="songTitle" name="title" placeholder="Enter song title...">
+                        <input type="text" id="songTitle" name="title" placeholder="Enter song title..." maxlength="50">
+                        <span id="songTitleLimit" class="char-limit-info">Max 50 characters</span>
                         <input type="hidden" id="artistId" name="artistId" value="@userId">
                     </div>
 

@@ -107,7 +107,32 @@
             </div>
 
             <!-- Controls bar -->
-            <div class="controls-bar"></div>
+            <div class="controls-bar">
+                <div class="sort-controls">
+                    <button class="sort-button" onclick="toggleSortDropdown(event)">
+                        <i class="fas fa-sort"></i>
+                        <span class="premium-badge"><i class="fas fa-crown"></i></span>
+                        Sort
+                    </button>
+                    <div class="sort-dropdown" id="sort-dropdown">
+                        
+                        <div class="sort-dropdown-item" onclick="enableCustomOrder()">
+                            <i class="fas fa-arrows-alt"></i> Custom Order
+                        </div>
+                        <div class="sort-dropdown-item" onclick="playPlaylistInOrder()">
+                            <i class="fas fa-play-circle"></i> Play in Order
+                        </div>
+                    </div>
+                </div>
+                <div class="order-controls" id="order-controls" style="display: none;">
+                    <button class="save-order-button" onclick="saveCustomOrder()">
+                        <i class="fas fa-save"></i> Save Order
+                    </button>
+                    <button class="cancel-order-button" onclick="cancelCustomOrder()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </div>
 
             <!-- Song list -->
             <div class="song-list">
