@@ -36,13 +36,19 @@ function initializeGlobalPlayer() {
     // Gắn sự kiện cho các player cục bộ trên trang
     setupLocalPlayers();
 
+    // Check if user is VIP and add sleep timer if they are
+    //checkUserVIP().then(isVIP => {
+    //    if (isVIP) {
+            createSleepTimerUI();
+    //    }
+    //});
+
     // Thiết lập interval để lưu trạng thái định kỳ
     if (playerInterval) {
         clearInterval(playerInterval);
     }
     playerInterval = setInterval(savePlayerState, 5000);
 }
-
 // Tạo UI cho Global Player nếu chưa tồn tại
 function createGlobalPlayerUI() {
     // Kiểm tra nếu component đã được render từ server
@@ -114,6 +120,75 @@ function setupPlayerEvents() {
     const prevBtn = document.getElementById('btn-previous');
     if (prevBtn) {
         prevBtn.addEventListener('click', playPreviousSong);
+    }
+    const replayBtn = document.getElementById('btn-replay');
+    if (replayBtn) {
+        replayBtn.addEventListener('click', replaySong);
+    }
+
+
+    // Function to replay the current song
+    function replaySong() {
+        if (!globalAudio) return;
+
+        // Check if there is a current song
+        if (currentSongIndex >= 0 && currentPlaylist.length > 0) {
+            const currentSong = currentPlaylist[currentSongIndex];
+
+            // Reset audio to beginning
+            globalAudio.currentTime = 0;
+
+            // If the audio is paused, start playing
+            if (globalAudio.paused) {
+                const playPromise = globalAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Update play/pause icon
+                        const playPauseIcon = document.getElementById('play-pause-icon');
+                        if (playPauseIcon) {
+                            playPauseIcon.classList.remove('fa-play');
+                            playPauseIcon.classList.add('fa-pause');
+                        }
+
+                        // Start album rotation animation
+                        const albumCover = document.querySelector('.album-rotating');
+                        if (albumCover) albumCover.classList.add('playing');
+
+                        // Update local player UI
+                        updateLocalPlayerUI();
+                    }).catch(error => {
+                        console.error('Cannot play audio:', error);
+                    });
+                }
+            }
+        } else if (isPlayingStandalone && globalAudio.src) {
+            // Handle standalone replay
+            globalAudio.currentTime = 0;
+
+            // If the audio is paused, start playing
+            if (globalAudio.paused) {
+                const playPromise = globalAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Update play/pause icon
+                        const playPauseIcon = document.getElementById('play-pause-icon');
+                        if (playPauseIcon) {
+                            playPauseIcon.classList.remove('fa-play');
+                            playPauseIcon.classList.add('fa-pause');
+                        }
+
+                        // Start album rotation animation
+                        const albumCover = document.querySelector('.album-rotating');
+                        if (albumCover) albumCover.classList.add('playing');
+
+                        // Update local player UI
+                        updateLocalPlayerUI();
+                    }).catch(error => {
+                        console.error('Cannot play audio:', error);
+                    });
+                }
+            }
+        }
     }
     // Close button
     const closeBtn = document.getElementById('btn-close-player');
@@ -767,5 +842,220 @@ function closeGlobalPlayer() {
 
         // Set flag indicating player is not active
         isGlobalPlayerActive = false;
+    }
+}
+// Add these variables to the global variables section at the top of global-player.js
+let sleepTimerEnabled = false;
+let sleepTimerEnd = null;
+let sleepTimerInterval = null;
+
+// Add this function to create the sleep timer UI
+function createSleepTimerUI() {
+    // Create sleep timer container if it doesn't exist
+    if (!document.getElementById('sleep-timer-container')) {
+        const timerContainer = document.createElement('div');
+        timerContainer.id = 'sleep-timer-container';
+        timerContainer.className = 'sleep-timer-container';
+        timerContainer.innerHTML = `
+            <div class="sleep-timer-badge">
+                <i class="fas fa-crown premium-icon"></i>
+                <span>VIP</span>
+            </div>
+            <div class="sleep-timer-controls">
+                <button id="sleep-timer-toggle" class="sleep-timer-btn">
+                    <i class="fas fa-clock"></i> Sleep Timer
+                </button>
+                <div id="sleep-timer-options" class="sleep-timer-options" style="display: none;">
+                    <button data-time="5" class="timer-option">5m</button>
+                    <button data-time="15" class="timer-option">15m</button>
+                    <button data-time="30" class="timer-option">30m</button>
+                    <button data-time="60" class="timer-option">1h</button>
+                    <button data-time="custom" class="timer-option">Custom</button>
+                    <button id="cancel-timer" class="timer-option cancel-timer" style="display: none;">Cancel</button>
+                </div>
+                <div id="custom-timer-input" class="custom-timer-input" style="display: none;">
+                    <input type="number" id="custom-minutes" min="1" max="180" placeholder="Min">
+                    <button id="set-custom-timer" class="set-custom-btn">Set</button>
+                    <button id="cancel-custom-timer" class="cancel-custom-btn">Cancel</button>
+                </div>
+                <div id="timer-countdown" class="timer-countdown" style="display: none;">
+                    <span id="timer-remaining"></span>
+                </div>
+            </div>
+        `;
+
+        // Add timer to player right section
+        const playerRight = document.querySelector('.player-right');
+        if (playerRight) {
+            playerRight.insertBefore(timerContainer, playerRight.firstChild);
+        }
+
+        // Setup event listeners for sleep timer
+        setupSleepTimerEvents();
+    }
+}
+
+// Add this function to set up sleep timer events
+function setupSleepTimerEvents() {
+    // Toggle timer options
+    const timerToggle = document.getElementById('sleep-timer-toggle');
+    const timerOptions = document.getElementById('sleep-timer-options');
+
+    if (!timerToggle || !timerOptions) {
+        console.error('Sleep timer UI elements not found');
+        return;
+    }
+
+    timerToggle.addEventListener('click', function () {
+        console.log('Sleep timer toggle clicked');  // Debug logging
+        if (timerOptions.style.display === 'none') {
+            timerOptions.style.display = 'flex';
+        } else {
+            timerOptions.style.display = 'none';
+        }
+
+        const customInput = document.getElementById('custom-timer-input');
+        if (customInput) {
+            customInput.style.display = 'none';
+        }
+    });
+
+    // Time option buttons
+    document.querySelectorAll('.timer-option').forEach(button => {
+        button.addEventListener('click', function () {
+            const time = this.getAttribute('data-time');
+
+            if (time === 'custom') {
+                // Show custom time input
+                document.getElementById('custom-timer-input').style.display = 'flex';
+                timerOptions.style.display = 'none';
+            } else {
+                // Set timer for preset time
+                setSleepTimer(parseInt(time));
+                timerOptions.style.display = 'none';
+            }
+        });
+    });
+
+    // Custom timer buttons
+    const setCustomBtn = document.getElementById('set-custom-timer');
+    if (setCustomBtn) {
+        setCustomBtn.addEventListener('click', function () {
+            const minutes = parseInt(document.getElementById('custom-minutes').value);
+            if (!isNaN(minutes) && minutes > 0 && minutes <= 180) {
+                setSleepTimer(minutes);
+                document.getElementById('custom-timer-input').style.display = 'none';
+            } else {
+                alert('Please enter a valid time between 1 and 180 minutes.');
+            }
+        });
+    }
+
+    const cancelCustomBtn = document.getElementById('cancel-custom-timer');
+    if (cancelCustomBtn) {
+        cancelCustomBtn.addEventListener('click', function () {
+            document.getElementById('custom-timer-input').style.display = 'none';
+        });
+    }
+
+    // Cancel timer button
+    const cancelTimer = document.getElementById('cancel-timer');
+    if (cancelTimer) {
+        cancelTimer.addEventListener('click', function () {
+            cancelSleepTimer();
+            timerOptions.style.display = 'none';
+        });
+    }
+}
+
+// Function to set sleep timer
+function setSleepTimer(minutes) {
+    // Clear any existing timer
+    if (sleepTimerInterval) {
+        clearInterval(sleepTimerInterval);
+    }
+
+    // Set end time
+    sleepTimerEnabled = true;
+    sleepTimerEnd = new Date(new Date().getTime() + minutes * 60000);
+
+    // Show timer countdown
+    document.getElementById('timer-countdown').style.display = 'flex';
+    document.getElementById('cancel-timer').style.display = 'block';
+
+    // Update countdown display
+    updateTimerDisplay();
+
+    // Set interval to update countdown
+    sleepTimerInterval = setInterval(function () {
+        updateTimerDisplay();
+
+        // Check if timer is finished
+        if (new Date() >= sleepTimerEnd) {
+            if (!globalAudio.paused) {
+                globalAudio.pause();
+
+                // Update UI
+                const playPauseIcon = document.getElementById('play-pause-icon');
+                if (playPauseIcon) {
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
+                }
+
+                const albumCover = document.querySelector('.album-rotating');
+                if (albumCover) albumCover.classList.remove('playing');
+
+                // Update local player UI
+                updateLocalPlayerUI();
+            }
+
+            // Cancel timer
+            cancelSleepTimer();
+        }
+    }, 1000);
+}
+
+// Function to update timer display
+function updateTimerDisplay() {
+    if (!sleepTimerEnabled || !sleepTimerEnd) return;
+
+    const now = new Date();
+    const remaining = sleepTimerEnd - now;
+
+    if (remaining <= 0) {
+        document.getElementById('timer-remaining').textContent = "0:00";
+        return;
+    }
+
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+
+    document.getElementById('timer-remaining').textContent =
+        `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
+
+// Function to cancel sleep timer
+function cancelSleepTimer() {
+    sleepTimerEnabled = false;
+    sleepTimerEnd = null;
+
+    if (sleepTimerInterval) {
+        clearInterval(sleepTimerInterval);
+        sleepTimerInterval = null;
+    }
+
+    document.getElementById('timer-countdown').style.display = 'none';
+    document.getElementById('cancel-timer').style.display = 'none';
+}
+
+// Add this function to check if user is VIP
+async function checkUserVIP() {
+    try {
+        const response = await fetch('/User/CheckVipStatus');
+        const data = await response.json();
+        return data.isVIP;
+    } catch (error) {
+        console.error('Error checking VIP status:', error);
+        return false; // Default to non-VIP in case of error
     }
 }
