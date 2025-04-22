@@ -1060,3 +1060,105 @@ input[type="text"]:focus {
         padding: 8px 7px;
     }
 }
+
+/* YouTube Section Styling */
+#youtube-info {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.youtube-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.youtube-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.youtube-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #444;
+    }
+
+    .form-group textarea,
+    .form-group input[type="text"] {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        resize: vertical;
+        font-size: 14px;
+    }
+
+.radio-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 6px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #555;
+}
+
+.secondary-btn {
+    background-color: #fff;
+    color: #d00;
+    border: 1px solid #d00;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+    .secondary-btn:hover {
+        background-color: #d00;
+        color: #fff;
+    }
+
+#connect-youtube-container {
+    margin-top: 16px;
+}
+
+#connect-youtube {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    #connect-youtube:hover {
+        background-color: #cc0000;
+    }

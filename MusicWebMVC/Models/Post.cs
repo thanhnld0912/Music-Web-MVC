@@ -19,6 +19,8 @@ namespace MusicWebMVC.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
+        public String? LinkYoutube { get; set; }
+
         public virtual User User { get; set; }
 
         [ForeignKey("Song")]
@@ -27,5 +29,6 @@ namespace MusicWebMVC.Models
         public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<Dislike> Dislikes { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<PostReport> PostReports { get; set; }
     }
 }

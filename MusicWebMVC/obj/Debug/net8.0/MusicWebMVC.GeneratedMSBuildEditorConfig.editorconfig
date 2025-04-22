@@ -140,6 +140,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xVcGxvYWRQYWdlQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/Song/YouTubeCallback.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xZb3VUdWJlQ2FsbGJhY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -87,7 +87,7 @@
                     {
                         @foreach (var post in Model)
                         {
-                           
+                            <input class=".post-user-id" value="@post.UserId" hidden />
                             <div class="post" data-post-id="@post.Id">
                                 <!-- Post Header -->
                                 <div class="post-header">
@@ -109,23 +109,45 @@
                                                 <i class="fas fa-ellipsis-h"></i>
                                             </button>
                                             <div class="post-menu" id="postMenu-@post.Id">
-                                                <div class="menu-item" onclick="editPost(@post.Id)">
-                                                    <i class="fas fa-edit"></i> Edit
-                                                </div>
-                                                <div class="menu-item" onclick="confirmDeletePost(@post.Id)">
-                                                    <i class="fas fa-trash"></i> Delete
-                                                </div>
+
+                                                    <div class="menu-item" onclick="editPost(@post.Id)">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </div>
+                                                    <div class="menu-item" onclick="confirmDeletePost(@post.Id)">
+                                                        <i class="fas fa-trash"></i> Delete
+                                                    </div> 
+                                            </div>
+                                        </div>
+                                    } else {
+                                        <div class="post-options">
+                                            <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                            <div class="post-menu" id="postMenu-@post.Id">
+
+                                                    <div class="menu-item" onclick="reportPost(@post.Id)">
+                                                        <i class="fas fa-flag"></i> Report
+                                                    </div>
+                                                
                                             </div>
                                         </div>
                                     }
                                 </div>
 
                                 <!-- Post Content -->
+                                <!-- Post Content -->
                                 <div class="post-content">
                                     <p>@post.Content</p>
                                     @if (!string.IsNullOrEmpty(post.ImageUrl))
                                     {
                                         <img src="@post.ImageUrl" class="post-image" />
+                                    }
+                                    @if (!string.IsNullOrEmpty(post.LinkYoutube))
+                                    {
+                                        <a href="@post.LinkYoutube" target="_blank" class="youtube-link">
+                                            <i class="fab fa-youtube"></i>
+                                            <h3>Youtube</h3>
+                                        </a>
                                     }
                                 </div>
 
@@ -151,10 +173,7 @@
                                                         <source src="@post.Song.FileUrl" type="audio/mpeg">
                                                     </audio>
                                                 </div>
-                                                <div class="volume-control">
-                                                    <i class="fas fa-volume-up"></i>
-                                                    <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider" id="volume-slider-@post.Song.Id">
-                                                </div>
+   
                                             </div>
 
                                             <span onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = post.Id })'" style="cursor: pointer;">
@@ -237,79 +256,80 @@
                     }
                 </div>
                 <div class="top-user">
-
                     <div class="panel-header">
-                        Melofy VIP members
-                    </div>
-
-                    <div class="vip-members">
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 1">
-                        </div>
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 2">
-                        </div>
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 3">
-                        </div>
-                        <div class="member-icon">
-                            #1
-                        </div>
+                        Melofy members
                     </div>
 
                     <div class="top-artists">
-                        <div class="section-title">
-                            UK most streamed artists
-                        </div>
 
-                        <div class="artist-item">
-                            <div class="artist-rank rank-1">No.1</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 1">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
 
-                        <div class="artist-item">
-                            <div class="artist-rank rank-2">No.2</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 2">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
-
-                        <div class="artist-item">
-                            <div class="artist-rank rank-3">No.3</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 3">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
-                    </div>
-
-                    <div class="time-section">
-                        <div class="time-label">Time</div>
-                        <div class="time-slider">
-                            <div class="time-progress"></div>
-                        </div>
-                        <div class="time-remaining">30 days left</div>
-                    </div>
-
-                    <div class="logo-section">
-                        <div class="logo">M</div>
-                        <div>Melofy VIP Member</div>
+                        @if (ViewBag.TopUsers != null && ViewBag.TopUsers.Count > 0)
+                        {
+                            var rank = 1;
+                            @foreach (var user in ViewBag.TopUsers)
+                            {
+                                <div class="artist-item" onclick="window.location.href='@Url.Action("ProfileUser", "Home", new { id = user.Id })'">
+                                    <div class="artist-rank rank-@rank">No.@rank</div>
+                                    <div class="artist-icon">
+                                        <img src="@user.AvatarUrl" alt="@user.Username">
+                                    </div>
+                                    <div class="artist-desc">
+                                        @user.Username
+                                        <br />
+                                        <span class="follower-count">(@user.FollowerCount followers)</span>
+                                    </div>
+                                </div>
+                                rank++;
+                            }
+                        }
+                        else
+                        {
+                            <p>No top users found.</p>
+                        }
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
-
     </div>
     </div>
-
+    <div id="report-post-overlay" class="report-overlay">
+        <div class="report-container">
+            <div class="report-header">
+                <h3>Report Post</h3>
+                <button class="close-report-btn" onclick="closeReportPostForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="report-form">
+                <input type="hidden" id="report-post-id">
+                <div class="report-reason-section">
+                    <p>Why are you reporting this post?</p>
+                    <div class="report-options">
+                        <label>
+                            <input type="radio" name="report-reason" value="Inappropriate content"> Inappropriate content
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Spam"> Spam
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Harassment"> Harassment
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="False information"> False information
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Other"> Other
+                        </label>
+                    </div>
+                    <textarea id="report-details" placeholder="Please provide more details about your report..." rows="4"></textarea>
+                </div>
+                <div class="report-form-buttons">
+                    <button class="cancel-report-btn" onclick="closeReportPostForm()">Cancel</button>
+                    <button class="submit-report-btn" onclick="submitPostReport()">Submit Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Separated Comment Section - This will be displayed as an overlay -->
     <div id="comment-overlay" class="comment-overlay">
         <div class="comment-container">
@@ -325,13 +345,16 @@
                         <img src="@avatarUrl" alt="avatar" class="comment-user-avatar">
                     </div>
                     <div class="fb-comment-input-wrapper">
-                        <input type="text" placeholder="Write a comment..." class="fb-comment-input">
+                        <input type="text" placeholder="Write a comment..." class="fb-comment-input" id="commentInput" maxlength="200">
                         <div class="fb-comment-tools">
                             <i class="fas fa-smile"></i>
                             <i class="fas fa-camera"></i>
                             <i class="fas fa-paper-plane" onclick="submitComment(event)"></i>
                         </div>
                     </div>
+                </div>
+                <div class="comment-limit-info">
+                    <span id="commentLimit">Max 200 characters</span>
                 </div>
                 <div class="fb-comments-list">
                     <!-- Comments will be added here -->

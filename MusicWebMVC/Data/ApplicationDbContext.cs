@@ -20,7 +20,7 @@ namespace MusicWebMVC.Data
         public DbSet<CommentReport> CommentReports { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Message> Messages { get; set; }
-
+        public DbSet<PostReport> PostReports { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -148,6 +148,18 @@ namespace MusicWebMVC.Data
                 .WithMany(c => c.CommentReports)
                 .HasForeignKey(cr => cr.CommentId)
                 .OnDelete(DeleteBehavior.Cascade);
+            // PostReport - Post relationship (which post was reported)
+            modelBuilder.Entity<PostReport>()
+                .HasOne(pr => pr.Post)
+                .WithMany(p => p.PostReports)
+                .HasForeignKey(pr => pr.PostId)
+                .OnDelete(DeleteBehavior.Cascade);
+            //postreport - user
+            modelBuilder.Entity<PostReport>()
+    .HasOne(pr => pr.User)
+    .WithMany(u => u.PostReports)
+    .HasForeignKey(pr => pr.UserId)
+    .OnDelete(DeleteBehavior.Restrict);
 
             // Notification - User (Người nhận thông báo)
             modelBuilder.Entity<Notification>()
