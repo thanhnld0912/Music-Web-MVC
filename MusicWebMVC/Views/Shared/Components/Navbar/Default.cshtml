@@ -189,15 +189,33 @@
         });
                         let connection;
 
-        function startSignalRConnection() {
+             function startSignalRConnection() {
+            // Tạo kết nối SignalR
             connection = new signalR.HubConnectionBuilder()
                 .withUrl("/notificationHub")
-                .withAutomaticReconnect([0, 2000, 5000, 10000]) // Thử kết nối lại sau 0s, 2s, 5s, 10s
+                .withAutomaticReconnect([0, 2000, 5000, 10000])
                 .build();
 
+            // Đăng ký tham gia nhóm theo user ID khi kết nối thành công
+            connection.start()
+                .then(() => {
+                    console.log("SignalR Connected");
+                    // Join group với userId của current user
+                    const userId = '@Context.Session.GetString("UserId")';
+                    if (userId) {
+                        connection.invoke("JoinGroup", userId).catch(err => console.error(err));
+                    }
+                })
+                .catch(err => {
+                    console.error("Lỗi kết nối SignalR:", err);
+                    setTimeout(startSignalRConnection, 5000);
+                });
+
+            // Xử lý thông báo
             connection.on("ReceiveNotification", function(user, message, notificationType, url) {
                 console.log("Nhận thông báo:", user, message);
                 // Check if notification is for current user
+                const userId = '@Context.Session.GetString("UserId")';
                 if (user === userId) {
                     updateUnreadCount(unreadCount + 1);
                     showNotificationPopup(message, notificationType);
@@ -209,33 +227,56 @@
                 }
             });
 
-            // Thêm xử lý trạng thái kết nối
-            connection.onreconnecting(error => {
-                console.log("Đang kết nối lại SignalR...");
+            // Xử lý nhận tin nhắn mới
+                    const chatConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .withAutomaticReconnect([0, 2000, 5000, 10000])
+            .build();
+
+        chatConnection.start()
+            .then(() => {
+                console.log("Chat SignalR Connected");
+            })
+            .catch(err => {
+                console.error("Chat SignalR Connection Error:", err);
+                setTimeout(() => startChatSignalRConnection(), 5000);
             });
 
-            connection.onreconnected(connectionId => {
-                console.log("Đã kết nối lại SignalR:", connectionId);
-            });
+            chatConnection.on("ReceiveMessage", function(senderId, senderName, message) {
+                console.log("Tin nhắn mới:", senderId, senderName, message);
 
-            connection.onclose(error => {
-                console.log("Kết nối SignalR đã đóng, thử kết nối lại...");
-                setTimeout(startSignalRConnection, 5000);
-            });
+                // Kiểm tra xem cửa sổ chat có đang mở không
+                const chatWindow = document.querySelector(`.chat-window[data-user-id="${senderId}"]`);
 
-            // Bắt đầu kết nối
-            connection.start()
-                .then(() => {
-                    console.log("SignalR đã kết nối");
-                })
-                .catch(err => {
-                    console.error("Lỗi kết nối SignalR:", err);
-                    setTimeout(startSignalRConnection, 5000);
-                });
+                if (chatWindow) {
+                    // Thêm tin nhắn vào cửa sổ chat nếu đang mở
+                    addMessageToChat(senderId, message, false);
+
+                    // Đánh dấu đã đọc nếu cửa sổ chat hiển thị
+                    const messagesContainer = chatWindow.querySelector('.chat-messages');
+                    if (messagesContainer.style.display !== 'none') {
+                        markConversationAsRead(senderId);
+                    } else {
+                        // Nếu cửa sổ chat đang thu nhỏ, tăng số lượng tin nhắn chưa đọc
+                        updateUnreadMessageCount(unreadMessages + 1);
+                    }
+                } else {
+                    // Cửa sổ chat không mở, tăng số lượng tin nhắn chưa đọc
+                    updateUnreadMessageCount(unreadMessages + 1);
+
+                    // Cập nhật danh sách cuộc trò chuyện gần đây nếu dropdown đang mở
+                    if (messageDropdown && messageDropdown.style.display === 'block') {
+                        loadRecentConversations();
+                    }
+
+                    // Hiển thị thông báo tin nhắn mới
+                    showMessageNotification(senderName, message);
+                }
+            });
         }
 
             document.addEventListener('DOMContentLoaded', function() {
-
+   
             startSignalRConnection();
             // Check if user is logged in
             const userId = '@Context.Session.GetString("UserId")';
@@ -479,7 +520,23 @@
 
 
 
+                    function formatTimeAgo(date) {
+                const now = new Date();
+                const diffInSeconds = Math.floor((now - date) / 1000);
 
+                if (diffInSeconds < 60) return 'Just now';
+
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+
+                const diffInHours = Math.floor(diffInMinutes / 60);
+                if (diffInHours < 24) return `${diffInHours}h ago`;
+
+                const diffInDays = Math.floor(diffInHours / 24);
+                if (diffInDays < 7) return `${diffInDays}d ago`;
+
+                return date.toLocaleDateString();
+            }
 
                 // Add this to your existing DOMContentLoaded event handler
         const messageIcon = document.querySelector('.message-icon');
@@ -526,17 +583,28 @@
         }
 
         // Load recent conversations
-        function loadRecentConversations() {
+            function loadRecentConversations() {
             // Get user ID from session
             const userId = '@Context.Session.GetString("UserId")';
             if (!userId) return;
 
             fetch(`/Chat/GetRecentConversations/${userId}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Server error');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     messageList.innerHTML = '';
 
-                    if (data.length === 0) {
+                    // Check if data contains an error
+                    if (data.error) {
+                        messageList.innerHTML = `<div class="empty-message">${data.error}</div>`;
+                        return;
+                    }
+
+                    if (!Array.isArray(data) || data.length === 0) {
                         messageList.innerHTML = '<div class="empty-message">No messages</div>';
                         return;
                     }
@@ -576,7 +644,7 @@
                 })
                 .catch(error => {
                     console.error('Error loading conversations:', error);
-                    messageList.innerHTML = '<div class="empty-message">Failed to load messages</div>';
+                    messageList.innerHTML = '<div class="empty-message">Failed to load messages. Please try again.</div>';
                 });
         }
 
@@ -950,27 +1018,7 @@
             });
         }
 
-        // SignalR for real-time messaging
-        connection.on("ReceiveMessage", function(senderId, senderName, message) {
-            // Check if chat window is open
-            const chatWindow = document.querySelector(`.chat-window[data-user-id="${senderId}"]`);
 
-            if (chatWindow) {
-                // Add message to chat
-                addMessageToChat(senderId, message, false);
-
-                // Mark as read if chat is visible
-                if (chatWindow.style.display === 'flex') {
-                    markConversationAsRead(senderId);
-                }
-            } else {
-                // Update unread count and recent conversations
-                loadRecentConversations();
-
-                // Show notification
-                showMessageNotification(senderName, message);
-            }
-        });
 
         // Show message notification
         function showMessageNotification(senderName, message) {
@@ -998,6 +1046,7 @@
                     max-width: 300px;
                     animation: slideIn 0.3s, fadeOut 0.3s 4.7s;
                     cursor: pointer;
+                    color : black;
                 }
                 .message-notification-sender {
                     font-weight: 600;

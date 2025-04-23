@@ -41,7 +41,8 @@
 
                 <form id="uploadForm" enctype="multipart/form-data">
                     <div class="post-content">
-                        <textarea id="postContent" name="content" placeholder="Share your music with the world..." rows="3" class="post-content-textarea"></textarea>
+                        <textarea id="postContent" name="content" placeholder="Share your music with the world..." rows="3" class="post-content-textarea" maxlength="300"></textarea>
+                        <span id="postContentLimit" class="char-limit-info">Max 300 characters</span>
                     </div>
 
                     <div class="upload-container" id="dropZone">
@@ -59,7 +60,8 @@
 
                     <div class="input-container">
                         <label for="songTitle">Song Title</label>
-                        <input type="text" id="songTitle" name="title" placeholder="Enter song title...">
+                        <input type="text" id="songTitle" name="title" placeholder="Enter song title..." maxlength="50">
+                        <span id="songTitleLimit" class="char-limit-info">Max 50 characters</span>
                         <input type="hidden" id="artistId" name="artistId" value="@userId">
                     </div>
 
@@ -86,6 +88,61 @@
                         <div class="progress-bar" id="uploadProgressBar"></div>
                     </div>
                     <p id="uploadMessage"></p>
+                </div>
+                <!-- Replace the SoundCloud checkbox with YouTube -->
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="upload-to-youtube" name="upload-to-youtube">
+                        Upload to YouTube
+                    </label>
+                </div>
+
+                <!-- YouTube info display area (when connected) -->
+                <div id="youtube-info" style="display: none;">
+                    <div class="youtube-user-info">
+                        <img id="youtube-avatar" src="" alt="YouTube Avatar" class="youtube-avatar">
+                        <div class="youtube-details">
+                            <p id="youtube-username">Not connected</p>
+                            <p id="youtube-quota-info">Upload quota: N/A</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Additional fields for YouTube -->
+                    <div class="form-group">
+                        <label for="youtube-description">YouTube Description</label>
+                        <textarea id="youtube-description" rows="3" placeholder="Description for YouTube..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="youtube-tags">Tags (comma separated)</label>
+                        <input type="text" id="youtube-tags" placeholder="music, cover, original, ...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Privacy Setting</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="youtube-privacy" value="public" checked>
+                                Public
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="youtube-privacy" value="unlisted">
+                                Unlisted
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="youtube-privacy" value="private">
+                                Private
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="disconnect-youtube" class="secondary-btn">Disconnect from YouTube</button>
+                </div>
+
+                <!-- YouTube Connect button -->
+                <div id="connect-youtube-container">
+                    <button type="button" id="connect-youtube" class="secondary-btn">Connect to YouTube</button>
                 </div>
             </div>
         </div>

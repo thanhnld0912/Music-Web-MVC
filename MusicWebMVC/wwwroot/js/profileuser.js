@@ -48,10 +48,11 @@ function showContent(type) {
 function toggleFollow() {
     const button = document.querySelector('.follow-btn');
     const followingId = document.querySelector('.handle').getAttribute('data-user-id');
+    const statFollowerElement = document.querySelector('#stat-follower');
+    let followerCount = parseInt(statFollowerElement.getAttribute('data-follower'), 10);
 
     // Create XMLHttpRequest object
     const xhr = new XMLHttpRequest();
-
     // Define the endpoint based on current follow status
     const isFollowing = button.classList.contains('followed');
     const endpoint = isFollowing ? '/User/Unfollow' : '/User/Follow';
@@ -75,10 +76,16 @@ function toggleFollow() {
                 if (isFollowing) {
                     button.classList.remove('followed');
                     button.innerHTML = 'Follow';
+                    followerCount -= 1;
                 } else {
                     button.classList.add('followed');
                     button.innerHTML = 'Followed ✓';
+                    followerCount += 1;
                 }
+
+                // Update the follower count in the DOM
+                statFollowerElement.setAttribute('data-follower', followerCount);
+                statFollowerElement.textContent = followerCount;
             } else {
                 // Display error if needed
                 console.error('Follow action failed:', response.message);
@@ -106,7 +113,6 @@ function toggleFollow() {
     // Send the request with the following user's ID
     xhr.send('followingId=' + followingId);
 }
-
 function togglePostMenu(event, element) {
     event.stopPropagation();
     closeAll();
@@ -374,52 +380,99 @@ function submitComment(event) {
 function createCommentElement(comment) {
     const commentItem = document.createElement('div');
     commentItem.className = 'fb-comment-item';
+    commentItem.setAttribute('data-comment-id', comment.id);
 
     const commentDate = comment.createdAt ? new Date(comment.createdAt) : new Date();
     const formattedDate = commentDate.toLocaleString();
 
+    // Check if this is the current user's comment
+    const isCurrentUserComment = parseInt(currentUserId) === comment.userId;
+
+    // Generate action buttons based on user ownership
+    let actionButtons = ``;
+
+    if (isCurrentUserComment) {
+        actionButtons += `
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
+            `;
+    } else {
+        actionButtons += `<span class="fb-comment-action report-comment-btn" onclick="showReportCommentForm(${comment.id})">Report</span>`;
+    }
+
     commentItem.innerHTML = `
-                <div class="comment-avatar">
-                    <img src="${comment.avatarUrl}" alt="avatar" class="comment-user-avatar">
+            <div class="comment-avatar">
+                <img src="${comment.avatarUrl}" alt="avatar" class="comment-user-avatar">
+            </div>
+            <div class="fb-comment-content">
+                <div class="fb-comment-author">${comment.userName || 'User'}</div>
+                <div class="fb-comment-text" id="comment-text-${comment.id}">${comment.content}</div>
+                <div class="fb-comment-time">${formattedDate}</div>
+                <div class="fb-comment-actions">
+                    ${actionButtons}
                 </div>
-                <div class="fb-comment-content">
-                    <div class="fb-comment-author">${comment.userName || 'User'}</div>
-                    <div class="fb-comment-text">${comment.content}</div>
-                    <div class="fb-comment-time">${formattedDate}</div>
-                    <div class="fb-comment-actions">
-                        <span class="fb-comment-action">Like</span>
-                        <span class="fb-comment-action">Reply</span>
+            
+                <!-- Edit form (hidden by default) -->
+                <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
+                    <textarea class="edit-comment-textarea">${comment.content}</textarea>
+                    <div class="edit-comment-buttons">
+                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
 
     return commentItem;
 }
 function createCommentElementForMySelf(comment) {
     const commentItem = document.createElement('div');
     commentItem.className = 'fb-comment-item';
+    commentItem.setAttribute('data-comment-id', comment.id);
 
     const commentDate = comment.createdAt ? new Date(comment.createdAt) : new Date();
     const formattedDate = commentDate.toLocaleString();
 
+    // Check if this is the current user's comment
+    const isCurrentUserComment = parseInt(currentUserId) === comment.userId;
+
+    // Generate action buttons based on user ownership
+    let actionButtons = ``;
+
+    if (isCurrentUserComment) {
+        actionButtons += `
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
+            `;
+    } else {
+        actionButtons += `<span class="fb-comment-action report-comment-btn" onclick="showReportCommentForm(${comment.id})">Report</span>`;
+    }
+
     commentItem.innerHTML = `
-                <div class="comment-avatar">
-                    <img src="${avatarUrl}" alt="avatar" class="comment-user-avatar">
+            <div class="comment-avatar">
+                <img src="${avatarUrl}" alt="avatar" class="comment-user-avatar">
+            </div>
+            <div class="fb-comment-content">
+                <div class="fb-comment-author">${comment.userName || 'User'}</div>
+                <div class="fb-comment-text" id="comment-text-${comment.id}">${comment.content}</div>
+                <div class="fb-comment-time">${formattedDate}</div>
+                <div class="fb-comment-actions">
+                    ${actionButtons}
                 </div>
-                <div class="fb-comment-content">
-                    <div class="fb-comment-author">${comment.userName || 'User'}</div>
-                    <div class="fb-comment-text">${comment.content}</div>
-                    <div class="fb-comment-time">${formattedDate}</div>
-                    <div class="fb-comment-actions">
-                        <span class="fb-comment-action">Like</span>
-                        <span class="fb-comment-action">Reply</span>
+            
+                <!-- Edit form (hidden by default) -->
+                <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
+                    <textarea class="edit-comment-textarea">${comment.content}</textarea>
+                    <div class="edit-comment-buttons">
+                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
 
     return commentItem;
 }
-
 function loadAllCommentCounts() {
     const posts = document.querySelectorAll('.post');
     posts.forEach(post => {
@@ -952,4 +1005,280 @@ function showNotification(message, type = 'info') {
             container.removeChild(notification);
         }
     }, 4000);
+}
+function showEditCommentForm(commentId) {
+    // Hide the comment text and show the edit form
+    document.getElementById(`comment-text-${commentId}`).style.display = 'none';
+    document.getElementById(`edit-form-${commentId}`).style.display = 'block';
+}
+
+// Handle canceling edit
+function cancelEditComment(commentId) {
+    // Show the comment text and hide the edit form
+    document.getElementById(`comment-text-${commentId}`).style.display = 'block';
+    document.getElementById(`edit-form-${commentId}`).style.display = 'none';
+}
+
+// Save edited comment
+function saveCommentEdit(commentId) {
+    const commentItem = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
+    const editForm = commentItem.querySelector('.edit-comment-textarea');
+    const newContent = editForm.value.trim();
+
+    if (!newContent) {
+        showNotification("Comment cannot be empty", "warning");
+        return;
+    }
+
+    const editData = {
+        userId: parseInt(currentUserId),
+        content: newContent
+    };
+
+    // Send AJAX request to update the comment
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/EditComment/${commentId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+
+                    // Update the comment content
+                    const commentTextEl = document.getElementById(`comment-text-${commentId}`);
+                    commentTextEl.textContent = newContent;
+
+                    // Hide the edit form and show the updated comment text
+                    cancelEditComment(commentId);
+
+                    // Update the comment in the comments store
+                    if (commentsStore[currentPostId]) {
+                        const commentIndex = commentsStore[currentPostId].findIndex(c => c.id === commentId);
+                        if (commentIndex !== -1) {
+                            commentsStore[currentPostId][commentIndex].content = newContent;
+                        }
+                    }
+
+                    showNotification("Comment updated successfully", "success");
+                } catch (error) {
+                    console.error("Error parsing response:", error);
+                    showNotification("Failed to update comment", "error");
+                }
+            } else {
+                console.error("Error updating comment:", xhr.responseText);
+                showNotification("Failed to update comment", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(editData));
+}
+
+// Confirm before deleting comment
+function confirmDeleteComment(commentId) {
+    if (confirm("Are you sure you want to delete this comment?")) {
+        deleteComment(commentId);
+    }
+}
+
+// Delete comment
+function deleteComment(commentId) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/DeleteComment/${commentId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                // Remove the comment from the DOM
+                const commentElement = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
+                if (commentElement) {
+                    commentElement.remove();
+                }
+
+                // Remove from comments store
+                if (commentsStore[currentPostId]) {
+                    commentsStore[currentPostId] = commentsStore[currentPostId].filter(c => c.id !== commentId);
+
+                    // Update comment count badge
+                    updateCommentCountBadge(currentPostId, commentsStore[currentPostId].length);
+                }
+
+                showNotification("Comment deleted successfully", "success");
+            } else {
+                console.error("Error deleting comment:", xhr.responseText);
+                showNotification("Failed to delete comment", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(parseInt(currentUserId)));
+}
+function showReportCommentForm(commentId) {
+    // Create a modal for reporting
+    const reportModal = document.createElement('div');
+    reportModal.className = 'report-modal';
+    reportModal.id = 'report-modal';
+
+    reportModal.innerHTML = `
+            <div class="report-container">
+                <div class="report-header">
+                    <h3>Report Comment</h3>
+                    <button class="close-report-btn" onclick="closeReportForm()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="report-body">
+                    <p>Please select a reason for reporting this comment:</p>
+                    <select id="report-reason">
+                        <option value="spam">Spam</option>
+                        <option value="harassment">Harassment</option>
+                        <option value="inappropriate">Inappropriate content</option>
+                        <option value="offensive">Offensive language</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea id="report-details" placeholder="Additional details (optional)"></textarea>
+                </div>
+                <div class="report-footer">
+                    <button class="cancel-btn" onclick="closeReportForm()">Cancel</button>
+                    <button class="report-btn" onclick="submitReport(${commentId})">Submit Report</button>
+                </div>
+            </div>
+        `;
+
+    document.body.appendChild(reportModal);
+}
+
+// Close the report form
+function closeReportForm() {
+    const reportModal = document.getElementById('report-modal');
+    if (reportModal) {
+        reportModal.remove();
+    }
+}
+
+// Submit report
+function submitReport(commentId) {
+    const reasonSelect = document.getElementById('report-reason');
+    const detailsField = document.getElementById('report-details');
+
+    const reason = reasonSelect.value;
+    const details = detailsField.value.trim();
+
+    const reportData = {
+        userId: parseInt(currentUserId),
+        reason: reason + (details ? `: ${details}` : '')
+    };
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/ReportComment/${commentId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                closeReportForm();
+                showNotification("Comment reported successfully", "success");
+            } else if (xhr.status === 400) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.message === "You have already reported this comment.") {
+                        showNotification("You have already reported this comment.", "warning");
+                    } else {
+                        showNotification("Failed to report comment", "error");
+                    }
+                } catch (e) {
+                    showNotification("Unexpected error occurred", "error");
+                }
+            } else {
+                showNotification("Failed to report comment", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(reportData));
+}
+
+// Global variable to store post ID for reporting
+let currentReportPostId = null;
+
+// Show report post form
+function reportPost(postId) {
+    currentReportPostId = postId;
+    document.getElementById('report-post-id').value = postId;
+    document.getElementById('report-post-overlay').style.display = 'flex';
+
+    // Clear any previous selections
+    const radioButtons = document.querySelectorAll('input[name="report-reason"]');
+    radioButtons.forEach(button => {
+        button.checked = false;
+    });
+    document.getElementById('report-details').value = '';
+
+    // Close the post menu
+    const postMenu = document.getElementById(`postMenu-${postId}`);
+    if (postMenu) {
+        postMenu.style.display = 'none';
+    }
+}
+
+// Close report form
+function closeReportPostForm() {
+    document.getElementById('report-post-overlay').style.display = 'none';
+    currentReportPostId = null;
+}
+function submitPostReport() {
+    const postId = document.getElementById('report-post-id').value;
+    const selectedReason = document.querySelector('input[name="report-reason"]:checked');
+    const additionalDetails = document.getElementById('report-details').value;
+    const userId = document.getElementById('current-user-id').value;
+
+    if (!selectedReason) {
+        showNotification('Please select a reason for reporting this post.', 'warning');
+        return;
+    }
+
+    if (!userId || userId === '0') {
+        showNotification('You must be logged in to report a post.', 'warning');
+        return;
+    }
+
+    const reason = selectedReason.value + (additionalDetails ? ': ' + additionalDetails : '');
+
+    const reportData = {
+        userId: parseInt(userId),
+        reason: reason
+    };
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/ReportPost/${postId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                showNotification('Thank you for your report. We will review it shortly.', 'success');
+                closeReportPostForm();
+            } else if (xhr.status === 400) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response === "You have already reported this post.") {
+                        showNotification("You have already reported this post.", "warning");
+                    } else if (response.message) {
+                        showNotification(response.message, "error");
+                    } else {
+                        showNotification("Failed to report post.", "error");
+                    }
+                } catch (e) {
+                    showNotification("Unexpected error occurred", "error");
+                }
+            } else {
+                showNotification("Failed to report post.", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(reportData));
 }

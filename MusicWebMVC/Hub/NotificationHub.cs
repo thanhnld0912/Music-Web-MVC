@@ -24,7 +24,7 @@ namespace MusicWebMVC.Hubs
                 // Đảm bảo luôn dùng string làm tên group
                 string groupName = userId.ToString();
                 await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
-                System.Console.WriteLine($"User {groupName} connected to group with ID {Context.ConnectionId}");
+             
             }
 
             await base.OnConnectedAsync();
@@ -38,10 +38,14 @@ namespace MusicWebMVC.Hubs
             if (!string.IsNullOrEmpty(userId))
             {
                 await Groups.RemoveFromGroupAsync(Context.ConnectionId, userId);
-                System.Console.WriteLine($"User {userId} disconnected from group");
+             
             }
 
             await base.OnDisconnectedAsync(exception);
+        }
+        public async Task JoinGroup(string userId)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, userId);
         }
     }
 }

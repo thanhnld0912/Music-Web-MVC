@@ -43,9 +43,9 @@
                         <a href="@Url.Action("PlaylistPage", "Playlist", new { id = playlist.Id })" class="playlist-link">
                             <div class="melody-card">
                                 <div class="melody-image">
-                                    @if (playlist.PlaylistSongs.Count > 0 && !string.IsNullOrEmpty(playlist.PlaylistSongs[0].Song.CoverImage))
+                                    @if (!string.IsNullOrEmpty(playlist.ImageUrl))
                                     {
-                                        <img src="@playlist.PlaylistSongs.First().Song.CoverImage" alt="Playlist Cover" />
+                                        <img src="@playlist.ImageUrl" alt="Playlist Cover" />
                                     }
                                     else
                                     {

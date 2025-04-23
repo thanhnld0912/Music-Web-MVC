@@ -663,7 +663,6 @@ function submitReport(commentId) {
         reason: reason + (details ? `: ${details}` : '')
     };
 
-    // Send AJAX request to report the comment
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `/Post/ReportComment/${commentId}`, true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -673,8 +672,18 @@ function submitReport(commentId) {
             if (xhr.status === 200) {
                 closeReportForm();
                 showNotification("Comment reported successfully", "success");
+            } else if (xhr.status === 400) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.message === "You have already reported this comment.") {
+                        showNotification("You have already reported this comment.", "warning");
+                    } else {
+                        showNotification("Failed to report comment", "error");
+                    }
+                } catch (e) {
+                    showNotification("Unexpected error occurred", "error");
+                }
             } else {
-                console.error("Error reporting comment:", xhr.responseText);
                 showNotification("Failed to report comment", "error");
             }
         }
@@ -682,7 +691,6 @@ function submitReport(commentId) {
 
     xhr.send(JSON.stringify(reportData));
 }
-
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Script is loaded and running');
@@ -1086,8 +1094,89 @@ document.addEventListener('click', function (event) {
 });
 
 
+// Global variable to store post ID for reporting
+let currentReportPostId = null;
 
+// Show report post form
+function reportPost(postId) {
+    currentReportPostId = postId;
+    document.getElementById('report-post-id').value = postId;
+    document.getElementById('report-post-overlay').style.display = 'flex';
 
+    // Clear any previous selections
+    const radioButtons = document.querySelectorAll('input[name="report-reason"]');
+    radioButtons.forEach(button => {
+        button.checked = false;
+    });
+    document.getElementById('report-details').value = '';
+
+    // Close the post menu
+    const postMenu = document.getElementById(`postMenu-${postId}`);
+    if (postMenu) {
+        postMenu.style.display = 'none';
+    }
+}
+
+// Close report form
+function closeReportPostForm() {
+    document.getElementById('report-post-overlay').style.display = 'none';
+    currentReportPostId = null;
+}
+
+// Submit post report
+function submitPostReport() {
+    const postId = document.getElementById('report-post-id').value;
+    const selectedReason = document.querySelector('input[name="report-reason"]:checked');
+    const additionalDetails = document.getElementById('report-details').value;
+    const userId = document.getElementById('current-user-id').value;
+
+    if (!selectedReason) {
+        showNotification('Please select a reason for reporting this post.', 'warning');
+        return;
+    }
+
+    if (!userId || userId === '0') {
+        showNotification('You must be logged in to report a post.', 'warning');
+        return;
+    }
+
+    const reason = selectedReason.value + (additionalDetails ? ': ' + additionalDetails : '');
+
+    const reportData = {
+        userId: parseInt(userId),
+        reason: reason
+    };
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/Post/ReportPost/${postId}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                showNotification('Thank you for your report. We will review it shortly.', 'success');
+                closeReportPostForm();
+            } else if (xhr.status === 400) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response === "You have already reported this post.") {
+                        showNotification("You have already reported this post.", "warning");
+                    } else if (response.message) {
+                        showNotification(response.message, "error");
+                    } else {
+                        showNotification("Failed to report post.", "error");
+                    }
+                } catch (e) {
+                    showNotification("Unexpected error occurred", "error");
+                }
+            } else {
+                showNotification("Failed to report post.", "error");
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(reportData));
+}
 /*NOTIFICATION */
 function createNotificationModal() {
     const notificationContainer = document.createElement('div');

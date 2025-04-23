@@ -41,28 +41,9 @@
         <input id="user-playlists-data" value='@Json.Serialize(userPlaylists)' hidden>
 
         <!-- Notification Container will be created dynamically in JavaScript -->
-        <div class="top-nav-logo">
 
-            <div class="navbar">
-                <div class="logoimg"> <img src="~/img/lgo.png" /></div>
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" placeholder="What do you want to hear?">
-                    </div>
-
-                </div>
-                @if (isAuthenticated)
-                {
-                    <div class="avatar-container" onclick="toggleProfileMenu(event)">
-                        <img src="~/img/avatar.jpg" alt="User Avatar" class="user-avatar">
-                        <div class="profile-menu" id="profileMenu">
-                            <a href="@Url.Action("Logout", "Account")">Logout</a>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
+            @await Component.InvokeAsync("Navbar")
+  
         <div class="container">
             <!-- Music Player -->
             <div class="music-player">
@@ -283,8 +264,6 @@
         <script src="~/js/globalplayer.js"></script>
 
         <!-- Additional CSS for button styling -->
-        <style>
 
-        </style>
 </body>
 </html>

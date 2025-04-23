@@ -24,7 +24,8 @@ namespace MusicWebMVC.Models
         public string? Type { get; set; }
         public DateTime UploadDate { get; set; } = DateTime.Now;
         public string Status { get; set; }
-
+        public string? YouTubeUrl { get; set; }
+        public string? YouTubeVideoId { get; set; }
         public virtual User User { get; set; }
         public virtual Post Post { get; set; }
         public virtual ICollection<Like> Likes { get; set; }

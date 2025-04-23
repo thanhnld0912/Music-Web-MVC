@@ -9,7 +9,7 @@ namespace MusicWebMVC.Models
 
         public int PlaylistId { get; set; }
         public int SongId { get; set; }
-
+        public int Order { get; set; }
         [ForeignKey("PlaylistId")]
         public virtual Playlist Playlist { get; set; }
 

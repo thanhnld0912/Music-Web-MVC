@@ -230,3 +230,165 @@ body {
     align-items: center;
     margin-right: 15px;
 }
+.sleep-timer-container {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    position: relative;
+}
+
+.sleep-timer-badge {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-right: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.premium-icon {
+    color: #ffd700;
+    margin-right: 4px;
+}
+
+.sleep-timer-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+    .sleep-timer-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .sleep-timer-btn i {
+        margin-right: 5px;
+    }
+
+.sleep-timer-options {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    min-width: 150px;
+}
+
+.timer-option {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+    .timer-option:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+.cancel-timer {
+    margin-top: 5px;
+    color: #ff6b6b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+}
+
+.custom-timer-input {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    display: none;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+    .custom-timer-input input {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        border-radius: 4px;
+    }
+
+.set-custom-btn, .cancel-custom-btn {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.set-custom-btn {
+    background: #673ab7;
+    color: white;
+}
+
+.cancel-custom-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.timer-countdown {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    font-size: 0.8rem;
+    color: #9c27b0;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.timer-active {
+    animation: pulse 2s infinite;
+}
+#btn-replay {
+    font-size: 16px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    #btn-replay:hover {
+        transform: scale(1.2);
+        color: #1db954; /* Spotify green color */
+    }

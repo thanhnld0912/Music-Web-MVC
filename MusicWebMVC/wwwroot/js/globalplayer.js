@@ -36,13 +36,19 @@ function initializeGlobalPlayer() {
     // Gắn sự kiện cho các player cục bộ trên trang
     setupLocalPlayers();
 
+    // Check if user is VIP and add sleep timer if they are
+    //checkUserVIP().then(isVIP => {
+    //    if (isVIP) {
+            createSleepTimerUI();
+    //    }
+    //});
+
     // Thiết lập interval để lưu trạng thái định kỳ
     if (playerInterval) {
         clearInterval(playerInterval);
     }
     playerInterval = setInterval(savePlayerState, 5000);
 }
-
 // Tạo UI cho Global Player nếu chưa tồn tại
 function createGlobalPlayerUI() {
     // Kiểm tra nếu component đã được render từ server
@@ -55,7 +61,7 @@ function createGlobalPlayerUI() {
         <div class="player-container">
             <div class="album-container">
                 <div class="album-rotating">
-                    <img id="global-album-cover" src="~/img/default-album.jpg" alt="Album Cover">
+                    <img id="global-album-cover" src="" alt="Album Cover">
                 </div>
             </div>
             <div class="player-controls">
@@ -114,6 +120,75 @@ function setupPlayerEvents() {
     const prevBtn = document.getElementById('btn-previous');
     if (prevBtn) {
         prevBtn.addEventListener('click', playPreviousSong);
+    }
+    const replayBtn = document.getElementById('btn-replay');
+    if (replayBtn) {
+        replayBtn.addEventListener('click', replaySong);
+    }
+
+
+    // Function to replay the current song
+    function replaySong() {
+        if (!globalAudio) return;
+
+        // Check if there is a current song
+        if (currentSongIndex >= 0 && currentPlaylist.length > 0) {
+            const currentSong = currentPlaylist[currentSongIndex];
+
+            // Reset audio to beginning
+            globalAudio.currentTime = 0;
+
+            // If the audio is paused, start playing
+            if (globalAudio.paused) {
+                const playPromise = globalAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Update play/pause icon
+                        const playPauseIcon = document.getElementById('play-pause-icon');
+                        if (playPauseIcon) {
+                            playPauseIcon.classList.remove('fa-play');
+                            playPauseIcon.classList.add('fa-pause');
+                        }
+
+                        // Start album rotation animation
+                        const albumCover = document.querySelector('.album-rotating');
+                        if (albumCover) albumCover.classList.add('playing');
+
+                        // Update local player UI
+                        updateLocalPlayerUI();
+                    }).catch(error => {
+                        console.error('Cannot play audio:', error);
+                    });
+                }
+            }
+        } else if (isPlayingStandalone && globalAudio.src) {
+            // Handle standalone replay
+            globalAudio.currentTime = 0;
+
+            // If the audio is paused, start playing
+            if (globalAudio.paused) {
+                const playPromise = globalAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Update play/pause icon
+                        const playPauseIcon = document.getElementById('play-pause-icon');
+                        if (playPauseIcon) {
+                            playPauseIcon.classList.remove('fa-play');
+                            playPauseIcon.classList.add('fa-pause');
+                        }
+
+                        // Start album rotation animation
+                        const albumCover = document.querySelector('.album-rotating');
+                        if (albumCover) albumCover.classList.add('playing');
+
+                        // Update local player UI
+                        updateLocalPlayerUI();
+                    }).catch(error => {
+                        console.error('Cannot play audio:', error);
+                    });
+                }
+            }
+        }
     }
     // Close button
     const closeBtn = document.getElementById('btn-close-player');
@@ -298,83 +373,11 @@ function playPreviousSong() {
     }
 }
 
-// Xây dựng playlist từ trang hiện tại
-function buildPagePlaylist() {
-    const pagePlaylist = [];
 
-    // Tìm tất cả các audio trên trang
-    const songElements = document.querySelectorAll('.song-item');
-    songElements.forEach((songElement, index) => {
-        const audioElement = songElement.querySelector('audio');
-        const customPlayer = songElement.querySelector('.custom-audio-player');
-
-        if (audioElement && customPlayer) {
-            const songUrl = customPlayer.getAttribute('data-song-url') ||
-                audioElement.querySelector('source')?.src ||
-                audioElement.src;
-
-            const songTitle = songElement.querySelector('.song-info span')?.textContent.trim() ||
-                `Song ${index + 1}`;
-
-            const postElement = songElement.closest('.post');
-            const artistName = postElement?.querySelector('.post-author')?.textContent ||
-                'Unknown Artist';
-
-            const imageUrl = postElement?.querySelector('.post-image')?.src || null;
-
-            if (songUrl) {
-                pagePlaylist.push({
-                    url: songUrl,
-                    title: songTitle,
-                    artist: artistName,
-                    imageUrl: imageUrl,
-                    element: customPlayer
-                });
-            }
-        }
-    });
-
-    // Nếu đã có playlist từ localStorage, hợp nhất và tránh trùng lặp
-    const savedPlaylistJSON = localStorage.getItem('melofyCurrentPlaylist');
-    if (savedPlaylistJSON) {
-        const savedPlaylist = JSON.parse(savedPlaylistJSON);
-
-        // Chỉ hợp nhất nếu trang hiện tại có bài hát
-        if (pagePlaylist.length > 0) {
-            // Hợp nhất danh sách mà không trùng lặp
-            savedPlaylist.forEach(savedSong => {
-                if (!pagePlaylist.some(pageSong => pageSong.url === savedSong.url)) {
-                    pagePlaylist.push(savedSong);
-                }
-            });
-
-            // Cập nhật playlist hiện tại
-            currentPlaylist = pagePlaylist;
-        } else {
-            // Nếu trang không có bài hát, sử dụng playlist đã lưu
-            currentPlaylist = savedPlaylist;
-        }
-    } else {
-        // Nếu không có playlist đã lưu, sử dụng playlist trang hiện tại
-        currentPlaylist = pagePlaylist;
-
-        // Cập nhật tên playlist khi tự tạo từ trang
-        if (pagePlaylist.length > 0) {
-            currentPlaylistName = "NewFeed Playlist";
-            updatePlaylistNameInPlayer(currentPlaylistName);
-
-            // Lưu tên playlist vào localStorage
-            localStorage.setItem('melofyCurrentPlaylistName', currentPlaylistName);
-        }
-    }
-
-    return currentPlaylist;
-}
 
 // Phát bài hát với global player
 function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
     if (!globalAudio || !songUrl) return;
-
 
     isPlayingStandalone = isStandalone;
 
@@ -435,6 +438,7 @@ function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
         });
     }
 }
+
 // Cập nhật UI của global player
 function updateGlobalPlayerUI(songInfo) {
     if (!songInfo) return;
@@ -447,19 +451,25 @@ function updateGlobalPlayerUI(songInfo) {
     if (titleElement) titleElement.textContent = songInfo.title || 'Unknown Title';
     if (artistElement) artistElement.textContent = songInfo.artist || 'Unknown Artist';
 
-    // Cập nhật ảnh album nếu có
-    if (albumCover && songInfo.imageUrl) {
-        albumCover.src = songInfo.imageUrl;
-    } else if (albumCover) {
-        albumCover.src = '~/img/default-album.jpg'; // Ảnh mặc định
+    // Use playlist image instead of song image
+    if (albumCover) {
+        // Try to get the playlist image from the document
+        const playlistCoverImg = document.querySelector('.playlist-cover img');
+        if (playlistCoverImg && playlistCoverImg.src) {
+            albumCover.src = playlistCoverImg.src;
+        } else if (songInfo.imageUrl) {
+            // Fallback to song image if playlist image is not available
+            albumCover.src = songInfo.imageUrl;
+        } else {
+            // Default image if neither is available
+            albumCover.src = '~/img/default-album.jpg';
+        }
     }
 
     // Hiển thị player
     if (player) player.style.display = 'flex';
     isGlobalPlayerActive = true;
 }
-
-// Cập nhật UI của local player
 function updateLocalPlayerUI() {
     if (!globalAudio || currentSongIndex < 0 || !currentPlaylist[currentSongIndex]) return;
 
@@ -599,8 +609,19 @@ function restorePlayerState() {
                 updatePlaylistNameInPlayer(currentPlaylistName);
             }
 
+            // Try to get current playlist image
+            const playlistCoverImg = document.querySelector('.playlist-cover img');
+            const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
             // Chỉ khôi phục nếu có bài hát
             if (loadedPlaylist && loadedPlaylist.length > 0) {
+                // Update image URLs to use playlist image if available
+                if (playlistImageUrl) {
+                    loadedPlaylist.forEach(song => {
+                        song.imageUrl = playlistImageUrl;
+                    });
+                }
+
                 // Gán playlist đã lưu
                 currentPlaylist = loadedPlaylist;
 
@@ -679,8 +700,60 @@ function restorePlayerState() {
     }
 }
 
+function buildPagePlaylist() {
+    // Check for songs on the current page
+    const songElements = document.querySelectorAll('.song-item');
+    if (songElements.length === 0) return;
+
+    // Get playlist information
+    const playlistTitle = document.querySelector('.playlist-title')?.textContent || "Unknown Playlist";
+    const playlistCoverImg = document.querySelector('.playlist-cover img');
+    const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
+    // Build playlist from page songs
+    const pagePlaylist = [];
+    songElements.forEach((songElement, index) => {
+        // Get song data
+        const songName = songElement.querySelector('.song-name')?.textContent || `Song ${index + 1}`;
+        const artistName = songElement.querySelector('.song-artist')?.textContent || 'Unknown Artist';
+
+        // Always use playlist image
+        const imageUrl = playlistImageUrl;
+
+        // Get song URL
+        let songUrl = null;
+        if (songElement.hasAttribute('data-song-url')) {
+            songUrl = songElement.getAttribute('data-song-url');
+        } else {
+            const songId = songElement.getAttribute('data-song-id');
+            if (songId) {
+                songUrl = `/Song/GetSongUrl?id=${songId}`;
+            }
+        }
+
+        if (songUrl) {
+            pagePlaylist.push({
+                url: songUrl,
+                title: songName,
+                artist: artistName,
+                imageUrl: imageUrl
+            });
+        }
+    });
+
+    if (pagePlaylist.length > 0) {
+        currentPlaylist = pagePlaylist;
+        currentPlaylistName = playlistTitle;
+    }
+}
+
+
 // Sửa lại phần xử lý cho local player
 function setupLocalPlayers() {
+    // Get playlist image if available
+    const playlistCoverImg = document.querySelector('.playlist-cover img');
+    const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
     document.querySelectorAll('.custom-audio-player').forEach((player, index) => {
         const playButton = player.querySelector('.play-button');
         const songUrl = player.getAttribute('data-song-url');
@@ -695,7 +768,8 @@ function setupLocalPlayers() {
             const artistName = postElement?.querySelector('.post-author')?.textContent ||
                 'Unknown Artist';
 
-            const imageUrl = postElement?.querySelector('.post-image')?.src || null;
+            // Use playlist image instead of post image
+            const imageUrl = playlistImageUrl || postElement?.querySelector('.post-image')?.src || null;
 
             const songInfo = {
                 title: songTitle,
@@ -768,5 +842,220 @@ function closeGlobalPlayer() {
 
         // Set flag indicating player is not active
         isGlobalPlayerActive = false;
+    }
+}
+// Add these variables to the global variables section at the top of global-player.js
+let sleepTimerEnabled = false;
+let sleepTimerEnd = null;
+let sleepTimerInterval = null;
+
+// Add this function to create the sleep timer UI
+function createSleepTimerUI() {
+    // Create sleep timer container if it doesn't exist
+    if (!document.getElementById('sleep-timer-container')) {
+        const timerContainer = document.createElement('div');
+        timerContainer.id = 'sleep-timer-container';
+        timerContainer.className = 'sleep-timer-container';
+        timerContainer.innerHTML = `
+            <div class="sleep-timer-badge">
+                <i class="fas fa-crown premium-icon"></i>
+                <span>VIP</span>
+            </div>
+            <div class="sleep-timer-controls">
+                <button id="sleep-timer-toggle" class="sleep-timer-btn">
+                    <i class="fas fa-clock"></i> Sleep Timer
+                </button>
+                <div id="sleep-timer-options" class="sleep-timer-options" style="display: none;">
+                    <button data-time="5" class="timer-option">5m</button>
+                    <button data-time="15" class="timer-option">15m</button>
+                    <button data-time="30" class="timer-option">30m</button>
+                    <button data-time="60" class="timer-option">1h</button>
+                    <button data-time="custom" class="timer-option">Custom</button>
+                    <button id="cancel-timer" class="timer-option cancel-timer" style="display: none;">Cancel</button>
+                </div>
+                <div id="custom-timer-input" class="custom-timer-input" style="display: none;">
+                    <input type="number" id="custom-minutes" min="1" max="180" placeholder="Min">
+                    <button id="set-custom-timer" class="set-custom-btn">Set</button>
+                    <button id="cancel-custom-timer" class="cancel-custom-btn">Cancel</button>
+                </div>
+                <div id="timer-countdown" class="timer-countdown" style="display: none;">
+                    <span id="timer-remaining"></span>
+                </div>
+            </div>
+        `;
+
+        // Add timer to player right section
+        const playerRight = document.querySelector('.player-right');
+        if (playerRight) {
+            playerRight.insertBefore(timerContainer, playerRight.firstChild);
+        }
+
+        // Setup event listeners for sleep timer
+        setupSleepTimerEvents();
+    }
+}
+
+// Add this function to set up sleep timer events
+function setupSleepTimerEvents() {
+    // Toggle timer options
+    const timerToggle = document.getElementById('sleep-timer-toggle');
+    const timerOptions = document.getElementById('sleep-timer-options');
+
+    if (!timerToggle || !timerOptions) {
+        console.error('Sleep timer UI elements not found');
+        return;
+    }
+
+    timerToggle.addEventListener('click', function () {
+        console.log('Sleep timer toggle clicked');  // Debug logging
+        if (timerOptions.style.display === 'none') {
+            timerOptions.style.display = 'flex';
+        } else {
+            timerOptions.style.display = 'none';
+        }
+
+        const customInput = document.getElementById('custom-timer-input');
+        if (customInput) {
+            customInput.style.display = 'none';
+        }
+    });
+
+    // Time option buttons
+    document.querySelectorAll('.timer-option').forEach(button => {
+        button.addEventListener('click', function () {
+            const time = this.getAttribute('data-time');
+
+            if (time === 'custom') {
+                // Show custom time input
+                document.getElementById('custom-timer-input').style.display = 'flex';
+                timerOptions.style.display = 'none';
+            } else {
+                // Set timer for preset time
+                setSleepTimer(parseInt(time));
+                timerOptions.style.display = 'none';
+            }
+        });
+    });
+
+    // Custom timer buttons
+    const setCustomBtn = document.getElementById('set-custom-timer');
+    if (setCustomBtn) {
+        setCustomBtn.addEventListener('click', function () {
+            const minutes = parseInt(document.getElementById('custom-minutes').value);
+            if (!isNaN(minutes) && minutes > 0 && minutes <= 180) {
+                setSleepTimer(minutes);
+                document.getElementById('custom-timer-input').style.display = 'none';
+            } else {
+                alert('Please enter a valid time between 1 and 180 minutes.');
+            }
+        });
+    }
+
+    const cancelCustomBtn = document.getElementById('cancel-custom-timer');
+    if (cancelCustomBtn) {
+        cancelCustomBtn.addEventListener('click', function () {
+            document.getElementById('custom-timer-input').style.display = 'none';
+        });
+    }
+
+    // Cancel timer button
+    const cancelTimer = document.getElementById('cancel-timer');
+    if (cancelTimer) {
+        cancelTimer.addEventListener('click', function () {
+            cancelSleepTimer();
+            timerOptions.style.display = 'none';
+        });
+    }
+}
+
+// Function to set sleep timer
+function setSleepTimer(minutes) {
+    // Clear any existing timer
+    if (sleepTimerInterval) {
+        clearInterval(sleepTimerInterval);
+    }
+
+    // Set end time
+    sleepTimerEnabled = true;
+    sleepTimerEnd = new Date(new Date().getTime() + minutes * 60000);
+
+    // Show timer countdown
+    document.getElementById('timer-countdown').style.display = 'flex';
+    document.getElementById('cancel-timer').style.display = 'block';
+
+    // Update countdown display
+    updateTimerDisplay();
+
+    // Set interval to update countdown
+    sleepTimerInterval = setInterval(function () {
+        updateTimerDisplay();
+
+        // Check if timer is finished
+        if (new Date() >= sleepTimerEnd) {
+            if (!globalAudio.paused) {
+                globalAudio.pause();
+
+                // Update UI
+                const playPauseIcon = document.getElementById('play-pause-icon');
+                if (playPauseIcon) {
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
+                }
+
+                const albumCover = document.querySelector('.album-rotating');
+                if (albumCover) albumCover.classList.remove('playing');
+
+                // Update local player UI
+                updateLocalPlayerUI();
+            }
+
+            // Cancel timer
+            cancelSleepTimer();
+        }
+    }, 1000);
+}
+
+// Function to update timer display
+function updateTimerDisplay() {
+    if (!sleepTimerEnabled || !sleepTimerEnd) return;
+
+    const now = new Date();
+    const remaining = sleepTimerEnd - now;
+
+    if (remaining <= 0) {
+        document.getElementById('timer-remaining').textContent = "0:00";
+        return;
+    }
+
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+
+    document.getElementById('timer-remaining').textContent =
+        `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
+
+// Function to cancel sleep timer
+function cancelSleepTimer() {
+    sleepTimerEnabled = false;
+    sleepTimerEnd = null;
+
+    if (sleepTimerInterval) {
+        clearInterval(sleepTimerInterval);
+        sleepTimerInterval = null;
+    }
+
+    document.getElementById('timer-countdown').style.display = 'none';
+    document.getElementById('cancel-timer').style.display = 'none';
+}
+
+// Add this function to check if user is VIP
+async function checkUserVIP() {
+    try {
+        const response = await fetch('/User/CheckVipStatus');
+        const data = await response.json();
+        return data.isVIP;
+    } catch (error) {
+        console.error('Error checking VIP status:', error);
+        return false; // Default to non-VIP in case of error
     }
 }

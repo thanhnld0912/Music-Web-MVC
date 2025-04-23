@@ -283,11 +283,148 @@ body {
 }
 
 .controls-bar {
-    height: 1px;
-    background-color: #444;
-    border-radius: 2px;
-    margin: 15px 0 25px 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
+
+.sort-controls {
+    position: relative;
+}
+
+.sort-button {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .sort-button:hover {
+        background-color: #1ed760;
+    }
+
+.premium-badge {
+    position: relative;
+    top: -10px;
+    right: -5px;
+    background-color: gold;
+    color: #121212;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sort-dropdown {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background-color: #282828;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 180px;
+    z-index: 100;
+    display: none;
+}
+
+.sort-dropdown-item {
+    padding: 12px 16px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .sort-dropdown-item:hover {
+        background-color: #333333;
+    }
+
+/* Disable styling for non-VIP users */
+.sort-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.song-item.custom-order-mode {
+    position: relative;
+    cursor: move;
+    border: 1px dashed #888;
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+}
+
+    .song-item.custom-order-mode:hover {
+        background-color: rgba(255, 255, 255, 0.07);
+    }
+
+.song-item.drag-over {
+    border: 1px dashed #1db954;
+    background-color: rgba(29, 185, 84, 0.1);
+}
+
+.drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    color: #888;
+    cursor: move;
+}
+
+    .drag-handle i {
+        font-size: 16px;
+    }
+
+/* Order controls styles */
+.order-controls {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.save-order-button, .cancel-order-button {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.save-order-button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+}
+
+    .save-order-button:hover {
+        background-color: #1ed760;
+    }
+
+.cancel-order-button {
+    background-color: transparent;
+    color: #888;
+    border: 1px solid #888;
+}
+
+    .cancel-order-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+/* Modify existing controls-bar to accommodate new buttons */
 
 .song-list {
     display: flex;
@@ -788,3 +925,98 @@ body {
     color: #999;
     padding: 20px;
 }
+
+.playlist-image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.current-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .current-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+}
+
+    .placeholder-image i {
+        font-size: 48px;
+        color: #777;
+    }
+
+.upload-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+    .upload-controls input[type="file"] {
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .upload-controls button {
+        padding: 8px 15px;
+        background-color: #1db954;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+        .upload-controls button:hover {
+            background-color: #1ed760;
+        }
+
+/* Update playlist header styles to handle images */
+.playlist-cover {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+    .playlist-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .playlist-cover i {
+        font-size: 80px;
+        color: #b3b3b3;
+    }
