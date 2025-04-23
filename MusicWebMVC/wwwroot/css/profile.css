@@ -553,3 +553,73 @@ body {
     .profile-menu.show {
         display: block;
     }
+
+.support-container {
+    background-color: none;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 400px;
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+    .support-container h4 {
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+.support-button {
+    background-color: #e6e5eb;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+    .support-button:hover {
+        background-color: #d9d8e3;
+    }
+
+    .support-button:focus {
+        outline: none;
+    }
+
+.support-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.support-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+}
+
+.support-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.support-icon {
+    display: flex;
+    align-items: center;
+}
+
+    .support-icon svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
