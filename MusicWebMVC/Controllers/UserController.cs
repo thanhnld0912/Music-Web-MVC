@@ -114,5 +114,43 @@ namespace MusicWebMVC.Controllers
             await _context.SaveChangesAsync();
             return Json(new { success = true });
         }
+        [HttpGet]
+        public IActionResult CheckVipStatus()
+        {
+            try
+            {
+                // Get current user ID
+                int userId = 0;
+                int.TryParse(HttpContext.Session.GetString("UserId"), out userId);
+
+                if (userId <= 0)
+                {
+                    return Unauthorized(new { isVip = false, message = "You need to be logged in to use this feature" });
+                }
+
+                /* 
+                // Real implementation would check if the user has VIP role
+                var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+
+                bool isVip = user != null && user.Role == "VIP";
+
+                return Ok(new { 
+                    isVip = isVip, 
+                    message = isVip ? "VIP user confirmed" : "This feature requires a VIP subscription" 
+                });
+                */
+
+                // For testing purposes, we're returning true for all users
+                return Ok(new
+                {
+                    isVip = true,
+                    message = "VIP user confirmed"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { isVip = false, message = "Server error: " + ex.Message });
+            }
+        }
     }
 }

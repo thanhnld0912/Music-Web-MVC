@@ -31,4 +31,8 @@
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Controllers\PaymentController.cs" />
+  </ItemGroup>
+
 </Project>

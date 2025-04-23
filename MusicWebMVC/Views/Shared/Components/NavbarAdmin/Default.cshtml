@@ -33,11 +33,9 @@
             <div class="auth-buttons">
                 @if (Context.Session.GetString("UserId") != null)
                 {
-                    <div class="auth-button">
-                        <button class="manage-button" onclick="location.href='@Url.Action("Dashboard", "Admin")'">Manage</button>
-                    </div>
+                    <button class="auth-button manage" onclick="location.href='@Url.Action("Dashboard", "Admin")'">Admin Mode</button>
                     <a href="@Url.Action("ProfileAdmin", "Account")" class="avatar-container">
-                        <img src="/img/admin.jpg" alt="Avatar" class="user-avatar">
+                        <img src="~/img/avatar.jpg" alt="Avatar" class="user-avatar">
                     </a>
                 }
                 else

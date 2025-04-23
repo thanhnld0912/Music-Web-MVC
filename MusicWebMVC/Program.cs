@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Hubs;
 using MusicWebMVC.Models;
+using MusicWebMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,9 +47,9 @@ builder.Services.AddAuthentication(options =>
     options.ClientId = builder.Configuration.GetSection("GoogleKeys:ClientId").Value;
     options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
 });
-
-
 //---------Configuration Login Google
+
+builder.Services.AddSingleton<IVNPayService, VNPayService>();
 
 var app = builder.Build();
 

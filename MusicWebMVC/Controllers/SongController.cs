@@ -643,8 +643,9 @@ namespace MusicWebMVC.Controllers
             {
                 try
                 {
-                    // Validate file
-                    if (file == null || file.Length == 0)
+
+                // Validate file
+                if (file == null || file.Length == 0)
                     {
                         return BadRequest(new { success = false, message = "Vui lòng chọn một tệp để tải lên." });
                     }
