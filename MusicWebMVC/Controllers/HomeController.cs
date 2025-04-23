@@ -28,13 +28,15 @@ namespace MusicWebMVC.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+
             // Base query
             var postsQuery = _context.Posts
                 .Include(p => p.User)
                 .Include(p => p.Song)
                 .Include(p => p.Likes)
                 .Include(p => p.Dislikes)
-                .Include(p => p.Comments);
+                .Include(p => p.Comments)
+                    .ThenInclude(c => c.User); // Include comment users to access their avatar and username
 
             // Apply filter
             if (filter?.ToLower() == "following" && currentUserId > 0)
@@ -51,7 +53,8 @@ namespace MusicWebMVC.Controllers
                     .Include(p => p.Song)
                     .Include(p => p.Likes)
                     .Include(p => p.Dislikes)
-                    .Include(p => p.Comments);
+                    .Include(p => p.Comments)
+                        .ThenInclude(c => c.User);
             }
 
             // Get the final posts list
@@ -78,7 +81,6 @@ namespace MusicWebMVC.Controllers
                         .ThenInclude(ps => ps.Song)
                             .ThenInclude(s => s.User)
                     .ToListAsync();
-
                 ViewBag.UserPlaylists = userPlaylists;
             }
             else
@@ -100,7 +102,6 @@ namespace MusicWebMVC.Controllers
                 .ToListAsync();
 
             ViewBag.TopUsers = topUsers;
-
             return View(posts);
         }
         public async Task<IActionResult> PostDetail(int id)

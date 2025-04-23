@@ -396,7 +396,88 @@ function submitComment(event) {
         xhr.send(JSON.stringify(commentData));
     }
 }
+function submitEmbeddedComment(event, postId) {
+    event.preventDefault();
 
+    if (!currentUserId) {
+        showNotification("Vui lòng đăng nhập để bình luận", "warning");
+        return;
+    }
+
+    const inputElement = document.getElementById(`commentInput-${postId}`);
+    const commentText = inputElement.value.trim();
+
+    if (commentText) {
+        // Create comment data object
+        const commentData = {
+            content: commentText,
+            userId: currentUserId
+        };
+
+        // Create AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/AddComment/${postId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        const commentsList = document.getElementById(`comments-list-${postId}`);
+
+                        // Save comment to cache
+                        if (!commentsStore[postId]) {
+                            commentsStore[postId] = [];
+                        }
+                        commentsStore[postId].push(response);
+
+                        // Create and display new comment
+                        const commentItem = createCommentElementForMySelf(response);
+
+                        // Replace "No comments yet" message if it exists
+                        const noCommentsMsg = commentsList.querySelector('p');
+                        if (noCommentsMsg && noCommentsMsg.textContent.includes('No comments yet')) {
+                            commentsList.innerHTML = '';
+                        }
+
+                        commentsList.insertBefore(commentItem, commentsList.firstChild);
+
+                        // Update comment count badge
+                        updateCommentCountBadge(postId, commentsStore[postId].length);
+
+                        // Clear input
+                        inputElement.value = '';
+
+                        // Add "View all comments" link if this is the second comment
+                        if (commentsStore[postId].length > 1) {
+                            const viewAllLink = commentsList.querySelector('.view-all-comments');
+                            if (!viewAllLink) {
+                                const viewAllDiv = document.createElement('div');
+                                viewAllDiv.className = 'view-all-comments';
+                                viewAllDiv.onclick = function () {
+                                    toggleCommentSection(document.querySelector(`.post[data-post-id="${postId}"] .comment-btn`), postId);
+                                };
+                                viewAllDiv.textContent = `View all ${commentsStore[postId].length} comments`;
+                                commentsList.appendChild(viewAllDiv);
+                            } else {
+                                viewAllLink.textContent = `View all ${commentsStore[postId].length} comments`;
+                            }
+                        }
+
+                    } catch (error) {
+                        console.error("Lỗi khi phân tích phản hồi:", error);
+                    }
+                } else {
+                    console.error("Lỗi khi thêm bình luận:", xhr.responseText);
+                    showNotification("Không thể thêm bình luận. Vui lòng thử lại sau.", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(commentData));
+    }
+}
 function createCommentElement(comment) {
     const commentItem = document.createElement('div');
     commentItem.className = 'fb-comment-item';
@@ -413,7 +494,7 @@ function createCommentElement(comment) {
 
     if (isCurrentUserComment) {
         actionButtons += `
-                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditModalComment(${comment.id})">Edit</span>
                 <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
             `;
     } else {
@@ -436,8 +517,8 @@ function createCommentElement(comment) {
                 <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
                     <textarea class="edit-comment-textarea">${comment.content}</textarea>
                     <div class="edit-comment-buttons">
-                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
-                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
+                        <button class="cancel-edit-btn" onclick="cancelEditModalComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveModalCommentEdit(${comment.id})">Save</button>
                     </div>
                 </div>
             </div>
@@ -461,7 +542,7 @@ function createCommentElementForMySelf(comment) {
 
     if (isCurrentUserComment) {
         actionButtons += `
-                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditModalComment(${comment.id})">Edit</span>
                 <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
             `;
     } else {
@@ -484,8 +565,8 @@ function createCommentElementForMySelf(comment) {
                 <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
                     <textarea class="edit-comment-textarea">${comment.content}</textarea>
                     <div class="edit-comment-buttons">
-                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
-                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
+                        <button class="cancel-edit-btn" onclick="cancelEditModalComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveModalCommentEdit(${comment.id})">Save</button>
                     </div>
                 </div>
             </div>
@@ -495,25 +576,90 @@ function createCommentElementForMySelf(comment) {
 }
 
 // Handle showing the edit form
-function showEditCommentForm(commentId) {
-    // Hide the comment text and show the edit form
-    document.getElementById(`comment-text-${commentId}`).style.display = 'none';
-    document.getElementById(`edit-form-${commentId}`).style.display = 'block';
+// For modal comments
+function showEditModalComment(commentId) {
+    // Find only in the comment overlay
+    const commentOverlay = document.getElementById('comment-overlay');
+    const commentText = commentOverlay.querySelector(`#comment-text-${commentId}`);
+    const editForm = commentOverlay.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'none';
+    if (editForm) editForm.style.display = 'block';
 }
 
-// Handle canceling edit
-function cancelEditComment(commentId) {
-    // Show the comment text and hide the edit form
-    document.getElementById(`comment-text-${commentId}`).style.display = 'block';
-    document.getElementById(`edit-form-${commentId}`).style.display = 'none';
+function cancelEditModalComment(commentId) {
+    // Find only in the comment overlay
+    const commentOverlay = document.getElementById('comment-overlay');
+    const commentText = commentOverlay.querySelector(`#comment-text-${commentId}`);
+    const editForm = commentOverlay.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'block';
+    if (editForm) editForm.style.display = 'none';
 }
 
-// Save edited comment
-function saveCommentEdit(commentId) {
-    const commentItem = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
-    const editForm = commentItem.querySelector('.edit-comment-textarea');
+// For embedded comments
+function showEditEmbeddedComment(commentId) {
+    // Find only in the post comments section
+    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+    const postComments = document.getElementById(`post-comments-${postId}`);
+    const commentText = postComments.querySelector(`#comment-text-${commentId}`);
+    const editForm = postComments.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'none';
+    if (editForm) editForm.style.display = 'block';
+}
+
+function cancelEditEmbeddedComment(commentId) {
+    // Find only in the post comments section
+    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+    const postComments = document.getElementById(`post-comments-${postId}`);
+    const commentText = postComments.querySelector(`#comment-text-${commentId}`);
+    const editForm = postComments.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'block';
+    if (editForm) editForm.style.display = 'none';
+}
+
+// Helper function to find post ID from a comment element
+function getPostIdFromCommentElement(commentId) {
+    const commentElement = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
+    if (!commentElement) return null;
+
+    // Walk up the DOM to find the closest post element
+    let parent = commentElement.parentElement;
+    while (parent && !parent.classList.contains('post')) {
+        parent = parent.parentElement;
+    }
+
+    return parent ? parent.getAttribute('data-post-id') : null;
+}
+
+// Save function needs to update both places
+function saveModalCommentEdit(commentId) {
+    // Get the edit form textarea from the modal
+    const commentOverlay = document.getElementById('comment-overlay');
+    const editForm = commentOverlay.querySelector(`#edit-form-${commentId} .edit-comment-textarea`);
+
+    if (!editForm) return;
+
     const newContent = editForm.value.trim();
+    saveCommentEditCommon(commentId, newContent);
+}
 
+function saveEmbeddedCommentEdit(commentId) {
+    // Get the edit form textarea from the embedded section
+    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+    const postComments = document.getElementById(`post-comments-${postId}`);
+    const editForm = postComments.querySelector(`#edit-form-${commentId} .edit-comment-textarea`);
+
+    if (!editForm) return;
+
+    const newContent = editForm.value.trim();
+    saveCommentEditCommon(commentId, newContent);
+}
+
+// Common function to handle the AJAX request and update both views
+function saveCommentEditCommon(commentId, newContent) {
     if (!newContent) {
         showNotification("Comment cannot be empty", "warning");
         return;
@@ -533,14 +679,22 @@ function saveCommentEdit(commentId) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 try {
-                    const response = JSON.parse(xhr.responseText);
+                    // Update the comment content in both places
+                    document.querySelectorAll(`#comment-text-${commentId}`).forEach(element => {
+                        if (element) element.textContent = newContent;
+                    });
 
-                    // Update the comment content
-                    const commentTextEl = document.getElementById(`comment-text-${commentId}`);
-                    commentTextEl.textContent = newContent;
+                    // Hide the edit form and show the updated comment text in both places
+                    const modalElement = document.querySelector(`#comment-overlay #comment-text-${commentId}`);
+                    const modalForm = document.querySelector(`#comment-overlay #edit-form-${commentId}`);
+                    if (modalElement) modalElement.style.display = 'block';
+                    if (modalForm) modalForm.style.display = 'none';
 
-                    // Hide the edit form and show the updated comment text
-                    cancelEditComment(commentId);
+                    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+                    const embeddedElement = document.querySelector(`#post-comments-${postId} #comment-text-${commentId}`);
+                    const embeddedForm = document.querySelector(`#post-comments-${postId} #edit-form-${commentId}`);
+                    if (embeddedElement) embeddedElement.style.display = 'block';
+                    if (embeddedForm) embeddedForm.style.display = 'none';
 
                     // Update the comment in the comments store
                     if (commentsStore[currentPostId]) {
@@ -564,6 +718,43 @@ function saveCommentEdit(commentId) {
 
     xhr.send(JSON.stringify(editData));
 }
+document.getElementById('commentInput').addEventListener('input', function () {
+    const currentLength = this.value.length;
+    const maxLength = 200;
+    const remainingChars = maxLength - currentLength;
+    const limitElement = document.getElementById('commentLimit');
+
+    if (currentLength >= maxLength) {
+        this.style.borderColor = 'red';
+        limitElement.style.color = 'red';
+        limitElement.textContent = `You've exceeded the max limit of ${maxLength} characters!`;
+    } else {
+        this.style.borderColor = 'green';
+        limitElement.style.color = 'green';
+        limitElement.textContent = `Max ${remainingChars} characters left`;
+    }
+});
+
+// Event listener for embedded comment inputs (all posts)
+document.querySelectorAll('[id^="commentInput-"]').forEach(input => {
+    input.addEventListener('input', function () {
+        const currentLength = this.value.length;
+        const maxLength = 200;
+        const remainingChars = maxLength - currentLength;
+        const limitElement = this.closest('.fb-comment-section').querySelector('.comment-limit-info span');
+
+        if (currentLength >= maxLength) {
+            this.style.borderColor = 'red';
+            limitElement.style.color = 'red';
+            limitElement.textContent = `You've exceeded the max limit of ${maxLength} characters!`;
+        } else {
+            this.style.borderColor = 'green';
+            limitElement.style.color = 'green';
+            limitElement.textContent = `Max ${remainingChars} characters left`;
+        }
+    });
+});
+
 
 // Confirm before deleting comment
 function confirmDeleteComment(commentId) {
@@ -1291,3 +1482,4 @@ function showNotification(message, type = 'info') {
         }
     }, 4000);
 }
+
