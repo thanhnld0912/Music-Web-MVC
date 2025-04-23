@@ -208,6 +208,82 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                <!-- Embedded Comments Section -->
+                                <div id="post-comments-@post.Id" class="post-comments-section">
+                                    <div class="fb-comment-section">
+                                        <div class="fb-comment-input-container">
+                                            <div class="comment-avatar">
+                                                <img src="@avatarUrl" alt="avatar" class="comment-user-avatar">
+                                            </div>
+                                            <div class="fb-comment-input-wrapper">
+                                                <input type="text" placeholder="Write a comment..." class="fb-comment-input" id="commentInput-@post.Id" maxlength="200">
+                                                <div class="fb-comment-tools">
+                                                    <i class="fas fa-smile"></i>
+                                                    <i class="fas fa-camera"></i>
+                                                    <i class="fas fa-paper-plane" onclick="submitEmbeddedComment(event, @post.Id)"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-limit-info">
+                                            <span>Max 200 characters</span>
+                                        </div>
+                                        <div class="fb-comments-list" id="comments-list-@post.Id">
+                                            <!-- Show only the most recent comment -->
+                                            @if (post.Comments != null && post.Comments.Any())
+                                            {
+                                                var mostRecentComment = post.Comments.OrderByDescending(c => c.CreatedAt).FirstOrDefault();
+                                                if (mostRecentComment != null)
+                                                {
+                                                    <div class="fb-comment-item" data-comment-id="@mostRecentComment.Id">
+                                                        <div class="comment-avatar">
+                                                            <img src="@mostRecentComment.User.AvatarUrl" alt="avatar" class="comment-user-avatar">
+                                                        </div>
+                                                        <div class="fb-comment-content">
+                                                            <div class="fb-comment-author">@mostRecentComment.User.Username</div>
+                                                            <div class="fb-comment-text" id="comment-text-@mostRecentComment.Id">@mostRecentComment.Content</div>
+                                                            <div class="fb-comment-time">@mostRecentComment.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+                                                            <div class="fb-comment-actions">
+                                                                @if (int.Parse(userId ?? "0") == mostRecentComment.UserId)
+                                                                {
+                                                                    <span class="fb-comment-action edit-comment-btn" onclick="showEditEmbeddedComment(@mostRecentComment.Id)">Edit</span>
+                                                                    <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(@mostRecentComment.Id)">Delete</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="fb-comment-action report-comment-btn" onclick="showReportCommentForm(@mostRecentComment.Id)">Report</span>
+                                                                }
+                                                            </div>
+
+                                                            <!-- Edit form (hidden by default) -->
+                                                            <div class="comment-edit-form" id="edit-form-@mostRecentComment.Id" style="display: none;">
+                                                                <textarea class="edit-comment-textarea">@mostRecentComment.Content</textarea>
+                                                                <div class="edit-comment-buttons">
+                                                                    <button class="cancel-edit-btn" onclick="cancelEditEmbeddedComment(@mostRecentComment.Id)">Cancel</button>
+                                                                    <button class="save-edit-btn" onclick="saveEmbeddedCommentEdit(@mostRecentComment.Id)">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- "View all comments" link -->
+                                                    @if (post.Comments.Count() > 1)
+                                                    {
+                                                        <div class="view-all-comments" onclick="toggleCommentSection(this.closest('.post').querySelector('.comment-btn'), @post.Id)">
+                                                            View all @post.Comments.Count() comments
+                                                        </div>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p>No comments yet. Be the first to comment!</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                              
+            
                             </div>
                         }
                         <div id="edit-post-overlay" class="edit-overlay">
