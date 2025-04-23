@@ -1,5 +1,6 @@
 ﻿@using MusicWebMVC.Models
 @model IEnumerable<MusicWebMVC.Models.Post>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,9 +41,9 @@
                         <a href="@Url.Action("PlaylistPageAdmin", "Playlist", new { id = playlist.Id })" class="playlist-link">
                             <div class="melody-card">
                                 <div class="melody-image">
-                                    @if (playlist.PlaylistSongs.Count > 0 && !string.IsNullOrEmpty(playlist.PlaylistSongs[0].Song.CoverImage))
+                                    @if (!string.IsNullOrEmpty(playlist.ImageUrl))
                                     {
-                                        <img src="@playlist.PlaylistSongs.First().Song.CoverImage" alt="Playlist Cover" />
+                                        <img src="@playlist.ImageUrl" alt="Playlist Cover" />
                                     }
                                     else
                                     {
