@@ -7,3 +7,5 @@
 
 # Ignore appsettings.json
 appsettings.json
+
+*.csproj.user
