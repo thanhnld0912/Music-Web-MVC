@@ -215,8 +215,24 @@ body {
     cursor: pointer;
     font-size: 14px;
     position: relative;
-    left: 250px;
+/*    left: 250px;*/
 }
+
+    .auth-button.manage {
+        padding: 6px 12px;
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.6);
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+        .auth-button.manage:hover {
+            color: white;
+        }
 
     .auth-button.register {
         background-color: #fff;
