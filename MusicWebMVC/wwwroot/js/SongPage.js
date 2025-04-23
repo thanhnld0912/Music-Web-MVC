@@ -306,20 +306,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add these new functions to handle edit, delete and report
     function showEditCommentForm(commentId) {
-        // Hide the comment text and show the edit form
-        document.getElementById(`comment-text-${commentId}`).style.display = 'none';
-        document.getElementById(`edit-form-${commentId}`).style.display = 'block';
+    // Try to find the edit form with either class
+    const editForm = document.getElementById(`edit-form-${commentId}`);
+    if (!editForm) {
+        console.error(`Edit form not found for comment ${commentId}`);
+        return;
     }
+    
+    // Find comment text using both possible selectors
+    const commentText = document.getElementById(`comment-text-${commentId}`) || 
+                       document.querySelector(`.comment[data-comment-id="${commentId}"] .comment-content p`);
+    
+    // Hide text, show form
+    if (commentText) commentText.style.display = 'none';
+    editForm.style.display = 'block';
+}
 
-    function cancelEditComment(commentId) {
-        // Show the comment text and hide the edit form
-        document.getElementById(`comment-text-${commentId}`).style.display = 'block';
-        document.getElementById(`edit-form-${commentId}`).style.display = 'none';
+// Also update cancelEditComment to handle both form types
+function cancelEditComment(commentId) {
+    const editForm = document.getElementById(`edit-form-${commentId}`);
+    if (!editForm) {
+        console.error(`Edit form not found for comment ${commentId}`);
+        return;
     }
+    
+    const commentText = document.getElementById(`comment-text-${commentId}`) || 
+                       document.querySelector(`.comment[data-comment-id="${commentId}"] .comment-content p`);
+    
+    if (commentText) commentText.style.display = 'block';
+    editForm.style.display = 'none';
+}
 
     function saveCommentEdit(commentId) {
-        const editForm = document.querySelector(`#edit-form-${commentId} .edit-comment-textarea`);
-        const newContent = editForm.value.trim();
+        // Try to find the textarea in different possible locations
+        const editTextarea = document.querySelector(`#edit-form-${commentId} .edit-comment-textarea`) ||
+            document.querySelector(`.comment-edit-form#edit-form-${commentId} textarea`);
+
+        if (!editTextarea) {
+            console.error(`Edit textarea not found for comment ${commentId}`);
+            showNotification("Không thể tìm thấy nội dung chỉnh sửa", "error");
+            return;
+        }
+
+        const newContent = editTextarea.value.trim();
 
         if (!newContent) {
             showNotification("Bình luận không được để trống", "warning");
@@ -340,14 +369,21 @@ document.addEventListener('DOMContentLoaded', function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     try {
-                        // Update the comment content
-                        const commentTextEl = document.getElementById(`comment-text-${commentId}`);
-                        commentTextEl.textContent = newContent;
+                        // Try to find the comment text element in different possible formats
+                        const commentTextEl = document.getElementById(`comment-text-${commentId}`) ||
+                            document.querySelector(`.comment[data-comment-id="${commentId}"] .comment-content p`);
 
-                        // Hide the edit form and show the updated comment text
-                        cancelEditComment(commentId);
+                        if (commentTextEl) {
+                            commentTextEl.textContent = newContent;
 
-                        showNotification("Bình luận đã được cập nhật", "success");
+                            // Hide the edit form
+                            cancelEditComment(commentId);
+
+                            showNotification("Bình luận đã được cập nhật", "success");
+                        } else {
+                            console.error(`Comment text element not found for comment ${commentId}`);
+                            showNotification("Bình luận đã được cập nhật, vui lòng làm mới trang", "info");
+                        }
                     } catch (error) {
                         console.error("Lỗi khi cập nhật bình luận:", error);
                         showNotification("Không thể cập nhật bình luận", "error");
@@ -361,7 +397,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         xhr.send(JSON.stringify(editData));
     }
-
     function confirmDeleteComment(commentId) {
         if (confirm("Bạn có chắc chắn muốn xóa bình luận này?")) {
             deleteComment(commentId);
@@ -394,52 +429,68 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showReportCommentForm(commentId) {
-        // Use existing reportModal for consistency but customize it for comments
-        const reportModal = document.getElementById('reportModal');
-        const modalTitle = reportModal.querySelector('.modal-header h3');
+        // Create a modal for reporting
+        const reportModal = document.createElement('div');
+        reportModal.className = 'report-modal';
+        reportModal.id = 'report-modal';
 
-        // Set the comment ID as a data attribute on the modal for use when submitting
-        reportModal.setAttribute('data-comment-id', commentId);
+        reportModal.innerHTML = `
+            <div class="report-container">
+                <div class="report-header">
+                    <h3>Report Comment</h3>
+                    <button class="close-report-btn" onclick="closeReportForm()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="report-body">
+                    <p>Please select a reason for reporting this comment:</p>
+                    <select id="report-reason">
+                        <option value="spam">Spam</option>
+                        <option value="harassment">Harassment</option>
+                        <option value="inappropriate">Inappropriate content</option>
+                        <option value="offensive">Offensive language</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea id="report-details" placeholder="Additional details (optional)"></textarea>
+                </div>
+                <div class="report-footer">
+                    <button class="cancel-btn" onclick="closeReportForm()">Cancel</button>
+                    <button class="report-btn" onclick="submitReport(${commentId})">Submit Report</button>
+                </div>
+            </div>
+        `;
 
-        // Change title to indicate we're reporting a comment
-        modalTitle.textContent = 'Báo cáo bình luận';
-
-        // Display the modal
-        reportModal.style.display = 'block';
+        document.body.appendChild(reportModal);
     }
 
-    function submitReport() {
-        // Get the comment ID from the modal's data attribute
-        const reportModal = document.getElementById('reportModal');
-        const commentId = reportModal.getAttribute('data-comment-id');
 
-        // Get selected reason
-        let reason = '';
-        const radioButtons = document.querySelectorAll('input[name="report-reason"]');
-        for (const radioButton of radioButtons) {
-            if (radioButton.checked) {
-                reason = radioButton.value;
-                break;
-            }
+    function submitReport(commentId) {
+        // Get reason from select element
+        const reasonSelect = document.getElementById('report-reason');
+        const details = document.getElementById('report-details');
+
+        if (!reasonSelect) {
+            showNotification("Không thể lấy lý do báo cáo", "error");
+            return;
         }
 
-        // Check if "other" was selected and get the text if so
-        if (reason === 'other') {
-            const otherText = document.getElementById('other-reason-text').value.trim();
-            if (otherText) {
-                reason += ': ' + otherText;
-            }
-        }
+        const reason = reasonSelect.value;
+        const additionalDetails = details ? details.value.trim() : '';
 
         if (!reason) {
             showNotification("Vui lòng chọn lý do báo cáo", "warning");
             return;
         }
 
+        // Format reason with any additional details
+        const finalReason = additionalDetails
+            ? `${reason}: ${additionalDetails}`
+            : reason;
+
         // Prepare report data
         const reportData = {
             userId: currentUserId,
-            reason: reason
+            reason: finalReason
         };
 
         // Send AJAX request to report the comment
@@ -450,8 +501,20 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    closeModal('reportModal');
+                    closeReportForm();
                     showNotification("Đã gửi báo cáo bình luận", "success");
+                } else if (xhr.status === 400) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.message && response.message.includes("already reported")) {
+                            showNotification("Bạn đã báo cáo bình luận này rồi", "warning");
+                        } else {
+                            showNotification(response.message || "Không thể báo cáo bình luận", "error");
+                        }
+                    } catch (e) {
+                        showNotification("Không thể báo cáo bình luận", "error");
+                    }
+                    closeReportForm();
                 } else {
                     console.error("Lỗi khi báo cáo bình luận:", xhr.responseText);
                     showNotification("Không thể báo cáo bình luận", "error");
@@ -461,6 +524,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         xhr.send(JSON.stringify(reportData));
     }
+
 
     // When the page loads, we need to update all existing comments to have the action buttons
     document.addEventListener('DOMContentLoaded', function () {
@@ -685,13 +749,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function submitReport() {
-        // Implement report submission logic here
-        console.log('Báo cáo đã được gửi');
-        showNotification('Báo cáo đã được gửi', 'success');
-        closeModal('reportModal');
-    }
-
+  
     // Expose functions globally for inline event handlers
     window.toggleLike = toggleLike;
     window.copyLink = copyLink;
@@ -990,3 +1048,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 0);
 });
+
+function closeReportForm() {
+    const reportModal = document.getElementById('report-modal');
+    if (reportModal) {
+        document.body.removeChild(reportModal);
+    }
+}
+
+// Make sure to expose it for inline event handlers
+window.closeReportForm = closeReportForm;

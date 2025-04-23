@@ -912,13 +912,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-<<<<<<< HEAD
-      <Fingerprint>owfzpiwpe8</Fingerprint>
-      <Integrity>SLydN9NP/8AtjSYxl+PU9GSl3FqghIGU0jAkKvAqTH4=</Integrity>
-=======
-      <Fingerprint>xbw1fnagag</Fingerprint>
-      <Integrity>E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po=</Integrity>
->>>>>>> main
+      <Fingerprint>w1nzp8sn3e</Fingerprint>
+      <Integrity>jEfoxNtkyg/GMginww4ZO1/mDVqqcJBWDe3QmXewaS4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\newfeed.css'))</OriginalItemSpec>
@@ -1403,8 +1398,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>p1uhnpdp5y</Fingerprint>
-      <Integrity>XT35dbv0uP8kBb/tVZDIyhiu9qW9zOZAmiUkKEhsPhA=</Integrity>
+      <Fingerprint>fjtcmfsmjz</Fingerprint>
+      <Integrity>i9I6i1Ic2mBQYb1HBzkv8HT0JHo0ZCItBigqC0reaU8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\NewFeed.js'))</OriginalItemSpec>
@@ -1547,8 +1542,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>7d0pl60mgb</Fingerprint>
-      <Integrity>G1sxT7eBNqcUOBhStyXBN/oWw6Dp+BySNzNx3Y7nBFQ=</Integrity>
+      <Fingerprint>h2iqdhxlya</Fingerprint>
+      <Integrity>B8E0BdldE1L2FVcF4ftu0akKHdfP6gEM1x/iCw6PBvY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\SongPage.js'))</OriginalItemSpec>
@@ -1565,8 +1560,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>iqmt8tcz31</Fingerprint>
-      <Integrity>WjQVlhUFpdZrBea6N58x/uUKgIGJOPxTMENYF6797cw=</Integrity>
+      <Fingerprint>oaxbj0t64l</Fingerprint>
+      <Integrity>sD/+vlWqQZOf/YeEL92lhN3Y45V8qKIciTgFe4rUPK4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\uploadfile.js'))</OriginalItemSpec>
