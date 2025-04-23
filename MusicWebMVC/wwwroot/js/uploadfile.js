@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const titleLength = songTitleInput.value.length;
         const titleLimit = 50;
         const titleLimitMessage = document.getElementById('songTitleLimit');
-        if (titleLength > titleLimit) {
+        if (titleLength >= titleLimit) {
             titleLimitMessage.style.color = 'red';
             titleLimitMessage.textContent = 'You have exceeded the max limit of 50 characters!';
         } else {
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const contentLength = postContentTextarea.value.length;
         const contentLimit = 300;
         const contentLimitMessage = document.getElementById('postContentLimit');
-        if (contentLength > contentLimit) {
+        if (contentLength >= contentLimit) {
             contentLimitMessage.style.color = 'red';
             contentLimitMessage.textContent = 'You have exceeded the max limit of 300 characters!';
         } else {
