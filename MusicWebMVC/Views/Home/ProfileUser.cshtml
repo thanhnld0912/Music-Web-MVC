@@ -135,12 +135,28 @@
                                             <i class="fas fa-ellipsis-h"></i>
                                         </button>
                                         <div class="post-menu" id="postMenu-@post.Id">
+
                                             <div class="menu-item" onclick="editPost(@post.Id)">
                                                 <i class="fas fa-edit"></i> Edit
                                             </div>
                                             <div class="menu-item" onclick="confirmDeletePost(@post.Id)">
                                                 <i class="fas fa-trash"></i> Delete
                                             </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="post-options">
+                                        <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                        <div class="post-menu" id="postMenu-@post.Id">
+
+                                            <div class="menu-item" onclick="reportPost(@post.Id)">
+                                                <i class="fas fa-flag"></i> Report
+                                            </div>
+
                                         </div>
                                     </div>
                                 }
@@ -342,7 +358,44 @@
             </div>
         </div>
     </div>
-
+    <div id="report-post-overlay" class="report-overlay">
+        <div class="report-container">
+            <div class="report-header">
+                <h3>Report Post</h3>
+                <button class="close-report-btn" onclick="closeReportPostForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="report-form">
+                <input type="hidden" id="report-post-id">
+                <div class="report-reason-section">
+                    <p>Why are you reporting this post?</p>
+                    <div class="report-options">
+                        <label>
+                            <input type="radio" name="report-reason" value="Inappropriate content"> Inappropriate content
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Spam"> Spam
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Harassment"> Harassment
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="False information"> False information
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Other"> Other
+                        </label>
+                    </div>
+                    <textarea id="report-details" placeholder="Please provide more details about your report..." rows="4"></textarea>
+                </div>
+                <div class="report-form-buttons">
+                    <button class="cancel-report-btn" onclick="closeReportPostForm()">Cancel</button>
+                    <button class="submit-report-btn" onclick="submitPostReport()">Submit Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Comment Overlay -->
     <div id="comment-overlay" class="comment-overlay">
         <div class="comment-container">

@@ -19,12 +19,12 @@ namespace MusicWebMVC.Controllers
             // Retrieve the playlist with all related data
             var playlist = await _context.Playlists
                 .Include(p => p.User)
-                .Include(p => p.PlaylistSongs)
+                .Include(p => p.PlaylistSongs.OrderBy(ps => ps.Order)) // Order by the Order property
                     .ThenInclude(ps => ps.Song)
                         .ThenInclude(s => s.User)
                 .Include(p => p.PlaylistSongs)
                     .ThenInclude(ps => ps.Song)
-                        .ThenInclude(s => s.Post)  // Add this line
+                        .ThenInclude(s => s.Post)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (playlist == null)
@@ -466,5 +466,80 @@ namespace MusicWebMVC.Controllers
                 return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
+       
+        [HttpPost]
+        public async Task<IActionResult> SaveCustomOrder(int playlistId, List<int> songIds)
+        {
+            try
+            {
+                // Check current user
+                int userId = 0;
+                int.TryParse(HttpContext.Session.GetString("UserId"), out userId);
+
+                if (userId <= 0)
+                {
+                    return Unauthorized(new { success = false, message = "Bạn cần đăng nhập để thực hiện chức năng này" });
+                }
+
+                // Check if playlist exists and belongs to current user
+                var playlist = await _context.Playlists.FindAsync(playlistId);
+                if (playlist == null)
+                {
+                    return NotFound(new { success = false, message = "Không tìm thấy playlist" });
+                }
+
+                if (playlist.UserId != userId)
+                {
+                    return Unauthorized(new { success = false, message = "Bạn không có quyền chỉnh sửa playlist này" });
+                }
+
+                // Verify that all songIds belong to this playlist
+                var existingPlaylistSongs = await _context.PlaylistSongs
+                    .Where(ps => ps.PlaylistId == playlistId)
+                    .ToListAsync();
+
+                var existingSongIds = existingPlaylistSongs.Select(ps => ps.SongId).ToList();
+
+                // Check if all provided song IDs exist in the playlist
+                bool allSongsExist = songIds.All(id => existingSongIds.Contains(id));
+                if (!allSongsExist || songIds.Count != existingSongIds.Count)
+                {
+                    return BadRequest(new { success = false, message = "Danh sách bài hát không hợp lệ" });
+                }
+
+                // Update the order by removing and re-adding the playlist songs
+                _context.PlaylistSongs.RemoveRange(existingPlaylistSongs);
+                await _context.SaveChangesAsync();
+
+                // Add back in the new order
+                for (int i = 0; i < songIds.Count; i++)
+                {
+                    var playlistSong = new PlaylistSong
+                    {
+                        PlaylistId = playlistId,
+                        SongId = songIds[i],
+                        Order = i // Add an Order property to track position
+                    };
+                    _context.PlaylistSongs.Add(playlistSong);
+                }
+
+                // Update playlist's UpdatedAt time
+                playlist.UpdatedAt = DateTime.Now;
+                _context.Entry(playlist).State = EntityState.Modified;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "Đã lưu thứ tự playlist thành công"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
+            }
+        }
     }
+
 }

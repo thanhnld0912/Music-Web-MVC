@@ -27,6 +27,10 @@ namespace MusicWebMVC.Models
         [StringLength(500)]
         public string Bio { get; set; }
 
+        public bool IsDisabled { get; set; } = false;
+
+        public bool IsVIP { get; set; } = false;
+
         public virtual ICollection<Song> Songs { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
@@ -39,5 +43,6 @@ namespace MusicWebMVC.Models
         public virtual ICollection<Notification> Notifications { get; set; }
 
         public virtual ICollection<CommentReport> CommentReports { get; set; }
+        public virtual ICollection<PostReport> PostReports { get; set; }
     }
 }

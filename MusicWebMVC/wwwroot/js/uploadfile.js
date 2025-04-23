@@ -242,7 +242,36 @@ document.addEventListener("DOMContentLoaded", function () {
             showNotification("Đã lưu thông tin bài hát! Nhấn nút Upload Song để hoàn tất quá trình tải lên.", "success");
         });
     }
+    // Giới hạn ký tự cho Title và Content
+    const songTitleInput = document.getElementById('songTitle');
+    const postContentTextarea = document.getElementById('postContent');
 
+    // Kiểm tra và hiển thị thông báo khi người dùng vượt quá giới hạn ký tự
+    songTitleInput.addEventListener('input', () => {
+        const titleLength = songTitleInput.value.length;
+        const titleLimit = 50;
+        const titleLimitMessage = document.getElementById('songTitleLimit');
+        if (titleLength > titleLimit) {
+            titleLimitMessage.style.color = 'red';
+            titleLimitMessage.textContent = 'You have exceeded the max limit of 50 characters!';
+        } else {
+            titleLimitMessage.style.color = 'green';
+            titleLimitMessage.textContent = `Max ${titleLimit - titleLength} characters left`;
+        }
+    });
+
+    postContentTextarea.addEventListener('input', () => {
+        const contentLength = postContentTextarea.value.length;
+        const contentLimit = 300;
+        const contentLimitMessage = document.getElementById('postContentLimit');
+        if (contentLength > contentLimit) {
+            contentLimitMessage.style.color = 'red';
+            contentLimitMessage.textContent = 'You have exceeded the max limit of 300 characters!';
+        } else {
+            contentLimitMessage.style.color = 'green';
+            contentLimitMessage.textContent = `Max ${contentLimit - contentLength} characters left`;
+        }
+    });
     // === PHẦN XỬ LÝ UPLOAD ===
 
     // Variable for YouTube integration
@@ -261,6 +290,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!songTitle || !songTitle.value) {
                 showNotification('Vui lòng nhập tiêu đề cho bài hát', 'warning');
+                return;
+            }
+            // Kiểm tra và giới hạn title
+            if (songTitle.value.length > 50) {
+                showNotification('Tiêu đề bài hát không được vượt quá 50 ký tự', 'warning');
                 return;
             }
 
@@ -283,7 +317,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Lấy nội dung bài viết từ textarea
             const content = postContent ? (postContent.value || 'Đã tải lên bài hát: ' + songTitle.value) : 'Đã tải lên bài hát: ' + songTitle.value;
-
+            if (content.length > 300) {
+                showNotification('Nội dung bài viết không được vượt quá 300 ký tự', 'warning');
+                return;
+            }
             // Tạo FormData để gửi lên server
             const formData = new FormData();
             formData.append('file', songFile.files[0]);
