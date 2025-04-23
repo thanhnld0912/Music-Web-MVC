@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@* @model PagedResult<MusicWeb.Models.UserViewModel> *@
-
-@{
+﻿@{
     Layout = null;
     ViewData["Title"] = "Dashboard";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
@@ -54,7 +49,7 @@
         {
             @await Html.PartialAsync("~/Views/Admin/Partials/_PostTab.cshtml")
         }
-    </div>  
+    </div>
 
     <script>
         function toggleSidebar(event) {
