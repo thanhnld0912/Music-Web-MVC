@@ -50,7 +50,14 @@
 
     <div class="main-content">
         <div class="type-account">
-            <h3>FREE</h3>
+            @if (Model.IsVIP)
+            {
+                <h3>VIP</h3>
+            }
+            else
+            {
+                <h3>FREE</h3>
+            }
             <div class="type-logo">
                 <img src="~/img/lgo.png" alt="User Avatar">
             </div>
@@ -81,12 +88,51 @@
                     </div>
                 </div>
                 <div id="support" class="tab-content">
-                    <h3>Support Center</h3>
-                    <p>Need help? Contact our support team.</p>
+                    <div class="support-container">
+                        <h4>SUPPORT CENTER</h4>
+
+                        <button class="support-button">
+                            <div class="support-text">
+                                <div class="support-title">Help center</div>
+                                <div class="support-subtitle">FAQs, popular question</div>
+                            </div>
+                            <div class="support-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 6l6 6-6 6" stroke="#5B56F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </button>
+
+                        <button class="support-button">
+                            <div class="support-text">
+                                <div class="support-title">Contact</div>
+                                <div class="support-subtitle">Send message to team support</div>
+                            </div>
+                            <div class="support-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 6l6 6-6 6" stroke="#5B56F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+
                 </div>
                 <div id="upgrade" class="tab-content">
-                    <h3>Upgrade Plan</h3>
-                    <p>Upgrade to premium for more features.</p>
+                    <div class="support-container">
+                        <h4>UPGRADE</h4>
+
+                        <button class="support-button" onclick="location.href='@Url.Action("Payment", "Payment")'">
+                            <div class="support-text">
+                                <div class="support-title">Upgrade</div>
+                                <div class="support-subtitle">Unlock premium features</div>
+                            </div>
+                            <div class="support-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 6l6 6-6 6" stroke="#5B56F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
