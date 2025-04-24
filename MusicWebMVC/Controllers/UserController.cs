@@ -128,24 +128,18 @@ namespace MusicWebMVC.Controllers
                     return Unauthorized(new { isVip = false, message = "You need to be logged in to use this feature" });
                 }
 
-                /* 
+
                 // Real implementation would check if the user has VIP role
                 var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
                 bool isVip = user != null && user.Role == "VIP";
 
-                return Ok(new { 
-                    isVip = isVip, 
-                    message = isVip ? "VIP user confirmed" : "This feature requires a VIP subscription" 
-                });
-                */
-
-                // For testing purposes, we're returning true for all users
                 return Ok(new
                 {
-                    isVip = true,
-                    message = "VIP user confirmed"
+                    isVip = isVip,
+                    message = isVip ? "VIP user confirmed" : "This feature requires a VIP subscription"
                 });
+
             }
             catch (Exception ex)
             {
