@@ -1800,152 +1800,6 @@ input {
     transition: background 0.3s, color 0.3s;
 }
 
-@media screen and (max-width: 768px) {
-    /* Ẩn phần top user */
-    .top-user {
-        display: none !important;
-    }
-
-    /* Thu nhỏ sidebar */
-    .sidebar {
-        width: 60px;
-        padding: 10px 5px;
-        transition: all 0.3s ease;
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100%;
-        z-index: 999;
-    }
-
-
-    /* Force sidebar to stay in collapsed state */
-    .sidebar {
-        width: 60px !important; /* Force width with !important */
-        padding: 10px 5px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100%;
-        z-index: 999;
-        transition: none; /* Remove transition */
-    }
-
-    /* Hide elements that should not appear in collapsed state */
-    .logo,
-    .logoimg,
-    .sidebar-section,
-    .melody-card,
-    .melody-info,
-    .trending,
-    .create-playlist {
-        display: none !important;
-    }
-
-    .home-btn {
-        right: 20px;
-    }
-
-    .melody-card {
-        display: none;
-    }
-
-    /* Điều chỉnh main content */
-    .main-content {
-        margin-left: 60px;
-        width: calc(100% - 20px);
-        transition: all 0.3s ease;
-    }
-
-    .sidebar.collapsed .sidebar-toggle {
-        /* Post card full width gọn gàng */
-    }
-
-    /* Search bar & tab nav responsive */
-    .search-bar,
-    .tab-nav {
-        margin-left: 70px;
-        width: calc(100% - 80px);
-    }
-
-    .create-playlist {
-        display: none;
-    }
-
-    .sidebar h3 {
-        display: none;
-    }
-
-    .avatar-container {
-        right: 25px;
-    }
-
-    .empty-playlist {
-        display: none;
-    }
-
-    .logo {
-        display: none;
-    }
-
-    .logoimg {
-        display: none;
-    }
-
-    .sidebar-section {
-        display: none;
-    }
-
-    .trending {
-        display: none;
-    }
-
-    .sidebar {
-        height: 50px;
-    }
-
-    .sidebar-toggle {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-    }
-
-    .navbar {
-        margin-left: 10px;
-    }
-
-    .main-content {
-        margin-left: 20px
-    }
-
-    .post-topuser-left {
-        width: 100%;
-    }
-
-    .post {
-        padding: 30px 50px;
-    }
-
-
-    .auth-button {
-        position: absolute;
-    }
-
-    .search-box {
-        width: 72%;
-    }
-
-    .add-post {
-        right: 20px;
-        top: 100px;
-    }
-
-    .filter-tabs {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
 .notification-bell-container {
  position : relative;
     top: 10px;
@@ -2619,3 +2473,374 @@ input {
     .submit-report-btn:hover {
         background-color: #166fe5;
     }
+/*Test animation*/
+/* Main content animation updates */
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+    scrollbar-color: #888 #222;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.post {
+    border-style: solid;
+    border-color: #4d086d;
+}
+/* Fade in animation for main content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Post animation */
+.post {
+    background: #22222A;
+    padding: 30px 40px 30px 40px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    max-width: 100%;
+    animation: slideIn 0.6s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Staggered animation for multiple posts */
+.post:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.post:nth-child(even) {
+    animation-delay: 0.3s;
+}
+
+/* Filter tabs animation */
+.filter-tab {
+    padding: 8px 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #363636;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+    .filter-tab:hover {
+        transform: translateY(-3px);
+    }
+
+    .filter-tab.active {
+        background-color: #bc04f4;
+        color: white;
+        animation: pulse 1.5s infinite alternate;
+    }
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 rgba(188, 4, 244, 0.4);
+    }
+
+    to {
+        box-shadow: 0 0 0 10px rgba(188, 4, 244, 0);
+    }
+}
+
+/* Custom audio player animation */
+.play-button {
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+    .play-button:hover {
+        transform: scale(1.1);
+        background-color: #f0f0f0;
+    }
+
+    .play-button i {
+        transition: color 0.3s;
+    }
+
+    .play-button:hover i {
+        color: #bc04f4;
+    }
+
+/* Progress bar animation */
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    border-radius: 2px;
+    position: relative;
+    transition: width 0.1s linear;
+}
+
+    .progress-bar::after {
+        content: '';
+        position: absolute;
+        right: -5px;
+        top: -3px;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+.progress-container:hover .progress-bar::after {
+    opacity: 1;
+}
+
+/* Action buttons animation */
+.fb-action-btn {
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+    .fb-action-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .fb-action-btn.like-btn:hover {
+        color: #e74c3c;
+    }
+
+    .fb-action-btn.dislike-btn:hover {
+        color: #777;
+    }
+
+    .fb-action-btn.comment-btn:hover {
+        color: #3498db;
+    }
+
+/* Comments section animation */
+.fb-comment-item {
+    animation: fadeInComment 0.5s ease-out;
+    transition: transform 0.2s ease;
+}
+
+    .fb-comment-item:hover {
+        transform: translateX(5px);
+    }
+
+@keyframes fadeInComment {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Top user section animation */
+.artist-item {
+    transition: transform 0.3s ease, background-color 0.3s;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+    .artist-item:hover {
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+/* Content loading animation */
+@keyframes contentLoading {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.content-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+    .content-loading::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        background-size: 200% 100%;
+        animation: contentLoading 1.5s infinite;
+    }
+
+@media screen and (max-width: 768px) {
+    /* Ẩn phần top user */
+    .top-user {
+        display: none !important;
+    }
+    .search-container{
+        width: 60%;
+    }
+    /* Thu nhỏ sidebar */ 
+    .sidebar {
+        width: 60px;
+        padding: 10px 5px;
+        transition: all 0.3s ease;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+    }
+
+    /* Force sidebar to stay in collapsed state */
+    .sidebar {
+        width: 60px !important; /* Force width with !important */
+        padding: 10px 5px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+        transition: none; /* Remove transition */
+    }
+
+    /* Hide elements that should not appear in collapsed state */
+    .logo,
+    .logoimg,
+    .sidebar-section,
+    .melody-card,
+    .melody-info,
+    .trending,
+    .create-playlist {
+        display: none !important;
+    }
+
+    .home-btn {
+        right: 35px;
+    }
+
+    .melody-card {
+        display: none;
+    }
+
+    /* Điều chỉnh main content */
+
+    .sidebar.collapsed .sidebar-toggle {
+        /* Post card full width gọn gàng */
+    }
+
+    /* Search bar & tab nav responsive */
+    .search-bar,
+    .tab-nav {
+        margin-left: 70px;
+        width: calc(100% - 80px);
+    }
+
+    .create-playlist {
+        display: none;
+    }
+    .search-box{
+        right: 20px;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .avatar-container {
+        right: 10px;
+    }
+
+
+    .empty-playlist {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .logoimg {
+        display: none;
+    }
+
+    .sidebar-section {
+        display: none;
+    }
+
+    .trending {
+        display: none;
+    }
+
+    .sidebar {
+        height: 50px;
+    }
+
+    .sidebar-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .navbar {
+        margin-left: 10px;
+    }
+
+    .main-content {
+        margin-left: 20px
+    }
+
+    .post-topuser-left {
+        width: 100%;
+    }
+
+    .post {
+        padding: 30px 50px;
+    }
+
+    .auth-buttons {
+        left: unset;
+        right: 15px;
+    }
+
+    .message-icon-container {
+        left: unset;
+    }
+    .add-post {
+        right: 20px;
+        top: 100px;
+    }
+
+    .filter-tabs {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
