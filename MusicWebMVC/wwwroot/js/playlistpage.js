@@ -573,13 +573,10 @@ function toggleSortDropdown(event) {
 
 // Check if user has VIP status
 function checkVipStatus() {
-    // This would normally be a server check, but we're going to skip it for testing
-    // as requested in the requirements
 
-    // For testing, we'll consider all users as VIP
-    const isVip = true;
+    const isVip = null;
 
-    /* 
+    
     // Actual implementation would be something like this:
     const xhr = new XMLHttpRequest();
     xhr.open('GET', '/User/CheckVipStatus', true);
@@ -597,15 +594,6 @@ function checkVipStatus() {
         }
     };
     xhr.send();
-    */
-
-    // For testing: uncomment to simulate non-VIP users
-    // isVip = false;
-
-    if (!isVip) {
-        disableSortingForNonVip();
-        showVipRequiredNotification();
-    }
 }
 
 // Disable sorting for non-VIP users

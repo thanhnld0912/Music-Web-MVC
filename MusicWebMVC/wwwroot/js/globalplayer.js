@@ -39,7 +39,7 @@ function initializeGlobalPlayer() {
     // Check if user is VIP and add sleep timer if they are
     //checkUserVIP().then(isVIP => {
     //    if (isVIP) {
-            createSleepTimerUI();
+    createSleepTimerUI();
     //    }
     //});
 
@@ -907,17 +907,25 @@ function setupSleepTimerEvents() {
     }
 
     timerToggle.addEventListener('click', function () {
-        console.log('Sleep timer toggle clicked');  // Debug logging
-        if (timerOptions.style.display === 'none') {
-            timerOptions.style.display = 'flex';
-        } else {
-            timerOptions.style.display = 'none';
-        }
+        checkUserVIP().then(isVIP => {
+            if (isVIP) {
+                if (timerOptions.style.display === 'none') {
+                    timerOptions.style.display = 'flex';
+                } else {
+                    timerOptions.style.display = 'none';
+                }
 
-        const customInput = document.getElementById('custom-timer-input');
-        if (customInput) {
-            customInput.style.display = 'none';
-        }
+                const customInput = document.getElementById('custom-timer-input');
+                if (customInput) {
+                    customInput.style.display = 'none';
+                }
+            }
+            else {
+                showNotification("You need register VIP to use this function", "warning")
+                return;
+            }
+        });
+
     });
 
     // Time option buttons
