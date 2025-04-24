@@ -1000,13 +1000,11 @@ function addSongToPlaylist(playlistId) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/Playlist/AddSong', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 try {
                     const response = JSON.parse(xhr.responseText);
-
                     if (response.success) {
                         showNotification(response.message, "success");
                     } else {
@@ -1020,16 +1018,22 @@ function addSongToPlaylist(playlistId) {
                 showNotification('Please log in to add songs to playlists', "warning");
             } else if (xhr.status === 404) {
                 showNotification('Playlist or song not found', "error");
+            } else if (xhr.status === 400) {
+                // Add this block to handle the 400 BadRequest for duplicate songs
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    showNotification(response.message || 'Bài hát đã có trong playlist', "warning");
+                } catch (error) {
+                    showNotification('Bài hát đã có trong playlist', "warning");
+                }
             } else {
                 console.error('Request failed with status:', xhr.status);
                 showNotification('Failed to add song to playlist. Please try again.', "error");
             }
         }
     };
-
     xhr.send(`playlistId=${encodeURIComponent(playlistId)}&songId=${encodeURIComponent(songId)}`);
 }
-
 
 /*GLOBAL PLAYE------------------------------ */
 document.addEventListener('DOMContentLoaded', function () {
