@@ -623,3 +623,57 @@ body {
         width: 20px;
         height: 20px;
     }
+
+
+@media screen and (max-width: 768px) {
+    .information-account {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar-container {
+        left: 120px;
+    }
+
+    .type-logo img {
+        top: 7px;
+        right: 30px;
+    }
+
+    .information-tab {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+        .information-tab button {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+    .type-account {
+        padding: 30px 0;
+    }
+
+        .type-account h3 {
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+    .information-detail {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .info-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+        .info-box input {
+            font-size: 14px;
+        }
+}
+
+

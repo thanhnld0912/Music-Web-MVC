@@ -422,32 +422,6 @@ body {
     justify-content: center;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 70px;
-    }
-
-        .sidebar .logo,
-        .sidebar .sidebar-section h3,
-        .sidebar .sidebar-section p,
-        .sidebar .sidebar-button {
-            display: none;
-        }
-
-    .search-container {
-        margin: 0;
-        width: 100%;
-    }
-
-    .auth-buttons {
-        display: none;
-    }
-
-    .music-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-}
 
 /* Hiệu ứng hover cho tab lọc */
 .filter-tab:hover {
@@ -1006,3 +980,143 @@ body {
         .active-filter-tag i:hover {
             color: #fff;
         }
+
+@media screen and (max-width: 768px) {
+    /* Content wrapper adjustments */
+    .content-wrapper {
+        padding: 0;
+    }
+
+    /* Main content padding adjustments */
+    .main-content {
+        padding: 0 10px;
+    }
+
+    /* Layout container adjustments */
+    .layout-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Artist search area adjustments */
+    .artist-search-area {
+        width: 97%;
+        min-width: unset;
+        margin-bottom: 20px;
+    }
+
+    /* Search & filter container adjustments */
+    .search-bar-container {
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: unset;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-button {
+        width: 30%;
+    }
+
+
+    /* Filter options adjustments */
+    .filter-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-label {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .filter-options {
+        width: 100%;
+    }
+
+    /* Music card adjustments */
+    .music-card {
+        flex-direction: row;
+        height: auto;
+        min-height: 70px;
+    }
+
+    .music-image {
+        height: 60px;
+        width: 60px;
+        min-width: 60px;
+    }
+
+    .music-info {
+        padding: 8px 10px;
+    }
+
+    .music-title {
+        font-size: 14px;
+        max-width: 150px;
+    }
+
+    .music-artist {
+        font-size: 12px;
+    }
+
+    .music-duration {
+        padding: 0 8px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    /* Active filters adjustment */
+    .active-filters {
+        margin-top: 10px;
+        gap: 5px;
+    }
+
+    .active-filter-tag {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        margin: 15% auto;
+        padding: 15px;
+        width: 90%;
+    }
+
+    /* Play all button adjustment */
+    .play-all {
+        right: 15px;
+        bottom: 70px; /* Move up to avoid overlap with player controls */
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    /* Filter section adjustments */
+    .filter-section {
+        padding: 15px;
+    }
+
+    .filter-checkbox {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* Sort dropdown adjustment */
+    .sort-dropdown {
+        width: 100%;
+    }
+
+    /* Filter actions adjustment */
+    .filter-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-button, .reset-button {
+        width: 100%;
+    }
+}
