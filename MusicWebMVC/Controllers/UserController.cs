@@ -132,7 +132,7 @@ namespace MusicWebMVC.Controllers
                 // Real implementation would check if the user has VIP role
                 var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
-                bool isVip = user != null && user.Role == "VIP";
+                bool isVip = user != null && user.IsVIP == true;
 
                 return Ok(new
                 {
