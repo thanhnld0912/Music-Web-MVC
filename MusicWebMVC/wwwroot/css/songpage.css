@@ -17,15 +17,14 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 15px;
-    background-color: #000;
 }
 
 
 .music-player {
-    background: linear-gradient(to right, #333, #000);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     padding: 20px;
-    margin: 100px 0 20px 0; 
+    margin: 10px 0 20px 0;
 }
 
 .player-header {
@@ -247,7 +246,7 @@ body {
 .comment-meta {
     font-size: 12px;
     color: #ccc;
-    position: absolute;
+    position: relative;
     bottom: 5px;
     right: 10px;
 }
@@ -267,26 +266,45 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 5px !important;
+    }
+
+    .home-btn {
+        right: 100px !important;
+    }
+
+    .search-box {
+        right: 70px !important;
+    }
+    .auth-buttons{
+        left: unset !important;
+    }
+    .create-playlist{
+        left: unset;
+    }
+    .artist-profile {
+        height: 50% !important;
+        width: 70% !important;
+        margin-left: unset !important;
+    }
+
     .player-header {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .artist-profile {
-        position: absolute;
-        margin-top: 15px;
-        align-self: flex-end;
+    .comment-meta {
+        top: 10px;
     }
 
-    .action-buttons {
-        flex-wrap: wrap;
+    .action-buttons button {
+        margin-bottom: 10px;
     }
-
-        .action-buttons button {
-            margin-bottom: 10px;
-        }
 }
+
+
 
 .play-btn {
     background-color: #ff4757;
@@ -724,7 +742,9 @@ button {
 
 /* Auth Buttons */
 .auth-buttons {
-    position : relative !important;
+    position: relative !important;
+    left: 100px !important;
+    top: 1px !important;
 }
 
 .auth-button {
@@ -1224,4 +1244,9 @@ button span {
 
 .save-edit-btn:hover {
     background-color: #0069d9;
+}
+
+.avatar-container{
+    left: 1px;
+    top: 2px;
 }
