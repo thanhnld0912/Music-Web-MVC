@@ -1076,7 +1076,7 @@ button span {
     }
 
 /* Create Playlist Styling */
-.create-playlist {
+#playlistModal .create-playlist {
     display: flex;
     gap: 10px;
     margin-top: 15px;
@@ -1084,6 +1084,7 @@ button span {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    left : 0;
 }
 
 #new-playlist-name {
