@@ -256,3 +256,70 @@ html, body {
             .controls ul li.active {
                 background: #6a6a77;
             }
+/* Responsive cho điện thoại */
+@media screen and (max-width: 768px) {
+    .navbar-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-logo {
+        width: auto;
+    }
+
+    .navbar-menu {
+        display: none; /* Ẩn menu trên mobile */
+    }
+
+    .navbar-login {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .login-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .item-header .vertical-part {
+        font-size: 10vw;
+    }
+
+    .item-description {
+        position: static;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .item-button-container {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .item-image-container {
+        width: 100%;
+        top: 0;
+    }
+
+    .item-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .controls {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .item-button-container {
+        position: absolute;
+        top: 60%;
+        right: 30px;
+    }
+}
+
