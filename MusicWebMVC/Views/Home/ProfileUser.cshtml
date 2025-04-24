@@ -26,6 +26,125 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<style>
+@@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 10px 5px;
+        transition: all 0.3s ease;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 50px;
+        z-index: 999;
+    }
+
+    .main-content {
+        margin-left: 10px !important;
+        width: calc(100% - 20px) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .main-content-top {
+        width: 98%;
+    }
+
+    .post-card,
+    .newfeed-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .search-bar,
+    .tab-nav {
+        margin-left: 70px;
+        width: calc(100% - 80px);
+    }
+
+    .logo,
+    .logoimg,
+    .create-playlist,
+    .sidebar-section,
+    .trending,
+    .register {
+        display: none;
+    }
+
+    .sidebar-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .navbar {
+        margin-left: 10px;
+    }
+
+    .post-topuser-left {
+        width: 100%;
+    }
+
+    .post {
+        padding: 30px 50px;
+        width: 100%;
+    }
+
+    .auth-button {
+        position: absolute;
+    }
+
+    .search-box {
+        width: 72%;
+    }
+
+    .login {
+        top: 2px;
+        right: 25px;
+    }
+
+    .top-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 20px !important;
+        margin-top: 15px;
+    }
+
+    .tab {
+        cursor: pointer;
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s;
+        margin-top: unset;
+    }
+
+    .content {
+        display: none;
+    }
+
+        .content:first-child {
+            display: block;
+        }
+
+    .avatar {
+        max-width: none;
+
+    }
+
+    .username {
+        margin: 0 120px !important;
+    }
+
+    .handle {
+        margin: 10px 200px;
+    }
+}</style>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
