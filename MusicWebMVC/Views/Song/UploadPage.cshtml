@@ -44,6 +44,24 @@
                         <textarea id="postContent" name="content" placeholder="Share your music with the world..." rows="3" class="post-content-textarea" maxlength="300"></textarea>
                         <span id="postContentLimit" class="char-limit-info">Max 300 characters</span>
                     </div>
+                    <div class="upload-image-container" id="imageDropZone">
+                        <input type="file" id="imageFile" name="imageFile" accept=".jpg,.jpeg,.png,.gif" style="display: none;">
+                        <i class="fa fa-image upload-icon" id="imageUploadTrigger"></i>
+                        <span class="upload-text">Upload Image</span>
+                        <i class="fa fa-trash trashcan" id="clearImageUpload"></i>
+                    </div>
+
+                    <div class="image-preview" id="imagePreview" style="display: none;">
+                        <img id="previewImg" src="" alt="Preview">
+                        <div class="image-details">
+                            <p id="imageFileName"></p>
+                            <p id="imageFileSize"></p>
+                        </div>
+                    </div>
+
+                    <div class="package-weight">
+                        <p>Acceptable image formats: <strong>.jpg, .jpeg, .png, .gif</strong> | Max size: <strong>5MB</strong></p>
+                    </div>
 
                     <div class="upload-container" id="dropZone">
                         <input type="file" id="songFile" name="file" accept=".mp3,.m4a" style="display: none;">
@@ -63,6 +81,27 @@
                         <input type="text" id="songTitle" name="title" placeholder="Enter song title..." maxlength="50">
                         <span id="songTitleLimit" class="char-limit-info">Max 50 characters</span>
                         <input type="hidden" id="artistId" name="artistId" value="@userId">
+                    </div>
+
+
+                    <!-- Add this new section for song cover image -->
+                    <div class="upload-image-container" id="coverImageDropZone">
+                        <input type="file" id="coverImageFile" name="coverImageFile" accept=".jpg,.jpeg,.png,.gif" style="display: none;">
+                        <i class="fa fa-image upload-icon" id="coverImageUploadTrigger"></i>
+                        <span class="upload-text">Upload Cover Image</span>
+                        <i class="fa fa-trash trashcan" id="clearCoverImageUpload"></i>
+                    </div>
+
+                    <div class="image-preview" id="coverImagePreview" style="display: none;">
+                        <img id="previewCoverImg" src="" alt="Cover Preview">
+                        <div class="image-details">
+                            <p id="coverImageFileName"></p>
+                            <p id="coverImageFileSize"></p>
+                        </div>
+                    </div>
+
+                    <div class="package-weight">
+                        <p>Cover image: <strong>.jpg, .jpeg, .png, .gif</strong> | Max size: <strong>5MB</strong></p>
                     </div>
 
                     <div class="audio-player" id="audioPreview" style="display: none;">

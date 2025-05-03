@@ -272,6 +272,131 @@ document.addEventListener("DOMContentLoaded", function () {
             contentLimitMessage.textContent = `Max ${contentLimit - contentLength} characters left`;
         }
     });
+
+
+    /*================Hàm xử lý upload ảnh ================== */
+
+    // Image upload functionality
+    const imageFile = document.getElementById('imageFile');
+    const imageUploadTrigger = document.getElementById('imageUploadTrigger');
+    const imageDropZone = document.getElementById('imageDropZone');
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    const imageFileName = document.getElementById('imageFileName');
+    const imageFileSize = document.getElementById('imageFileSize');
+    const clearImageUpload = document.getElementById('clearImageUpload');
+
+    // Handle image upload button click
+    if (imageUploadTrigger) {
+        imageUploadTrigger.addEventListener('click', () => {
+            if (imageFile) {
+                imageFile.click();
+            }
+        });
+    }
+
+    // Handle selected image file
+    if (imageFile) {
+        imageFile.addEventListener('change', () => {
+            if (imageFile.files.length > 0) {
+                const file = imageFile.files[0];
+
+                // Check file type
+                const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
+                if (!validImageTypes.includes(file.type)) {
+                    showNotification('Please select a valid image file (.jpg, .jpeg, .png, .gif)', 'warning');
+                    return;
+                }
+
+                // Check file size (5MB max)
+                if (file.size > 5 * 1024 * 1024) {
+                    showNotification('Image size must be less than 5MB', 'warning');
+                    return;
+                }
+
+                // Update preview
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    imageFileName.textContent = file.name;
+                    imageFileSize.textContent = formatFileSize(file.size);
+                    imagePreview.style.display = 'flex';
+                };
+                reader.readAsDataURL(file);
+
+                // Update UI
+                imageDropZone.classList.add('has-file');
+            }
+        });
+    }
+
+    // Clear image selection
+    if (clearImageUpload) {
+        clearImageUpload.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clearImageSelection();
+        });
+    }
+
+    /*================Hàm xử lý upload ảnh song ================== */
+
+    if (coverImageUploadTrigger) {
+        coverImageUploadTrigger.addEventListener('click', () => {
+            if (coverImageFile) coverImageFile.click();
+        });
+    }
+
+    // Clear cover image selection
+    function clearCoverImageSelection() {
+        if (coverImageFile) coverImageFile.value = '';
+        if (coverImagePreview) coverImagePreview.style.display = 'none';
+        if (previewCoverImg) previewCoverImg.src = '';
+        if (coverImageFileName) coverImageFileName.textContent = '';
+        if (coverImageFileSize) coverImageFileSize.textContent = '';
+    }
+
+    // Handle cover image selection
+    if (coverImageFile) {
+        coverImageFile.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                const file = e.target.files[0];
+
+                // Check file type
+                const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+                if (!validTypes.includes(file.type)) {
+                    showNotification('Please select a valid image file (JPG, JPEG, PNG, or GIF)', 'warning');
+                    clearCoverImageSelection();
+                    return;
+                }
+
+                // Check file size (5MB max)
+                if (file.size > 5 * 1024 * 1024) {
+                    showNotification('Image size must be less than 5MB', 'warning');
+                    clearCoverImageSelection();
+                    return;
+                }
+
+                // Update preview
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    if (previewCoverImg) previewCoverImg.src = event.target.result;
+                    if (coverImagePreview) coverImagePreview.style.display = 'flex';
+                    if (coverImageFileName) coverImageFileName.textContent = file.name;
+                    if (coverImageFileSize) coverImageFileSize.textContent = formatFileSize(file.size);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    // Handle clear button for cover image
+    if (clearCoverImageUpload) {
+        clearCoverImageUpload.addEventListener('click', (e) => {
+            e.stopPropagation();
+            clearCoverImageSelection();
+        });
+    }
+
     // === PHẦN XỬ LÝ UPLOAD ===
 
     // Variable for YouTube integration
@@ -302,14 +427,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 showNotification("Vui lòng nhấn nút Share để nhập đầy đủ thông tin thể loại, era và type", "warning");
                 return;
             }
+            if (!coverImageFile || !coverImageFile.files.length) {
+                showNotification("Vui lòng thêm cover image cho song", "warning");
+                return;
+            }
 
             // Kiểm tra xem có cần upload lên YouTube không
             // In your submitUpload event listener
             const uploadToYoutube = document.getElementById('upload-to-youtube').checked;
-
-            // Add this line to FormData
-            formData.append('convertToMp4', uploadToYoutube ? 'true' : 'false');
-
             if (uploadToYoutube && !youtubeConnected) {
                 showNotification('Vui lòng kết nối với YouTube trước khi upload', 'warning');
                 return;
@@ -323,7 +448,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             // Tạo FormData để gửi lên server
             const formData = new FormData();
+            // Add this line to FormData
+            formData.append('convertToMp4', uploadToYoutube ? 'true' : 'false');
             formData.append('file', songFile.files[0]);
+            if (imageFile && imageFile.files && imageFile.files.length > 0) {
+                formData.append('imageFile', imageFile.files[0]);
+                console.log("Image appended:", imageFile.files[0].name);
+            } else {
+                console.log("No image selected");
+            }
+            if (coverImageFile && coverImageFile.files && coverImageFile.files.length > 0) {
+                formData.append('coverImageFile', coverImageFile.files[0]);
+                console.log("Cover image appended:", coverImageFile.files[0].name);
+            } else {
+                console.log("No cover image selected");
+            }
             formData.append('title', songTitle.value);
 
             // Safely get artistId
@@ -334,6 +473,8 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append('genre', window.songMetadata.genre || 'other');
             formData.append('era', window.songMetadata.era || '20s');
             formData.append('type', window.songMetadata.type || 'cover');
+          
+
 
             // Hiển thị trạng thái upload
             if (uploadStatus) uploadStatus.style.display = 'block';
@@ -438,7 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 };
 
-                // Handle network errors
+                // Handle network errorsF
                 xhr.onerror = function () {
                     if (uploadMessage) uploadMessage.textContent = 'Lỗi kết nối mạng. Vui lòng thử lại.';
                     showNotification('Lỗi kết nối mạng. Vui lòng thử lại.', 'error');
@@ -473,7 +614,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 });
-
+function clearImageSelection() {
+    if (imageFile) {
+        imageFile.value = '';
+    }
+    if (imagePreview) {
+        imagePreview.style.display = 'none';
+    }
+    if (imageDropZone) {
+        imageDropZone.classList.remove('has-file');
+    }
+}
 /*NOTIFICATION */
 function createNotificationModal() {
     const notificationContainer = document.createElement('div');
@@ -1211,156 +1362,8 @@ async function uploadToYouTube(file, metadata) {
 }
 
 
-// Update submit handler to include YouTube integration
-document.addEventListener('DOMContentLoaded', function () {
 
-    const submitUpload = document.getElementById('submitUpload');
-    if (submitUpload) {
-        submitUpload.addEventListener('click', async () => {
-            // Validation checks remain the same
-            if (!songFile.files.length) {
-                showNotification('Vui lòng chọn một file để tải lên', 'warning');
-                return;
-            }
 
-            if (!songTitle.value) {
-                showNotification('Vui lòng nhập tiêu đề cho bài hát', 'warning');
-                return;
-            }
 
-            if (!songMetadata.genre || !songMetadata.era || !songMetadata.type) {
-                showNotification("Vui lòng nhấn nút Share để nhập đầy đủ thông tin thể loại, era và type", "warning");
-                return;
-            }
 
-            // Check for YouTube upload
-            const uploadToYoutube = document.getElementById('upload-to-youtube').checked;
 
-            if (uploadToYoutube && !youtubeConnected) {
-                showNotification('Vui lòng kết nối với YouTube trước khi upload', 'warning');
-                return;
-            }
-
-            // Get post content
-            const content = postContent.value || 'Đã tải lên bài hát: ' + songTitle.value;
-
-            // Create FormData for server
-            const formData = new FormData();
-            formData.append('file', songFile.files[0]);
-            formData.append('title', songTitle.value);
-            formData.append('artistId', document.getElementById('artistId').value || '1');
-            formData.append('content', content);
-            formData.append('genre', songMetadata.genre || 'other');
-            formData.append('era', songMetadata.era || '20s');
-            formData.append('type', songMetadata.type || 'cover');
-
-            // Show upload status
-            uploadStatus.style.display = 'block';
-            uploadMessage.textContent = 'Đang tải bài hát lên...';
-            uploadProgressBar.style.width = '0%';
-
-            try {
-                // Handle YouTube upload if requested
-                let youtubeVideoInfo = null;
-                if (uploadToYoutube && youtubeConnected) {
-                    uploadMessage.textContent = 'Đang tải lên YouTube...';
-
-                    // Get metadata for YouTube
-                    const ytMetadata = {
-                        title: songTitle.value,
-                        description: document.getElementById('youtube-description').value || content,
-                        tags: document.getElementById('youtube-tags').value,
-                        privacy: document.querySelector('input[name="youtube-privacy"]:checked').value
-                    };
-
-                    // Upload to YouTube
-                    youtubeVideoInfo = await uploadToYouTube(songFile.files[0], ytMetadata);
-
-                    // If YouTube upload successful, save info in DB
-                    if (youtubeVideoInfo) {
-                        formData.append('youtubeUrl', youtubeVideoInfo.url);
-                        formData.append('youtubeVideoId', youtubeVideoInfo.id);
-                    }
-                }
-
-                // Continue with server upload
-                uploadMessage.textContent = 'Đang tải lên server...';
-
-                // Create AJAX request
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', '/Song/Upload', true);
-
-                // Handle upload progress
-                xhr.upload.onprogress = (e) => {
-                    if (e.lengthComputable) {
-                        const percentComplete = (e.loaded / e.total) * 100;
-                        uploadProgressBar.style.width = percentComplete + '%';
-                    }
-                };
-
-                // Handle request completion
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        const response = JSON.parse(xhr.responseText);
-                        if (response.success) {
-                            uploadMessage.textContent = response.message;
-                            uploadProgressBar.style.width = '100%';
-
-                            // Show success message
-                            let successMessage = "Upload thành công!";
-                            if (uploadToYoutube && youtubeVideoInfo) {
-                                successMessage += " Bài hát cũng đã được tải lên YouTube.";
-                            }
-                            showNotification(successMessage, 'success');
-
-                            // Reset form after successful upload
-                            setTimeout(() => {
-                                clearFileSelection();
-                                songTitle.value = '';
-                                postContent.value = '';
-                                songMetadata = {
-                                    genre: '',
-                                    type: 'cover',
-                                    era: ''
-                                };
-                                uploadStatus.style.display = 'none';
-
-                                // Reset YouTube fields if present
-                                if (document.getElementById('youtube-description')) {
-                                    document.getElementById('youtube-description').value = '';
-                                }
-                                if (document.getElementById('youtube-tags')) {
-                                    document.getElementById('youtube-tags').value = '';
-                                }
-                            }, 3000);
-                        } else {
-                            uploadMessage.textContent = 'Upload thất bại: ' + response.message;
-                            showNotification('Upload thất bại: ' + response.message, 'error');
-                        }
-                    } else {
-                        try {
-                            const response = JSON.parse(xhr.responseText);
-                            uploadMessage.textContent = 'Upload thất bại: ' + response.message;
-                            showNotification('Upload thất bại: ' + response.message, 'error');
-                        } catch (e) {
-                            uploadMessage.textContent = 'Upload thất bại. Vui lòng thử lại.';
-                            showNotification('Upload thất bại. Vui lòng thử lại.', 'error');
-                        }
-                    }
-                };
-
-                // Handle network errors
-                xhr.onerror = function () {
-                    uploadMessage.textContent = 'Lỗi kết nối mạng. Vui lòng thử lại.';
-                    showNotification('Lỗi kết nối mạng. Vui lòng thử lại.', 'error');
-                };
-
-                // Send request
-                xhr.send(formData);
-            } catch (error) {
-                uploadMessage.textContent = 'Lỗi: ' + error.message;
-                showNotification('Lỗi: ' + error.message, 'error');
-            }
-        });
-    }
-});

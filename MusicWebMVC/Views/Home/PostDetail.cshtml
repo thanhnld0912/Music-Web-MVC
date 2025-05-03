@@ -46,7 +46,7 @@
                     <!-- Post Author Info -->
                     <div class="post-header">
                         <a href="@Url.Action("ProfileUser", "Home", new { id = Model.UserId })"
-                           class="post-avatar">@Model.User.Username[0]</a>
+                           class="post-avatar"><img src="@Model.User.AvatarUrl" alt="avatar" /></a>
                         <div class="post-info">
                             <div class="post-author">@Model.User.Username</div>
                             <div class="post-time">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
@@ -153,7 +153,12 @@
                     <!-- Add Comment -->
                     <div class="add-comment">
                         <div class="comment-avatar">
+                            @if (@Model.User.AvatarUrl != null){
+                            <img src="@Model.User.AvatarUrl" alt="avatar" class="comment-user-avatar">
+                            } else {
                             <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                            }
+                            
                         </div>
                         <div class="comment-input-wrapper">
                             <input type="text" id="comment-input" placeholder="Write a comment..." class="comment-input">
@@ -171,7 +176,13 @@
                             {
                                 <div class="comment" data-comment-id="@comment.Id">
                                     <div class="comment-left">
-                                        <div class="comment-user-icon">@(comment.User?.Username[0] ?? 'A')</div>
+                                        <div class="comment-avatar">
+                                            @if (@Model.User.AvatarUrl != null){
+                                            <img src="@Model.User.AvatarUrl" alt="avatar" class="comment-user-avatar">
+                                            } else {
+                                            <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                                            }
+                                        </div>
                                     </div>
                                     <div class="comment-right">
                                         <div class="comment-username">
@@ -216,8 +227,12 @@
                     <h3>About the Author</h3>
                     <div class="user-info">
                         <div class="user-avatar">
-                            <a href="@Url.Action("ProfileUser", "Home", new { id = Model.UserId })">
-                                @Model.User.Username[0]
+                            <a href="@Url.Action("ProfileUser", "Home", new { id = Model.UserId })" class="post-avatar">
+                                @if (@Model.User.AvatarUrl != null){
+                                <img src="@Model.User.AvatarUrl" alt="avatar" class="card-user-avatar">
+                                } else {
+                                <img src="~/img/avatar.jpg" alt="avatar" class="card-user-avatar">
+                                }
                             </a>
                         </div>
                         <div class="user-details">
@@ -235,7 +250,7 @@
                             }
                             else if (isSelfProfile)
                             {
-                                <button class="edit-profile-btn" onclick="location.href='@Url.Action("EditProfile", "Account")'">
+                                <button class="edit-profile-btn" onclick="location.href='@Url.Action("Profile", "Account")'">
                                     Edit Profile
                                 </button>
                             }

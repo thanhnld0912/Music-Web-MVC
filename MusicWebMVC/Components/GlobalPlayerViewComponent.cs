@@ -55,5 +55,6 @@ namespace MusicWebMVC.Components
 
             return View(posts);
         }
+
     }
 }

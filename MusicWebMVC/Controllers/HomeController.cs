@@ -101,7 +101,45 @@ namespace MusicWebMVC.Controllers
                 .ToListAsync();
 
             ViewBag.TopUsers = topUsers;
+            var topSongs = await _context.Songs
+    .Where(s => s.Status == "Public")
+    .Include(s => s.User)
+    .Include(s => s.Likes)
+    .OrderByDescending(s => s.Likes.Count)
+    .Take(5)
+    .ToListAsync();
 
+            ViewBag.TopSongs = topSongs;
+
+
+
+            var recentPlays = _context.RecentPlays
+     .Include(rp => rp.Song)
+         .ThenInclude(s => s.User)
+     .Where(rp => rp.UserId == currentUserId)
+     .OrderByDescending(rp => rp.PlayedAt)
+     .ToList();
+
+            // Tạo một dictionary để lưu trữ bài hát mới nhất cho mỗi songId
+            var uniqueSongs = new Dictionary<int, RecentPlay>();
+
+            foreach (var play in recentPlays)
+            {
+                // Nếu bài hát chưa có trong dictionary hoặc play hiện tại mới hơn
+                if (!uniqueSongs.ContainsKey(play.SongId) ||
+                    play.PlayedAt > uniqueSongs[play.SongId].PlayedAt)
+                {
+                    uniqueSongs[play.SongId] = play;
+                }
+            }
+
+            // Chuyển dictionary thành list và sắp xếp theo thời gian gần nhất
+            var uniqueRecentPlays = uniqueSongs.Values
+                .OrderByDescending(rp => rp.PlayedAt)
+                .Take(10)
+                .ToList();
+
+            ViewBag.RecentPlays = uniqueRecentPlays;
             return View(posts);
         }
         public async Task<IActionResult> PostDetail(int id)

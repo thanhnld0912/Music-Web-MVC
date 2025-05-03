@@ -44,5 +44,6 @@ namespace MusicWebMVC.Models
 
         public virtual ICollection<CommentReport> CommentReports { get; set; }
         public virtual ICollection<PostReport> PostReports { get; set; }
+        public virtual ICollection<RecentPlay> RecentPlays { get; set; } = new List<RecentPlay>();
     }
 }

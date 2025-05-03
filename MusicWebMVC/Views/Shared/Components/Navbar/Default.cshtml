@@ -438,61 +438,65 @@
             }
 
             // Show notification popup
-            function showNotificationPopup(message, type) {
-                // Set popup content based on notification type
-                let iconClass = 'fa-bell';
-                let colorClass = '';
+                  function showNotificationPopup(message, type) {
+            // Set popup content based on notification type
+            let iconClass = 'fa-bell';
+            let colorClass = '';
 
-                switch(type?.toLowerCase()) {
-                    case 'like':
-                        iconClass = 'fa-heart';
-                        colorClass = 'notification-like';
-                        break;
-                    case 'comment':
-                        iconClass = 'fa-comment';
-                        colorClass = 'notification-comment';
-                        break;
-                    case 'dislike':
-                        iconClass = 'fa-thumbs-down';
-                        colorClass = 'notification-dislike';
-                        break;
-                    case 'follow':
-                        iconClass = 'fa-user-plus';
-                        colorClass = 'notification-follow';
-                        break;
-                    case 'reportcomment':
-                        iconClass = 'fa-flag';
-                        colorClass = 'notification-report';
-                        break;
-                }
-
-                notificationPopup.className = `notification-popup ${colorClass}`;
-                notificationPopup.innerHTML = `
-                    <div class="notification-popup-icon">
-                        <i class="fas ${iconClass}"></i>
-                    </div>
-                    <div class="notification-popup-content">
-                        <div class="notification-popup-message">${message}</div>
-                    </div>
-                    <div class="notification-popup-close">
-                        <i class="fas fa-times"></i>
-                    </div>
-                `;
-
-                // Show popup
-                notificationPopup.style.display = 'flex';
-
-                // Add click handler to close button
-                const closeBtn = notificationPopup.querySelector('.notification-popup-close');
-                closeBtn.addEventListener('click', function() {
-                    notificationPopup.style.display = 'none';
-                });
-
-                // Auto-hide after 5 seconds
-                setTimeout(() => {
-                    notificationPopup.style.display = 'none';
-                }, 5000);
+            switch(type?.toLowerCase()) {
+                case 'like':
+                    iconClass = 'fa-heart';
+                    colorClass = 'notification-like';
+                    break;
+                case 'comment':
+                    iconClass = 'fa-comment';
+                    colorClass = 'notification-comment';
+                    break;
+                case 'dislike':
+                    iconClass = 'fa-thumbs-down';
+                    colorClass = 'notification-dislike';
+                    break;
+                case 'follow':
+                    iconClass = 'fa-user-plus';
+                    colorClass = 'notification-follow';
+                    break;
+                case 'reportcomment':
+                    iconClass = 'fa-flag';
+                    colorClass = 'notification-report';
+                    break;
+                case 'Post': // Thêm case mới cho post
+                    iconClass = 'fa-pencil-alt'; // icon cây bút viết bài
+                    colorClass = 'notification-post'; // class riêng cho post
+                    break;
             }
+
+            notificationPopup.className = `notification-popup ${colorClass}`;
+            notificationPopup.innerHTML = `
+                <div class="notification-popup-icon">
+                    <i class="fas ${iconClass}"></i>
+                </div>
+                <div class="notification-popup-content">
+                    <div class="notification-popup-message">${message}</div>
+                </div>
+                <div class="notification-popup-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            `;
+
+            // Show popup
+            notificationPopup.style.display = 'flex';
+
+            // Add click handler to close button
+            const closeBtn = notificationPopup.querySelector('.notification-popup-close');
+            closeBtn.addEventListener('click', function() {
+                notificationPopup.style.display = 'none';
+            });
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                notificationPopup.style.display = 'none';
+            }, 5000);
+        }
 
             // Format timestamp to "time ago" format
             function formatTimeAgo(date) {

@@ -21,6 +21,7 @@ namespace MusicWebMVC.Data
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<PostReport> PostReports { get; set; }
+        public DbSet<RecentPlay> RecentPlays { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -186,6 +187,18 @@ namespace MusicWebMVC.Data
                 .HasOne(m => m.Receiver)
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict);
+            // Add the RecentPlay relationships
+            modelBuilder.Entity<RecentPlay>()
+                .HasOne(rp => rp.User)
+                .WithMany(u => u.RecentPlays)
+                .HasForeignKey(rp => rp.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RecentPlay>()
+                .HasOne(rp => rp.Song)
+                .WithMany(s => s.RecentPlays)
+                .HasForeignKey(rp => rp.SongId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
 
