@@ -213,6 +213,7 @@ wwwroot\uploads\HEHE-BOY-ORIGINAL-MEME_fa8aef12a21f4a2ba8335ff83d712bda.mp3
 wwwroot\uploads\playlist-images\10017e88-3136-4733-8b20-891d1b894381.jpg
 wwwroot\uploads\playlist-images\6d650b6f-b239-4293-abb3-a3ba6e4cf9a0.jpg
 wwwroot\uploads\playlist-images\730e5fdd-9c3a-4f87-a035-7b717724f6a8.jpg
+wwwroot\uploads\playlist-images\bde92a82-1539-4e22-97d7-55b47c3e075b.jpg
 wwwroot\uploads\playlist-images\cacf5df1-357b-400a-9cd7-3d58f9701a0f.jpg
 wwwroot\uploads\playlist-images\d6d94224-d682-4ac6-9b78-22314f8fdd13.jpg
 wwwroot\uploads\playlist-images\d907b39a-aa94-41a4-8e09-a17b852c0af4.jpg

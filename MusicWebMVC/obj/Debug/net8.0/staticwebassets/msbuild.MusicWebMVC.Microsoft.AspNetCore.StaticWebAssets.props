@@ -912,8 +912,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>hxtfhjidwl</Fingerprint>
-      <Integrity>RYLVqTcgObhKLD0OFJj4c7kEDuB1SckBs2blb09a4GY=</Integrity>
+      <Fingerprint>fta1v635h2</Fingerprint>
+      <Integrity>A7QomCZAmQUHtG8gCUVWmVlzBx8rkJy3Th0YSRG6NQM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\newfeed.css'))</OriginalItemSpec>
@@ -930,8 +930,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3vupt9ahdv</Fingerprint>
-      <Integrity>f0nLxEtBU+V0PsZDb5m2ZRWNXlFCKvTPUbUcPgchpsM=</Integrity>
+      <Fingerprint>75bsr94q6m</Fingerprint>
+      <Integrity>lVnLlMj/mcW4JNsmgd+uD4Vffe8FmtKqxn7PRNNiikg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\playlist.css'))</OriginalItemSpec>
@@ -1974,8 +1974,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yu7g67vaob</Fingerprint>
-      <Integrity>yj0V+8Pc00IiOtuJHw753/fexI38lITUfmlOCkg2h0I=</Integrity>
+      <Fingerprint>7il076byq9</Fingerprint>
+      <Integrity>39sr8c8oEGBNwqCHhe6ToTgvVY+WeZQaowYa4IvQ/y0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\NewFeed.js'))</OriginalItemSpec>
@@ -3887,6 +3887,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\730e5fdd-9c3a-4f87-a035-7b717724f6a8.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\bde92a82-1539-4e22-97d7-55b47c3e075b.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MusicWebMVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MusicWebMVC</BasePath>
+      <RelativePath>uploads/playlist-images/bde92a82-1539-4e22-97d7-55b47c3e075b.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>n5fjvcsgbr</Fingerprint>
+      <Integrity>e8JI5Yr4ifV6gKdSeQe/QzC2VJyN/p1lvdwE7/wplKM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\bde92a82-1539-4e22-97d7-55b47c3e075b.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\playlist-images\cacf5df1-357b-400a-9cd7-3d58f9701a0f.jpg'))">
       <SourceType>Package</SourceType>
