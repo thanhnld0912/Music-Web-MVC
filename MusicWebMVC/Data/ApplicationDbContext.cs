@@ -193,13 +193,13 @@ namespace MusicWebMVC.Data
                 .HasOne(rp => rp.User)
                 .WithMany(u => u.RecentPlays)
                 .HasForeignKey(rp => rp.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<RecentPlay>()
                 .HasOne(rp => rp.Song)
                 .WithMany(s => s.RecentPlays)
                 .HasForeignKey(rp => rp.SongId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         public static void Seed(ApplicationDbContext context)

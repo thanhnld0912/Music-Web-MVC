@@ -723,11 +723,7 @@ namespace MusicWebMVC.Controllers
                 try
                 {
 
-                // Validate file
-                if (file == null || file.Length == 0)
-                    {
-                        return BadRequest(new { success = false, message = "Vui lòng chọn một tệp để tải lên." });
-                    }
+
 
                     // Check file format
                     var allowedExtensions = new[] { ".mp3", ".m4a", ".wav", ".aac" };

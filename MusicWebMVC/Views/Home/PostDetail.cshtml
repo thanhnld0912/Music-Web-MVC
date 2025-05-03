@@ -1090,7 +1090,7 @@ function togglePostMenu(event, postId) {
             xhr.send();
         }
 
-        // Save post edit
+           // Fix for image editing in savePostEdit function
         function savePostEdit() {
             const postId = document.getElementById('edit-post-id').value;
             const content = document.getElementById('edit-post-content').value.trim();
@@ -1100,15 +1100,49 @@ function togglePostMenu(event, postId) {
                 return;
             }
 
+            // First check if there's a new image to upload
+            if (newImageFile) {
+                // Create FormData for image upload
+                const imageFormData = new FormData();
+                imageFormData.append('image', newImageFile);
+
+                // Upload the image first
+                const uploadXhr = new XMLHttpRequest();
+                uploadXhr.open("POST", "/Post/UploadImage", true);
+
+                uploadXhr.onreadystatechange = function () {
+                    if (uploadXhr.readyState === 4) {
+                        if (uploadXhr.status === 200) {
+                            try {
+                                const uploadResponse = JSON.parse(uploadXhr.responseText);
+                                // Now we have the image URL, proceed with post update
+                                updatePost(postId, content, uploadResponse.imageUrl);
+                            } catch (error) {
+                                console.error("Error parsing upload response:", error);
+                                showNotification("Could not upload image. Please try again.", "error");
+                            }
+                        } else {
+                            console.error("Error uploading image:", uploadXhr.responseText);
+                            showNotification("Could not upload image. Please try again.", "error");
+                        }
+                    }
+                };
+
+                uploadXhr.send(imageFormData);
+            } else {
+                // No new image, just update the post with original image or null
+                updatePost(postId, content, originalImageUrl);
+            }
+        }
+
+        // Helper function to update post after handling image
+        function updatePost(postId, content, imageUrl) {
             // Create edit data
             const editData = {
                 userId: parseInt(currentUserId),
                 content: content,
-                imageUrl: originalImageUrl
+                imageUrl: imageUrl
             };
-
-            // If there's a new image, we would handle image upload here
-            // For now, we'll just use the original image URL
 
             const xhr = new XMLHttpRequest();
             xhr.open("POST", `/Post/EditPost/${postId}`, true);
@@ -1120,29 +1154,30 @@ function togglePostMenu(event, postId) {
                         try {
                             const response = JSON.parse(xhr.responseText);
 
-                            // Update post in the UI
-                            const postElement = document.querySelector(`.post[data-post-id="${postId}"]`);
-                            if (postElement) {
-                                const contentEl = postElement.querySelector('.post-content p');
-                                if (contentEl) {
-                                    contentEl.textContent = content;
-                                }
+                            // Update post content in the UI immediately
+                            const contentEl = document.querySelector('.post-content p');
+                            if (contentEl) {
+                                contentEl.textContent = content;
+                            }
 
-                                // Update image if needed
-                                const imageEl = postElement.querySelector('.post-image');
-                                if (editData.imageUrl) {
-                                    if (imageEl) {
-                                        imageEl.src = editData.imageUrl;
-                                    } else {
-                                        const contentDiv = postElement.querySelector('.post-content');
-                                        const newImg = document.createElement('img');
-                                        newImg.src = editData.imageUrl;
-                                        newImg.className = 'post-image';
-                                        contentDiv.appendChild(newImg);
-                                    }
-                                } else if (imageEl) {
-                                    imageEl.remove();
+                            // Update image in the UI if needed
+                            const imageContainer = document.querySelector('.post-content');
+                            const existingImage = document.querySelector('.post-image');
+
+                            if (imageUrl) {
+                                if (existingImage) {
+                                    // Update existing image
+                                    existingImage.src = imageUrl;
+                                } else {
+                                    // Create new image element
+                                    const newImg = document.createElement('img');
+                                    newImg.src = imageUrl;
+                                    newImg.className = 'post-image';
+                                    imageContainer.appendChild(newImg);
                                 }
+                            } else if (existingImage) {
+                                // Remove image if no new image and there was an old one
+                                existingImage.remove();
                             }
 
                             // Close edit form
@@ -1162,6 +1197,33 @@ function togglePostMenu(event, postId) {
             };
 
             xhr.send(JSON.stringify(editData));
+        }
+
+        // Functions for image preview in edit form
+        function addEditImage() {
+            document.getElementById('edit-image-upload').click();
+        }
+
+        function previewEditImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('edit-image-preview').src = e.target.result;
+                    document.getElementById('edit-image-preview-container').style.display = 'block';
+                    newImageFile = file;
+                    originalImageUrl = null; // We'll replace with the new image
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeEditImage() {
+            document.getElementById('edit-image-preview-container').style.display = 'none';
+            document.getElementById('edit-image-preview').src = '';
+            document.getElementById('edit-image-upload').value = '';
+            newImageFile = null;
+            originalImageUrl = null;
         }
 
 

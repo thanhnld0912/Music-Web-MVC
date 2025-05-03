@@ -1,4 +1,24 @@
-﻿// Sidebar Toggle
+﻿// === CÁC HÀM TIỆN ÍCH ===
+
+// Định dạng kích thước file
+function formatFileSize(bytes) {
+    if (bytes < 1024) {
+        return bytes + ' bytes';
+    } else if (bytes < 1024 * 1024) {
+        return (bytes / 1024).toFixed(2) + ' KB';
+    } else {
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+    }
+}
+
+// Định dạng thời gian
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Sidebar Toggle
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('collapsed');
@@ -242,6 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
             showNotification("Đã lưu thông tin bài hát! Nhấn nút Upload Song để hoàn tất quá trình tải lên.", "success");
         });
     }
+
     // Giới hạn ký tự cho Title và Content
     const songTitleInput = document.getElementById('songTitle');
     const postContentTextarea = document.getElementById('postContent');
@@ -272,135 +293,10 @@ document.addEventListener("DOMContentLoaded", function () {
             contentLimitMessage.textContent = `Max ${contentLimit - contentLength} characters left`;
         }
     });
-
-
-    /*================Hàm xử lý upload ảnh ================== */
-
-    // Image upload functionality
-    const imageFile = document.getElementById('imageFile');
-    const imageUploadTrigger = document.getElementById('imageUploadTrigger');
-    const imageDropZone = document.getElementById('imageDropZone');
-    const imagePreview = document.getElementById('imagePreview');
-    const previewImg = document.getElementById('previewImg');
-    const imageFileName = document.getElementById('imageFileName');
-    const imageFileSize = document.getElementById('imageFileSize');
-    const clearImageUpload = document.getElementById('clearImageUpload');
-
-    // Handle image upload button click
-    if (imageUploadTrigger) {
-        imageUploadTrigger.addEventListener('click', () => {
-            if (imageFile) {
-                imageFile.click();
-            }
-        });
-    }
-
-    // Handle selected image file
-    if (imageFile) {
-        imageFile.addEventListener('change', () => {
-            if (imageFile.files.length > 0) {
-                const file = imageFile.files[0];
-
-                // Check file type
-                const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
-                if (!validImageTypes.includes(file.type)) {
-                    showNotification('Please select a valid image file (.jpg, .jpeg, .png, .gif)', 'warning');
-                    return;
-                }
-
-                // Check file size (5MB max)
-                if (file.size > 5 * 1024 * 1024) {
-                    showNotification('Image size must be less than 5MB', 'warning');
-                    return;
-                }
-
-                // Update preview
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    previewImg.src = e.target.result;
-                    imageFileName.textContent = file.name;
-                    imageFileSize.textContent = formatFileSize(file.size);
-                    imagePreview.style.display = 'flex';
-                };
-                reader.readAsDataURL(file);
-
-                // Update UI
-                imageDropZone.classList.add('has-file');
-            }
-        });
-    }
-
-    // Clear image selection
-    if (clearImageUpload) {
-        clearImageUpload.addEventListener('click', (e) => {
-            e.stopPropagation();
-            clearImageSelection();
-        });
-    }
-
-    /*================Hàm xử lý upload ảnh song ================== */
-
-    if (coverImageUploadTrigger) {
-        coverImageUploadTrigger.addEventListener('click', () => {
-            if (coverImageFile) coverImageFile.click();
-        });
-    }
-
-    // Clear cover image selection
-    function clearCoverImageSelection() {
-        if (coverImageFile) coverImageFile.value = '';
-        if (coverImagePreview) coverImagePreview.style.display = 'none';
-        if (previewCoverImg) previewCoverImg.src = '';
-        if (coverImageFileName) coverImageFileName.textContent = '';
-        if (coverImageFileSize) coverImageFileSize.textContent = '';
-    }
-
-    // Handle cover image selection
-    if (coverImageFile) {
-        coverImageFile.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                const file = e.target.files[0];
-
-                // Check file type
-                const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-                if (!validTypes.includes(file.type)) {
-                    showNotification('Please select a valid image file (JPG, JPEG, PNG, or GIF)', 'warning');
-                    clearCoverImageSelection();
-                    return;
-                }
-
-                // Check file size (5MB max)
-                if (file.size > 5 * 1024 * 1024) {
-                    showNotification('Image size must be less than 5MB', 'warning');
-                    clearCoverImageSelection();
-                    return;
-                }
-
-                // Update preview
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    if (previewCoverImg) previewCoverImg.src = event.target.result;
-                    if (coverImagePreview) coverImagePreview.style.display = 'flex';
-                    if (coverImageFileName) coverImageFileName.textContent = file.name;
-                    if (coverImageFileSize) coverImageFileSize.textContent = formatFileSize(file.size);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-
-    // Handle clear button for cover image
-    if (clearCoverImageUpload) {
-        clearCoverImageUpload.addEventListener('click', (e) => {
-            e.stopPropagation();
-            clearCoverImageSelection();
-        });
-    }
-
     // === PHẦN XỬ LÝ UPLOAD ===
 
     // Variable for YouTube integration
-    let youtubeConnected = false;
+    //let youtubeConnected = false;
     let youtubeAccessToken = null;
     let youtubeUserInfo = null;
 
@@ -473,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append('genre', window.songMetadata.genre || 'other');
             formData.append('era', window.songMetadata.era || '20s');
             formData.append('type', window.songMetadata.type || 'cover');
-          
+
 
 
             // Hiển thị trạng thái upload
@@ -596,16 +492,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // === CÁC HÀM TIỆN ÍCH ===
 
-    // Định dạng kích thước file
-    function formatFileSize(bytes) {
-        if (bytes < 1024) {
-            return bytes + ' bytes';
-        } else if (bytes < 1024 * 1024) {
-            return (bytes / 1024).toFixed(2) + ' KB';
-        } else {
-            return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
-        }
-    }
+
 
     // Định dạng thời gian
     function formatTime(seconds) {
@@ -614,17 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 });
-function clearImageSelection() {
-    if (imageFile) {
-        imageFile.value = '';
-    }
-    if (imagePreview) {
-        imagePreview.style.display = 'none';
-    }
-    if (imageDropZone) {
-        imageDropZone.classList.remove('has-file');
-    }
-}
+
 /*NOTIFICATION */
 function createNotificationModal() {
     const notificationContainer = document.createElement('div');
@@ -1362,7 +1239,220 @@ async function uploadToYouTube(file, metadata) {
 }
 
 
+// Add these functions after the existing file handling functions in uploadfile.js
 
+// === PHẦN XỬ LÝ IMAGE UPLOAD ===
+
+// Phần tử liên quan đến upload ảnh cho post
+const imageUploadTrigger = document.getElementById('imageUploadTrigger');
+const imageDropZone = document.getElementById('imageDropZone');
+const imageFile = document.getElementById('imageFile');
+const imagePreview = document.getElementById('imagePreview');
+const previewImg = document.getElementById('previewImg');
+const imageFileName = document.getElementById('imageFileName');
+const imageFileSize = document.getElementById('imageFileSize');
+const clearImageUpload = document.getElementById('clearImageUpload');
+
+// Phần tử liên quan đến upload cover image
+const coverImageUploadTrigger = document.getElementById('coverImageUploadTrigger');
+const coverImageDropZone = document.getElementById('coverImageDropZone');
+const coverImageFile = document.getElementById('coverImageFile');
+const coverImagePreview = document.getElementById('coverImagePreview');
+const previewCoverImg = document.getElementById('previewCoverImg');
+const coverImageFileName = document.getElementById('coverImageFileName');
+const coverImageFileSize = document.getElementById('coverImageFileSize');
+const clearCoverImageUpload = document.getElementById('clearCoverImageUpload');
+
+// Xử lý upload ảnh cho post
+if (imageUploadTrigger) {
+    imageUploadTrigger.addEventListener('click', () => {
+        imageFile.click();
+    });
+}
+
+// Xử lý upload ảnh cho cover
+if (coverImageUploadTrigger) {
+    coverImageUploadTrigger.addEventListener('click', () => {
+        coverImageFile.click();
+    });
+}
+
+// Hỗ trợ kéo thả ảnh cho post
+if (imageDropZone) {
+    imageDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.add('drag-over');
+    });
+
+    imageDropZone.addEventListener('dragleave', () => {
+        imageDropZone.classList.remove('drag-over');
+    });
+
+    imageDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        imageDropZone.classList.remove('drag-over');
+
+        if (e.dataTransfer.files.length > 0) {
+            handleImageFile(e.dataTransfer.files[0]);
+        }
+    });
+}
+
+// Hỗ trợ kéo thả ảnh cho cover
+if (coverImageDropZone) {
+    coverImageDropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        coverImageDropZone.classList.add('drag-over');
+    });
+
+    coverImageDropZone.addEventListener('dragleave', () => {
+        coverImageDropZone.classList.remove('drag-over');
+    });
+
+    coverImageDropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        coverImageDropZone.classList.remove('drag-over');
+
+        if (e.dataTransfer.files.length > 0) {
+            handleCoverImageFile(e.dataTransfer.files[0]);
+        }
+    });
+}
+
+// Khi chọn file ảnh qua input cho post
+if (imageFile) {
+    imageFile.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            handleImageFile(e.target.files[0]);
+        }
+    });
+}
+
+// Khi chọn file ảnh qua input cho cover
+if (coverImageFile) {
+    coverImageFile.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            handleCoverImageFile(e.target.files[0]);
+        }
+    });
+}
+
+// Xử lý file ảnh cho post
+function handleImageFile(file) {
+    // Kiểm tra loại file
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+    if (!validTypes.includes(file.type)) {
+        showNotification('Please select a valid image file (.jpg, .jpeg, .png, .gif)', 'error');
+        return;
+    }
+
+    // Kiểm tra kích thước file (tối đa 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        showNotification('Image size exceeds the limit of 5MB', 'error');
+        return;
+    }
+
+    // Hiển thị preview
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        previewImg.src = e.target.result;
+        imageFileName.textContent = `File: ${file.name}`;
+        imageFileSize.textContent = `Size: ${formatFileSize(file.size)}`;
+        imagePreview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+
+    // Add to FormData when submitting
+    const formData = new FormData(document.getElementById('uploadForm'));
+    formData.set('imageFile', file);
+}
+
+// Xử lý file ảnh cho cover
+function handleCoverImageFile(file) {
+    // Kiểm tra loại file
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+    if (!validTypes.includes(file.type)) {
+        showNotification('Please select a valid image file (.jpg, .jpeg, .png, .gif)', 'error');
+        return;
+    }
+
+    // Kiểm tra kích thước file (tối đa 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        showNotification('Cover image size exceeds the limit of 5MB', 'error');
+        return;
+    }
+
+    // Hiển thị preview
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        previewCoverImg.src = e.target.result;
+        coverImageFileName.textContent = `File: ${file.name}`;
+        coverImageFileSize.textContent = `Size: ${formatFileSize(file.size)}`;
+        coverImagePreview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+
+    // Add to FormData when submitting
+    const formData = new FormData(document.getElementById('uploadForm'));
+    formData.set('coverImageFile', file);
+}
+
+// Xóa file ảnh cho post
+if (clearImageUpload) {
+    clearImageUpload.addEventListener('click', () => {
+        if (imageFile) imageFile.value = '';
+        if (imagePreview) imagePreview.style.display = 'none';
+        // Remove from FormData if needed
+        const formData = new FormData(document.getElementById('uploadForm'));
+        if (formData.has('imageFile')) {
+            formData.delete('imageFile');
+        }
+    });
+}
+
+// Xóa file ảnh cho cover
+if (clearCoverImageUpload) {
+    clearCoverImageUpload.addEventListener('click', () => {
+        if (coverImageFile) coverImageFile.value = '';
+        if (coverImagePreview) coverImagePreview.style.display = 'none';
+        // Remove from FormData if needed
+        const formData = new FormData(document.getElementById('uploadForm'));
+        if (formData.has('coverImageFile')) {
+            formData.delete('coverImageFile');
+        }
+    });
+}
+
+// Xử lý upload form để bao gồm cả file ảnh
+document.addEventListener('DOMContentLoaded', function () {
+    const uploadForm = document.getElementById('uploadForm');
+    const submitUpload = document.getElementById('submitUpload');
+
+    if (submitUpload && uploadForm) {
+        // Modify the existing submit event handler to include image files
+        const originalSubmitHandler = submitUpload.onclick;
+
+        submitUpload.onclick = function (event) {
+            // Make sure images are included in form data
+            const formData = new FormData(uploadForm);
+
+            // Add image file if present
+            if (imageFile && imageFile.files.length > 0) {
+                formData.set('imageFile', imageFile.files[0]);
+            }
+
+            // Add cover image file if present
+            if (coverImageFile && coverImageFile.files.length > 0) {
+                formData.set('coverImageFile', coverImageFile.files[0]);
+            }
+
+            // Then call the original handler
+            if (typeof originalSubmitHandler === 'function') {
+                originalSubmitHandler.call(this, event);
+            }
+        };
+    }
+});
 
 
 
