@@ -41,28 +41,9 @@
         <input id="user-playlists-data" value='@Json.Serialize(userPlaylists)' hidden>
 
         <!-- Notification Container will be created dynamically in JavaScript -->
-        <div class="top-nav-logo">
 
-            <div class="navbar">
-                <div class="logoimg"> <img src="~/img/lgo.png" /></div>
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" placeholder="What do you want to hear?">
-                    </div>
-
-                </div>
-                @if (isAuthenticated)
-                {
-                    <div class="avatar-container" onclick="toggleProfileMenu(event)">
-                        <img src="~/img/avatar.jpg" alt="User Avatar" class="user-avatar">
-                        <div class="profile-menu" id="profileMenu">
-                            <a href="@Url.Action("Logout", "Account")">Logout</a>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
+            @await Component.InvokeAsync("Navbar")
+  
         <div class="container">
             <!-- Music Player -->
             <div class="music-player">
@@ -134,34 +115,54 @@
                     <div class="comments-container">
                         <div class="comments-section" id="comments-section">
                             @foreach (var comment in Model.Comments)
-                            {
-                                <div class="comment" data-comment-id="@comment.Id">
-                                    <div class="left-comment-user">
-                                        <div class="user-icon-commentcontent">@(comment.User?.Username[0] ?? 'A')</div>
-                                    </div>
+{
+    <div class="comment" data-comment-id="@comment.Id">
+        <div class="left-comment-user">
+            <div class="user-icon-commentcontent">@(comment.User?.Username[0] ?? 'A')</div>
+        </div>
 
-
-                                    <div class="comment-user">
-                                        <div class="comment-username">
-                                            <p>@(comment.User?.Username)</p>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p>@comment.Content</p>
-                                            <div class="comment-meta">
-                                                <span class="comment-time">@comment.CreatedAt.ToString("HH:mm dd/MM/yyyy")</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            }
+        <div class="comment-user">
+            <div class="comment-username">
+                <p>@(comment.User?.Username)</p>
+            </div>
+            <div class="comment-content">
+                <p>@comment.Content</p>
+                <div class="comment-meta">
+                    <span class="comment-time">@comment.CreatedAt.ToString("HH:mm dd/MM/yyyy")</span>
+                    
+                    <!-- Check if comment belongs to current user -->
+                                                @if (comment.UserId == int.Parse(userId))
+                    {
+                        <div class="comment-actions">
+                                                        <span class="edit-comment" onclick="showEditCommentForm(@comment.Id)">Edit</span>
+                                                        <span class="delete-comment" onclick="confirmDeleteComment(@comment.Id)">Delete</span>
+                        </div>
+                                                    <div class="comment-edit-form" id="edit-form-@comment.Id" style="display: none;">
+                                                        <textarea class="edit-comment-textarea">@comment.Content</textarea>
+                                                        <div class="edit-comment-buttons">
+                                                            <button class="cancel-edit-btn" onclick="cancelEditComment(@comment.Id)">Cancel</button>
+                                                            <button class="save-edit-btn" onclick="saveCommentEdit(@comment.Id)">Save</button>
+                                                        </div>
+                                                    </div>
+                    }
+                    else
+                    {
+                        <div class="comment-actions">
+                                                        <span class="report-comment" onclick="showReportCommentForm(@comment.Id)">Report</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
                         </div>
                     </div>
 
                     <!-- Right Side: Artist Profile -->
                     <div class="artist-profile">
                         <div class="artist-avatar">
-                            <img src="/api/placeholder/120/120" alt="Artist Avatar">
+                            <img src="@ViewData["avatarUrl"]" alt="Artist Avatar">
                         </div>
                         <div class="artist-info">
                             <input class="artist-id" type="text" hidden data-artist-id="@ViewData["ArtistId"]" />
@@ -190,48 +191,7 @@
 
             </div>
 
-            <!-- Report Modal -->
-            <div id="reportModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Báo cáo bình luận</h3>
-                        <span class="close-modal" onclick="closeModal('reportModal')">&times;</span>
-                    </div>
-                    <div class="modal-body">
-                        <p>Vui lòng chọn lý do báo cáo:</p>
-                        <div class="report-options">
-                            <label class="report-option">
-                                <input type="radio" name="report-reason" value="inappropriate">
-                                <span>Nội dung không phù hợp</span>
-                            </label>
-                            <label class="report-option">
-                                <input type="radio" name="report-reason" value="spam">
-                                <span>Spam hoặc quảng cáo</span>
-                            </label>
-                            <label class="report-option">
-                                <input type="radio" name="report-reason" value="harrassment">
-                                <span>Quấy rối hoặc bắt nạt</span>
-                            </label>
-                            <label class="report-option">
-                                <input type="radio" name="report-reason" value="falseinfo">
-                                <span>Thông tin sai lệch</span>
-                            </label>
-                            <label class="report-option">
-                                <input type="radio" name="report-reason" value="other" onclick="toggleOtherReason()">
-                                <span>Lý do khác</span>
-                            </label>
-                            <div class="other-reason-container" id="other-reason-container" style="display: none;">
-                                <textarea placeholder="Nhập lý do khác..." id="other-reason-text"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="cancel-btn" onclick="closeModal('reportModal')">Hủy</button>
-                        <button class="submit-report-btn" onclick="submitReport()">Gửi báo cáo</button>
-                    </div>
-                </div>
-            </div>
-
+           
             <!-- Add playlist modal -->
             <div id="playlistModal" class="modal">
                 <div class="modal-content">
@@ -283,8 +243,6 @@
         <script src="~/js/globalplayer.js"></script>
 
         <!-- Additional CSS for button styling -->
-        <style>
 
-        </style>
 </body>
 </html>

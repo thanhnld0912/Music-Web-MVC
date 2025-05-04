@@ -20,10 +20,17 @@ namespace MusicWebMVC.Models
         public string Role { get; set; } // Listener, Uploader, VIP
 
 
+
+
+        public string AvatarUrl { get; set; } = "/img/default-avatar.png";
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         [StringLength(500)]
         public string Bio { get; set; }
+
+        public bool IsDisabled { get; set; } = false;
+
+        public bool IsVIP { get; set; } = false;
 
         public string level { get; set; } = "Bronze"; // Bronze, Silver, Gold, Diamond 
 
@@ -44,5 +51,10 @@ namespace MusicWebMVC.Models
         public virtual ICollection<Playlist> Playlists { get; set; }
 
         public virtual ICollection<Follow> Followers { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
+
+        public virtual ICollection<CommentReport> CommentReports { get; set; }
+        public virtual ICollection<PostReport> PostReports { get; set; }
+        public virtual ICollection<RecentPlay> RecentPlays { get; set; } = new List<RecentPlay>();
     }
 }

@@ -7,11 +7,11 @@ using MusicWebMVC.Models; // Nếu có Model Playlist, Post
 
 namespace MusicWebMVC.Components
 {
-    public class SidebarViewComponent : ViewComponent
+    public class SidebarAdminViewComponent : ViewComponent
     {
         private readonly ApplicationDbContext _context;
 
-        public SidebarViewComponent(ApplicationDbContext context)
+        public SidebarAdminViewComponent(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -44,6 +44,7 @@ namespace MusicWebMVC.Components
                 .Include(p => p.PlaylistSongs)
                 .ThenInclude(ps => ps.Song)
                 .ToListAsync();
+
 
                 ViewBag.UserPlaylists = userPlaylists;
             }

@@ -1,0 +1,833 @@
+﻿@model List<MusicWebMVC.Models.Song>
+@{
+    Layout = null;
+    ViewData["Title"] = "SearchPage";
+    var isAuthenticated = Context.Session.GetString("UserId") != null;
+    var userId = Context.Session.GetString("UserId");
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
+
+    // Convert arrays to lists for Contains method support
+    var selectedGenres = ViewBag.SelectedGenres != null ? ((string[])ViewBag.SelectedGenres).ToList() : new List<string>();
+    var selectedEras = ViewBag.SelectedEras != null ? ((string[])ViewBag.SelectedEras).ToList() : new List<string>();
+    var selectedTypes = ViewBag.SelectedTypes != null ? ((string[])ViewBag.SelectedTypes).ToList() : new List<string>();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Music</title>
+    <link rel="stylesheet" type="text/css" href="~/css/searchpage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    @await Component.InvokeAsync("Sidebar")
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        @await Component.InvokeAsync("Navbar")
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="container">
+                <header>
+                    <h1>Discover Music</h1>
+                </header>
+                
+                <!-- Visible Filter Form -->
+                <!-- Improved Search and Filter Form -->
+                <form method="get" action="@Url.Action("SearchPage", "Home")" id="filterForm">
+                    <div class="search-filter-container">
+                        <div class="search-bar-container">
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" name="searchTerm" placeholder="Search for songs, artists, lyrics..." value="@ViewBag.SearchTerm">
+                            </div>
+                            <button type="submit" class="search-button">Search</button>
+                            <button type="button" class="filter-toggle" id="filterToggle">
+                                <i class="fas fa-sliders-h"></i> Filters
+                            </button>
+                        </div>
+
+                        <!-- Active filter indicators -->
+                        @if (
+                            (selectedGenres != null && selectedGenres.Any(g => g != "All")) || 
+                            (selectedEras != null && selectedEras.Any(e => e != "All")) || 
+                            (selectedTypes != null && selectedTypes.Any(t => t != "All")) ||
+                            ViewBag.SelectedSort != null && ViewBag.SelectedSort != "Most Popular"
+                        )
+                        {
+                            <div class="active-filters">
+                                @if (selectedGenres != null && selectedGenres.Any(g => g != "All"))
+                                {
+                                    foreach (var genre in selectedGenres.Where(g => g != "All"))
+                                    {
+                                        <div class="active-filter-tag">
+                                            Genre: @genre
+                                            <i class="fas fa-times" onclick="removeFilter('genre', '@genre')"></i>
+                                        </div>
+                                    }
+                                }
+
+                                @if (selectedEras != null && selectedEras.Any(e => e != "All"))
+                                {
+                                    foreach (var era in selectedEras.Where(e => e != "All"))
+                                    {
+                                        <div class="active-filter-tag">
+                                            Era: @era
+                                            <i class="fas fa-times" onclick="removeFilter('era', '@era')"></i>
+                                        </div>
+                                    }
+                                }
+
+                                @if (selectedTypes != null && selectedTypes.Any(t => t != "All"))
+                                {
+                                    foreach (var type in selectedTypes.Where(t => t != "All"))
+                                    {
+                                        <div class="active-filter-tag">
+                                            Type: @type
+                                            <i class="fas fa-times" onclick="removeFilter('type', '@type')"></i>
+                                        </div>
+                                    }
+                                }
+
+                                @if (ViewBag.SelectedSort != null && ViewBag.SelectedSort != "Most Popular")
+                                {
+                                    <div class="active-filter-tag">
+                                        Sort: @ViewBag.SelectedSort
+                                        <i class="fas fa-times" onclick="removeFilter('sort', '')"></i>
+                                    </div>
+                                }
+                            </div>
+                        }
+
+                        <div class="filter-section" id="filterSection">
+                            <div class="filter-row">
+                                <div class="filter-label">Genre:</div>
+                                <div class="filter-options">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="All" @(selectedGenres.Contains("All") || !selectedGenres.Any() ? "checked" : "")>
+                                        <span class="checkbox-label">All</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="pop" @(selectedGenres.Contains("pop") ? "checked" : "")>
+                                        <span class="checkbox-label">Pop</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="rock" @(selectedGenres.Contains("rock") ? "checked" : "")>
+                                        <span class="checkbox-label">Rock</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="hiphop" @(selectedGenres.Contains("hiphop") ? "checked" : "")>
+                                        <span class="checkbox-label">Hip Hop</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="rnb" @(selectedGenres.Contains("rnb") ? "checked" : "")>
+                                        <span class="checkbox-label">R&B</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="jazz" @(selectedGenres.Contains("jazz") ? "checked" : "")>
+                                        <span class="checkbox-label">Jazz</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="classical" @(selectedGenres.Contains("classical") ? "checked" : "")>
+                                        <span class="checkbox-label">Classical</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="electronic" @(selectedGenres.Contains("electronic") ? "checked" : "")>
+                                        <span class="checkbox-label">Electronic</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="folk" @(selectedGenres.Contains("folk") ? "checked" : "")>
+                                        <span class="checkbox-label">Folk</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="genre" value="other" @(selectedGenres.Contains("other") ? "checked" : "")>
+                                        <span class="checkbox-label">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-row">
+                                <div class="filter-label">Era:</div>
+                                <div class="filter-options">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="All" @(selectedEras.Contains("All") || !selectedEras.Any() ? "checked" : "")>
+                                        <span class="checkbox-label">All</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="60s" @(selectedEras.Contains("60s") ? "checked" : "")>
+                                        <span class="checkbox-label">60s</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="70s" @(selectedEras.Contains("70s") ? "checked" : "")>
+                                        <span class="checkbox-label">70s</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="80s" @(selectedEras.Contains("80s") ? "checked" : "")>
+                                        <span class="checkbox-label">80s</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="90s" @(selectedEras.Contains("90s") ? "checked" : "")>
+                                        <span class="checkbox-label">90s</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="00s" @(selectedEras.Contains("00s") ? "checked" : "")>
+                                        <span class="checkbox-label">2000s</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="10s" @(selectedEras.Contains("10s") ? "checked" : "")>
+                                        <span class="checkbox-label">2010s</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="era" value="20s" @(selectedEras.Contains("20s") ? "checked" : "")>
+                                        <span class="checkbox-label">2020s</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-row">
+                                <div class="filter-label">Type:</div>
+                                <div class="filter-options">
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="type" value="All" @(selectedTypes.Contains("All") || !selectedTypes.Any() ? "checked" : "")>
+                                        <span class="checkbox-label">All</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="type" value="cover" @(selectedTypes.Contains("cover") ? "checked" : "")>
+                                        <span class="checkbox-label">Cover</span>
+                                    </label>
+                                    <label class="filter-checkbox">
+                                        <input type="checkbox" name="type" value="original" @(selectedTypes.Contains("original") ? "checked" : "")>
+                                        <span class="checkbox-label">Original</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-row">
+                                <div class="filter-label">Sort By:</div>
+                                <div class="filter-options">
+                                    <select name="sortBy" class="sort-dropdown">
+                                        <option value="Most Popular" selected="@(ViewBag.SelectedSort == "Most Popular")">Most Popular</option>
+                                        <option value="Newest" selected="@(ViewBag.SelectedSort == "Newest")">Newest</option>
+                                        <option value="Oldest" selected="@(ViewBag.SelectedSort == "Oldest")">Oldest</option>
+                                        <option value="A-Z" selected="@(ViewBag.SelectedSort == "A-Z")">A-Z</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-actions">
+                                <button type="button" class="reset-button" onclick="resetFilters()">Reset Filters</button>
+                                <button type="submit" class="filter-button">Apply Filters</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="results-section">
+                    <div class="results-header">
+                        <h2>Results (@ViewBag.ResultCount)</h2>
+                    </div>
+
+                    <div class="layout-container">
+                        <div class="content-area">
+                            <div class="music-grid">
+                                @foreach (var song in Model)
+                                {
+                                    <div class="music-card" data-audio-url="@song.FileUrl">
+                                        <div class="music-image">
+                                            <img src="@(string.IsNullOrEmpty(song.CoverImage) ? "/api/placeholder/200/200" : song.CoverImage)" alt="Album Cover">
+                                        </div>
+                                        <div class="music-info">
+                                            <div class="music-info-primary">
+                                                <div class="music-title">@song.Title</div>
+                                                <div class="music-artist">@song.User.Username</div>
+                                            </div>
+                                            <div class="music-duration">
+                                                00:00
+                                            </div>
+                                            <div class="music-actions">
+                                                <button class="music-menu-button" onclick="toggleMenu(event, 'menu-@song.Id')">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                                <div class="music-menu" id="menu-@song.Id">
+                                                    <div class="menu-item" onclick="playSongFromSearch(this); event.stopPropagation();">
+                                                        <i class="fas fa-play"></i> Play
+                                                    </div>
+                                                    <div class="menu-item" onclick="location.href='@Url.Action("SongPage", "Song", new { postId = song.PostId })'">
+                                                        <i class="fas fa-info-circle"></i> View Details
+                                                    </div>
+                                                    <div class="menu-item" onclick="showAddToPlaylistModal('@song.Id')">
+                                                        <i class="fas fa-plus"></i> Add to Playlist
+                                                    </div>
+                                                    <div class="menu-item" onclick="location.href='@Url.Action("ProfileUser", "Home", new { id = song.ArtistId })'">
+                                                        <i class="fas fa-user"></i> Go to Artist
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                @if (Model.Count == 0)
+                                {
+                                    <div class="no-results">
+                                        <p>No songs found matching your criteria. Try a different filter.</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="artist-search-area">
+                            <h3 class="artist-search-heading">Find Artists</h3>
+                            <div class="artist-search-bar">
+                                <input type="text" id="artistSearchInput" placeholder="Search for artists...">
+                                <button type="button" class="artist-search-button" id="artistSearchBtn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            <div class="artist-list" id="artistList">
+                                <!-- Artist results will be loaded here via JavaScript -->
+                                <div class="loading-artists" id="artistsLoading" style="display: none;">
+                                    <i class="fas fa-spinner fa-spin"></i> Searching...
+                                </div>
+                                <div class="no-artists" id="noArtistsFound" style="display: none;">
+                                    No artists found. Try another search.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add to Playlist Modal -->
+                <div id="addToPlaylistModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal" onclick="closeAddToPlaylistModal()">&times;</span>
+                        <h2>Add to Playlist</h2>
+                        <div class="modal-form">
+                            <div class="form-group">
+                                <label for="playlistSelect">Select Playlist:</label>
+                                <select id="playlistSelect">
+                                    @if (Context.Session.GetString("UserId") != null)
+                                    {
+                                        @foreach (var playlist in ViewBag.UserPlaylists ?? new List<MusicWebMVC.Models.Playlist>())
+                                        {
+                                            <option value="@playlist.Id">@playlist.Name</option>
+                                        }
+                                        @if ((ViewBag.UserPlaylists == null || ViewBag.UserPlaylists.Count == 0))
+                                        {
+                                            <option value="" disabled>No playlists found</option>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <option value="" disabled>Please login to add to playlist</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPlaylistName">Or create a new playlist:</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="text" id="newPlaylistName" style="flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" placeholder="Enter new playlist name">
+                                    <button type="button" id="createPlaylistBtn" style="padding: 10px; background-color: #1DB954; color: white; border: none; border-radius: 4px; cursor: pointer;" onclick="createPlaylist()">Create</button>
+                                </div>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="button" class="cancel-btn" onclick="closeAddToPlaylistModal()">Cancel</button>
+                                <button type="button" class="share-btn" id="addToPlaylistBtn">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @await Component.InvokeAsync("GlobalPlayer")
+
+    <!-- JavaScript code -->
+    <script>
+             document.addEventListener('DOMContentLoaded', function() {
+            // Filter toggle functionality
+            const filterToggle = document.getElementById('filterToggle');
+            const filterSection = document.getElementById('filterSection');
+
+            // Show filters if any are active
+            if (document.querySelectorAll('.active-filter-tag').length > 0) {
+                filterSection.classList.add('show');
+                filterToggle.classList.add('active');
+            }
+
+            filterToggle.addEventListener('click', function() {
+                filterSection.classList.toggle('show');
+                this.classList.toggle('active');
+            });
+
+            // Handle checkbox logic for filter groups
+            const filterGroups = ['genre', 'era', 'type'];
+
+            filterGroups.forEach(groupName => {
+                const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
+                const allCheckbox = document.querySelector(`input[name="${groupName}"][value="All"]`);
+
+                // Add event listeners to checkboxes
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        if (this.value === 'All' && this.checked) {
+                            // If "All" is checked, uncheck others
+                            checkboxes.forEach(cb => {
+                                if (cb.value !== 'All') {
+                                    cb.checked = false;
+                                }
+                            });
+                        } else if (this.value !== 'All' && this.checked) {
+                            // If any other checkbox is checked, uncheck "All"
+                            allCheckbox.checked = false;
+                        }
+
+                        // If no checkboxes are checked, check "All"
+                        const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+                        if (!anyChecked) {
+                            allCheckbox.checked = true;
+                        }
+                    });
+                });
+            });
+        });
+
+        // Function to remove a specific filter
+        function removeFilter(filterType, value) {
+            if (filterType === 'sort') {
+                // Reset sort to default
+                document.querySelector('select[name="sortBy"]').value = 'Most Popular';
+            } else {
+                // Uncheck the specific checkbox
+                const checkbox = document.querySelector(`input[name="${filterType}"][value="${value}"]`);
+                if (checkbox) {
+                    checkbox.checked = false;
+
+                    // Check if we need to set All to checked
+                    const checkboxes = document.querySelectorAll(`input[name="${filterType}"]:checked`);
+                    if (checkboxes.length === 0) {
+                        document.querySelector(`input[name="${filterType}"][value="All"]`).checked = true;
+                    }
+                }
+            }
+
+            // Submit the form to apply the change
+            document.getElementById('filterForm').submit();
+        }
+
+        // Reset filters function
+        function resetFilters() {
+            const filterGroups = ['genre', 'era', 'type'];
+
+            filterGroups.forEach(groupName => {
+                const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = checkbox.value === 'All';
+                });
+            });
+
+            // Reset sort dropdown to default
+            document.querySelector('select[name="sortBy"]').value = 'Most Popular';
+
+            // Reset search term
+            document.querySelector('input[name="searchTerm"]').value = '';
+
+            // Submit form
+            document.getElementById('filterForm').submit();
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle checkbox logic for filter groups
+            const filterGroups = ['genre', 'era', 'type'];
+            
+            filterGroups.forEach(groupName => {
+                const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
+                const allCheckbox = document.querySelector(`input[name="${groupName}"][value="All"]`);
+                
+                // Add event listeners to checkboxes
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        if (this.value === 'All' && this.checked) {
+                            // If "All" is checked, uncheck others
+                            checkboxes.forEach(cb => {
+                                if (cb.value !== 'All') {
+                                    cb.checked = false;
+                                }
+                            });
+                        } else if (this.value !== 'All' && this.checked) {
+                            // If any other checkbox is checked, uncheck "All"
+                            allCheckbox.checked = false;
+                        }
+                        
+                        // If no checkboxes are checked, check "All"
+                        const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+                        if (!anyChecked) {
+                            allCheckbox.checked = true;
+                        }
+                    });
+                });
+            });
+        });
+
+        // Reset filters function
+        function resetFilters() {
+            const filterGroups = ['genre', 'era', 'type'];
+            
+            filterGroups.forEach(groupName => {
+                const checkboxes = document.querySelectorAll(`input[name="${groupName}"]`);
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = checkbox.value === 'All';
+                });
+            });
+            
+            // Reset sort dropdown to default
+            document.querySelector('select[name="sortBy"]').value = 'Most Popular';
+            
+            // Submit form
+            document.getElementById('filterForm').submit();
+        }
+
+        // Toggle menu function
+        function toggleMenu(event, menuId) {
+            event.stopPropagation();
+
+            // Close all menus first
+            document.querySelectorAll('.music-menu').forEach(menu => {
+                if (menu.id !== menuId) {
+                    menu.classList.remove('active');
+                }
+            });
+
+            // Toggle the clicked menu
+            const menu = document.getElementById(menuId);
+            menu.classList.toggle('active');
+        }
+
+        // Close menus when clicking elsewhere
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.music-menu') && !event.target.closest('.music-menu-button')) {
+                document.querySelectorAll('.music-menu').forEach(menu => {
+                    menu.classList.remove('active');
+                });
+            }
+        });
+
+        // Add to playlist modal functionality
+        let currentSongId = null;
+
+        function showAddToPlaylistModal(songId) {
+            currentSongId = songId;
+            document.getElementById('addToPlaylistModal').style.display = 'block';
+        }
+
+        function closeAddToPlaylistModal() {
+            document.getElementById('addToPlaylistModal').style.display = 'none';
+        }
+
+        // Add to playlist functionality
+        document.getElementById('addToPlaylistBtn').addEventListener('click', function() {
+            const playlistId = document.getElementById('playlistSelect').value;
+
+            if (!playlistId) {
+                alert('Please select a playlist or create one.');
+                return;
+            }
+
+            if (!currentSongId) {
+                alert('No song selected.');
+                return;
+            }
+
+            // Send XHR request to add song to playlist
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', `/Playlist/AddSong?playlistId=${playlistId}&songId=${currentSongId}`, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    const data = JSON.parse(xhr.responseText);
+                    alert('Song added to playlist successfully!');
+                    closeAddToPlaylistModal();
+                } else {
+                    console.error('Error:', xhr.statusText);
+                    alert('Failed to add song to playlist. Please try again.');
+                }
+            };
+
+            xhr.onerror = function() {
+                console.error('Request failed');
+                alert('Failed to add song to playlist. Please try again.');
+            };
+
+            xhr.send();
+        });
+
+        // Artist search functionality
+        const artistSearchInput = document.getElementById('artistSearchInput');
+        const artistSearchBtn = document.getElementById('artistSearchBtn');
+        const artistList = document.getElementById('artistList');
+        const artistsLoading = document.getElementById('artistsLoading');
+        const noArtistsFound = document.getElementById('noArtistsFound');
+
+        // Search artists function
+        function searchArtists() {
+            const searchTerm = artistSearchInput.value.trim();
+
+            if (!searchTerm) {
+                return;
+            }
+
+            // Show loading indicator
+            artistsLoading.style.display = 'block';
+            noArtistsFound.style.display = 'none';
+            artistList.innerHTML = '';
+
+            // Send XHR request to search for artists
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', `/Home/SearchArtists?searchTerm=${encodeURIComponent(searchTerm)}`, true);
+
+            xhr.onload = function() {
+                artistsLoading.style.display = 'none';
+
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    const artists = JSON.parse(xhr.responseText);
+
+                    if (artists.length === 0) {
+                        noArtistsFound.style.display = 'block';
+                        return;
+                    }
+
+                    // Create artist cards
+                    artists.forEach(artist => {
+                        const artistCard = document.createElement('div');
+                        artistCard.className = 'artist-card';
+                        artistCard.onclick = function() {
+                            window.location.href = `/Home/ProfileUser/${artist.id}`;
+                        };
+
+                        artistCard.innerHTML = `
+                            <div class="artist-avatar">
+                                <img src="${artist.avatarUrl || '/api/placeholder/80/80'}" alt="${artist.username}">
+                            </div>
+                            <div class="artist-name">${artist.username}</div>
+                        `;
+
+                        artistList.appendChild(artistCard);
+                    });
+                } else {
+                    console.error('Error:', xhr.statusText);
+                    noArtistsFound.style.display = 'block';
+                }
+            };
+
+            xhr.onerror = function() {
+                console.error('Request failed');
+                artistsLoading.style.display = 'none';
+                noArtistsFound.style.display = 'block';
+            };
+
+            xhr.send();
+        }
+
+        // Event listeners for artist search
+        artistSearchBtn.addEventListener('click', searchArtists);
+        artistSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchArtists();
+                e.preventDefault();
+            }
+        });
+
+        // Format seconds to MM:SS
+        function formatDuration(seconds) {
+            if (isNaN(seconds)) return "00:00";
+
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+
+            // Pad with leading zeros if needed
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+            return `${formattedMinutes}:${formattedSeconds}`;
+        }
+
+        function getAudioDuration(audioUrl) {
+            return new Promise((resolve, reject) => {
+                const audio = new Audio();
+
+                // Handle successful metadata loading
+                audio.addEventListener('loadedmetadata', () => {
+                    // Format the duration as MM:SS
+                    const duration = formatDuration(audio.duration);
+                    resolve(duration);
+                });
+
+                // Handle errors
+                audio.addEventListener('error', (e) => {
+                    reject(`Error loading audio: ${e.message}`);
+                });
+
+                // Set a timeout in case the file doesn't load
+                const timeout = setTimeout(() => {
+                    reject('Timeout: Audio file took too long to load');
+                }, 10000); // 10 seconds timeout
+
+                // Clear timeout when metadata is loaded
+                audio.addEventListener('loadedmetadata', () => {
+                    clearTimeout(timeout);
+                });
+
+                // Set the source and load the audio
+                audio.src = audioUrl;
+                audio.load();
+            });
+        }
+
+        // Process all music cards to calculate durations
+        document.addEventListener('DOMContentLoaded', function() {
+            const musicCards = document.querySelectorAll('.music-card');
+
+            // Create a cache object to store durations
+            const durationCache = JSON.parse(localStorage.getItem('songDurations') || '{}');
+
+            // Process each music card
+            musicCards.forEach(card => {
+                const songId = card.querySelector('.music-menu').id.replace('menu-', '');
+                const durationElement = card.querySelector('.music-duration');
+
+                // If we have the card in our local cache, use that value
+                if (durationCache[songId]) {
+                    durationElement.textContent = durationCache[songId];
+                    return;
+                }
+
+                // Get the audio URL from the card's data attribute
+                const audioUrl = card.getAttribute('data-audio-url');
+
+                if (audioUrl) {
+                    // Show loading spinner
+                    durationElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+                    // Calculate duration
+                    getAudioDuration(audioUrl)
+                        .then(duration => {
+                            // Update the display
+                            durationElement.textContent = duration;
+
+                            // Save to local storage cache
+                            durationCache[songId] = duration;
+                            localStorage.setItem('songDurations', JSON.stringify(durationCache));
+                        })
+                        .catch(error => {
+                            console.error('Error calculating duration:', error);
+                            durationElement.textContent = '00:00'; // Default on error
+                        });
+                }
+            });
+        });
+
+        // Play song from search page
+        function playSongFromSearch(element) {
+            // Get the parent music-card element
+            const musicCard = element.closest('.music-card');
+            if (!musicCard) return;
+
+            // Get song URL from data attribute
+            const audioUrl = musicCard.getAttribute('data-audio-url');
+            if (!audioUrl) return;
+
+            // Get song title and artist
+            const songTitle = musicCard.querySelector('.music-title').textContent || 'Unknown Title';
+            const songArtist = musicCard.querySelector('.music-artist').textContent || 'Unknown Artist';
+
+            // Get image URL if available
+            let imageUrl = null;
+            const coverImage = musicCard.querySelector('.music-image img');
+            if (coverImage) {
+                imageUrl = coverImage.src;
+            }
+
+            // Create song info object
+            const songInfo = {
+                title: songTitle,
+                artist: songArtist,
+                imageUrl: imageUrl,
+                url: audioUrl
+            };
+
+            // Call the global player function with the standalone flag set to true
+            playWithGlobalPlayer(audioUrl, songInfo, true);
+        }
+
+        // Create playlist function
+        function createPlaylist() {
+            const playlistNameInput = document.getElementById('newPlaylistName');
+            if (!playlistNameInput) {
+                console.error('Playlist name input not found');
+                alert('Error: Could not find playlist name input');
+                return;
+            }
+
+            const playlistName = playlistNameInput.value.trim();
+            if (!playlistName) {
+                alert('Please enter a playlist name');
+                return;
+            }
+
+            // Send XHR request to create playlist
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/Playlist/CreatePlaylist', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function() {
+                try {
+                    const data = JSON.parse(xhr.responseText);
+
+                    if (xhr.status >= 200 && xhr.status < 300 && data.success) {
+                        // Clear the input
+                        playlistNameInput.value = '';
+
+                        // Add the new playlist to the dropdown
+                        const playlistSelect = document.getElementById('playlistSelect');
+
+                        // Remove the "No playlists found" option if it exists
+                        const noPlaylistsOption = playlistSelect.querySelector('option[disabled]');
+                        if (noPlaylistsOption && noPlaylistsOption.textContent.includes('No playlists found')) {
+                            playlistSelect.removeChild(noPlaylistsOption);
+                        }
+
+                        // Create and add the new option
+                        const option = document.createElement('option');
+                        option.value = data.playlist.id;
+                        option.textContent = data.playlist.name;
+                        option.selected = true;
+                        playlistSelect.appendChild(option);
+
+                        alert(data.message || 'Playlist created successfully');
+                    } else {
+                        alert(data.message || 'Failed to create playlist');
+                    }
+                } catch (error) {
+                    console.error('Error parsing response:', error);
+                    alert('Error creating playlist. Please try again.');
+                }
+            };
+
+            xhr.onerror = function() {
+                console.error('Request failed');
+                alert('Error creating playlist. Please try again.');
+            };
+
+            xhr.send(`playlistName=${encodeURIComponent(playlistName)}`);
+        }
+    </script>
+
+    <script src="~/js/globalplayer.js"></script>
+</body>
+</html>

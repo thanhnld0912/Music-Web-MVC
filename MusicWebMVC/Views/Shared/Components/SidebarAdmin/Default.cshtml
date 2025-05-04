@@ -1,0 +1,81 @@
+﻿@using MusicWebMVC.Models
+@model IEnumerable<MusicWebMVC.Models.Post>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Music - Melofy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/newfeed.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <button class="sidebar-toggle" onclick="toggleSidebar(event)">☰</button>
+        <div class="logoimg">
+            <img src="~/img/lgo.png" alt="Logo" />
+        </div>
+        <div class="logo">Your Library</div>
+
+        @if (Context.Session.GetString("UserId") != null)
+        {
+
+
+            <button class="create-playlist" onclick="toggleChatBox(event, 'playlistBox')">+ Create playlist</button>
+
+
+            <div class="sidebar-section">
+                <p>Your sound, your story, your stage</p>
+                <button class="sidebar-button" onclick="toggleChatBox(event, 'storyBox')">Share your story</button>
+            </div>
+
+            <!-- Hiển thị playlist của người dùng -->
+
+            <h3>Your Playlists</h3>
+            @if (ViewBag.UserPlaylists != null && ViewBag.UserPlaylists.Count > 0)
+            {
+                <div class="melody-collection">
+                    @foreach (var playlist in ViewBag.UserPlaylists)
+                    {
+                        <a href="@Url.Action("PlaylistPageAdmin", "Playlist", new { id = playlist.Id })" class="playlist-link">
+                            <div class="melody-card">
+                                <div class="melody-image">
+                                    @if (!string.IsNullOrEmpty(playlist.ImageUrl))
+                                    {
+                                        <img src="@playlist.ImageUrl" alt="Playlist Cover" />
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-music"></i>
+                                    }
+                                </div>
+                                <div class="melody-info">
+                                    <div class="melody-title">@playlist.Name</div>
+                                    <div class="melody-creator">@playlist.PlaylistSongs.Count songs</div>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="empty-playlist">
+                    <p>No playlists yet. Create one!</p>
+                </div>
+            }
+
+        }
+        else
+        {
+            <div class="sidebar-section">
+                <p>Create your own playlists</p>
+                <button class="sidebar-button" onclick="location.href='@Url.Action("Login", "Account")'">Login to create</button>
+            </div>
+        }
+
+    </div>
+
+
+</body>

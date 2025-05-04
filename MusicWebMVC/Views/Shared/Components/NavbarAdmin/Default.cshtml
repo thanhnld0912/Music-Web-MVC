@@ -1,0 +1,1102 @@
+﻿@using MusicWebMVC.Models
+@model IEnumerable<MusicWebMVC.Models.Post>
+@{
+    var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/admin.jpg";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Music - Melofy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/newfeed.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="search-container">
+            <a href="@Url.Action("NewFeedAdmin", "Home")" class="home-btn">
+                @if (ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true)
+                {
+                    <i class="fa-solid fa-home home-icon @(ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true ? "active" : "")"></i>
+                }
+                else
+                {
+                    <i class="fa-solid fa-home home-icon @(ViewData["IsHome"] != null && (bool)ViewData["IsHome"] == true ? "" : "inactive")"></i>
+                }
+            </a>
+            <div class="search-box">
+                <form action="@Url.Action("SearchPageAdmin", "Home")" method="get" id="searchForm">
+                    <i class="fas fa-search search-icon" id="searchIcon"></i>
+                    <input type="text" name="searchTerm" placeholder="What do you want to hear?" id="searchInput"
+                           value="@Context.Request.Query["searchTerm"]">
+                    <i class="fas fa-times clear-icon" id="clearSearchIcon" style="display: none;"></i>
+                </form>
+            </div>
+            <div class="auth-buttons">
+                @if (Context.Session.GetString("UserId") != null)
+                {
+                    <div class="notification-bell-container">
+                        <div class="notification-bell">
+                            <i class="fa-solid fa-bell"></i>
+                            <span class="notification-badge" id="notificationBadge">0</span>
+                        </div>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <button id="markAllAsRead">Mark all as read</button>
+                            </div>
+                            <div class="notification-list" id="notificationList">
+                                <!-- Notifications will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-icon-container">
+                        <div class="message-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="message-badge" id="messageBadge">0</span>
+                        </div>
+                        <div class="message-dropdown" id="messageDropdown">
+                            <div class="message-header">
+                                <h3>Messages</h3>
+
+                            </div>
+                            <div class="message-list" id="messageList">
+                                <!-- Recent conversations will be loaded here -->
+                            </div>
+                            <div class="new-message-footer">
+                                <button id="newMessageBtn">New Message</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="avatar-container" id="avatarContainer">
+                        <img src="@avatarUrl" alt="Avatar" class="user-avatar">
+                        <!-- Avatar Dropdown Menu -->
+                        <div class="avatar-dropdown" id="avatarDropdown">
+                            <ul class="avatar-dropdown-list">
+                                <li class="avatar-dropdown-item">
+                                    <a href="@Url.Action("Dashboard", "Admin")">
+                                        <i class="fas fa-user"></i>
+                                        Manage
+                                    </a>
+                                </li>
+                                <li class="avatar-dropdown-item">
+                                    <a href="@Url.Action("ProfileUserAdmin", "Home", new { id =  Context.Session.GetString("UserId")})">
+                                        <i class="fas fa-circle-user"></i>
+                                        Status
+                                    </a>
+                                </li>
+                                <li class="avatar-dropdown-item">
+                                    <a href="@Url.Action("ProfileAdmin", "Account")">
+                                        <i class="fas fa-user"></i>
+                                        Profile
+                                    </a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li class="avatar-dropdown-item">
+                                    <a href="@Url.Action("Logout", "Account")">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <button class="auth-button login" onclick="location.href='@Url.Action("Login", "Account")'">Login</button>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const clearIcon = document.getElementById('clearSearchIcon');
+                      const avatarContainer = document.getElementById('avatarContainer');
+            const avatarDropdown = document.getElementById('avatarDropdown');
+
+            if (avatarContainer) {
+                avatarContainer.addEventListener('click', function(e) {
+                    e.stopPropagation();
+
+                    if (avatarDropdown.style.display === 'block') {
+                        avatarDropdown.style.display = 'none';
+                    } else {
+                        avatarDropdown.style.display = 'block';
+                    }
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!avatarDropdown.contains(e.target) && e.target !== avatarContainer) {
+                        avatarDropdown.style.display = 'none';
+                    }
+                });
+            }
+                    if (searchInput.value.length > 0) {
+            clearIcon.style.display = 'block';
+        }
+            // Hiện nút clear khi có text
+            searchInput.addEventListener('input', function () {
+                clearIcon.style.display = this.value.length > 0 ? 'block' : 'none';
+            });
+
+            // Nhấn Enter để search
+            searchInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Ngăn form submit mặc định
+                    performSearch(this.value);
+                }
+            });
+
+            // Rời khỏi input cũng sẽ search
+            searchInput.addEventListener('blur', function () {
+                if (this.value.trim() !== '') {
+                    performSearch(this.value);
+                }
+            });
+
+            // Clear button
+            clearIcon.addEventListener('click', function (e) {
+                e.preventDefault();
+                searchInput.value = '';
+                this.style.display = 'none';
+                searchInput.focus();
+            });
+
+            // Click search icon để search
+            document.getElementById('searchIcon').addEventListener('click', function () {
+                if (searchInput.value.trim() !== '') {
+                    performSearch(searchInput.value);
+                }
+            });
+
+        function performSearch(searchTerm) {
+            if (searchTerm.trim() !== '') {
+                // Khởi tạo URL cơ bản
+                let searchUrl = '@Url.Action("SearchPageAdmin", "Home")' + '?searchTerm=' + encodeURIComponent(searchTerm);
+
+                // Thêm các bộ lọc mặc định (tất cả đều là "All")
+                searchUrl += '&genre=All&era=All&type=All';
+
+                // Thêm tham số sắp xếp mặc định nếu cần
+                searchUrl += '&sortBy=Most%20Popular';
+
+                window.location.href = searchUrl;
+            }
+        }
+        });
+                        let connection;
+
+             function startSignalRConnection() {
+            // Tạo kết nối SignalR
+            connection = new signalR.HubConnectionBuilder()
+                .withUrl("/notificationHub")
+                .withAutomaticReconnect([0, 2000, 5000, 10000])
+                .build();
+
+            // Đăng ký tham gia nhóm theo user ID khi kết nối thành công
+            connection.start()
+                .then(() => {
+                    console.log("SignalR Connected");
+                    // Join group với userId của current user
+                    const userId = '@Context.Session.GetString("UserId")';
+                    if (userId) {
+                        connection.invoke("JoinGroup", userId).catch(err => console.error(err));
+                    }
+                })
+                .catch(err => {
+                    console.error("Lỗi kết nối SignalR:", err);
+                    setTimeout(startSignalRConnection, 5000);
+                });
+
+            // Xử lý thông báo
+            connection.on("ReceiveNotification", function(user, message, notificationType, url) {
+                console.log("Nhận thông báo:", user, message);
+                // Check if notification is for current user
+                const userId = '@Context.Session.GetString("UserId")';
+                if (user === userId) {
+                    updateUnreadCount(unreadCount + 1);
+                    showNotificationPopup(message, notificationType);
+
+                    // If dropdown is open, reload notifications
+                    if (notificationDropdown.style.display === 'block') {
+                        loadNotifications();
+                    }
+                }
+            });
+
+            // Xử lý nhận tin nhắn mới
+                    const chatConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .withAutomaticReconnect([0, 2000, 5000, 10000])
+            .build();
+
+        chatConnection.start()
+            .then(() => {
+                console.log("Chat SignalR Connected");
+            })
+            .catch(err => {
+                console.error("Chat SignalR Connection Error:", err);
+                setTimeout(() => startChatSignalRConnection(), 5000);
+            });
+
+            chatConnection.on("ReceiveMessage", function(senderId, senderName, message) {
+                console.log("Tin nhắn mới:", senderId, senderName, message);
+
+                // Kiểm tra xem cửa sổ chat có đang mở không
+                const chatWindow = document.querySelector(`.chat-window[data-user-id="${senderId}"]`);
+
+                if (chatWindow) {
+                    // Thêm tin nhắn vào cửa sổ chat nếu đang mở
+                    addMessageToChat(senderId, message, false);
+
+                    // Đánh dấu đã đọc nếu cửa sổ chat hiển thị
+                    const messagesContainer = chatWindow.querySelector('.chat-messages');
+                    if (messagesContainer.style.display !== 'none') {
+                        markConversationAsRead(senderId);
+                    } else {
+                        // Nếu cửa sổ chat đang thu nhỏ, tăng số lượng tin nhắn chưa đọc
+                        updateUnreadMessageCount(unreadMessages + 1);
+                    }
+                } else {
+                    // Cửa sổ chat không mở, tăng số lượng tin nhắn chưa đọc
+                    updateUnreadMessageCount(unreadMessages + 1);
+
+                    // Cập nhật danh sách cuộc trò chuyện gần đây nếu dropdown đang mở
+                    if (messageDropdown && messageDropdown.style.display === 'block') {
+                        loadRecentConversations();
+                    }
+
+                    // Hiển thị thông báo tin nhắn mới
+                    showMessageNotification(senderName, message);
+                }
+            });
+        }
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+            startSignalRConnection();
+            // Check if user is logged in
+            const userId = '@Context.Session.GetString("UserId")';
+            if (!userId) return;
+
+
+            let unreadCount = 0;
+            const notificationBell = document.querySelector('.notification-bell');
+            const notificationBadge = document.getElementById('notificationBadge');
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            const notificationList = document.getElementById('notificationList');
+            const markAllAsReadBtn = document.getElementById('markAllAsRead');
+
+            // Create notification popup element
+            const notificationPopup = document.createElement('div');
+            notificationPopup.className = 'notification-popup';
+            notificationPopup.style.display = 'none';
+            document.body.appendChild(notificationPopup);
+
+            // Toggle notification dropdown
+            notificationBell.addEventListener('click', function(e) {
+                e.stopPropagation();
+
+                if (notificationDropdown.style.display === 'block') {
+                    notificationDropdown.style.display = 'none';
+                } else {
+                    notificationDropdown.style.display = 'block';
+                    loadNotifications();
+                }
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!notificationDropdown.contains(e.target) && e.target !== notificationBell) {
+                    notificationDropdown.style.display = 'none';
+                }
+            });
+
+            // Initialize SignalR connection
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("/notificationHub")
+                .build();
+
+            // Handle receiving notifications
+               connection.on("ReceiveNotification", function(user, message, notificationType, url) {
+            // Chuyển cả hai về string để so sánh
+            if (user === userId.toString()) {
+                updateUnreadCount(unreadCount + 1);
+                showNotificationPopup(message, notificationType);
+
+                if (notificationDropdown.style.display === 'block') {
+                    loadNotifications();
+                }
+            }
+        });
+
+            // Start connection
+        connection.start()
+            .then(() => {
+                console.log("SignalR Connected");
+                // Enable UI elements that require SignalR only after connection
+            })
+            .catch(function(err) {
+                console.error("SignalR Connection Error: " + err.toString());
+            });
+
+            // Load notifications from API
+            function loadNotifications() {
+                fetch(`/Home/GetNotifications/${userId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        notificationList.innerHTML = '';
+
+                        if (data.length === 0) {
+                            notificationList.innerHTML = '<div class="empty-notification">No notifications</div>';
+                            return;
+                        }
+
+                        // Count unread notifications
+                        const unreadNotifications = data.filter(n => !n.isRead);
+                        updateUnreadCount(unreadNotifications.length);
+
+                        // Display notifications
+                        data.forEach(notification => {
+                            const notificationItem = document.createElement('div');
+                            notificationItem.className = `notification-item ${notification.isRead ? '' : 'unread'}`;
+                            notificationItem.dataset.id = notification.id;
+                            notificationItem.dataset.url = notification.url || '';
+                            notificationItem.dataset.type = notification.type || '';
+
+                            const timeAgo = formatTimeAgo(new Date(notification.createdAt));
+
+                            notificationItem.innerHTML = `
+                                <div class="notification-dot"></div>
+                                <div class="notification-content">
+                                    <div class="notification-message">${notification.message}</div>
+                                    <div class="notification-time">${timeAgo}</div>
+                                </div>
+                            `;
+
+                            // Mark as read and navigate when clicked
+                            notificationItem.addEventListener('click', function() {
+                                const notificationId = this.dataset.id;
+                                const notificationUrl = this.dataset.url;
+                                const notificationType = this.dataset.type;
+
+                                if (!notification.isRead) {
+                                    markAsRead(notificationId);
+                                    notificationItem.classList.remove('unread');
+                                    updateUnreadCount(unreadCount - 1);
+                                }
+
+
+
+                                // Navigate to the notification URL if available
+        if (notificationUrl && notificationUrl !== '') {
+            window.location.href = notificationUrl;
+        }
+                            });
+
+                            notificationList.appendChild(notificationItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading notifications:', error);
+                        notificationList.innerHTML = '<div class="empty-notification">Failed to load notifications</div>';
+                    });
+            }
+
+            // Mark notification as read
+            function markAsRead(notificationId) {
+                fetch(`/Home/mark-as-read/${notificationId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).catch(error => console.error('Error marking notification as read:', error));
+            }
+
+            // Mark all notifications as read
+            markAllAsReadBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+
+                const unreadItems = notificationList.querySelectorAll('.notification-item.unread');
+                unreadItems.forEach(item => {
+                    const notificationId = item.dataset.id;
+                    markAsRead(notificationId);
+                    item.classList.remove('unread');
+                });
+
+                updateUnreadCount(0);
+            });
+
+            // Update unread count badge
+            function updateUnreadCount(count) {
+                unreadCount = count;
+                notificationBadge.textContent = count;
+                notificationBadge.style.display = count > 0 ? 'flex' : 'none';
+            }
+
+            // Show notification popup
+            function showNotificationPopup(message, type) {
+                // Set popup content based on notification type
+                let iconClass = 'fa-bell';
+                let colorClass = '';
+
+                switch(type?.toLowerCase()) {
+                    case 'like':
+                        iconClass = 'fa-heart';
+                        colorClass = 'notification-like';
+                        break;
+                    case 'comment':
+                        iconClass = 'fa-comment';
+                        colorClass = 'notification-comment';
+                        break;
+                    case 'dislike':
+                        iconClass = 'fa-thumbs-down';
+                        colorClass = 'notification-dislike';
+                        break;
+                    case 'follow':
+                        iconClass = 'fa-user-plus';
+                        colorClass = 'notification-follow';
+                        break;
+                    case 'reportcomment':
+                        iconClass = 'fa-flag';
+                        colorClass = 'notification-report';
+                        break;
+                }
+
+                notificationPopup.className = `notification-popup ${colorClass}`;
+                notificationPopup.innerHTML = `
+                    <div class="notification-popup-icon">
+                        <i class="fas ${iconClass}"></i>
+                    </div>
+                    <div class="notification-popup-content">
+                        <div class="notification-popup-message">${message}</div>
+                    </div>
+                    <div class="notification-popup-close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                `;
+
+                // Show popup
+                notificationPopup.style.display = 'flex';
+
+                // Add click handler to close button
+                const closeBtn = notificationPopup.querySelector('.notification-popup-close');
+                closeBtn.addEventListener('click', function() {
+                    notificationPopup.style.display = 'none';
+                });
+
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    notificationPopup.style.display = 'none';
+                }, 5000);
+            }
+
+            // Format timestamp to "time ago" format
+            function formatTimeAgo(date) {
+                const now = new Date();
+                const diffInSeconds = Math.floor((now - date) / 1000);
+
+                if (diffInSeconds < 60) return 'Just now';
+
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+
+                const diffInHours = Math.floor(diffInMinutes / 60);
+                if (diffInHours < 24) return `${diffInHours}h ago`;
+
+                const diffInDays = Math.floor(diffInHours / 24);
+                if (diffInDays < 7) return `${diffInDays}d ago`;
+
+                return date.toLocaleDateString();
+            }
+
+            // Initial load of notifications
+            loadNotifications();
+        });
+
+
+
+
+                    function formatTimeAgo(date) {
+                const now = new Date();
+                const diffInSeconds = Math.floor((now - date) / 1000);
+
+                if (diffInSeconds < 60) return 'Just now';
+
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+
+                const diffInHours = Math.floor(diffInMinutes / 60);
+                if (diffInHours < 24) return `${diffInHours}h ago`;
+
+                const diffInDays = Math.floor(diffInHours / 24);
+                if (diffInDays < 7) return `${diffInDays}d ago`;
+
+                return date.toLocaleDateString();
+            }
+
+                // Add this to your existing DOMContentLoaded event handler
+        const messageIcon = document.querySelector('.message-icon');
+        const messageBadge = document.getElementById('messageBadge');
+        const messageDropdown = document.getElementById('messageDropdown');
+        const messageList = document.getElementById('messageList');
+        const newMessageBtn = document.getElementById('newMessageBtn');
+
+        // Initialize chat variables
+        let activeChats = [];
+        let unreadMessages = 0;
+
+        // Toggle message dropdown
+        if (messageIcon) {
+            messageIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+
+                if (messageDropdown.style.display === 'block') {
+                    messageDropdown.style.display = 'none';
+                } else {
+                    messageDropdown.style.display = 'block';
+                    loadRecentConversations();
+
+                    // Close notification dropdown if open
+                    if (notificationDropdown) {
+                        notificationDropdown.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (messageDropdown && !messageDropdown.contains(e.target) && e.target !== messageIcon) {
+                messageDropdown.style.display = 'none';
+            }
+        });
+
+        // Update unread message count badge
+        function updateUnreadMessageCount(count) {
+            unreadMessages = count;
+            messageBadge.textContent = count;
+            messageBadge.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        // Load recent conversations
+            function loadRecentConversations() {
+            // Get user ID from session
+            const userId = '@Context.Session.GetString("UserId")';
+            if (!userId) return;
+
+            fetch(`/Chat/GetRecentConversations/${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Server error');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    messageList.innerHTML = '';
+
+                    // Check if data contains an error
+                    if (data.error) {
+                        messageList.innerHTML = `<div class="empty-message">${data.error}</div>`;
+                        return;
+                    }
+
+                    if (!Array.isArray(data) || data.length === 0) {
+                        messageList.innerHTML = '<div class="empty-message">No messages</div>';
+                        return;
+                    }
+
+                    // Count unread messages
+                    const unreadCount = data.reduce((acc, conv) => acc + (conv.unreadCount || 0), 0);
+                    updateUnreadMessageCount(unreadCount);
+
+                    // Display conversations
+                    data.forEach(conversation => {
+                        const messageItem = document.createElement('div');
+                        messageItem.className = `message-item ${conversation.unreadCount > 0 ? 'unread' : ''}`;
+                        messageItem.dataset.userId = conversation.userId;
+
+                        const timeAgo = formatTimeAgo(new Date(conversation.lastMessageTime));
+
+                        messageItem.innerHTML = `
+                            <img src="${conversation.avatarUrl || '/img/avatar.jpg'}" alt="Avatar" class="message-avatar">
+                            <div class="message-content">
+                                <div class="message-sender">${conversation.username}</div>
+                                <div class="message-preview">${conversation.lastMessage}</div>
+                                <div class="message-time">${timeAgo}</div>
+                            </div>
+                        `;
+
+                        // Open chat window when clicked
+                        messageItem.addEventListener('click', function() {
+                            const otherUserId = this.dataset.userId;
+                            openChatWindow(otherUserId, conversation.username, conversation.avatarUrl);
+
+                            // Close dropdown
+                            messageDropdown.style.display = 'none';
+                        });
+
+                        messageList.appendChild(messageItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading conversations:', error);
+                    messageList.innerHTML = '<div class="empty-message">Failed to load messages. Please try again.</div>';
+                });
+        }
+
+        // New message button
+        if (newMessageBtn) {
+            newMessageBtn.addEventListener('click', function() {
+                // Show new message dialog
+                showNewMessageDialog();
+            });
+        }
+
+        // Show new message dialog
+        function showNewMessageDialog() {
+            // Create dialog element
+            const dialog = document.createElement('div');
+            dialog.className = 'new-message-dialog';
+            dialog.innerHTML = `
+                <div class="new-message-dialog-content">
+                    <div class="new-message-dialog-header">
+                        <h3>New Message</h3>
+                        <button class="close-dialog-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="new-message-dialog-body">
+                        <input type="text" id="userSearchInput" placeholder="Search for users...">
+                        <div id="userSearchResults"></div>
+                    </div>
+                </div>
+            `;
+
+            // Add dialog styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .new-message-dialog {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    color : black;
+                }
+                .new-message-dialog-content {
+                    width: 400px;
+                    background-color: white;
+                    border-radius: 8px;
+                    overflow: hidden;
+                }
+                .new-message-dialog-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px;
+                    border-bottom: 1px solid #e4e6e9;
+                }
+                .new-message-dialog-header h3 {
+                    margin: 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                .close-dialog-btn {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 16px;
+                    color: #65676b;
+                }
+                .new-message-dialog-body {
+                    padding: 15px;
+                }
+                #userSearchInput {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #e4e6e9;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                }
+                #userSearchResults {
+                    max-height: 300px;
+                    overflow-y: auto;
+                }
+                .user-result-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px;
+                    border-bottom: 1px solid #f0f2f5;
+                    cursor: pointer;
+                }
+                .user-result-item:hover {
+                    background-color: #f0f2f5;
+                }
+                .user-result-avatar {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    object-fit: cover;
+                }
+                .user-result-name {
+                    font-weight: 500;
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(dialog);
+
+            // Close dialog
+            const closeBtn = dialog.querySelector('.close-dialog-btn');
+            closeBtn.addEventListener('click', function() {
+                document.body.removeChild(dialog);
+            });
+
+            // Search input
+            const searchInput = dialog.querySelector('#userSearchInput');
+            const searchResults = dialog.querySelector('#userSearchResults');
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.trim();
+                if (searchTerm.length < 2) {
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                // Search for users (followers and following)
+                fetch(`/Chat/SearchUsers?term=${encodeURIComponent(searchTerm)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        searchResults.innerHTML = '';
+
+                        if (data.length === 0) {
+                            searchResults.innerHTML = '<div class="empty-search">No users found</div>';
+                            return;
+                        }
+
+                        data.forEach(user => {
+                            const userItem = document.createElement('div');
+                            userItem.className = 'user-result-item';
+                            userItem.dataset.userId = user.id;
+
+                            userItem.innerHTML = `
+                                <img src="${user.avatarUrl || '/img/avatar.jpg'}" alt="Avatar" class="user-result-avatar">
+                                <div class="user-result-name">${user.username}</div>
+                            `;
+
+                            // Open chat window when clicked
+                            userItem.addEventListener('click', function() {
+                                const userId = this.dataset.userId;
+                                openChatWindow(userId, user.username, user.avatarUrl);
+                                document.body.removeChild(dialog);
+                            });
+
+                            searchResults.appendChild(userItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error searching users:', error);
+                        searchResults.innerHTML = '<div class="empty-search">Error searching users</div>';
+                    });
+            });
+        }
+
+        // Open chat window
+        function openChatWindow(userId, username, avatarUrl) {
+            // Check if chat window already exists
+            const existingChat = document.querySelector(`.chat-window[data-user-id="${userId}"]`);
+            if (existingChat) {
+                existingChat.style.display = 'flex';
+                return;
+            }
+
+            // Create chat window
+            const chatWindow = document.createElement('div');
+            chatWindow.className = 'chat-window';
+            chatWindow.dataset.userId = userId;
+            chatWindow.style.display = 'flex';
+
+            // Position window correctly if multiple chats
+            const chatCount = document.querySelectorAll('.chat-window').length;
+            chatWindow.style.right = `${20 + (chatCount * 340)}px`;
+
+            chatWindow.innerHTML = `
+                <div class="chat-header">
+                    <div class="chat-title">
+                        <img src="${avatarUrl || '/img/avatar.jpg'}" alt="Avatar">
+                        <span>${username}</span>
+                    </div>
+                    <div class="chat-actions">
+                        <div class="chat-action-btn minimize-chat">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                        <div class="chat-action-btn close-chat">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages-${userId}"></div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" placeholder="Type a message...">
+                    <button class="send-btn" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(chatWindow);
+
+            // Load chat history
+            loadChatHistory(userId, username);
+
+            // Mark conversation as read
+            markConversationAsRead(userId);
+
+            // Add event listeners
+            const minimizeBtn = chatWindow.querySelector('.minimize-chat');
+            const closeBtn = chatWindow.querySelector('.close-chat');
+            const chatInput = chatWindow.querySelector('.chat-input');
+            const sendBtn = chatWindow.querySelector('.send-btn');
+
+            // Minimize chat
+            minimizeBtn.addEventListener('click', function() {
+                const messagesContainer = chatWindow.querySelector('.chat-messages');
+                const inputContainer = chatWindow.querySelector('.chat-input-container');
+
+                if (messagesContainer.style.display === 'none') {
+                    messagesContainer.style.display = 'flex';
+                    inputContainer.style.display = 'flex';
+                    chatWindow.style.height = '400px';
+                } else {
+                    messagesContainer.style.display = 'none';
+                    inputContainer.style.display = 'none';
+                    chatWindow.style.height = 'auto';
+                }
+            });
+
+            // Close chat
+            closeBtn.addEventListener('click', function() {
+                document.body.removeChild(chatWindow);
+
+                // Reposition other chat windows
+                const chatWindows = document.querySelectorAll('.chat-window');
+                chatWindows.forEach((chat, index) => {
+                    chat.style.right = `${20 + (index * 340)}px`;
+                });
+            });
+
+            // Enable/disable send button based on input
+            chatInput.addEventListener('input', function() {
+                sendBtn.disabled = this.value.trim() === '';
+            });
+
+            // Send message on Enter
+            chatInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && this.value.trim() !== '') {
+                    sendMessage(userId, username, this.value.trim());
+                    this.value = '';
+                    sendBtn.disabled = true;
+                }
+            });
+
+            // Send message on button click
+            sendBtn.addEventListener('click', function() {
+                if (chatInput.value.trim() !== '') {
+                    sendMessage(userId, username, chatInput.value.trim());
+                    chatInput.value = '';
+                    sendBtn.disabled = true;
+                }
+            });
+
+            // Add to active chats
+            activeChats.push({
+                userId: userId,
+                username: username,
+                element: chatWindow
+            });
+        }
+
+        // Load chat history
+        function loadChatHistory(userId, username) {
+            const messagesContainer = document.getElementById(`chatMessages-${userId}`);
+
+            fetch(`/Chat/GetMessages/${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    messagesContainer.innerHTML = '';
+
+                    if (data.length === 0) {
+                        messagesContainer.innerHTML = '<div class="no-messages">No messages yet. Start a conversation!</div>';
+                        return;
+                    }
+
+                    // Display messages
+                    data.forEach(message => {
+                        addMessageToChat(userId, message.content, message.isFromCurrentUser, message.sentAt);
+                    });
+
+                    // Scroll to bottom
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Error loading messages:', error);
+                    messagesContainer.innerHTML = '<div class="error-message">Failed to load messages</div>';
+                });
+        }
+
+        // Send message
+        function sendMessage(userId, username, content) {
+            // Get current user ID
+            const currentUserId = '@Context.Session.GetString("UserId")';
+            if (!currentUserId) return;
+
+            // Add message to chat (optimistic UI update)
+            addMessageToChat(userId, content, true);
+
+            // Send message to server
+            fetch('/Chat/SendMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    receiverId: userId,
+                    content: content
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    console.error('Error sending message:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+            });
+        }
+
+        // Add message to chat
+        function addMessageToChat(userId, content, isSent, timestamp = null) {
+            const messagesContainer = document.getElementById(`chatMessages-${userId}`);
+            const message = document.createElement('div');
+            message.className = `chat-message ${isSent ? 'message-sent' : 'message-received'}`;
+
+            // Use current time if timestamp not provided
+            const messageTime = timestamp ? new Date(timestamp) : new Date();
+            const timeString = messageTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            message.innerHTML = `
+                ${content}
+                <div class="message-time-small">${timeString}</div>
+            `;
+
+            messagesContainer.appendChild(message);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Mark conversation as read
+        function markConversationAsRead(userId) {
+            fetch(`/Chat/MarkAsRead/${userId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update unread count
+                    loadRecentConversations();
+                }
+            })
+            .catch(error => {
+                console.error('Error marking conversation as read:', error);
+            });
+        }
+
+
+
+        // Show message notification
+        function showMessageNotification(senderName, message) {
+            const notification = document.createElement('div');
+            notification.className = 'message-notification';
+            notification.innerHTML = `
+                <div class="message-notification-content">
+                    <div class="message-notification-sender">${senderName}</div>
+                    <div class="message-notification-text">${message}</div>
+                </div>
+            `;
+
+            // Add notification styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .message-notification {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    padding: 15px;
+                    z-index: 2000;
+                    max-width: 300px;
+                    animation: slideIn 0.3s, fadeOut 0.3s 4.7s;
+                    cursor: pointer;
+                    color : black;
+                }
+                .message-notification-sender {
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
+                .message-notification-text {
+                    font-size: 14px;
+                    color: #65676b;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+        @@keyframes slideIn {
+                    from { transform: translateY(100%); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+        @@keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(notification);
+
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 5000);
+
+            // Open chat when notification clicked
+            notification.addEventListener('click', function() {
+                // Find sender ID and open chat
+                fetch(`/Chat/GetUserByName?username=${encodeURIComponent(senderName)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.id) {
+                            openChatWindow(data.id, data.username, data.avatarUrl);
+                            document.body.removeChild(notification);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error getting user:', error);
+                    });
+            });
+        }
+
+    </script>
+</body>

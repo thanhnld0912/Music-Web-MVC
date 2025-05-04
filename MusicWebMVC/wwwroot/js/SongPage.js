@@ -1,4 +1,6 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿/*songpage */
+
+document.addEventListener('DOMContentLoaded', function () {
     const currentUserId = document.getElementById('current-user-id').value;
     const postId = document.getElementById('post-id').value;
     const likeButton = document.querySelector('.like-btn');
@@ -200,6 +202,7 @@
     }
 
     // Comment Submission
+    // Updated submitComment function to include edit, delete, report buttons
     function submitComment(event) {
         const commentInput = document.getElementById('comment-input');
         const commentsSection = document.getElementById('comments-section');
@@ -226,24 +229,62 @@
                         try {
                             const newComment = JSON.parse(xhr.responseText);
 
+                            // Create new comment element with action buttons
                             const commentItem = document.createElement('div');
                             commentItem.className = 'comment';
-                            commentItem.innerHTML = `
-                                <div class="left-comment-user">
-                                    <div class="user-icon-commentcontent">${newComment.userName[0] || 'A'}</div>
+                            commentItem.setAttribute('data-comment-id', newComment.id);
+
+                            // Check if this is the current user's comment to show edit/delete buttons
+                            const isCurrentUserComment = currentUserId == newComment.userId;
+
+                            // Generate action buttons based on user ownership
+                            let actionButtons = '';
+                            if (isCurrentUserComment) {
+                                actionButtons = `
+                                <div class="comment-actions">
+                                    <span class="comment-action edit-comment-btn" onclick="showEditCommentForm(${newComment.id})">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </span>
+                                    <span class="comment-action delete-comment-btn" onclick="confirmDeleteComment(${newComment.id})">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </span>
                                 </div>
-                                <div class="comment-user">
-                                    <div class="comment-username">
-                                        <p>${newComment.userName}</p>
+                            `;
+                            } else {
+                                actionButtons = `
+                                <div class="comment-actions">
+                                    <span class="comment-action report-comment-btn" onclick="showReportCommentForm(${newComment.id})">
+                                        <i class="fas fa-flag"></i> Report
+                                    </span>
+                                </div>
+                            `;
+                            }
+
+                            commentItem.innerHTML = `
+                            <div class="left-comment-user">
+                                <div class="user-icon-commentcontent">${newComment.userName[0] || 'A'}</div>
+                            </div>
+                            <div class="comment-user">
+                                <div class="comment-username">
+                                    <p>${newComment.userName}</p>
+                                </div>
+                                <div class="comment-content">
+                                    <p id="comment-text-${newComment.id}">${newComment.content}</p>
+                                    <div class="comment-meta">
+                                        <span class="comment-time">${new Date(newComment.createdAt).toLocaleString()}</span>
+                                        ${actionButtons}
                                     </div>
-                                    <div class="comment-content">
-                                        <p>${newComment.content}</p>
-                                        <div class="comment-meta">
-                                            <span class="comment-time">${new Date(newComment.createdAt).toLocaleString()}</span>
+                                    <!-- Edit form (hidden by default) -->
+                                    <div class="edit-form" id="edit-form-${newComment.id}" style="display: none;">
+                                        <textarea class="edit-comment-textarea">${newComment.content}</textarea>
+                                        <div class="edit-buttons">
+                                            <button class="cancel-edit-btn" onclick="cancelEditComment(${newComment.id})">Cancel</button>
+                                            <button class="save-edit-btn" onclick="saveCommentEdit(${newComment.id})">Save</button>
                                         </div>
                                     </div>
                                 </div>
-                            `;
+                            </div>
+                        `;
 
                             commentsSection.appendChild(commentItem);
                             commentInput.value = '';
@@ -262,6 +303,308 @@
             xhr.send(JSON.stringify(commentData));
         }
     }
+
+    // Add these new functions to handle edit, delete and report
+    function showEditCommentForm(commentId) {
+    // Try to find the edit form with either class
+    const editForm = document.getElementById(`edit-form-${commentId}`);
+    if (!editForm) {
+        console.error(`Edit form not found for comment ${commentId}`);
+        return;
+    }
+    
+    // Find comment text using both possible selectors
+    const commentText = document.getElementById(`comment-text-${commentId}`) || 
+                       document.querySelector(`.comment[data-comment-id="${commentId}"] .comment-content p`);
+    
+    // Hide text, show form
+    if (commentText) commentText.style.display = 'none';
+    editForm.style.display = 'block';
+}
+
+// Also update cancelEditComment to handle both form types
+function cancelEditComment(commentId) {
+    const editForm = document.getElementById(`edit-form-${commentId}`);
+    if (!editForm) {
+        console.error(`Edit form not found for comment ${commentId}`);
+        return;
+    }
+    
+    const commentText = document.getElementById(`comment-text-${commentId}`) || 
+                       document.querySelector(`.comment[data-comment-id="${commentId}"] .comment-content p`);
+    
+    if (commentText) commentText.style.display = 'block';
+    editForm.style.display = 'none';
+}
+
+    function saveCommentEdit(commentId) {
+        // Try to find the textarea in different possible locations
+        const editTextarea = document.querySelector(`#edit-form-${commentId} .edit-comment-textarea`) ||
+            document.querySelector(`.comment-edit-form#edit-form-${commentId} textarea`);
+
+        if (!editTextarea) {
+            console.error(`Edit textarea not found for comment ${commentId}`);
+            showNotification("Không thể tìm thấy nội dung chỉnh sửa", "error");
+            return;
+        }
+
+        const newContent = editTextarea.value.trim();
+
+        if (!newContent) {
+            showNotification("Bình luận không được để trống", "warning");
+            return;
+        }
+
+        const editData = {
+            userId: currentUserId,
+            content: newContent
+        };
+
+        // Send AJAX request to update the comment
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/EditComment/${commentId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        // Try to find the comment text element in different possible formats
+                        const commentTextEl = document.getElementById(`comment-text-${commentId}`) ||
+                            document.querySelector(`.comment[data-comment-id="${commentId}"] .comment-content p`);
+
+                        if (commentTextEl) {
+                            commentTextEl.textContent = newContent;
+
+                            // Hide the edit form
+                            cancelEditComment(commentId);
+
+                            showNotification("Bình luận đã được cập nhật", "success");
+                        } else {
+                            console.error(`Comment text element not found for comment ${commentId}`);
+                            showNotification("Bình luận đã được cập nhật, vui lòng làm mới trang", "info");
+                        }
+                    } catch (error) {
+                        console.error("Lỗi khi cập nhật bình luận:", error);
+                        showNotification("Không thể cập nhật bình luận", "error");
+                    }
+                } else {
+                    console.error("Lỗi khi cập nhật bình luận:", xhr.responseText);
+                    showNotification("Không thể cập nhật bình luận", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(editData));
+    }
+    function confirmDeleteComment(commentId) {
+        if (confirm("Bạn có chắc chắn muốn xóa bình luận này?")) {
+            deleteComment(commentId);
+        }
+    }
+
+    function deleteComment(commentId) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/DeleteComment/${commentId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // Remove the comment from the DOM
+                    const commentElement = document.querySelector(`.comment[data-comment-id="${commentId}"]`);
+                    if (commentElement) {
+                        commentElement.remove();
+                    }
+
+                    showNotification("Bình luận đã được xóa", "success");
+                } else {
+                    console.error("Lỗi khi xóa bình luận:", xhr.responseText);
+                    showNotification("Không thể xóa bình luận", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(currentUserId));
+    }
+
+    function showReportCommentForm(commentId) {
+        // Create a modal for reporting
+        const reportModal = document.createElement('div');
+        reportModal.className = 'report-modal';
+        reportModal.id = 'report-modal';
+
+        reportModal.innerHTML = `
+            <div class="report-container">
+                <div class="report-header">
+                    <h3>Report Comment</h3>
+                    <button class="close-report-btn" onclick="closeReportForm()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="report-body">
+                    <p>Please select a reason for reporting this comment:</p>
+                    <select id="report-reason">
+                        <option value="spam">Spam</option>
+                        <option value="harassment">Harassment</option>
+                        <option value="inappropriate">Inappropriate content</option>
+                        <option value="offensive">Offensive language</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <textarea id="report-details" placeholder="Additional details (optional)"></textarea>
+                </div>
+                <div class="report-footer">
+                    <button class="cancel-btn" onclick="closeReportForm()">Cancel</button>
+                    <button class="report-btn" onclick="submitReport(${commentId})">Submit Report</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(reportModal);
+    }
+
+
+    function submitReport(commentId) {
+        // Get reason from select element
+        const reasonSelect = document.getElementById('report-reason');
+        const details = document.getElementById('report-details');
+
+        if (!reasonSelect) {
+            showNotification("Không thể lấy lý do báo cáo", "error");
+            return;
+        }
+
+        const reason = reasonSelect.value;
+        const additionalDetails = details ? details.value.trim() : '';
+
+        if (!reason) {
+            showNotification("Vui lòng chọn lý do báo cáo", "warning");
+            return;
+        }
+
+        // Format reason with any additional details
+        const finalReason = additionalDetails
+            ? `${reason}: ${additionalDetails}`
+            : reason;
+
+        // Prepare report data
+        const reportData = {
+            userId: currentUserId,
+            reason: finalReason
+        };
+
+        // Send AJAX request to report the comment
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/ReportComment/${commentId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    closeReportForm();
+                    showNotification("Đã gửi báo cáo bình luận", "success");
+                } else if (xhr.status === 400) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.message && response.message.includes("already reported")) {
+                            showNotification("Bạn đã báo cáo bình luận này rồi", "warning");
+                        } else {
+                            showNotification(response.message || "Không thể báo cáo bình luận", "error");
+                        }
+                    } catch (e) {
+                        showNotification("Không thể báo cáo bình luận", "error");
+                    }
+                    closeReportForm();
+                } else {
+                    console.error("Lỗi khi báo cáo bình luận:", xhr.responseText);
+                    showNotification("Không thể báo cáo bình luận", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(reportData));
+    }
+
+
+    // When the page loads, we need to update all existing comments to have the action buttons
+    document.addEventListener('DOMContentLoaded', function () {
+        // Process existing comments to add action buttons
+        const existingComments = document.querySelectorAll('.comment');
+
+        existingComments.forEach(comment => {
+            const commentId = comment.getAttribute('data-comment-id');
+            if (!commentId) return;
+
+            // Get the userId from a data attribute (need to add this to the HTML)
+            // or make an AJAX call to get the comment owner
+            const commentUserId = comment.getAttribute('data-user-id');
+            const commentContent = comment.querySelector('.comment-content p');
+            const commentMeta = comment.querySelector('.comment-meta');
+
+            if (commentMeta && commentContent) {
+                // Check if this comment belongs to the current user
+                const isCurrentUserComment = currentUserId && commentUserId && currentUserId == commentUserId;
+
+                // Create action buttons container if it doesn't exist
+                let actionsContainer = commentMeta.querySelector('.comment-actions');
+                if (!actionsContainer) {
+                    actionsContainer = document.createElement('div');
+                    actionsContainer.className = 'comment-actions';
+                    commentMeta.appendChild(actionsContainer);
+                } else {
+                    // Clear existing actions
+                    actionsContainer.innerHTML = '';
+                }
+
+                // Add appropriate action buttons
+                if (isCurrentUserComment) {
+                    actionsContainer.innerHTML = `
+                    <span class="comment-action edit-comment-btn" onclick="showEditCommentForm(${commentId})">
+                        <i class="fas fa-edit"></i> Edit
+                    </span>
+                    <span class="comment-action delete-comment-btn" onclick="confirmDeleteComment(${commentId})">
+                        <i class="fas fa-trash"></i> Delete
+                    </span>
+                `;
+                } else {
+                    actionsContainer.innerHTML = `
+                    <span class="comment-action report-comment-btn" onclick="showReportCommentForm(${commentId})">
+                        <i class="fas fa-flag"></i> Report
+                    </span>
+                `;
+                }
+
+                // Add edit form if it doesn't exist
+                if (!comment.querySelector(`.edit-form`)) {
+                    const contentText = commentContent.textContent || '';
+                    commentContent.id = `comment-text-${commentId}`;
+
+                    const editForm = document.createElement('div');
+                    editForm.className = 'edit-form';
+                    editForm.id = `edit-form-${commentId}`;
+                    editForm.style.display = 'none';
+                    editForm.innerHTML = `
+                    <textarea class="edit-comment-textarea">${contentText}</textarea>
+                    <div class="edit-buttons">
+                        <button class="cancel-edit-btn" onclick="cancelEditComment(${commentId})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveCommentEdit(${commentId})">Save</button>
+                    </div>
+                `;
+
+                    commentContent.after(editForm);
+                }
+            }
+        });
+    });
+
+    // Make sure to expose the new functions for inline event handlers
+    window.showEditCommentForm = showEditCommentForm;
+    window.cancelEditComment = cancelEditComment;
+    window.saveCommentEdit = saveCommentEdit;
+    window.confirmDeleteComment = confirmDeleteComment;
+    window.deleteComment = deleteComment;
+    window.showReportCommentForm = showReportCommentForm;
+    window.submitComment = submitComment;
 
     // Notification Modal Functions
     function createNotificationModal() {
@@ -406,13 +749,7 @@
         }
     }
 
-    function submitReport() {
-        // Implement report submission logic here
-        console.log('Báo cáo đã được gửi');
-        showNotification('Báo cáo đã được gửi', 'success');
-        closeModal('reportModal');
-    }
-
+  
     // Expose functions globally for inline event handlers
     window.toggleLike = toggleLike;
     window.copyLink = copyLink;
@@ -663,13 +1000,11 @@ function addSongToPlaylist(playlistId) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/Playlist/AddSong', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 try {
                     const response = JSON.parse(xhr.responseText);
-
                     if (response.success) {
                         showNotification(response.message, "success");
                     } else {
@@ -683,16 +1018,22 @@ function addSongToPlaylist(playlistId) {
                 showNotification('Please log in to add songs to playlists', "warning");
             } else if (xhr.status === 404) {
                 showNotification('Playlist or song not found', "error");
+            } else if (xhr.status === 400) {
+                // Add this block to handle the 400 BadRequest for duplicate songs
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    showNotification(response.message || 'Bài hát đã có trong playlist', "warning");
+                } catch (error) {
+                    showNotification('Bài hát đã có trong playlist', "warning");
+                }
             } else {
                 console.error('Request failed with status:', xhr.status);
                 showNotification('Failed to add song to playlist. Please try again.', "error");
             }
         }
     };
-
     xhr.send(`playlistId=${encodeURIComponent(playlistId)}&songId=${encodeURIComponent(songId)}`);
 }
-
 
 /*GLOBAL PLAYE------------------------------ */
 document.addEventListener('DOMContentLoaded', function () {
@@ -711,3 +1052,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 0);
 });
+
+function closeReportForm() {
+    const reportModal = document.getElementById('report-modal');
+    if (reportModal) {
+        document.body.removeChild(reportModal);
+    }
+}
+
+// Make sure to expose it for inline event handlers
+window.closeReportForm = closeReportForm;

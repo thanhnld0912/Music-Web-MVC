@@ -1,11 +1,13 @@
 ﻿// Tạo file riêng: global-player.js và thêm vào tất cả các trang
 
 // Các biến toàn cục
+let isPlayingStandalone = false;
 let currentPlaylist = [];
 let currentSongIndex = -1;
 let globalAudio = null;
 let isGlobalPlayerActive = false;
 let playerInterval = null;
+let currentPlaylistName = "";
 
 // Khởi tạo player khi trang tải xong
 document.addEventListener('DOMContentLoaded', function () {
@@ -34,13 +36,19 @@ function initializeGlobalPlayer() {
     // Gắn sự kiện cho các player cục bộ trên trang
     setupLocalPlayers();
 
+    // Check if user is VIP and add sleep timer if they are
+    //checkUserVIP().then(isVIP => {
+    //    if (isVIP) {
+    createSleepTimerUI();
+    //    }
+    //});
+
     // Thiết lập interval để lưu trạng thái định kỳ
     if (playerInterval) {
         clearInterval(playerInterval);
     }
     playerInterval = setInterval(savePlayerState, 5000);
 }
-
 // Tạo UI cho Global Player nếu chưa tồn tại
 function createGlobalPlayerUI() {
     // Kiểm tra nếu component đã được render từ server
@@ -48,19 +56,19 @@ function createGlobalPlayerUI() {
         return;
     }
 
-    // Tạo HTML của global player
     const playerHTML = `
     <div id="global-player" class="global-player" style="display: none;">
         <div class="player-container">
             <div class="album-container">
                 <div class="album-rotating">
-                    <img id="global-album-cover" src="~/img/default-album.jpg" alt="Album Cover">
+                    <img id="global-album-cover" src="" alt="Album Cover">
                 </div>
             </div>
             <div class="player-controls">
                 <div class="song-info">
                     <div id="global-song-title">No song playing</div>
                     <div id="global-song-artist">Unknown Artist</div>
+                    <div id="global-playlist-name" class="playlist-info">Not from playlist</div>
                 </div>
                 <div class="control-buttons">
                     <button id="btn-previous" title="Previous"><i class="fas fa-step-backward"></i></button>
@@ -77,6 +85,9 @@ function createGlobalPlayerUI() {
                 <div class="volume-section">
                     <i id="volume-icon" class="fas fa-volume-up volume-icon"></i>
                     <input type="range" id="global-volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1">
+                    <button id="btn-close-player" class="close-button" title="Close Player">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -89,7 +100,6 @@ function createGlobalPlayerUI() {
     playerContainer.innerHTML = playerHTML;
     document.body.appendChild(playerContainer);
 }
-
 // Thiết lập các sự kiện cho player
 function setupPlayerEvents() {
     if (!globalAudio) return;
@@ -111,7 +121,80 @@ function setupPlayerEvents() {
     if (prevBtn) {
         prevBtn.addEventListener('click', playPreviousSong);
     }
+    const replayBtn = document.getElementById('btn-replay');
+    if (replayBtn) {
+        replayBtn.addEventListener('click', replaySong);
+    }
 
+
+    // Function to replay the current song
+    function replaySong() {
+        if (!globalAudio) return;
+
+        // Check if there is a current song
+        if (currentSongIndex >= 0 && currentPlaylist.length > 0) {
+            const currentSong = currentPlaylist[currentSongIndex];
+
+            // Reset audio to beginning
+            globalAudio.currentTime = 0;
+
+            // If the audio is paused, start playing
+            if (globalAudio.paused) {
+                const playPromise = globalAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Update play/pause icon
+                        const playPauseIcon = document.getElementById('play-pause-icon');
+                        if (playPauseIcon) {
+                            playPauseIcon.classList.remove('fa-play');
+                            playPauseIcon.classList.add('fa-pause');
+                        }
+
+                        // Start album rotation animation
+                        const albumCover = document.querySelector('.album-rotating');
+                        if (albumCover) albumCover.classList.add('playing');
+
+                        // Update local player UI
+                        updateLocalPlayerUI();
+                    }).catch(error => {
+                        console.error('Cannot play audio:', error);
+                    });
+                }
+            }
+        } else if (isPlayingStandalone && globalAudio.src) {
+            // Handle standalone replay
+            globalAudio.currentTime = 0;
+
+            // If the audio is paused, start playing
+            if (globalAudio.paused) {
+                const playPromise = globalAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        // Update play/pause icon
+                        const playPauseIcon = document.getElementById('play-pause-icon');
+                        if (playPauseIcon) {
+                            playPauseIcon.classList.remove('fa-play');
+                            playPauseIcon.classList.add('fa-pause');
+                        }
+
+                        // Start album rotation animation
+                        const albumCover = document.querySelector('.album-rotating');
+                        if (albumCover) albumCover.classList.add('playing');
+
+                        // Update local player UI
+                        updateLocalPlayerUI();
+                    }).catch(error => {
+                        console.error('Cannot play audio:', error);
+                    });
+                }
+            }
+        }
+    }
+    // Close button
+    const closeBtn = document.getElementById('btn-close-player');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeGlobalPlayer);
+    }
     // Progress bar
     const progressContainer = document.getElementById('global-progress-container');
     if (progressContainer) {
@@ -152,7 +235,36 @@ function setupPlayerEvents() {
 
     // Audio ended
     globalAudio.addEventListener('ended', function () {
-        playNextSong();
+        // Nếu đang phát bài hát độc lập, không tiếp tục playlist
+        if (isPlayingStandalone) {
+            // Reset UI khi kết thúc bài hát độc lập
+            const playPauseIcon = document.getElementById('play-pause-icon');
+            if (playPauseIcon) {
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+
+            const albumCover = document.querySelector('.album-rotating');
+            if (albumCover) albumCover.classList.remove('playing');
+
+            return; // Không thực hiện các bước tiếp theo
+        }
+
+        // Xử lý nếu đang phát playlist
+        if (currentSongIndex < currentPlaylist.length - 1) {
+            playNextSong();
+        } else {
+            // Nếu là bài cuối, dừng phát và không làm gì thêm
+            // Reset UI
+            const playPauseIcon = document.getElementById('play-pause-icon');
+            if (playPauseIcon) {
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+
+            const albumCover = document.querySelector('.album-rotating');
+            if (albumCover) albumCover.classList.remove('playing');
+        }
     });
 
     // Save state before page unload
@@ -216,9 +328,25 @@ function playNextSong() {
     }
 
     if (currentPlaylist.length > 0) {
-        currentSongIndex = (currentSongIndex + 1) % currentPlaylist.length;
-        const nextSong = currentPlaylist[currentSongIndex];
-        playWithGlobalPlayer(nextSong.url, nextSong);
+        // Kiểm tra xem đã đến cuối danh sách chưa
+        if (currentSongIndex < currentPlaylist.length - 1) {
+            // Nếu chưa là bài cuối, phát bài tiếp theo
+            currentSongIndex++;
+            const nextSong = currentPlaylist[currentSongIndex];
+            playWithGlobalPlayer(nextSong.url, nextSong);
+        } else {
+            // Nếu đã phát đến bài cuối cùng, dừng lại
+            // Đặt lại trạng thái phát nhạc
+            const playPauseIcon = document.getElementById('play-pause-icon');
+            if (playPauseIcon) {
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+
+            const albumCover = document.querySelector('.album-rotating');
+            if (albumCover) albumCover.classList.remove('playing');
+
+        }
     }
 }
 
@@ -245,73 +373,15 @@ function playPreviousSong() {
     }
 }
 
-// Xây dựng playlist từ trang hiện tại
-function buildPagePlaylist() {
-    const pagePlaylist = [];
 
-    // Tìm tất cả các audio trên trang
-    const songElements = document.querySelectorAll('.song-item');
-    songElements.forEach((songElement, index) => {
-        const audioElement = songElement.querySelector('audio');
-        const customPlayer = songElement.querySelector('.custom-audio-player');
-
-        if (audioElement && customPlayer) {
-            const songUrl = customPlayer.getAttribute('data-song-url') ||
-                audioElement.querySelector('source')?.src ||
-                audioElement.src;
-
-            const songTitle = songElement.querySelector('.song-info span')?.textContent.trim() ||
-                `Song ${index + 1}`;
-
-            const postElement = songElement.closest('.post');
-            const artistName = postElement?.querySelector('.post-author')?.textContent ||
-                'Unknown Artist';
-
-            const imageUrl = postElement?.querySelector('.post-image')?.src || null;
-
-            if (songUrl) {
-                pagePlaylist.push({
-                    url: songUrl,
-                    title: songTitle,
-                    artist: artistName,
-                    imageUrl: imageUrl,
-                    element: customPlayer
-                });
-            }
-        }
-    });
-
-    // Nếu đã có playlist từ localStorage, hợp nhất và tránh trùng lặp
-    const savedPlaylistJSON = localStorage.getItem('melofyCurrentPlaylist');
-    if (savedPlaylistJSON) {
-        const savedPlaylist = JSON.parse(savedPlaylistJSON);
-
-        // Chỉ hợp nhất nếu trang hiện tại có bài hát
-        if (pagePlaylist.length > 0) {
-            // Hợp nhất danh sách mà không trùng lặp
-            savedPlaylist.forEach(savedSong => {
-                if (!pagePlaylist.some(pageSong => pageSong.url === savedSong.url)) {
-                    pagePlaylist.push(savedSong);
-                }
-            });
-
-            // Cập nhật playlist hiện tại
-            currentPlaylist = pagePlaylist;
-        } else {
-            // Nếu trang không có bài hát, sử dụng playlist đã lưu
-            currentPlaylist = savedPlaylist;
-        }
-    } else {
-        // Nếu không có playlist đã lưu, sử dụng playlist trang hiện tại
-        currentPlaylist = pagePlaylist;
-    }
-
-    return currentPlaylist;
-}
 
 // Phát bài hát với global player
-function playWithGlobalPlayer(songUrl, songInfo) {
+
+// Phát bài hát với global player
+function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
     if (!globalAudio || !songUrl) return;
+
+    isPlayingStandalone = isStandalone;
 
     // Dừng tất cả các audio khác
     document.querySelectorAll('audio').forEach(audio => {
@@ -354,14 +424,25 @@ function playWithGlobalPlayer(songUrl, songInfo) {
             // Cập nhật UI của local player
             updateLocalPlayerUI();
 
+            // Chỉ hiển thị tên playlist nếu không phải phát standalone
+            if (isStandalone) {
+                // Nếu phát độc lập, xóa tên playlist trên UI
+                updatePlaylistNameInPlayer("");
+            } else {
+                // Hiển thị tên playlist hiện tại
+                updatePlaylistNameInPlayer(currentPlaylistName);
+            }
+
             // Lưu trạng thái
             savePlayerState();
+
+            // Lưu bài hát vào RecentPlays của người dùng hiện tại
+            saveRecentPlay(songInfo);
         }).catch(error => {
             console.error('Không thể phát nhạc:', error);
         });
     }
 }
-
 // Cập nhật UI của global player
 function updateGlobalPlayerUI(songInfo) {
     if (!songInfo) return;
@@ -374,19 +455,25 @@ function updateGlobalPlayerUI(songInfo) {
     if (titleElement) titleElement.textContent = songInfo.title || 'Unknown Title';
     if (artistElement) artistElement.textContent = songInfo.artist || 'Unknown Artist';
 
-    // Cập nhật ảnh album nếu có
-    if (albumCover && songInfo.imageUrl) {
-        albumCover.src = songInfo.imageUrl;
-    } else if (albumCover) {
-        albumCover.src = '~/img/default-album.jpg'; // Ảnh mặc định
+    // Use playlist image instead of song image
+    if (albumCover) {
+        // Try to get the playlist image from the document
+        const playlistCoverImg = document.querySelector('.playlist-cover img');
+        if (playlistCoverImg && playlistCoverImg.src) {
+            albumCover.src = playlistCoverImg.src;
+        } else if (songInfo.imageUrl) {
+            // Fallback to song image if playlist image is not available
+            albumCover.src = songInfo.imageUrl;
+        } else {
+            // Default image if neither is available
+            albumCover.src = '~/img/default-album.jpg';
+        }
     }
 
     // Hiển thị player
     if (player) player.style.display = 'flex';
     isGlobalPlayerActive = true;
 }
-
-// Cập nhật UI của local player
 function updateLocalPlayerUI() {
     if (!globalAudio || currentSongIndex < 0 || !currentPlaylist[currentSongIndex]) return;
 
@@ -500,9 +587,11 @@ function savePlayerState() {
         localStorage.setItem('melofyCurrentTime', globalAudio.currentTime);
         localStorage.setItem('melofyIsPlaying', !globalAudio.paused);
         localStorage.setItem('melofyVolume', globalAudio.volume);
+        localStorage.setItem('melofyCurrentPlaylistName', currentPlaylistName);
     }
 }
 
+// Khôi phục trạng thái player từ localStorage
 // Khôi phục trạng thái player từ localStorage
 function restorePlayerState() {
     const savedPlaylist = localStorage.getItem('melofyCurrentPlaylist');
@@ -510,14 +599,33 @@ function restorePlayerState() {
     const savedTime = localStorage.getItem('melofyCurrentTime');
     const savedIsPlaying = localStorage.getItem('melofyIsPlaying');
     const savedVolume = localStorage.getItem('melofyVolume');
+    const savedPlaylistName = localStorage.getItem('melofyCurrentPlaylistName');
 
     if (savedPlaylist && savedIndex) {
         try {
             // Khôi phục playlist
             const loadedPlaylist = JSON.parse(savedPlaylist);
 
+            // Khôi phục tên playlist
+            if (savedPlaylistName) {
+                currentPlaylistName = savedPlaylistName;
+                // Cập nhật UI
+                updatePlaylistNameInPlayer(currentPlaylistName);
+            }
+
+            // Try to get current playlist image
+            const playlistCoverImg = document.querySelector('.playlist-cover img');
+            const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
             // Chỉ khôi phục nếu có bài hát
             if (loadedPlaylist && loadedPlaylist.length > 0) {
+                // Update image URLs to use playlist image if available
+                if (playlistImageUrl) {
+                    loadedPlaylist.forEach(song => {
+                        song.imageUrl = playlistImageUrl;
+                    });
+                }
+
                 // Gán playlist đã lưu
                 currentPlaylist = loadedPlaylist;
 
@@ -581,15 +689,75 @@ function restorePlayerState() {
                         isGlobalPlayerActive = true;
                     }
                 }
+            } else {
+                // Nếu không có bài hát trong playlist đã lưu, tạo mới từ trang
+                buildPagePlaylist();
             }
         } catch (error) {
             console.error('Lỗi khi khôi phục trạng thái player:', error);
+            // Trong trường hợp lỗi, tạo mới playlist từ trang
+            buildPagePlaylist();
         }
+    } else {
+        // Nếu không có playlist được lưu, tạo mới từ trang
+        buildPagePlaylist();
     }
 }
 
-// Thiết lập sự kiện cho local player
+function buildPagePlaylist() {
+    // Check for songs on the current page
+    const songElements = document.querySelectorAll('.song-item');
+    if (songElements.length === 0) return;
+
+    // Get playlist information
+    const playlistTitle = document.querySelector('.playlist-title')?.textContent || "Unknown Playlist";
+    const playlistCoverImg = document.querySelector('.playlist-cover img');
+    const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
+    // Build playlist from page songs
+    const pagePlaylist = [];
+    songElements.forEach((songElement, index) => {
+        // Get song data
+        const songName = songElement.querySelector('.song-name')?.textContent || `Song ${index + 1}`;
+        const artistName = songElement.querySelector('.song-artist')?.textContent || 'Unknown Artist';
+
+        // Always use playlist image
+        const imageUrl = playlistImageUrl;
+
+        // Get song URL
+        let songUrl = null;
+        if (songElement.hasAttribute('data-song-url')) {
+            songUrl = songElement.getAttribute('data-song-url');
+        } else {
+            const songId = songElement.getAttribute('data-song-id');
+            if (songId) {
+                songUrl = `/Song/GetSongUrl?id=${songId}`;
+            }
+        }
+
+        if (songUrl) {
+            pagePlaylist.push({
+                url: songUrl,
+                title: songName,
+                artist: artistName,
+                imageUrl: imageUrl
+            });
+        }
+    });
+
+    if (pagePlaylist.length > 0) {
+        currentPlaylist = pagePlaylist;
+        currentPlaylistName = playlistTitle;
+    }
+}
+
+
+// Sửa lại phần xử lý cho local player
 function setupLocalPlayers() {
+    // Get playlist image if available
+    const playlistCoverImg = document.querySelector('.playlist-cover img');
+    const playlistImageUrl = playlistCoverImg ? playlistCoverImg.src : null;
+
     document.querySelectorAll('.custom-audio-player').forEach((player, index) => {
         const playButton = player.querySelector('.play-button');
         const songUrl = player.getAttribute('data-song-url');
@@ -604,7 +772,8 @@ function setupLocalPlayers() {
             const artistName = postElement?.querySelector('.post-author')?.textContent ||
                 'Unknown Artist';
 
-            const imageUrl = postElement?.querySelector('.post-image')?.src || null;
+            // Use playlist image instead of post image
+            const imageUrl = playlistImageUrl || postElement?.querySelector('.post-image')?.src || null;
 
             const songInfo = {
                 title: songTitle,
@@ -620,30 +789,323 @@ function setupLocalPlayers() {
             newPlayButton.addEventListener('click', function (event) {
                 event.stopPropagation(); // Ngăn bubbling
 
-                // Tìm index của bài hát trong playlist hiện tại
-                currentSongIndex = currentPlaylist.findIndex(item => item.url === songUrl);
-
-                // Nếu không tìm thấy, thêm vào playlist
-                if (currentSongIndex === -1) {
-                    currentPlaylist.push({
-                        url: songUrl,
-                        title: songTitle,
-                        artist: artistName,
-                        imageUrl: imageUrl,
-                        element: player
-                    });
-                    currentSongIndex = currentPlaylist.length - 1;
-                }
-
                 // Nếu global player đang phát bài hát này
                 if (isGlobalPlayerActive && globalAudio && globalAudio.src.includes(songUrl)) {
                     // Toggle play/pause
                     togglePlayPause();
                 } else {
-                    // Phát bài hát mới
-                    playWithGlobalPlayer(songUrl, songInfo);
+                    // Phát bài hát mới nhưng không thay đổi playlist
+                    playWithGlobalPlayer(songUrl, songInfo, true); // true cho biết phát độc lập
                 }
             });
         }
     });
+}
+// Thêm hàm cập nhật tên playlist trong UI
+function updatePlaylistNameInPlayer(playlistName) {
+    const playlistNameElement = document.getElementById('global-playlist-name');
+    if (playlistNameElement) {
+        if (playlistName && playlistName.trim() !== "") {
+            playlistNameElement.textContent = `Playing from: ${playlistName}`;
+            playlistNameElement.style.display = 'block';
+        } else {
+            playlistNameElement.textContent = 'Not from playlist';
+            playlistNameElement.style.display = 'none';
+        }
+    }
+}
+
+// Thiết lập sự kiện cho local player
+
+
+function closeGlobalPlayer() {
+    const player = document.getElementById('global-player');
+
+    if (player) {
+        // Hide the player
+        player.style.display = 'none';
+
+        // Pause audio if playing
+        if (globalAudio && !globalAudio.paused) {
+            globalAudio.pause();
+
+            // Reset play/pause icon
+            const playPauseIcon = document.getElementById('play-pause-icon');
+            if (playPauseIcon) {
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+
+            // Stop album rotation animation
+            const albumCover = document.querySelector('.album-rotating');
+            if (albumCover) albumCover.classList.remove('playing');
+        }
+
+        // Update local player UI
+        updateLocalPlayerUI();
+
+        // Set flag indicating player is not active
+        isGlobalPlayerActive = false;
+    }
+}
+// Add these variables to the global variables section at the top of global-player.js
+let sleepTimerEnabled = false;
+let sleepTimerEnd = null;
+let sleepTimerInterval = null;
+
+// Add this function to create the sleep timer UI
+function createSleepTimerUI() {
+    // Create sleep timer container if it doesn't exist
+    if (!document.getElementById('sleep-timer-container')) {
+        const timerContainer = document.createElement('div');
+        timerContainer.id = 'sleep-timer-container';
+        timerContainer.className = 'sleep-timer-container';
+        timerContainer.innerHTML = `
+            <div class="sleep-timer-badge">
+                <i class="fas fa-crown premium-icon"></i>
+                <span>VIP</span>
+            </div>
+            <div class="sleep-timer-controls">
+                <button id="sleep-timer-toggle" class="sleep-timer-btn">
+                    <i class="fas fa-clock"></i> Sleep Timer
+                </button>
+                <div id="sleep-timer-options" class="sleep-timer-options" style="display: none;">
+                    <button data-time="5" class="timer-option">5m</button>
+                    <button data-time="15" class="timer-option">15m</button>
+                    <button data-time="30" class="timer-option">30m</button>
+                    <button data-time="60" class="timer-option">1h</button>
+                    <button data-time="custom" class="timer-option">Custom</button>
+                    <button id="cancel-timer" class="timer-option cancel-timer" style="display: none;">Cancel</button>
+                </div>
+                <div id="custom-timer-input" class="custom-timer-input" style="display: none;">
+                    <input type="number" id="custom-minutes" min="1" max="180" placeholder="Min">
+                    <button id="set-custom-timer" class="set-custom-btn">Set</button>
+                    <button id="cancel-custom-timer" class="cancel-custom-btn">Cancel</button>
+                </div>
+                <div id="timer-countdown" class="timer-countdown" style="display: none;">
+                    <span id="timer-remaining"></span>
+                </div>
+            </div>
+        `;
+
+        // Add timer to player right section
+        const playerRight = document.querySelector('.player-right');
+        if (playerRight) {
+            playerRight.insertBefore(timerContainer, playerRight.firstChild);
+        }
+
+        // Setup event listeners for sleep timer
+        setupSleepTimerEvents();
+    }
+}
+
+// Add this function to set up sleep timer events
+function setupSleepTimerEvents() {
+    // Toggle timer options
+    const timerToggle = document.getElementById('sleep-timer-toggle');
+    const timerOptions = document.getElementById('sleep-timer-options');
+
+    if (!timerToggle || !timerOptions) {
+        console.error('Sleep timer UI elements not found');
+        return;
+    }
+
+    timerToggle.addEventListener('click', function () {
+        checkUserVIP().then(isVIP => {
+            if (isVIP) {
+                if (timerOptions.style.display === 'none') {
+                    timerOptions.style.display = 'flex';
+                } else {
+                    timerOptions.style.display = 'none';
+                }
+
+                const customInput = document.getElementById('custom-timer-input');
+                if (customInput) {
+                    customInput.style.display = 'none';
+                }
+            }
+            else {
+                showNotification("You need register VIP to use this function", "warning")
+                return;
+            }
+        });
+
+    });
+
+    // Time option buttons
+    document.querySelectorAll('.timer-option').forEach(button => {
+        button.addEventListener('click', function () {
+            const time = this.getAttribute('data-time');
+
+            if (time === 'custom') {
+                // Show custom time input
+                document.getElementById('custom-timer-input').style.display = 'flex';
+                timerOptions.style.display = 'none';
+            } else {
+                // Set timer for preset time
+                setSleepTimer(parseInt(time));
+                timerOptions.style.display = 'none';
+            }
+        });
+    });
+
+    // Custom timer buttons
+    const setCustomBtn = document.getElementById('set-custom-timer');
+    if (setCustomBtn) {
+        setCustomBtn.addEventListener('click', function () {
+            const minutes = parseInt(document.getElementById('custom-minutes').value);
+            if (!isNaN(minutes) && minutes > 0 && minutes <= 180) {
+                setSleepTimer(minutes);
+                document.getElementById('custom-timer-input').style.display = 'none';
+            } else {
+                alert('Please enter a valid time between 1 and 180 minutes.');
+            }
+        });
+    }
+
+    const cancelCustomBtn = document.getElementById('cancel-custom-timer');
+    if (cancelCustomBtn) {
+        cancelCustomBtn.addEventListener('click', function () {
+            document.getElementById('custom-timer-input').style.display = 'none';
+        });
+    }
+
+    // Cancel timer button
+    const cancelTimer = document.getElementById('cancel-timer');
+    if (cancelTimer) {
+        cancelTimer.addEventListener('click', function () {
+            cancelSleepTimer();
+            timerOptions.style.display = 'none';
+        });
+    }
+}
+
+// Function to set sleep timer
+function setSleepTimer(minutes) {
+    // Clear any existing timer
+    if (sleepTimerInterval) {
+        clearInterval(sleepTimerInterval);
+    }
+
+    // Set end time
+    sleepTimerEnabled = true;
+    sleepTimerEnd = new Date(new Date().getTime() + minutes * 60000);
+
+    // Show timer countdown
+    document.getElementById('timer-countdown').style.display = 'flex';
+    document.getElementById('cancel-timer').style.display = 'block';
+
+    // Update countdown display
+    updateTimerDisplay();
+
+    // Set interval to update countdown
+    sleepTimerInterval = setInterval(function () {
+        updateTimerDisplay();
+
+        // Check if timer is finished
+        if (new Date() >= sleepTimerEnd) {
+            if (!globalAudio.paused) {
+                globalAudio.pause();
+
+                // Update UI
+                const playPauseIcon = document.getElementById('play-pause-icon');
+                if (playPauseIcon) {
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
+                }
+
+                const albumCover = document.querySelector('.album-rotating');
+                if (albumCover) albumCover.classList.remove('playing');
+
+                // Update local player UI
+                updateLocalPlayerUI();
+            }
+
+            // Cancel timer
+            cancelSleepTimer();
+        }
+    }, 1000);
+}
+
+// Function to update timer display
+function updateTimerDisplay() {
+    if (!sleepTimerEnabled || !sleepTimerEnd) return;
+
+    const now = new Date();
+    const remaining = sleepTimerEnd - now;
+
+    if (remaining <= 0) {
+        document.getElementById('timer-remaining').textContent = "0:00";
+        return;
+    }
+
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+
+    document.getElementById('timer-remaining').textContent =
+        `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
+
+// Function to cancel sleep timer
+function cancelSleepTimer() {
+    sleepTimerEnabled = false;
+    sleepTimerEnd = null;
+
+    if (sleepTimerInterval) {
+        clearInterval(sleepTimerInterval);
+        sleepTimerInterval = null;
+    }
+
+    document.getElementById('timer-countdown').style.display = 'none';
+    document.getElementById('cancel-timer').style.display = 'none';
+}
+
+// Add this function to check if user is VIP
+async function checkUserVIP() {
+    try {
+        const response = await fetch('/User/CheckVipStatus');
+        const data = await response.json();
+        return data.isVIP;
+    } catch (error) {
+        console.error('Error checking VIP status:', error);
+        return false; // Default to non-VIP in case of error
+    }
+}
+function saveRecentPlay(songInfo) {
+    let songId = null;
+    // Extract song ID from songInfo object or URL
+    if (songInfo.id) {
+        songId = parseInt(songInfo.id);
+    }
+    console.log('song id:', songId);
+    // If no songId is available, we can't save the play
+    if (!songId) {
+        console.log('Could not determine song ID for recent play:', songInfo);
+        return;
+    }
+
+    // Use XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/SaveRecentPlay', true);
+
+    // Set the correct content type for JSON
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function () {
+        if (xhr.status === 401) {
+            // Silently ignore 401 Unauthorized errors
+            return;
+        } else if (xhr.status >= 200 && xhr.status < 300) {
+            console.log('Saved recent play successfully');
+        } else {
+            console.log('Could not save recent play, status:', xhr.status);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.log('Error in saving recent play:', xhr.statusText);
+    };
+
+    // Send the request with song ID as a JSON object
+    xhr.send(JSON.stringify({ songId: songId }));
 }

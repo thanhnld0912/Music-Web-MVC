@@ -1,11 +1,13 @@
 ﻿@{
     Layout = null;
-    ViewData["Title"] = "NewFeed - Admin";
+    ViewData["Title"] = "NewFeedAdmin";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
     var userId = Context.Session.GetString("UserId");
     var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/admin.jpg";
     @model List<MusicWebMVC.Models.Post>
+
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,97 +16,70 @@
     <title>@ViewData["Title"] - Music Web</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="~/css/newfeed.css">
+
 </head>
+
 <body onclick="closeAll(event)">
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <button class="sidebar-toggle" onclick="toggleSidebar(event)">☰</button>
-        <div class="logoimg"> <img src="~/img/lgo.png" /></div>
-        <div class="logo">Your Library</div>
-        <div class="sidebar-section">
-            <p>Your music, our community!</p>
-            <button class="sidebar-button" onclick="toggleChatBox(event, 'playlistBox')">Create playlist</button>
-        </div>
-
-        <div class="sidebar-section">
-            <p>Your sound, your story, your stage</p>
-            <button class="sidebar-button" onclick="toggleChatBox(event, 'storyBox')">Share your story</button>
-        </div>
-
-        <div class="">
-            <h3>Trending artists ...</h3>
-            <div class="artist-list">
-                <div class="artist"></div>
-                <div class="artist"></div>
-                <div class="artist more">+1</div>
-            </div>
-        </div>
-    </div>
-
+    @await Component.InvokeAsync("SidebarAdmin")
     <!-- Chat Boxes -->
+    <input id="current-user-id" value="@userId" hidden></input>
+    <input id="avatar-url" value="@avatarUrl" hidden></input>
     <div class="chat-box" id="playlistBox">
         <h3>Create Playlist</h3>
         @if (isAuthenticated)
         {
             <input type="text" placeholder="Enter playlist name" />
-            <button class="message-login-button">Create</button>
+            <button class="message-login-button" onclick="createPlaylist()">Create</button>
+        }
+        else
+        {
+            <button onclick="location.href='@Url.Action("Login", "Account")'" class="message-login-button">Login</button>
         }
     </div>
+
 
     <div class="chat-box" id="storyBox">
         <h3>Share Your Story</h3>
         @if (isAuthenticated)
         {
-            <textarea placeholder="Write your story..."></textarea>
-            <button class="message-login-button">Post</button>
+
+            <button class="message-login-button" onclick="location.href='@Url.Action("UploadPageAdmin", "Song")'">Post</button>
+        }
+        else
+        {
+            <button onclick="location.href='@Url.Action("Login", "Account")'" class="message-login-button">Login</button>
         }
     </div>
+
 
     <!-- Main Content Area -->
     <div class="content-wrapper">
         <!-- Navbar -->
-        <div class="navbar">
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" placeholder="What do you want to hear?">
-                </div>
-                <div class="auth-buttons">
-                    @if (isAuthenticated)
-                    {
-                        <div class="auth-button">
-                            <button class="manage-button" onclick="location.href='@Url.Action("Dashboard", "Admin")'">Manage</button>
-                        </div>
-                        <a href="@Url.Action("ProfileAdmin", "Account")" class="avatar-container">
-                            <img src="/img/admin.jpg" alt="Avatar" class="user-avatar">
-                        </a>
-                    }
-                </div>
-            </div>
-        </div>
-
+        @await Component.InvokeAsync("NavbarAdmin")
         <!-- NewFeed Content -->
         <div class="main-content">
 
+
             <div class="filter-tabs">
-                <button class="filter-tab active">All</button>
-                <button class="filter-tab">Posts</button>
-                <button class="filter-tab">Cover</button>
-                <button class="filter-tab">Self Instrumented</button>
+                <button class="filter-tab @(ViewData["CurrentFilter"]?.ToString() == "following" ? "active" : "")"
+                        onclick="location.href='@Url.Action("NewFeedAdmin", "Home", new { filter = "following" })'">
+                    Following
+                </button>
+                <button class="filter-tab @(ViewData["CurrentFilter"]?.ToString() != "following" ? "active" : "")"
+                        onclick="location.href='@Url.Action("NewFeedAdmin", "Home", new { filter = "trending" })'">
+                    Trending
+                </button>
 
                 @if (isAuthenticated)
                 {
-                    <button onclick="location.href='@Url.Action("UploadPage", "Song")'" class="add-post"><p>+</p></button>
+                    <button onclick="location.href='@Url.Action("UploadPageAdmin", "Song")'" class="add-post"><p>+</p></button>
                 }
             </div>
-
-            <h2>New Feed</h2>
 
 
             <div class="post-topuser">
                 <div class="post-topuser-left">
-                    @if (Model == null || !Model.Any())
-
+                    @if (!Model.Any())
                     {
                         <p>No posts available.</p>
                     }
@@ -112,23 +87,65 @@
                     {
                         @foreach (var post in Model)
                         {
+                            <input class=".post-user-id" value="@post.UserId" hidden />
                             <div class="post" data-post-id="@post.Id">
                                 <!-- Post Header -->
                                 <div class="post-header">
-                                    <a href="@Url.Action("ProfileUser", "Home", new { id = post.UserId })"
-                                       class="post-avatar">@post.User.Username[0]</a>
+                                    <div onclick="window.location.href='@Url.Action("ProfileUserAdmin", "Home", new { id = post.UserId })'" class="post-avatar-container">
+                                        <img src="@post.User.AvatarUrl" />
+                                    </div>
                                     <div class="post-info">
                                         <div class="post-author">@post.User.Username</div>
                                         <div class="post-time">@post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
                                     </div>
+                                    @if (int.Parse(Context.Session.GetString("UserId") ?? "0") == post.UserId)
+                                    {
+                                        <div class="post-options">
+                                            <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                            <div class="post-menu" id="postMenu-@post.Id">
+
+                                                <div class="menu-item" onclick="editPost(@post.Id)">
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </div>
+                                                <div class="menu-item" onclick="confirmDeletePost(@post.Id)">
+                                                    <i class="fas fa-trash"></i> Delete
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="post-options">
+                                            <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </button>
+                                            <div class="post-menu" id="postMenu-@post.Id">
+
+                                                <div class="menu-item" onclick="reportPost(@post.Id)">
+                                                    <i class="fas fa-flag"></i> Report
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
 
+                                <!-- Post Content -->
                                 <!-- Post Content -->
                                 <div class="post-content">
                                     <p>@post.Content</p>
                                     @if (!string.IsNullOrEmpty(post.ImageUrl))
                                     {
                                         <img src="@post.ImageUrl" class="post-image" />
+                                    }
+                                    @if (!string.IsNullOrEmpty(post.LinkYoutube))
+                                    {
+                                        <a href="@post.LinkYoutube" target="_blank" class="youtube-link">
+                                            <i class="fab fa-youtube"></i>
+                                            <h3>Youtube</h3>
+                                        </a>
                                     }
                                 </div>
 
@@ -154,13 +171,10 @@
                                                         <source src="@post.Song.FileUrl" type="audio/mpeg">
                                                     </audio>
                                                 </div>
-                                                <div class="volume-control">
-                                                    <i class="fas fa-volume-up"></i>
-                                                    <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider" id="volume-slider-@post.Song.Id">
-                                                </div>
+
                                             </div>
 
-                                            <span onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = post.Id })'" style="cursor: pointer;">
+                                            <span onclick="window.location.href='@Url.Action("SongPageAdmin", "Song", new { postId = post.Id })'" style="cursor: pointer;">
                                                 @post.Song.Title
                                             </span>
                                         </div>
@@ -194,58 +208,122 @@
                                 </div>
                             </div>
                         }
+                        <div id="edit-post-overlay" class="edit-overlay">
+                            <div class="edit-container">
+                                <div class="edit-header">
+                                    <h3>Edit Post</h3>
+                                    <button class="close-edit-btn" onclick="closeEditForm()">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div class="edit-form">
+                                    <input type="hidden" id="edit-post-id">
+                                    <textarea id="edit-post-content" placeholder="What's on your mind?"></textarea>
+                                    <div id="edit-image-preview-container" style="display: none;">
+                                        <img id="edit-image-preview" src="" alt="Post image">
+                                        <button type="button" class="remove-image-btn" onclick="removeEditImage()">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="edit-form-buttons">
+                                        <button onclick="addEditImage()">
+                                            <i class="fas fa-image"></i> Add Image
+                                        </button>
+                                        <input type="file" id="edit-image-upload" style="display: none;" accept="image/*" onchange="previewEditImage(event)">
+                                        <button class="save-edit-btn" onclick="savePostEdit()">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add the delete confirmation dialog -->
+                        <div id="delete-confirm-overlay" class="confirm-overlay">
+                            <div class="confirm-container">
+                                <div class="confirm-header">
+                                    <h3>Delete Post</h3>
+                                </div>
+                                <div class="confirm-body">
+                                    <p>Are you sure you want to delete this post? This action cannot be undone.</p>
+                                </div>
+                                <div class="confirm-footer">
+                                    <button class="cancel-btn" onclick="closeDeleteConfirm()">Cancel</button>
+                                    <button class="delete-btn" onclick="executeDeletePost()">Delete</button>
+                                </div>
+                            </div>
+                        </div>
                     }
                 </div>
                 <div class="top-user">
-
                     <div class="panel-header">
-                        Melofy VIP members
-                    </div>
-
-                    <div class="vip-members">
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 1">
-                        </div>
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 2">
-                        </div>
-                        <div class="member-icon">
-                            <img src="/api/placeholder/30/30" alt="Member 3">
-                        </div>
-                        <div class="member-icon">
-                            #1
-                        </div>
+                        Melofy members
                     </div>
 
                     <div class="top-artists">
-                        <div class="section-title">
-                            UK most streamed artists
-                        </div>
 
-                        <div class="artist-item">
-                            <div class="artist-rank rank-1">No.1</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 1">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
 
-                        <div class="artist-item">
-                            <div class="artist-rank rank-2">No.2</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 2">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
-
-                        <div class="artist-item">
-                            <div class="artist-rank rank-3">No.3</div>
-                            <div class="artist-icon">
-                                <img src="/api/placeholder/30/30" alt="Artist 3">
-                            </div>
-                            <div class="artist-desc">Description</div>
-                        </div>
+                        @if (ViewBag.TopUsers != null && ViewBag.TopUsers.Count > 0)
+                        {
+                            var rank = 1;
+                            @foreach (var user in ViewBag.TopUsers)
+                            {
+                                <div class="artist-item" onclick="window.location.href='@Url.Action("ProfileUserAdmin", "Home", new { id = user.Id })'">
+                                    <div class="artist-rank rank-@rank">No.@rank</div>
+                                    <div class="artist-icon">
+                                        <img src="@user.AvatarUrl" alt="@user.Username">
+                                    </div>
+                                    <div class="artist-desc">
+                                        @user.Username
+                                        <br />
+                                        <span class="follower-count">(@user.FollowerCount followers)</span>
+                                    </div>
+                                </div>
+                                rank++;
+                            }
+                        }
+                        else
+                        {
+                            <p>No top users found.</p>
+                        }
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="report-post-overlay" class="report-overlay">
+        <div class="report-container">
+            <div class="report-header">
+                <h3>Report Post</h3>
+                <button class="close-report-btn" onclick="closeReportPostForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="report-form">
+                <input type="hidden" id="report-post-id">
+                <div class="report-reason-section">
+                    <p>Why are you reporting this post?</p>
+                    <div class="report-options">
+                        <label>
+                            <input type="radio" name="report-reason" value="Inappropriate content"> Inappropriate content
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Spam"> Spam
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Harassment"> Harassment
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="False information"> False information
+                        </label>
+                        <label>
+                            <input type="radio" name="report-reason" value="Other"> Other
+                        </label>
+                    </div>
+                    <textarea id="report-details" placeholder="Please provide more details about your report..." rows="4"></textarea>
+                </div>
+                <div class="report-form-buttons">
+                    <button class="cancel-report-btn" onclick="closeReportPostForm()">Cancel</button>
+                    <button class="submit-report-btn" onclick="submitPostReport()">Submit Report</button>
                 </div>
             </div>
         </div>
@@ -262,10 +340,10 @@
             <div class="fb-comment-section">
                 <div class="fb-comment-input-container">
                     <div class="comment-avatar">
-                        <img src="~/img/avatar.jpg" alt="avatar" class="comment-user-avatar">
+                        <img src="@avatarUrl" alt="avatar" class="comment-user-avatar">
                     </div>
                     <div class="fb-comment-input-wrapper">
-                        <input type="text" placeholder="Write a comment..." class="fb-comment-input">
+                        <input type="text" placeholder="Write a comment..." class="fb-comment-input" id="commentInput" maxlength="200">
                         <div class="fb-comment-tools">
                             <i class="fas fa-smile"></i>
                             <i class="fas fa-camera"></i>
@@ -273,12 +351,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="comment-limit-info">
+                    <span id="commentLimit">Max 200 characters</span>
+                </div>
                 <div class="fb-comments-list">
                     <!-- Comments will be added here -->
                 </div>
             </div>
         </div>
     </div>
-    <script src="~/js/NewFeed.js"></script>
+
+    @await Component.InvokeAsync("GlobalPlayer")
+
+
+    <script src="~/js/globalplayer.js"></script>
+    <script src="~/js/newfeed.js"> </script>
 </body>
 </html>

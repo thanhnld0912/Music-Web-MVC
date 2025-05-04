@@ -24,7 +24,8 @@ namespace MusicWebMVC.Models
         public string? Type { get; set; }
         public DateTime UploadDate { get; set; } = DateTime.Now;
         public string Status { get; set; }
-
+        public string? YouTubeUrl { get; set; }
+        public string? YouTubeVideoId { get; set; }
         public virtual User User { get; set; }
         public virtual Post Post { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
@@ -33,5 +34,6 @@ namespace MusicWebMVC.Models
 
         // Mối quan hệ nhiều-nhiều với Playlist thông qua PlaylistSong
         public virtual ICollection<PlaylistSong> PlaylistSongs { get; set; } = new List<PlaylistSong>();
+        public virtual ICollection<RecentPlay> RecentPlays { get; set; } = new List<RecentPlay>();
     }
 }
