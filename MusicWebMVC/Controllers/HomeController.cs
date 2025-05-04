@@ -102,7 +102,14 @@ namespace MusicWebMVC.Controllers
 
             ViewBag.TopUsers = topUsers;
 
-            return View(posts);
+            var user = _context.Users.FirstOrDefault(u => u.Id == currentUserId);
+
+            var viewModel = new NewFeedViewModel
+            {
+                User = user,
+                Posts = posts,
+            };
+            return View(viewModel);
         }
         public async Task<IActionResult> PostDetail(int id)
         {

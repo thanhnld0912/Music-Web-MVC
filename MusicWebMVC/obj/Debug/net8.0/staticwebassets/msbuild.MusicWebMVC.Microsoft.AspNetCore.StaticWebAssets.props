@@ -912,13 +912,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-<<<<<<< HEAD
-      <Fingerprint>owfzpiwpe8</Fingerprint>
-      <Integrity>SLydN9NP/8AtjSYxl+PU9GSl3FqghIGU0jAkKvAqTH4=</Integrity>
-=======
-      <Fingerprint>xbw1fnagag</Fingerprint>
-      <Integrity>E9uE0bGyKl6tgn+bSisxJYLgFPY6PW3yFPlzbUC+7po=</Integrity>
->>>>>>> main
+      <Fingerprint>w1nzp8sn3e</Fingerprint>
+      <Integrity>jEfoxNtkyg/GMginww4ZO1/mDVqqcJBWDe3QmXewaS4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\newfeed.css'))</OriginalItemSpec>

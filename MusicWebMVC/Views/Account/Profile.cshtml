@@ -9,6 +9,7 @@
     var email = Model?.Email ?? "example@mail.com";
     var bio = Model?.Bio ?? "No bio provided";
     var password = "********"; // Mật khẩu hiển thị là dấu sao mặc định
+    var isDisabled = Model.IsDisabled;
 }
 
 <!DOCTYPE html>
@@ -21,6 +22,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="~/css/profile.css">
+    @if (isDisabled)
+    {
+    <script>
+        window.location.href='@Url.Action("Logout", "Account")';
+    </script>
+    }
 </head>
 <body>
     <div class="top-nav-logo">
