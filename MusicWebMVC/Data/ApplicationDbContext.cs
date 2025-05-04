@@ -145,7 +145,8 @@ namespace MusicWebMVC.Data
                     Password = "Admin@123", // Bạn có thể mã hóa mật khẩu nếu cần
                     Role = "Admin",  // Đặt vai trò là Admin
                     CreatedAt = DateTime.Now,
-                    Bio = "Administrator of the MusicWeb platform"
+                    Bio = "Administrator of the MusicWeb platform",
+                    level = "Bronze"
                 };
 
                 context.Users.Add(adminUser);

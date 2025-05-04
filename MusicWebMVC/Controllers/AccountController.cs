@@ -6,16 +6,24 @@ using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Models;
 using System.Security.Claims;
+using MusicWebMVC.Services;
+using MusicWebMVC.ViewModels;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+
 
 namespace MusicWebMVC.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IEmailService _emailService;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(ApplicationDbContext context, IEmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
         public IActionResult Profile()
@@ -153,9 +161,10 @@ namespace MusicWebMVC.Controllers
             return RedirectToAction("Login");
         }
 
+        [HttpGet]
         public IActionResult Register()
         {
-            return RedirectToAction("Login", new { register = "true" });
+            return RedirectToAction("NewFeed", "Home", new { register = "true" });
         }
         public IActionResult Manage()
         {
@@ -167,31 +176,184 @@ namespace MusicWebMVC.Controllers
 
             return View();
         }
+
+        //------------Register--------------------
         [HttpPost]
-        public IActionResult Register(string name, string email, string password)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (_context.Users.Any(u => u.Email == email))
+            if (ModelState.IsValid)
             {
-                ViewBag.RegisterError = "Email already exists.";
-                return View("Login");
+                // Check if email already exists
+                if (await _context.Users.AnyAsync(u => u.Email == model.Email))
+                {
+                    ViewBag.RegisterError = "Email này đã được sử dụng. Vui lòng dùng email khác.";
+                    return View("Login", model);
+                }
+
+                // Check if username already exists
+                if (await _context.Users.AnyAsync(u => u.Username == model.Username))
+                {
+                    ModelState.AddModelError("Username", "Username already taken");
+                    return View("Login", model);
+                }
+
+                // Create new user
+                var user = new User
+                {
+                    Username = model.Username,
+                    Email = model.Email,
+                    Password = model.Password,
+                    Role = "User",
+                    CreatedAt = DateTime.Now,
+                    EmailConfirmed = false,
+                    EmailConfirmationToken = GenerateToken(),
+                    EmailConfirmationTokenExpiry = DateTime.Now.AddDays(1),
+                    Bio = ""
+                };
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                // Send confirmation email
+                var confirmationLink = Url.Action("ConfirmEmail", "Account",
+                    new { userId = user.Id, token = user.EmailConfirmationToken },
+                    protocol: HttpContext.Request.Scheme);
+
+                var message = $@"
+                    <h2>Confirm your email address</h2>
+                    <p>Thank you for registering with MusicWeb. Please confirm your email by clicking the link below:</p>
+                    <a href='{confirmationLink}'>Confirm Email</a>
+                    <p>This link will expire in 24 hours.</p>";
+
+                await _emailService.SendEmailAsync(user.Email, "Confirm your email - MusicWeb", message);
+
+                return RedirectToAction("RegisterConfirmation");
             }
 
-            // Đảm bảo Bio có giá trị, có thể là chuỗi rỗng nếu không có thông tin
-            var newUser = new User
-            {
-                Username = name,
-                Email = email,
-                Password = password,
-                Role = "User",
-                Bio = ""  // Giá trị mặc định cho Bio nếu không có thông tin
-            };
-
-            _context.Users.Add(newUser);
-            _context.SaveChanges();
-
-            return RedirectToAction("Login");
+            return View("Login", model);
         }
 
+        public IActionResult RegisterConfirmation()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(int userId, string token)
+        {
+            if (userId <= 0 || string.IsNullOrEmpty(token))
+            {
+                return BadRequest("Invalid email confirmation link");
+            }
+
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            if (user.EmailConfirmed)
+            {
+                // Nếu email đã được xác nhận trước đó, cũng tự động đăng nhập người dùng
+                await SignInUserAfterConfirmation(user);
+                return RedirectToAction("NewFeed", "Home");
+            }
+
+            if (user.EmailConfirmationToken != token)
+            {
+                return BadRequest("Invalid token");
+            }
+
+            if (user.EmailConfirmationTokenExpiry < DateTime.Now)
+            {
+                return RedirectToAction("TokenExpired", new { userId = user.Id });
+            }
+
+            user.EmailConfirmed = true;
+            user.EmailConfirmationToken = null;
+            user.EmailConfirmationTokenExpiry = null;
+
+            await _context.SaveChangesAsync();
+
+            // Tự động đăng nhập người dùng sau khi xác nhận email thành công
+            await SignInUserAfterConfirmation(user);
+
+            return RedirectToAction("NewFeed", "Home");
+        }
+
+        // Phương thức  để đăng nhập người dùng sau khi xác nhận email
+        private async Task SignInUserAfterConfirmation(User user)
+        {
+            // Tạo danh sách các claims để lưu thông tin người dùng
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        new Claim(ClaimTypes.Name, user.Username),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim(ClaimTypes.Role, user.Role)
+    };
+
+            // Tạo identity từ claims
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            // Thiết lập thuộc tính xác thực
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true, // Lưu cookie đăng nhập (Remember me)
+                ExpiresUtc = DateTimeOffset.UtcNow.AddDays(30) // Cookie có hiệu lực trong 30 ngày
+            };
+
+            // Đăng nhập người dùng
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                principal,
+                authProperties);
+
+            // Lưu thông tin người dùng vào session để dễ dàng truy cập
+            HttpContext.Session.SetString("UserInfo", JsonSerializer.Serialize(new
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Email = user.Email,
+                Role = user.Role,
+               
+            }));
+
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
+            HttpContext.Session.SetString("Username", user.Username);
+            HttpContext.Session.SetString("AvatarUrl", "/img/avatar.jpg");
+            HttpContext.Session.SetString("Role", user.Role);
+        }
+
+
+
+        [HttpGet]
+        public IActionResult TokenExpired(int userId)
+        {
+            ViewBag.UserId = userId;
+            return View();
+        }
+
+
+
+
+        private string GenerateToken()
+        {
+            // Generate a random token
+            var tokenBytes = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(tokenBytes);
+            }
+            return Convert.ToBase64String(tokenBytes);
+        }
+
+
+
+        // ------------Register>
 
         public async Task LoginByGoogle()
         {
@@ -238,7 +400,8 @@ namespace MusicWebMVC.Controllers
                     Password = Convert.ToBase64String(Guid.NewGuid().ToByteArray()), // Password ngẫu nhiên
                     Role = "User", // Role mặc định
                     CreatedAt = DateTime.Now,
-                    Bio = ""
+                    Bio = "",
+                    level = "Bronze"
                 };
 
                 try
@@ -291,16 +454,121 @@ namespace MusicWebMVC.Controllers
             );
             HttpContext.Session.SetString("UserId", user.Id.ToString());
             HttpContext.Session.SetString("Username", user.Username);
-            HttpContext.Session.SetString("AvatarUrl",  "/img/avatar.jpg");
+            HttpContext.Session.SetString("AvatarUrl", "/img/avatar.jpg");
             HttpContext.Session.SetString("Role", user.Role);
         }
 
 
 
+        //---------------------------Forgot password
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (user == null)
+                {
+                    // Không tiết lộ rằng email không tồn tại vì lý do bảo mật
+                    return RedirectToAction("ForgotPasswordConfirmation");
+                }
 
+                // Sử dụng phương thức GenerateToken() đã có sẵn
+                var token = GenerateToken();
+                user.PasswordResetToken = token;
+                user.PasswordResetTokenExpiry = DateTime.Now.AddHours(24);
 
+                await _context.SaveChangesAsync();
+
+                // Gửi email với link reset password
+                var resetLink = Url.Action("ResetPassword", "Account",
+                    new { email = user.Email, token = token },
+                    protocol: HttpContext.Request.Scheme);
+
+                var message = $@"
+            <h2>Đặt lại mật khẩu</h2>
+            <p>Để đặt lại mật khẩu của bạn, vui lòng nhấp vào liên kết dưới đây:</p>
+            <a href='{resetLink}'>Đặt lại mật khẩu</a>
+            <p>Liên kết này sẽ hết hạn sau 24 giờ.</p>";
+
+                await _emailService.SendEmailAsync(user.Email, "Đặt lại mật khẩu - MusicWeb", message);
+
+                return RedirectToAction("ForgotPasswordConfirmation");
+            }
+
+            return View(model);
+        }
+
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string email, string token)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(token))
+            {
+                return BadRequest("Email hoặc token không hợp lệ");
+            }
+
+            var model = new ResetPasswordViewModel
+            {
+                Email = email,
+                Token = token
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+            if (user == null)
+            {
+                // Không tiết lộ rằng người dùng không tồn tại
+                return RedirectToAction("ResetPasswordConfirmation");
+            }
+
+            // Kiểm tra token hợp lệ và chưa hết hạn
+            if (user.PasswordResetToken != model.Token ||
+                user.PasswordResetTokenExpiry == null ||
+                user.PasswordResetTokenExpiry < DateTime.Now)
+            {
+                ModelState.AddModelError("", "Token đặt lại mật khẩu không hợp lệ hoặc đã hết hạn");
+                return View(model);
+            }
+
+            // Cập nhật mật khẩu
+            user.Password = model.Password; // Trong thực tế, bạn cần hash mật khẩu trước khi lưu
+            user.PasswordResetToken = null;
+            user.PasswordResetTokenExpiry = null;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("ResetPasswordConfirmation");
+        }
+
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
 
     }
 
 }
+

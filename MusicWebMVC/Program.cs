@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Models;
+using MusicWebMVC.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 
 
+// Đăng ký dịch vụ Email
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+
+
 // COnfiguration login google
 builder.Services.AddAuthentication(options =>
 {
@@ -44,6 +52,8 @@ builder.Services.AddAuthentication(options =>
 
 
 //---------Configuration Login Google
+
+
 
 var app = builder.Build();
 

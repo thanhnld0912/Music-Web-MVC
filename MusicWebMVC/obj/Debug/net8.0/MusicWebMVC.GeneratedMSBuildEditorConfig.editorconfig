@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\project_intern_new\Music-Web-MVC\MusicWebMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,31 +42,39 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-<<<<<<< HEAD
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/ResetPassWord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3NXb3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Account/TokenExpired.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxUb2tlbkV4cGlyZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Admin/Cover.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ292ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Home/Index.cshtml]
-=======
-[E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/Admin/Cover.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ292ZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/Admin/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/Admin/Post.cshtml]
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Admin/Post.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUG9zdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/Admin/User.cshtml]
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Admin/User.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/Coding/.NET/Melofy/Music-Web-MVC/MusicWebMVC/Views/Home/Index.cshtml]
->>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+[D:/project_intern_new/Music-Web-MVC/MusicWebMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 

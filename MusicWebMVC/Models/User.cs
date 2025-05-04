@@ -19,10 +19,21 @@ namespace MusicWebMVC.Models
 
         public string Role { get; set; } // Listener, Uploader, VIP
 
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         [StringLength(500)]
         public string Bio { get; set; }
+
+        public string level { get; set; } = "Bronze"; // Bronze, Silver, Gold, Diamond 
+
+        public bool EmailConfirmed { get; set; } = false;
+        public string? EmailConfirmationToken { get; set; }
+        public DateTime? EmailConfirmationTokenExpiry { get; set; }
+
+
+        public string? PasswordResetToken { get; set; }
+        public DateTime? PasswordResetTokenExpiry { get; set; }
 
         public virtual ICollection<Song> Songs { get; set; }
         public virtual ICollection<Post> Posts { get; set; }

@@ -5,19 +5,19 @@
       "PackagePath": "staticwebassets\\MusicWebMVC.bundle.scp.css"
     },
     {
-<<<<<<< HEAD
-      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
-=======
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\cover.css",
       "PackagePath": "staticwebassets\\css\\cover.css"
     },
     {
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
     {
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
->>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\fogot.css",
+      "PackagePath": "staticwebassets\\css\\fogot.css"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\globalplayer.css",
       "PackagePath": "staticwebassets\\css\\globalplayer.css"
     },
     {
@@ -37,20 +37,20 @@
       "PackagePath": "staticwebassets\\css\\playlist.css"
     },
     {
-<<<<<<< HEAD
-      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
-=======
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\post.css",
       "PackagePath": "staticwebassets\\css\\post.css"
     },
     {
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
->>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profile.css",
       "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\profileuser.css",
       "PackagePath": "staticwebassets\\css\\profileuser.css"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\reset.css",
+      "PackagePath": "staticwebassets\\css\\reset.css"
     },
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\site.css",
@@ -69,20 +69,24 @@
       "PackagePath": "staticwebassets\\css\\upload.css"
     },
     {
-<<<<<<< HEAD
-      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
-=======
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\css\\user.css",
       "PackagePath": "staticwebassets\\css\\user.css"
     },
     {
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
->>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\1.gif",
-      "PackagePath": "staticwebassets\\img\\1.gif"
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Bronze.png",
+      "PackagePath": "staticwebassets\\img\\Bronze.png"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Diamond.png",
+      "PackagePath": "staticwebassets\\img\\Diamond.png"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Gold.png",
+      "PackagePath": "staticwebassets\\img\\Gold.png"
     },
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image1.jpg",
@@ -95,6 +99,10 @@
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Image3.jpg",
       "PackagePath": "staticwebassets\\img\\Image3.jpg"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\Silver.png",
+      "PackagePath": "staticwebassets\\img\\Silver.png"
     },
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\admin.jpg",
@@ -111,6 +119,10 @@
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\download.gif",
       "PackagePath": "staticwebassets\\img\\download.gif"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\fpt.png",
+      "PackagePath": "staticwebassets\\img\\fpt.png"
     },
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\img\\lgo.png",
@@ -133,15 +145,11 @@
       "PackagePath": "staticwebassets\\js\\SongPage.js"
     },
     {
-<<<<<<< HEAD
-      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
-=======
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
       "PackagePath": "staticwebassets\\js\\chart.js"
     },
     {
-      "Id": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
->>>>>>> 244e28ace18329b108ec7665936e2b3fe884e58e
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\globalplayer.js",
       "PackagePath": "staticwebassets\\js\\globalplayer.js"
     },
     {
@@ -391,6 +399,98 @@
     {
       "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_0b458aab64954741aac196ccbe21c126.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_0b458aab64954741aac196ccbe21c126.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_38d2ff1ec2c54ccb9fbf9a3ceccad598.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_38d2ff1ec2c54ccb9fbf9a3ceccad598.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_406225afb8c94b04981734fc4ffac579.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_406225afb8c94b04981734fc4ffac579.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_54f71415eec64b27b0bd609645d0b4e1.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_54f71415eec64b27b0bd609645d0b4e1.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_5ee77ae56a9f4c3e84de44f40e1f9f0d.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_5ee77ae56a9f4c3e84de44f40e1f9f0d.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_6371974d270a48299b9358c261c98179.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_6371974d270a48299b9358c261c98179.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_6485e9f5f4434c238cc913d49bf68579.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_6485e9f5f4434c238cc913d49bf68579.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_6816cfea01b54c398f76e4d5f71bfa6b.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_6816cfea01b54c398f76e4d5f71bfa6b.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_6d52c1b38e70478e9b57de84612692e3.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_6d52c1b38e70478e9b57de84612692e3.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_6fe65a3d258b4451927f9b61fa0107ef.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_6fe65a3d258b4451927f9b61fa0107ef.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_78d4aad83c3942c0962f4d6b827943b1.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_78d4aad83c3942c0962f4d6b827943b1.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_8bd3ae76bfe04e0095fabbfc60a1b1e9.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_8bd3ae76bfe04e0095fabbfc60a1b1e9.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_a9aa573eb193471688b7de85b8d1f9f4.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_a9aa573eb193471688b7de85b8d1f9f4.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_b19c722f2aa94de9850e7f3019968add.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_b19c722f2aa94de9850e7f3019968add.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_b479c0d039d148ccb45a7aa9d54d7fe6.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_b479c0d039d148ccb45a7aa9d54d7fe6.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_bbfee3eedc5b4494b1dead23ab2d108b.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_bbfee3eedc5b4494b1dead23ab2d108b.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_c82c61c685364ecbad2b78388a6b36df.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_c82c61c685364ecbad2b78388a6b36df.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_d1fd263049d646ae91d55090bbbb894b.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_d1fd263049d646ae91d55090bbbb894b.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_ded97bbec3844626a8a77e915466e2e5.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_ded97bbec3844626a8a77e915466e2e5.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_df4056e6f6574788be09c5bc78588a91.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_df4056e6f6574788be09c5bc78588a91.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_e459c0f2b6e3458089321401512a2b23.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_e459c0f2b6e3458089321401512a2b23.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_fa5d06eeaf9f45cfb5136195eb4c1b50.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_fa5d06eeaf9f45cfb5136195eb4c1b50.mp3"
+    },
+    {
+      "Id": "D:\\project_intern_new\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\kienpham_fc486ad042c74fe0bf92cebce4ff4f1f.mp3",
+      "PackagePath": "staticwebassets\\uploads\\kienpham_fc486ad042c74fe0bf92cebce4ff4f1f.mp3"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MusicWebMVC.Microsoft.AspNetCore.StaticWebAssets.props",

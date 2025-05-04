@@ -17,7 +17,7 @@ body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #222;
-}
+}type
 
 /* Top Navigation Wrapper */
 .top-nav-logo {
@@ -159,6 +159,10 @@ body {
 
 
 
+
+
+
+
 .tab-button {
     padding: 10px 20px;
     border: none;
@@ -268,7 +272,7 @@ body {
         background: #4141d4;
     }
 
-.type-account {
+/*.type-account {
     padding: 60px 0;
   
     border-radius: 10px;
@@ -279,19 +283,80 @@ body {
 }
 
 .type-logo img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     border-radius: 40%;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
     position: absolute;
-    right: 60px;
-    top: 35px;
+    right: 40px;
+    top: 20px;
+}*/
+
+/*.type-account h3 {
+    margin: 0;
+}*/
+
+
+
+  /*  .type-logo img:hover {
+        transform: scale(1.1);
+    }*/
+
+
+.main-content {
+    padding: 20px;
+    background-color: #333; /* Màu xám đậm cho khung */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 85%; /* Thu nhỏ khung xuống còn 85% chiều rộng */
+    max-width: 1000px; /* Giảm chiều rộng tối đa */
+    margin-left: 70px;
+    box-sizing: border-box;
 }
 
-    .type-logo img:hover {
-        transform: scale(1.1);
+.type-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+    .type-account h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        color: white; /* Màu chữ trắng để nổi bật trên nền xám */
     }
+
+.type-logo-level {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  
+}
+
+.type-level {
+    font-size: 18px;
+    margin: 0;
+    color: white;
+}
+
+.type-logo {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .type-logo img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
 
 
 .info-box {

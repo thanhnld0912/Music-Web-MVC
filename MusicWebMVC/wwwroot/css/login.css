@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('/img/1.gif') no-repeat center center fixed;
+    background: url('/img/fpt.png') no-repeat center center fixed;
     background-size: cover; /* Đảm bảo ảnh phủ toàn bộ phần tử */
     display: flex;
     justify-content: center;
@@ -297,3 +297,9 @@ footer {
         color: #3c97bf;
         text-decoration: none;
     }
+
+
+
+
+
+    
