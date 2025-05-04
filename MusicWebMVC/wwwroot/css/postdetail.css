@@ -118,7 +118,7 @@ body {
     border-bottom: 1px solid var(--border-color);
 }
 
-.post-avatar {
+.post-avatar img {
     width: 45px;
     height: 45px;
     border-radius: 50%;
