@@ -1,14 +1,17 @@
 ﻿@model MusicWebMVC.Models.User
 
+
 @{
     Layout = null;
     ViewData["Title"] = "ProfileAdmin";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
     var avatarUrl = Model?.AvatarUrl ?? "~/img/default-avatar.png";
     var username = Model?.Username ?? "User";
-    var email = Model?.Email ?? "example@mail.com";
-    var bio = Model?.Bio ?? "No bio provided";
+    var email = Model.Email ?? "example@mail.com";
+    var bio = Model.Bio ?? "No bio provided";
     var password = "********"; // Mật khẩu hiển thị là dấu sao mặc định
+    string levelImage = Model?.level.ToLower() + ".png";
+
 }
 
 <!DOCTYPE html>
@@ -48,62 +51,63 @@
         </div>
     </div>
 
+
+
     <div class="main-content">
-        <div class="information-account">
-            <div class="information-tab">
-                <button class="tab-button active" onclick="showTab(event, 'account')">Account</button>
-                <button class="tab-button" onclick="showTab(event, 'support')">Support</button>
-                <button class="tab-button" onclick="showTab(event, 'upgrade')">Upgrade</button>
+        <div class="type-account">
+               <h3>VIP</h3>       
+            <div class="type-account">
+                <div class="type-logo-level">
+                    <h3 class="type-level">@Model?.level</h3>
+                    <div class="type-logo">
+                        <img src="~/img/@levelImage" alt="User Level">
+                    </div>
+                </div>
             </div>
-            <div class="information-detail">
-                <div id="account" class="tab-content active">
-                    <h3>Account Information</h3>
-                    <button class="edit-button" onclick="openModal()">Edit</button>
-                    <div class="info-box">Username: <span id="displayUsername">@username</span></div>
+        </div>
+    </div>
+
+
+
+    <div class="information-account">
+        <div class="information-tab">
+            <button class="tab-button active" onclick="showTab(event, 'account')">Account</button>
+            <button class="tab-button" onclick="showTab(event, 'song')">Song</button>
+
+        </div>
+        <div class="information-detail">
+            <div id="account" class="tab-content active">
+                <h3>Account Information</h3>
+                <button class="edit-button" onclick="openModal()">Edit</button>
+                <div class="info-box">Username: <span id="displayUsername">@username</span></div>
+                <div class="info-box">
+                    Password:
+                    <span id="displayPassword">@password</span>
+                    <button type="button" id="togglePassword" onclick="togglePassword()" class="password-toggle-btn">
+                        <i id="passwordIcon" class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="info-box">Email: <span id="displayEmail">@email</span></div>
+                <div class="info-box">Bio: <span id="displayBio">@bio</span></div>
+                <div class="info-box">
+                    Profile Image:
+                    <img src="@avatarUrl" alt="Profile Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                </div>
+            </div>
+
+
+            <div class="information-song">
+                <div id="song" class="tab-content active">
+                    <h3>Song Information</h3>
+                    <div class="info-box">Title: <span id="displayTitle"></span></div>
                     <div class="info-box">
-                        Password:
-                        <span id="displayPassword">@password</span>
-                        <button type="button" id="togglePassword" onclick="togglePassword()" class="password-toggle-btn">
-                            <i id="passwordIcon" class="fas fa-eye"></i>
-                        </button>
+                        Password:<span id="displayPassword">@password</span>
                     </div>
                     <div class="info-box">Email: <span id="displayEmail">@email</span></div>
                     <div class="info-box">Bio: <span id="displayBio">@bio</span></div>
-                    <div class="info-box">
-                        Profile Image:
-                        <img src="@avatarUrl" alt="Profile Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
-                    </div>
                 </div>
-                <div id="support" class="tab-content">
-                    <div class="support-container">
-                        <h4>SUPPORT CENTER</h4>
 
-                        <button class="support-button">
-                            <div class="support-text">
-                                <div class="support-title">Help center</div>
-                                <div class="support-subtitle">FAQs, popular question</div>
-                            </div>
-                            <div class="support-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <path d="M9 6l6 6-6 6" stroke="#5B56F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </button>
 
-                        <button class="support-button">
-                            <div class="support-text">
-                                <div class="support-title">Contact</div>
-                                <div class="support-subtitle">Send message to team support</div>
-                            </div>
-                            <div class="support-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <path d="M9 6l6 6-6 6" stroke="#5B56F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
