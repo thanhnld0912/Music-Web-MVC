@@ -87,7 +87,7 @@ using (var scope = app.Services.CreateScope())
     // Gọi phương thức Seed để thêm người dùng admin nếu chưa có
     ApplicationDbContext.Seed(context);
 }
-
+app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

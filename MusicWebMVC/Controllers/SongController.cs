@@ -25,6 +25,10 @@ using YouTubePlaylist = Google.Apis.YouTube.v3.Data.Playlist;
 using YouTubeComment = Google.Apis.YouTube.v3.Data.Comment;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SignalR;
+using MusicWebMVC.Hubs;
+using System.Security.Claims;
 
 namespace MusicWebMVC.Controllers
 {
@@ -36,22 +40,31 @@ namespace MusicWebMVC.Controllers
         private readonly string _tempUploadPath;
         private readonly string _convertedFolder;
         private readonly string _uploadsFolder;
+        private readonly string _imagesFolder;
+        private readonly string _coverImagesFolder;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public SongController(ApplicationDbContext context, IWebHostEnvironment env, ILogger<SongController> logger)
+
+        public SongController(ApplicationDbContext context, IWebHostEnvironment env, ILogger<SongController> logger, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
             _env = env;
             _logger = logger;
+            _hubContext = hubContext;
 
             // Initialize common paths
             _tempUploadPath = Path.Combine(_env.ContentRootPath, "TempUploads", "Input");
             _convertedFolder = Path.Combine(_env.WebRootPath, "converted");
             _uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
+            _imagesFolder = Path.Combine(_env.WebRootPath, "imagesPost");
+            _coverImagesFolder = Path.Combine(_env.WebRootPath, "imagesSong");
 
             // Ensure directories exist
             Directory.CreateDirectory(_tempUploadPath);
             Directory.CreateDirectory(_convertedFolder);
             Directory.CreateDirectory(_uploadsFolder);
+            Directory.CreateDirectory(_imagesFolder);
+            Directory.CreateDirectory(_coverImagesFolder);
         }
 
         // Existing methods remain unchanged...
@@ -195,6 +208,70 @@ namespace MusicWebMVC.Controllers
                 _logger.LogError(ex, "Error creating playlist");
                 return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
             }
+        }
+        [HttpPost]
+        [Route("api/SaveRecentPlay")]
+        public async Task<IActionResult> SaveRecentPlay([FromBody] SaveRecentPlayRequest request)
+        {
+            try
+            {
+                int userId = 0;
+                int.TryParse(HttpContext.Session.GetString("UserId"), out userId);
+
+                // Check if the song exists
+                var song = await _context.Songs.FindAsync(request.songId);
+                if (song == null)
+                {
+                    return NotFound("Song not found");
+                }
+
+                // Create new recent play record
+                var recentPlay = new RecentPlay
+                {
+                    UserId = userId,
+                    SongId = request.songId,
+                    PlayedAt = DateTime.Now
+                };
+
+                _context.RecentPlays.Add(recentPlay);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving recent play");
+                return StatusCode(500, new { success = false, message = $"Server error: {ex.Message}" });
+            }
+        }
+
+        // Add this class in your controller file or in a separate models folder
+        public class SaveRecentPlayRequest
+        {
+            public int songId { get; set; }
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetRecentPlays(int count = 10)
+        {
+
+
+            int userId = 0;
+            int.TryParse(HttpContext.Session.GetString("UserId"), out userId);
+
+            var recentPlays = await _context.RecentPlays
+                .Where(rp => rp.UserId == userId)
+                .OrderByDescending(rp => rp.PlayedAt)
+                .Take(count)
+                .Include(rp => rp.Song)
+                .Select(rp => new {
+                    SongId = rp.SongId,
+                    Title = rp.Song.Title,
+                    Artist = rp.Song.User.Username, // Assuming User.UserName is the artist name
+                    PlayedAt = rp.PlayedAt,
+                    ImageUrl = rp.Song.CoverImage // If you have this property
+                })
+                .ToListAsync();
+
+            return Ok(recentPlays);
         }
 
         [HttpPost]
@@ -630,6 +707,8 @@ namespace MusicWebMVC.Controllers
             [HttpPost]
             public async Task<IActionResult> Upload(
                 IFormFile file,
+                IFormFile imageFile,
+                IFormFile coverImageFile,
                 string title,
                 int artistId,
                 string content,
@@ -644,11 +723,7 @@ namespace MusicWebMVC.Controllers
                 try
                 {
 
-                // Validate file
-                if (file == null || file.Length == 0)
-                    {
-                        return BadRequest(new { success = false, message = "Vui lòng chọn một tệp để tải lên." });
-                    }
+
 
                     // Check file format
                     var allowedExtensions = new[] { ".mp3", ".m4a", ".wav", ".aac" };
@@ -658,8 +733,71 @@ namespace MusicWebMVC.Controllers
                         return BadRequest(new { success = false, message = "Chỉ hỗ trợ các tệp MP3, M4A, WAV hoặc AAC." });
                     }
 
-                    // Check song basic info
-                    if (string.IsNullOrEmpty(title) || artistId <= 0)
+
+                string imageUrl = null;
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    // Check file format
+                    var allowedImageExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    var imageExtension = Path.GetExtension(imageFile.FileName).ToLower();
+                    if (!allowedImageExtensions.Contains(imageExtension))
+                    {
+                        return BadRequest(new { success = false, message = "Only JPG, JPEG, PNG, or GIF images are supported." });
+                    }
+
+                    // Check file size (5MB max)
+                    if (imageFile.Length > 5 * 1024 * 1024)
+                    {
+                        return BadRequest(new { success = false, message = "Image size must be less than 5MB." });
+                    }
+
+                    // Save image file
+                    var uniqueImageName = $"{Path.GetFileNameWithoutExtension(imageFile.FileName)}_{Guid.NewGuid().ToString("N")}{imageExtension}";
+                    var imagePath = Path.Combine(_imagesFolder, uniqueImageName);
+
+                    using (var stream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+
+                    imageUrl = "/imagesPost/" + uniqueImageName;
+                }
+                string coverImageUrl = null;
+                if (coverImageFile != null && coverImageFile.Length > 0)
+                {
+                    // Check file format
+                    var allowedImageExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    var coverImageExtension = Path.GetExtension(coverImageFile.FileName).ToLower();
+                    if (!allowedImageExtensions.Contains(coverImageExtension))
+                    {
+                        return BadRequest(new { success = false, message = "Only JPG, JPEG, PNG, or GIF images are supported for cover image." });
+                    }
+
+                    // Check file size (5MB max)
+                    if (coverImageFile.Length > 5 * 1024 * 1024)
+                    {
+                        return BadRequest(new { success = false, message = "Cover image size must be less than 5MB." });
+                    }
+
+                    // Save cover image file - use a different folder for cover images
+                    var uniqueCoverImageName = $"{Path.GetFileNameWithoutExtension(coverImageFile.FileName)}_{Guid.NewGuid().ToString("N")}{coverImageExtension}";
+                    var coverImagePath = Path.Combine(_coverImagesFolder, uniqueCoverImageName);
+
+                    // Make sure the directory exists
+                    Directory.CreateDirectory(Path.GetDirectoryName(coverImagePath));
+
+                    using (var stream = new FileStream(coverImagePath, FileMode.Create))
+                    {
+                        await coverImageFile.CopyToAsync(stream);
+                    }
+
+                    coverImageUrl = "/imagesSong/" + uniqueCoverImageName;
+                }
+
+
+
+                // Check song basic info
+                if (string.IsNullOrEmpty(title) || artistId <= 0)
                     {
                         return BadRequest(new { success = false, message = "Thiếu tiêu đề hoặc ID nghệ sĩ không hợp lệ." });
                     }
@@ -745,18 +883,20 @@ namespace MusicWebMVC.Controllers
                         linkYoutube = youtubeUrl;
                     }
 
-                    // Create and save Post first
-                    var post = new Post
-                    {
-                        UserId = artistId,
-                        Content = postContent,
-                        CreatedAt = DateTime.Now,
-                        UpdatedAt = DateTime.Now,
-                        LinkYoutube = linkYoutube
-                    };
+                // Create and save Post first
+                var post = new Post
+                {
+                    UserId = artistId,
+                    Content = postContent,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    LinkYoutube = linkYoutube,
+                    ImageUrl = imageUrl 
+                };
 
-                    _context.Posts.Add(post);
+                _context.Posts.Add(post);
                     await _context.SaveChangesAsync(); // Save Post to get ID
+
 
                     // Create and save Song after Post ID is available
                     var song = new Song
@@ -765,6 +905,7 @@ namespace MusicWebMVC.Controllers
                         ArtistId = artistId,
                         PostId = post.Id,             // Link to post
                         FileUrl = fileUrl,
+                        CoverImage = coverImageUrl,
                         Genre = genre,
                         Era = era,
                         Type = type,
@@ -777,28 +918,62 @@ namespace MusicWebMVC.Controllers
 
                     _context.Songs.Add(song);
                     await _context.SaveChangesAsync();
+                var followers = await _context.Follows
+    .Where(f => f.FollowingId == artistId)
+    .Select(f => f.FollowerId)
+    .ToListAsync();
+                var artist = await _context.Users.FindAsync(artistId);
+                string artistName = artist?.Username ?? "Unknown Artist";
 
-                    return Ok(new
-                    {
-                        success = true,
-                        message = hasYouTubeInfo
-                            ? "Tải lên thành công cả hệ thống và YouTube!"
-                            : "Tải lên thành công!",
-                        fileUrl = song.FileUrl,
-                        postId = post.Id,
-                        songId = song.Id,
-                        youtubeUrl = song.YouTubeUrl,
-                        fileType = convertToMp4 ? "mp4" : fileExtension.TrimStart('.')
-                    });
-                }
-                catch (Exception ex)
+                foreach (var followerId in followers)
                 {
-                    _logger.LogError(ex, "Upload error");
-                    return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
-                }
-            }
+                    var notification = new Notification
+                    {
+                        UserId = followerId,
+                        PostId = post.Id,
+                        Type = "Post", // Use "Post" type to distinguish from comments
+                        Url = $"/Home/PostDetail?id={post.Id}",
+                        Message = $"{artistName} uploaded a new song: {title}"
+                    };
 
-            [Route("youtube-callback")]
+                    _context.Notifications.Add(notification);
+
+                    // Send real-time notification via SignalR
+                    string receiverUserId = followerId.ToString();
+                    await _hubContext.Clients.Group(receiverUserId).SendAsync(
+                        "ReceiveNotification",
+                        receiverUserId,
+                        notification.Message,
+                        notification.Type,
+                        notification.Url
+                    );
+                }
+
+                // Save all notifications to database
+                await _context.SaveChangesAsync();
+                return Ok(new
+                {
+                    success = true,
+                    message = hasYouTubeInfo
+            ? "Upload successful to both system and YouTube!"
+            : "Upload successful!",
+                    fileUrl = song.FileUrl,
+                    imageUrl = post.ImageUrl,
+                    coverImageUrl = song.CoverImage,// Include image URL in response
+                    postId = post.Id,
+                    songId = song.Id,
+                    youtubeUrl = song.YouTubeUrl,
+                    fileType = convertToMp4 ? "mp4" : fileExtension.TrimStart('.')
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Upload error");
+                return StatusCode(500, new { success = false, message = "Server error: " + ex.Message });
+            }
+        }
+
+        [Route("youtube-callback")]
             public IActionResult YouTubeCallback()
             {
                 // Trang này sẽ được hiển thị sau khi xác thực với YouTube
@@ -981,7 +1156,10 @@ namespace MusicWebMVC.Controllers
                     return false;
                 }
             }
-            private async Task<(bool Success, string AccessToken, string RefreshToken)> RefreshTokenInternal(string refreshToken)
+
+       
+
+        private async Task<(bool Success, string AccessToken, string RefreshToken)> RefreshTokenInternal(string refreshToken)
             {
                 try
                 {
@@ -1044,7 +1222,9 @@ namespace MusicWebMVC.Controllers
                     _logger.LogError(ex, "Error in internal token refresh");
                     return (false, null, null);
                 }
+
             }
+
             public class YouTubeCodeExchangeRequest
             {
                 public string Code { get; set; }
