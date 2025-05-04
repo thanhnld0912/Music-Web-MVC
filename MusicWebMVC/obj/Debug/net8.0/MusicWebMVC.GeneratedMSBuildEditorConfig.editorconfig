@@ -1,0 +1,173 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MusicWebMVC
+build_property.RootNamespace = MusicWebMVC
+build_property.ProjectDir = D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\.net\ProjectGroup\Music-Web-MVC\MusicWebMVC
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Account/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Account/ProfileAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Admin/Partials/_DashboardTab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbHNcX0Rhc2hib2FyZFRhYi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Admin/Partials/_PostTab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbHNcX1Bvc3RUYWIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Admin/Partials/_Tabs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbHNcX1RhYnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Admin/Partials/_UserTab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbHNcX1VzZXJUYWIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/NewFeed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdGZWVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/NewFeedAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOZXdGZWVkQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/PostDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb3N0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/ProfileUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/ProfileUserAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlVXNlckFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/SearchPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2hQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Home/SearchPageAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2hQYWdlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Playlist/PlaylistPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RcUGxheWxpc3RQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Playlist/PlaylistPageAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RcUGxheWxpc3RQYWdlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/Components/GlobalPLayer/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcR2xvYmFsUExheWVyXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/Components/NavbarAdmin/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyQWRtaW5cRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/Components/Navbar/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/Components/SidebarAdmin/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZWJhckFkbWluXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/Components/Sidebar/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZWJhclxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/loader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGxvYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Song/SongPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xTb25nUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Song/SongPageAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xTb25nUGFnZUFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Song/UploadPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xVcGxvYWRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Song/UploadPageAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xVcGxvYWRQYWdlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Song/YouTubeCallback.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xZb3VUdWJlQ2FsbGJhY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5r85nk8cza
+
+[D:/.net/ProjectGroup/Music-Web-MVC/MusicWebMVC/Views/Shared/_LayoutWithSidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRXaXRoU2lkZWJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-coyi11t9ec

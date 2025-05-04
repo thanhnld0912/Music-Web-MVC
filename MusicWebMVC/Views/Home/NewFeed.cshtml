@@ -56,10 +56,65 @@
     <div class="content-wrapper">
         <!-- Navbar -->
         @await Component.InvokeAsync("Navbar")
+
+
+
+      
         <!-- NewFeed Content -->
         <div class="main-content">
+            <!-- Add this right after the main-content div opening, before the filter-tabs -->
+            <div class="recent-plays-section">
+                <h3 class="recent-plays-header">Your Recent Plays</h3>
+                <div class="recent-plays-slideshow">
+                    <!-- The slideshow container for recent plays -->
+                    <div class="recent-plays-container">
+                        @if (ViewBag.RecentPlays != null && ViewBag.RecentPlays.Count > 0)
+                        {
+                            @foreach (var play in ViewBag.RecentPlays)
+                            {
+                                <div class="recent-play-slide fade">
+                                    <div class="song-card" onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = play.Song.PostId })'">
+                                        <div class="song-cover">
+                                            <img src="@play.Song.CoverImage" alt="@play.Song.Title">
+                                            <div class="play-overlay">
+                                                <button class="slide-play-btn" data-song-url="@play.Song.FileUrl" data-song-id="@play.Song.Id">
+                                                    <i class="fas fa-play"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="song-info-slide">
+                                            <div class="song-title">@play.Song.Title</div>
+                                            <div class="song-artist">@play.Song.User.Username</div>
+                                            <div class="played-at">Played: @play.PlayedAt.ToString("dd/MM/yyyy HH:mm")</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="no-recent-plays">
+                                <p>No recent plays found. Start listening to some music!</p>
+                            </div>
+                        }
+
+                        <!-- Previous/Next buttons for recent plays -->
+                        @if (ViewBag.RecentPlays != null && ViewBag.RecentPlays.Count > 1)
+                        {
+                            <a class="prev-recent" onclick="plusRecentPlays(-1)">&#10094;</a>
+                            <a class="next-recent" onclick="plusRecentPlays(1)">&#10095;</a>
+                        }
+
+                        <!-- Navigation dots for recent plays -->
+                        <div class="recent-plays-dots-container">
+                            <!-- Will be populated dynamically based on number of slides -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
+          
             <div class="filter-tabs">
                 <button class="filter-tab @(ViewData["CurrentFilter"]?.ToString() == "following" ? "active" : "")"
                         onclick="location.href='@Url.Action("NewFeed", "Home", new { filter = "following" })'">
@@ -77,7 +132,9 @@
             </div>
 
 
+
             <div class="post-topuser">
+
                 <div class="post-topuser-left">
                     @if (!Model.Any())
                     {
@@ -103,35 +160,38 @@
                                         <div class="post-time">@post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
                                     </div>
                                     @if (int.Parse(Context.Session.GetString("UserId") ?? "0") == post.UserId)
-                                    {
-                                        <div class="post-options">
-                                            <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                            <div class="post-menu" id="postMenu-@post.Id">
-
-                                                    <div class="menu-item" onclick="editPost(@post.Id)">
-                                                        <i class="fas fa-edit"></i> Edit
-                                                    </div>
-                                                    <div class="menu-item" onclick="confirmDeletePost(@post.Id)">
-                                                        <i class="fas fa-trash"></i> Delete
-                                                    </div> 
-                                            </div>
-                                        </div>
-                                    } else {
-                                        <div class="post-options">
-                                            <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                            <div class="post-menu" id="postMenu-@post.Id">
-
-                                                    <div class="menu-item" onclick="reportPost(@post.Id)">
-                                                        <i class="fas fa-flag"></i> Report
-                                                    </div>
-                                                
-                                            </div>
-                                        </div>
-                                    }
+{
+    <div class="post-options">
+        <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
+            <i class="fas fa-ellipsis-h"></i>
+        </button>
+        <div class="post-menu" id="postMenu-@post.Id">
+            <div class="menu-item" onclick="window.location.href='@Url.Action("PostDetail", "Home", new { id = post.Id })'">
+                <i class="fas fa-eye"></i> View Detail
+            </div>
+            <div class="menu-item" onclick="editPost(@post.Id)">
+                <i class="fas fa-edit"></i> Edit
+            </div>
+            <div class="menu-item" onclick="confirmDeletePost(@post.Id)">
+                <i class="fas fa-trash"></i> Delete
+            </div> 
+        </div>
+    </div>
+} else {
+    <div class="post-options">
+        <button class="options-btn" onclick="togglePostMenu(event, @post.Id)">
+            <i class="fas fa-ellipsis-h"></i>
+        </button>
+        <div class="post-menu" id="postMenu-@post.Id">
+            <div class="menu-item" onclick="window.location.href='@Url.Action("PostDetail", "Home", new { id = post.Id })'">
+                <i class="fas fa-eye"></i> View Detail
+            </div>
+            <div class="menu-item" onclick="reportPost(@post.Id)">
+                <i class="fas fa-flag"></i> Report
+            </div>
+        </div>
+    </div>
+}
                                 </div>
 
                                 <!-- Post Content -->
@@ -141,6 +201,10 @@
                                     @if (!string.IsNullOrEmpty(post.ImageUrl))
                                     {
                                         <img src="@post.ImageUrl" class="post-image" />
+                                    }
+                                    @if (!string.IsNullOrEmpty(post.Song.CoverImage))
+                                    {
+                                        <img src="@post.Song.CoverImage" class="song-image" hidden/>
                                     }
                                     @if (!string.IsNullOrEmpty(post.LinkYoutube))
                                     {
@@ -333,9 +397,80 @@
                 </div>
                 <div class="top-user">
                     <div class="panel-header">
-                        Melofy members
+                        Melofy
                     </div>
+                    <h3 class="header-topuser">New Song</h3>
+                    <div class="song-slideshow-container">
+                        <!-- The slideshow will be restructured by JavaScript -->
+                        @if (ViewBag.TopSongs != null && ViewBag.TopSongs.Count > 0)
+                        {
+                            @foreach (var song in ViewBag.TopSongs)
+                            {
+                                <div class="song-slide fade">
+                                    <div class="song-card" onclick="window.location.href='@Url.Action("SongPage", "Song", new { postId = song.PostId })'">
+                                        <div class="song-cover">
+                                            <img src="@song.CoverImage" alt="@song.Title">
+                                            <div class="play-overlay">
+                                                <button class="slide-play-btn" data-song-url="@song.FileUrl" data-song-id="@song.Id">
+                                                    <i class="fas fa-play"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="song-info-slide">
+                                            <div class="song-title">@song.Title</div>
+                                            <div class="song-artist">@song.User.Username</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <!-- Fallback slides if no songs are available -->
+                            <div class="song-slide fade">
+                                <div class="song-card">
+                                    <div class="song-cover">
+                                        <img src="/img/default-cover.jpg" alt="Featured Song">
+                                        <div class="play-overlay">
+                                            <button class="slide-play-btn">
+                                                <i class="fas fa-play"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="song-info-slide">
+                                        <div class="song-title">Featured Track</div>
+                                        <div class="song-artist">Popular Artist</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="song-slide fade">
+                                <div class="song-card">
+                                    <div class="song-cover">
+                                        <img src="/img/default-cover2.jpg" alt="New Release">
+                                        <div class="play-overlay">
+                                            <button class="slide-play-btn">
+                                                <i class="fas fa-play"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="song-info-slide">
+                                        <div class="song-title">New Release</div>
+                                        <div class="song-artist">Trending Artist</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
 
+                        <!-- Previous/Next buttons -->
+                        <a class="prev-slide" onclick="plusSongSlides(-1)">&#10094;</a>
+                        <a class="next-slide" onclick="plusSongSlides(1)">&#10095;</a>
+
+                        <!-- Navigation dots -->
+                        <div class="slide-dots-container">
+                            <!-- Will be populated dynamically based on number of slides -->
+                        </div>
+                    </div>
+                    <h3 class="header-topuser">Top User</h3>
                     <div class="top-artists">
 
 
