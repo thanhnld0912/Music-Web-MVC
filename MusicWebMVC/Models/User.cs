@@ -21,6 +21,7 @@ namespace MusicWebMVC.Models
 
 
 
+
         public string AvatarUrl { get; set; } = "/img/default-avatar.png";
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
@@ -30,6 +31,16 @@ namespace MusicWebMVC.Models
         public bool IsDisabled { get; set; } = false;
 
         public bool IsVIP { get; set; } = false;
+
+        public string level { get; set; } = "Bronze"; // Bronze, Silver, Gold, Diamond 
+
+        public bool EmailConfirmed { get; set; } = false;
+        public string? EmailConfirmationToken { get; set; }
+        public DateTime? EmailConfirmationTokenExpiry { get; set; }
+
+
+        public string? PasswordResetToken { get; set; }
+        public DateTime? PasswordResetTokenExpiry { get; set; }
 
         public virtual ICollection<Song> Songs { get; set; }
         public virtual ICollection<Post> Posts { get; set; }

@@ -35,6 +35,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 
 
+// Đăng ký dịch vụ Email
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+
+
 // COnfiguration login google
 builder.Services.AddAuthentication(options =>
 {

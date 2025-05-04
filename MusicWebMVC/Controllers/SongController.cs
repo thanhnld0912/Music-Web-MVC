@@ -951,6 +951,30 @@ namespace MusicWebMVC.Controllers
 
                 // Save all notifications to database
                 await _context.SaveChangesAsync();
+
+                // ✅ Đếm số bài và nâng cấp nếu đủ
+                var totalSongs = await _context.Set<Song>()
+                    .CountAsync(s => s.ArtistId == artistId);
+
+                var user = await _context.Set<User>().FindAsync(artistId);
+                if (user != null && user.level == "Bronze" && totalSongs >= 2)
+                {
+                    user.level = "Silver";
+                    await _context.SaveChangesAsync();
+                }
+
+                else if (user != null && user.level == "Silver" && totalSongs >= 4)
+                {
+                    user.level = "Gold";
+                    await _context.SaveChangesAsync();
+                }
+
+                else if (user != null && user.level == "Gold" && totalSongs >= 10)
+                {
+                    user.level = "Diamond";
+                    await _context.SaveChangesAsync();
+                }
+
                 return Ok(new
                 {
                     success = true,

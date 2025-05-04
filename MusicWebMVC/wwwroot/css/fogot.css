@@ -1,0 +1,71 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url('/img/fpt.png') no-repeat center center fixed;
+    background-size: cover; /* Đảm bảo ảnh phủ toàn bộ phần tử */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: -20px 0 50px;
+    overflow: hidden;
+}
+.form-container {
+    background: rgba(0, 0, 0, 0.8); /* Làm nền form tối hơn */
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-bottom: 100px;
+}
+h1{
+    
+}
+p{
+    font-size:14px;
+}
+.email_block {
+    display:block;
+}
+button {
+    margin-top:20px;
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.form-options {
+    margin-top: 20px;
+}
+a {
+    text-decoration: none;
+}
