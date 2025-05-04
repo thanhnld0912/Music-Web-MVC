@@ -1,4 +1,7 @@
-﻿@{
+﻿@model MusicWebMVC.ViewModels.RegisterViewModel
+
+
+@{
     Layout = null;
     ViewData["Title"] = "Login";
 }
@@ -13,29 +16,75 @@
     <link rel="stylesheet" href="~/css/login.css">
 </head>
 <body>
+
+
     <div class="back-buttons">
         <a href="~/Home/Index"><i class="fas fa-arrow-left"></i>Introduction</a>
         <a href="~/Home/NewFeed"><i class="fas fa-arrow-left"></i>Home</a>
     </div>
     <div class="container" id="container">
-        <!-- Form Đăng ký -->
-        <div class="form-container sign-up-container">
-            <form method="post" asp-action="Register" asp-controller="Account">
+
+        <!-- Form Đăng Ký -->
+       @*  <div class="form-container sign-up-container">
+            <form asp-action="Register" method="post">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a asp-action="LoginByGoogle" asp-controller="Account"><i class="fab fa-google-plus-g"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" name="name" placeholder="Name" required />
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input asp-for="Username" placeholder="Username" required />
+                <span asp-validation-for="Username" class="text-danger"></span>
+
+                <input asp-for="Email" placeholder="Email" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+                <input asp-for="Password" placeholder="Password" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+
                 @if (ViewBag.RegisterError != null)
                 {
                     <p style="color: red;">@ViewBag.RegisterError</p>
                 }
                 <button type="submit">Sign Up</button>
             </form>
+        </div> *@
+
+        <div class="form-container sign-up-container">
+            <form asp-action="Register" method="post">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a asp-action="LoginByGoogle" asp-controller="Account"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input asp-for="Username" placeholder="Username" required />
+                <span asp-validation-for="Username" class="text-danger"></span>
+
+                <input asp-for="Email" placeholder="Email" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+                <input asp-for="Password" type="password" placeholder="Password" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+                @if (ViewBag.RegisterError != null)
+                {
+                    <div class="error-message">
+                        <p>@ViewBag.RegisterError</p>
+                    </div>
+                }
+              
+
+                <button type="submit">Sign Up</button>
+            </form>
         </div>
+
+
+
+
+
 
         <!-- Form Đăng nhập -->
         <div class="form-container sign-in-container">
@@ -47,12 +96,14 @@
                 <span>or use your account</span>
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
-                <a href="#">Forgot your password?</a>
                 @if (ViewBag.Error != null)
                 {
                     <p style="color: red;">@ViewBag.Error</p>
                 }
                 <button type="submit">Sign In</button>
+                <div class="form-options">
+                    <a asp-action="ForgotPassword">Quên mật khẩu?</a>
+                </div>
             </form>
         </div>
 
@@ -75,11 +126,13 @@
 
     <script src="~/js/Login.js"> </script>
 
-    @* <footer> *@
-    @*     <p> *@
-    @*         Created with <i class="fa fa-heart"></i> by *@
-    @*         <a target="_blank" href="#">Melofy</a> *@
-    @*     </p> *@
-    @* </footer> *@
+
 </body>
 </html>
+
+
+
+
+
+
+

@@ -1,14 +1,17 @@
 ﻿@model MusicWebMVC.Models.User
 
+
 @{
     Layout = null;
     ViewData["Title"] = "Profile";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
     var avatarUrl = Model?.AvatarUrl ?? "~/img/default-avatar.png";
     var username = Model?.Username ?? "User";
-    var email = Model?.Email ?? "example@mail.com";
-    var bio = Model?.Bio ?? "No bio provided";
+    var email = Model.Email ?? "example@mail.com";
+    var bio = Model.Bio ?? "No bio provided";
     var password = "********"; // Mật khẩu hiển thị là dấu sao mặc định
+    string levelImage = Model?.level.ToLower() + ".png";
+  
 }
 
 <!DOCTYPE html>
@@ -48,6 +51,8 @@
         </div>
     </div>
 
+
+
     <div class="main-content">
         <div class="type-account">
             @if (Model.IsVIP)
@@ -58,13 +63,23 @@
             {
                 <h3>FREE</h3>
             }
-            <div class="type-logo">
-                <img src="~/img/lgo.png" alt="User Avatar">
+            <div class="type-account">
+                <div class="type-logo-level">
+                    <h3 class="type-level">@Model?.level</h3>
+                    <div class="type-logo">
+                        <img src="~/img/@levelImage" alt="User Level">
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+ 
+
         <div class="information-account">
             <div class="information-tab">
                 <button class="tab-button active" onclick="showTab(event, 'account')">Account</button>
+            <button class="tab-button" onclick="showTab(event, 'song')">Song</button>
                 <button class="tab-button" onclick="showTab(event, 'support')">Support</button>
                 <button class="tab-button" onclick="showTab(event, 'upgrade')">Upgrade</button>
             </div>
@@ -87,14 +102,28 @@
                         <img src="@avatarUrl" alt="Profile Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
                     </div>
                 </div>
+             @*    <div id="song" class="tab-content">
+                    <h3>All Songs</h3>
+                    <p>All songs uploaded.</p> 
+                </div> *@
+
+            <div class="information-song">
+                <div id="song" class="tab-content active">
+                    <h3>Song Information</h3>                 
+                    <div class="info-box">Title: <span id="displayTitle"></span></div>
+                    <div class="info-box"> Password:<span id="displayPassword">@password</span>
+                    </div>  
+                    <div class="info-box">Email: <span id="displayEmail">@email</span></div>
+                    <div class="info-box">Bio: <span id="displayBio">@bio</span></div>
+                </div>
+
                 <div id="support" class="tab-content">
                     <div class="support-container">
                         <h4>SUPPORT CENTER</h4>
 
                         <button class="support-button">
                             <div class="support-text">
-                                <div class="support-title">Help center</div>
-                                <div class="support-subtitle">FAQs, popular question</div>
+                                <div>Email: admin@example.com</div>
                             </div>
                             <div class="support-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -105,7 +134,7 @@
 
                         <button class="support-button">
                             <div class="support-text">
-                                <div class="support-title">Contact</div>
+                                <div class="support-title">Username: Admin</div>
                                 <div class="support-subtitle">Send message to team support</div>
                             </div>
                             <div class="support-icon">

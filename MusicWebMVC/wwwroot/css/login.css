@@ -5,10 +5,8 @@
 }
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('/img/fpt.png') no-repeat center center fixed;
+    background-size: cover; /* Đảm bảo ảnh phủ toàn bộ phần tử */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -393,46 +391,13 @@ footer {
     }
 }
 
-footer a {
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .container {
-        min-height: 650px;
-        width: 90%;
+    footer a {
+        color: #3c97bf;
+        text-decoration: none;
     }
 
-    .sign-in-container, .sign-up-container {
-        width: 100%;
-    }
 
-    .overlay-container {
-        display: none;
-    }
 
-    .back-buttons {
-        top: 20px;
-        left: 20px;
-        flex-direction: row;
-    }
 
-    form {
-        padding: 0 30px;
-    }
-}
 
-/* Error message styling */
-p[style="color: red;"] {
-    background-color: rgba(255, 0, 0, 0.1);
-    padding: 8px 12px;
-    border-radius: 5px;
-    border-left: 3px solid #ff0000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    text-align: left;
-}
+    
