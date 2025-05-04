@@ -34,5 +34,6 @@ namespace MusicWebMVC.Models
 
         // Mối quan hệ nhiều-nhiều với Playlist thông qua PlaylistSong
         public virtual ICollection<PlaylistSong> PlaylistSongs { get; set; } = new List<PlaylistSong>();
+        public virtual ICollection<RecentPlay> RecentPlays { get; set; } = new List<RecentPlay>();
     }
 }

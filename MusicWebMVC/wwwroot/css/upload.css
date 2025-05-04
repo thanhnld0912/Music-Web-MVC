@@ -1165,3 +1165,84 @@ input[type="text"]:focus {
     #connect-youtube:hover {
         background-color: #cc0000;
     }
+
+.upload-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: #333;
+  
+}
+
+    .upload-image-container:hover {
+        border-color: #6c63ff;
+        background-color: #555;
+        color : black;
+    }
+
+    .upload-image-container.has-file {
+        border-color: #4CAF50;
+        background-color: #888;
+  
+    }
+
+    .upload-image-container .upload-icon {
+        font-size: 24px;
+        margin-right: 10px;
+        color: #6c63ff;
+    }
+
+    .upload-image-container .upload-text {
+        font-size: 16px;
+        color: white;
+    }
+
+    .upload-image-container .trashcan {
+        position: absolute;
+        right: 15px;
+        color: #ff5252;
+        font-size: 18px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 0.2s ease;
+    }
+
+        .upload-image-container .trashcan:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+.image-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+    .image-preview img {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+.image-details {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+    .image-details p {
+        margin: 5px 0;
+    }
