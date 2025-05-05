@@ -12,8 +12,8 @@ using MusicWebMVC.Data;
 namespace MusicWebMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250504170557_AddLastActivityUser")]
-    partial class AddLastActivityUser
+    [Migration("20250505042641_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

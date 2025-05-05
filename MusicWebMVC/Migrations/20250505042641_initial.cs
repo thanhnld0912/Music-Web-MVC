@@ -25,7 +25,9 @@ namespace MusicWebMVC.Migrations
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Bio = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     IsDisabled = table.Column<bool>(type: "bit", nullable: false),
-                    IsVIP = table.Column<bool>(type: "bit", nullable: false)
+                    IsVIP = table.Column<bool>(type: "bit", nullable: false),
+                    LastActivity = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
