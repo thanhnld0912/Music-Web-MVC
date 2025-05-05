@@ -133,6 +133,14 @@ namespace MusicWebMVC.Controllers
                 }
             }
 
+            var user = _context.Users.FirstOrDefault(u => u.Id == currentUserId);
+
+            var viewModel = new NewFeedViewModel
+            {
+                User = user,
+                Posts = posts,
+            };
+            return View(viewModel);
             // Chuyển dictionary thành list và sắp xếp theo thời gian gần nhất
             var uniqueRecentPlays = uniqueSongs.Values
                 .OrderByDescending(rp => rp.PlayedAt)

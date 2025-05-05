@@ -1,11 +1,12 @@
-﻿@{
+﻿@model MusicWebMVC.ViewModels.NewFeedViewModel
+@{
     Layout = null;
     ViewData["Title"] = "NewFeed";
     var isAuthenticated = Context.Session.GetString("UserId") != null;
     var userId = Context.Session.GetString("UserId");
     var avatarUrl = Context.Session.GetString("AvatarUrl") ?? "~/img/avatar.jpg";
-    @model List<MusicWebMVC.Models.Post>
-
+    // @model List<MusicWebMVC.Models.Post>
+    var isDisabled = Model.User.IsDisabled;
 }
 
 <!DOCTYPE html>
@@ -16,7 +17,12 @@
     <title>@ViewData["Title"] - Music Web</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="~/css/newfeed.css">
-
+    @if (isDisabled)
+    {
+        <script>
+            window.location.href='@Url.Action("Logout", "Account")';
+        </script>
+    }
 </head>
 
 <body onclick="closeAll(event)">
@@ -136,13 +142,13 @@
             <div class="post-topuser">
 
                 <div class="post-topuser-left">
-                    @if (!Model.Any())
+                    @if (!Model.Posts.Any())
                     {
                         <p>No posts available.</p>
                     }
                     else
                     {
-                        @foreach (var post in Model)
+                        @foreach (var post in Model.Posts)
                         {
                             <input class=".post-user-id" value="@post.UserId" hidden />
                             <div class="post" data-post-id="@post.Id">

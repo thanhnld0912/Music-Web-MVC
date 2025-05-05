@@ -175,38 +175,83 @@ namespace MusicWebMVC.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public IActionResult Login(string email, string password)
+        //{
+        //    var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+
+        //    if (user != null)
+        //    {
+        //        // Lưu thông tin người dùng vào session
+        //        HttpContext.Session.SetString("UserId", user.Id.ToString());
+        //        HttpContext.Session.SetString("UserRole", user.Role);
+        //        HttpContext.Session.SetString("Username", user.Username);
+        //        HttpContext.Session.SetString("AvatarUrl", user.AvatarUrl);
+
+        //        // Kiểm tra nếu người dùng là admin và chuyển hướng đến newfeedadmin
+        //        if (user.Email == "admin@example.com")
+        //        {
+        //            // Điều hướng đến trang newfeedadmin
+        //            return RedirectToAction("NewFeedAdmin", "Home");
+        //        }
+
+        //        // Nếu không phải admin, điều hướng đến trang newfeed
+        //        return RedirectToAction("NewFeed", "Home");
+        //    }
+
+        //    // Đăng nhập thất bại
+        //    ViewBag.Error = "Invalid email or password.";
+        //    return View();
+        //}
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
 
-            if (user != null)
+            if (user == null)
             {
-                // Lưu thông tin người dùng vào session
-                HttpContext.Session.SetString("UserId", user.Id.ToString());
-                HttpContext.Session.SetString("UserRole", user.Role);
-                HttpContext.Session.SetString("Username", user.Username);
-                HttpContext.Session.SetString("AvatarUrl", user.AvatarUrl);
-
-                // Kiểm tra nếu người dùng là admin và chuyển hướng đến newfeedadmin
-                if (user.Email == "admin@example.com")
-                {
-                    // Điều hướng đến trang newfeedadmin
-                    return RedirectToAction("NewFeedAdmin", "Home");
-                }
-
-                // Nếu không phải admin, điều hướng đến trang newfeed
-                return RedirectToAction("NewFeed", "Home");
+                ViewBag.Error = "Invalid email or password.";
+                return View();
             }
 
-            // Đăng nhập thất bại
-            ViewBag.Error = "Invalid email or password.";
-            return View();
+            if (user.IsDisabled)
+            {
+                ViewBag.Error = "Tài khoản của bạn đã bị vô hiệu hóa.";
+                return View();
+            }
+
+            // Lưu thông tin người dùng vào session
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
+            HttpContext.Session.SetString("UserRole", user.Role);
+            HttpContext.Session.SetString("Username", user.Username);
+            HttpContext.Session.SetString("AvatarUrl", user.AvatarUrl);
+
+            // Kiểm tra nếu người dùng là admin
+            if (user.Email == "admin@example.com")
+            {
+                return RedirectToAction("NewFeedAdmin", "Home");
+            }
+
+            return RedirectToAction("NewFeed", "Home");
         }
+
         public IActionResult Logout()
         {
+            var userIdStr = HttpContext.Session.GetString("UserId");
+
+            if (!string.IsNullOrEmpty(userIdStr) && int.TryParse(userIdStr, out int userId))
+            {
+                var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+                if (user != null)
+                {
+                    user.IsActive = false;
+                    user.LastActivity = DateTime.UtcNow;
+                    _context.SaveChanges();
+                }
+            }
+
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpGet]
@@ -617,6 +662,5 @@ namespace MusicWebMVC.Controllers
         }
 
     }
-
 }
 

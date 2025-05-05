@@ -6,6 +6,136 @@
 @model PagedResult<PostViewModel>
 @{
 }
+<style>
+    /* Modal Overlay */
+    .modal {
+        display: none; /* Sẽ hiển thị bằng JavaScript */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s ease;
+    }
+
+        /* Modal Container */
+        .modal.show {
+            display: block;
+        }
+
+    /* Modal Content Box */
+    .modal-content {
+        position: relative;
+        margin: 5% auto;
+        background-color: #ffffff;
+        padding: 25px 30px;
+        width: auto; /* Không giới hạn chiều rộng */
+        height: auto; /* Không giới hạn chiều cao */
+        max-width: 90%; /* Giới hạn chiều rộng tối đa */
+        max-height: 90%; /* Giới hạn chiều cao tối đa */
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        animation: slideDown 0.4s ease-out;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: visible; /* Đảm bảo nội dung không bị cuộn */
+        word-wrap: break-word; /* Cho phép tự động xuống dòng nếu nội dung quá dài */
+    }
+
+    /* Close Button */
+    .close {
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background-color: #dc3545;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        line-height: 32px;
+        cursor: pointer;
+        box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    }
+
+    /* Modal Title */
+    .modal-content h3 {
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* Report Table */
+    .report-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+        .report-table th, .report-table td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+
+        .report-table th {
+            background-color: #f1f1f1;
+            font-weight: 600;
+        }
+
+        .report-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .report-table tr:hover {
+            background-color: #e3f2fd;
+        }
+
+    /* Status Badges */
+    .badge {
+        padding: 4px 10px;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 12px;
+        color: #fff;
+        display: inline-block;
+    }
+
+        .badge.resolved {
+            background-color: #28a745;
+        }
+
+        .badge.unresolved {
+            background-color: #dc3545;
+        }
+
+    /* Resolve Button */
+    .resolve-btn {
+        margin-top: 5px;
+        padding: 5px 12px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+        .resolve-btn:hover {
+            background-color: #0056b3;
+        }
+
+
+</style>
+
+
 <div class="post-management">
     <h2>Manage</h2>
     <table class="post-table">
@@ -26,7 +156,7 @@
                         <td>@post.Username</td>
                         <td>@post.Title</td>
                         <td>
-                            @if (post.Status.Equals("yes", StringComparison.OrdinalIgnoreCase))
+                            @if (post.Status.Equals("", StringComparison.OrdinalIgnoreCase))
                             {
                                 <i class="fas fa-check-circle" style="color: green"></i>
                             }
@@ -36,7 +166,8 @@
                             }
                         </td>
                     <td>
-                        <button class="btn report">View Report</button>
+                        @* <button class="btn report">View Report</button> *@
+                        <button class="btn report" onclick="loadReports(@post.Id)">View Report</button>
                         <button class="btn delete" onclick="confirmModal(@post.Id)">Delete</button>
                         <button class="btn more">More</button>
                     </td>
@@ -75,4 +206,127 @@
             </button>
         }
     </div>
+
+    <div id="reportModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Reports</h3>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Reason</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Post Content</th>
+                        <th>Post By UserId</th>
+                        <th>Post By Username</th>
+                        <th>Post Created At</th>
+                        <th>Post Updated At</th>
+                    </tr>
+                </thead>
+                <tbody id="reportBody">
+                    <!-- Data will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="confirm-modal">
+        <div class="confirm-modal-content">
+            <h3>CONFIRM</h3>
+            <p>Are you sure you want to delete this post?</p>
+            <div class="confirm-modal-buttons">
+                <button class="btn no" onclick="closeConfirmModal()">No</button>
+                <button class="btn yes" onclick="confirmDelete()">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+            let selectedConfirmPostId = null;
+
+            function confirmModal(postId) {
+            selectedConfirmPostId = postId;
+            document.getElementById("confirmModal").style.display = "flex";
+        }
+
+        function closeConfirmModal() {
+        document.getElementById("confirmModal").style.display = "none";
+        selectedConfirmPostId = null;
+    }
+
+    function confirmDelete() {
+        if (selectedConfirmPostId !== null) {
+            window.location.href = `/Admin/DeletePost?id=${selectedConfirmPostId}`;
+        }
+    }
+
+        function closeModal() {
+            document.getElementById('reportModal').style.display = 'none';
+        }
+
+                       function loadReports(postId) {
+            alert("Loading reports for postId: " + postId);
+            fetch(`/Admin/GetReportsByPost?postId=${postId}`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Network error");
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Received reports:", data);
+                    const tbody = document.getElementById("reportBody");
+                    tbody.innerHTML = "";
+
+                    if (data.length === 0) {
+                        tbody.innerHTML = "<tr><td colspan='9'>No reports found.</td></tr>";
+                    } else {
+                        data.forEach(report => {
+                            tbody.innerHTML += `
+                                <tr>
+                                    <td>${report.username}</td>
+                                    <td>${report.reason}</td>
+                                    <td>${report.createdAt}</td>
+                                    <td>
+                                        <span class="badge ${report.resolved ? 'resolved' : 'unresolved'}">
+                                            ${report.resolved ? 'Resolved' : 'Pending'}
+                                        </span>
+                                        ${!report.resolved
+                                            ? `<button class="resolve-btn" onclick="markResolved(this, ${report.id})">Mark as Resolved</button>`
+                                            : ''
+                                        }
+                                    </td>
+                                    <td>${report.postContent}</td>
+                                    <td>${report.postUserId}</td>
+                                    <td>${report.postUserUsername}</td>
+                                    <td>${report.postCreatedAt}</td>
+                                    <td>${report.postUpdatedAt}</td>
+                                </tr>
+                            `;
+                        });
+                    }
+
+                    // Show modal
+                    document.getElementById('reportModal').style.display = 'block';
+                })
+                .catch(error => {
+                    alert("Failed to load reports: " + error);
+                });
+        }
+
+
+
+        function markResolved(button, reportId) {
+            fetch(`/Admin/ResolveReport?id=${reportId}`, { method: "POST" })
+                .then(res => {
+                    if (!res.ok) throw new Error("Update failed");
+                    const row = button.closest('tr');
+                    const statusCell = row.querySelector('td:nth-child(4)');
+                    statusCell.innerHTML = '<span class="badge resolved">Resolved</span>';
+                })
+                .catch(err => alert("Error: " + err));
+        }
+
+    </script>
+
 </div>
