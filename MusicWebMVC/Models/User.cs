@@ -32,6 +32,8 @@ namespace MusicWebMVC.Models
 
         public bool IsVIP { get; set; } = false;
 
+        public DateTime LastActivity { get; set; }
+        public bool IsActive { get; set; }
         public string level { get; set; } = "Bronze"; // Bronze, Silver, Gold, Diamond 
 
         public bool EmailConfirmed { get; set; } = false;

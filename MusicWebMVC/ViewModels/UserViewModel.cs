@@ -8,5 +8,7 @@
         public int PostCount { get; set; }
         public bool? IsDisabled { get; set; }
         public bool? IsVIP { get; set; }
+        public bool? IsActive { get; set; } 
+        public DateTime LastActivity { get; set; }
     }
 }
