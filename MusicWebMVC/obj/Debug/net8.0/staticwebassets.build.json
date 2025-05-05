@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FTWvZCFN2VkATfBezVVvcbzVFovuXCNkCagnNB6aXZ4=",
+  "Hash": "0dtXu2sqrbC6p3CsF2YcyAFshi0C9QKT6jn6HrhgtAg=",
   "Source": "MusicWebMVC",
   "BasePath": "_content/MusicWebMVC",
   "Mode": "Default",
@@ -1606,8 +1606,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ucluwzf6f2",
-      "Integrity": "nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=",
+      "Fingerprint": "2016m8hl75",
+      "Integrity": "bm/MGknMo9Scj+oY+dTmJSG0rnoCfdGzHYf1rjyBcTU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\chart.js"
@@ -3774,6 +3774,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\HEHE-BOY-ORIGINAL-MEME_fa8aef12a21f4a2ba8335ff83d712bda.mp3"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "thlukr2n7a",
+      "Integrity": "r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.mp3"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "thlukr2n7a",
+      "Integrity": "r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.mp3"
+    },
+    {
+      "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.mp3",
+      "SourceId": "MusicWebMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\",
+      "BasePath": "_content/MusicWebMVC",
+      "RelativePath": "uploads/once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "thlukr2n7a",
+      "Integrity": "r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.mp3"
     },
     {
       "Identity": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\playlist-images\\10017e88-3136-4733-8b20-891d1b894381.jpg",
@@ -9567,7 +9630,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 07:59:45 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9604,7 +9667,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 07:59:45 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9895,7 +9958,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 08:03:03 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9932,7 +9995,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 08:03:03 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10223,7 +10286,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 07:59:45 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10260,7 +10323,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 07:59:45 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10797,7 +10860,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 07:59:45 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10834,7 +10897,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 07:59:45 GMT"
+          "Value": "Sun, 04 May 2025 04:32:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11759,6 +11822,51 @@
       ]
     },
     {
+      "Route": "js/chart.2016m8hl75.js",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1085"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bm/MGknMo9Scj+oY+dTmJSG0rnoCfdGzHYf1rjyBcTU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 01:43:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2016m8hl75"
+        },
+        {
+          "Name": "label",
+          "Value": "js/chart.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bm/MGknMo9Scj+oY+dTmJSG0rnoCfdGzHYf1rjyBcTU="
+        }
+      ]
+    },
+    {
       "Route": "js/chart.js",
       "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
       "Selectors": [],
@@ -11769,7 +11877,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2409"
+          "Value": "1085"
         },
         {
           "Name": "Content-Type",
@@ -11777,11 +11885,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=\""
+          "Value": "\"bm/MGknMo9Scj+oY+dTmJSG0rnoCfdGzHYf1rjyBcTU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:14:28 GMT"
+          "Value": "Mon, 05 May 2025 01:43:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11791,52 +11899,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg="
-        }
-      ]
-    },
-    {
-      "Route": "js/chart.ucluwzf6f2.js",
-      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\js\\chart.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2409"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:14:28 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ucluwzf6f2"
-        },
-        {
-          "Name": "label",
-          "Value": "js/chart.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-nsM8ttP1CecRwAxzV4Kc/D60JOe17cFPUKyG9y8+HWg="
+          "Value": "sha256-bm/MGknMo9Scj+oY+dTmJSG0rnoCfdGzHYf1rjyBcTU="
         }
       ]
     },
@@ -20447,6 +20510,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-kvLUP4CZh1eaC7Uflg/mTCnn33puHtFObITMByp50U8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.mp3",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6053268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 03:44:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.thlukr2n7a.mp3",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6053268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 03:44:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "thlukr2n7a"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/once-upon-a-time-house-mix_bd689da1a6914f498d4db52083b46aaf.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.mp3",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6053268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 03:41:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.thlukr2n7a.mp3",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6053268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 03:41:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "thlukr2n7a"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/once-upon-a-time-house-mix_dd9ca0122cf54d69a33bb29c1c7a89b2.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.mp3",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6053268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 02:11:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.thlukr2n7a.mp3",
+      "AssetFile": "E:\\Coding\\.NET\\Melofy\\Music-Web-MVC\\MusicWebMVC\\wwwroot\\uploads\\once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6053268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 02:11:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "thlukr2n7a"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/once-upon-a-time-house-mix_edd026fe0207499e93ef47077ecaf59c.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-r3dl2yoPylSb0xccQBN8QQLzsjYRs9s8hi1ANnC0wto="
         }
       ]
     },

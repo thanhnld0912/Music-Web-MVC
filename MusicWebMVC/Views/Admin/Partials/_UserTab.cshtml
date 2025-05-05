@@ -6,7 +6,31 @@
 @model PagedResult<UserViewModel>
 @{
 }
+<style>
+    .badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-left: 6px;
+    }
 
+    .badge-success {
+    background-color: gold;
+    color: white;
+    }
+
+    .badge-primary {
+    background-color: green;
+    color: white;
+    }
+
+    .badge-secondary {
+    background-color: #6c757d;
+    color: white;
+    }
+
+</style>
 <div class="user-management">
     <h2>Manage</h2>
     <table class="user-table">
@@ -16,6 +40,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Post</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -26,9 +51,30 @@
                 {
                     <tr>
                         <td>@user.Id</td>
-                        <td>@user.Username</td>
+                        @* <td>@user.Username</td> *@
+                        <td>
+                            @user.Username
+                            @if (user.LastActivity >= DateTime.UtcNow.AddMinutes(-1) && user.IsActive == true)
+                            {
+                                <span class="badge badge-primary">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">Inactive</span>
+                            }
+                        </td>
                         <td>@user.Email</td>
                         <td>@user.PostCount</td>
+                        <td>
+                            @if (user.IsVIP == true)
+                            {
+                                <span class="badge badge-success">VIP</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">FREE</span>
+                            }
+                        </td>
                         <td>
                             <button class="btn delete" onclick="confirmModal(@user.Id)">Delete</button>
                             @if ((user.IsDisabled ?? false))
@@ -41,6 +87,7 @@
                             }
                             <button class="btn more">More</button>
                         </td>
+                        
                     </tr>
                 }
             }

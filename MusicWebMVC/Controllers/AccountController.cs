@@ -230,8 +230,21 @@ namespace MusicWebMVC.Controllers
 
         public IActionResult Logout()
         {
+            var userIdStr = HttpContext.Session.GetString("UserId");
+
+            if (!string.IsNullOrEmpty(userIdStr) && int.TryParse(userIdStr, out int userId))
+            {
+                var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+                if (user != null)
+                {
+                    user.IsActive = false;
+                    user.LastActivity = DateTime.UtcNow;
+                    _context.SaveChanges();
+                }
+            }
+
             HttpContext.Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Login", "Account");
         }
 
         public IActionResult Register()

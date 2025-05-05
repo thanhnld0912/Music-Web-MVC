@@ -72,8 +72,12 @@ app.UseRouting();
 // Sử dụng Session
 app.UseSession();
 
+app.UseAuthentication();
+
 // Thêm Authorization
 app.UseAuthorization();
+
+app.UseMiddleware<ActivityTrackingMiddleware>();
 
 // Gọi phương thức Seed sau khi database đã được cấu hình
 using (var scope = app.Services.CreateScope())

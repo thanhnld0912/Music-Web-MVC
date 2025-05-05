@@ -480,11 +480,17 @@ namespace MusicWebMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDisabled")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsVIP")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastActivity")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
                         .IsRequired()

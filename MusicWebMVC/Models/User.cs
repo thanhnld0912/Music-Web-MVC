@@ -31,6 +31,9 @@ namespace MusicWebMVC.Models
 
         public bool IsVIP { get; set; } = false;
 
+        public DateTime LastActivity { get; set; }
+        public bool IsActive { get; set; }
+
         public virtual ICollection<Song> Songs { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
