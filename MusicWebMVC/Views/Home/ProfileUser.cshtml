@@ -26,12 +26,454 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<style>
+@@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding: 10px 5px;
+        transition: all 0.3s ease;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 50px;
+        z-index: 999;
+    }
+
+    .main-content {
+        margin-left: 10px !important;
+        width: calc(100% - 20px) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .main-content-top {
+        width: 98%;
+    }
+
+    .post-card,
+    .newfeed-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .search-bar,
+    .tab-nav {
+        margin-left: 70px;
+        width: calc(100% - 80px);
+    }
+
+    .logo,
+    .logoimg,
+    .create-playlist,
+    .sidebar-section,
+    .trending,
+    .register {
+        display: none;
+    }
+
+    .sidebar-toggle {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .navbar {
+        margin-left: 10px;
+    }
+
+    .post-topuser-left {
+        width: 100%;
+    }
+
+    .post {
+        padding: 30px 50px;
+        width: 100%;
+    }
+
+    .auth-button {
+        position: absolute;
+    }
+
+    .search-box {
+        width: 72%;
+    }
+
+    .login {
+        top: 2px;
+        right: 25px;
+    }
+
+    .top-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 20px !important;
+        margin-top: 15px;
+    }
+
+    .tab {
+        cursor: pointer;
+        padding: 10px 20px;
+        background: #333;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s;
+        margin-top: unset;
+    }
+
+    .content {
+        display: none;
+    }
+
+        .content:first-child {
+            display: block;
+        }
+
+    .avatar {
+        max-width: none;
+
+    }
+
+    .username {
+        margin: 0 120px !important;
+    }
+
+    .handle {
+        margin: 10px 200px;
+    }
+    /* Song Grid Layout & Styling */
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 15px;
+}
+
+.song {
+    position: relative;
+    background-color: #22222A;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .song:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+.song-artist-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(116, 73, 225, 0.8);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.song-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.song-cover {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+}
+
+    .song-cover img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+.song:hover .song-cover img {
+    transform: scale(1.05);
+}
+
+.default-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #333, #222);
+    font-size: 24px;
+    font-weight: bold;
+    color: #7449E1;
+}
+
+/* Song Info Section */
+.song-item {
+    padding: 15px;
+    background-color: rgba(54, 54, 54, 0.9);
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Title and Time */
+.time-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .time-title span {
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 85%;
+    }
+
+.time-display {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Audio Controls */
+.song-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Enhanced play controls */
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.play-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #7449E1, #6a42d1);
+    box-shadow: 0 4px 10px rgba(116, 73, 225, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+    .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(116, 73, 225, 0.6);
+    }
+
+    .play-button i {
+        color: white;
+        font-size: 18px;
+        padding-left: 3px; /* Slight offset for the play icon */
+    }
+
+.play-progress {
+    flex: 1;
+}
+
+.progress-container {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #7449E1, #e74c3c);
+    border-radius: 6px;
+    transition: width 0.05s linear;
+}
+
+/* Volume control styling */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    width: fit-content;
+    margin-top: 5px;
+}
+
+    .volume-control i {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        transition: color 0.2s ease;
+    }
+
+    .volume-control:hover i {
+        color: white;
+    }
+
+.volume-slider {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    outline: none;
+}
+
+    .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #7449E1;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .volume-slider::-moz-range-thumb {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #7449E1;
+        cursor: pointer;
+    }
+
+/* YouTube link styling */
+.youtube-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: #ff0000;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+    .youtube-link:hover {
+        background-color: #cc0000;
+    }
+
+    .youtube-link i {
+        font-size: 18px;
+    }
+
+    .youtube-link h3 {
+        font-size: 14px;
+        margin: 0;
+    }
+
+/* View details button */
+.view-detail-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+    .view-detail-btn:hover {
+        background-color: #444;
+    }
+
+    .view-detail-btn i {
+        font-size: 14px;
+    }
+
+/* Playing state */
+.song.playing .play-button {
+    background: linear-gradient(145deg, #e74c3c, #d44637);
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
+}
+
+    .song.playing .play-button:hover {
+        box-shadow: 0 6px 15px rgba(231, 76, 60, 0.6);
+    }
+
+.song.playing .progress-bar {
+    background: linear-gradient(90deg, #e74c3c, #f39c12);
+}
+
+/* Responsive adjustments */
+@@media screen and (max-width: 768px) {
+    .song-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .play-button {
+        width: 40px;
+        height: 40px;
+    }
+
+        .play-button i {
+            font-size: 16px;
+        }
+
+    .time-title span {
+        font-size: 16px;
+    }
+
+    .time-display {
+        font-size: 12px;
+    }
+
+    .volume-slider {
+        width: 60px;
+    }
+}
+}</style>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Music Web</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="~/css/ProfileUser.css">
+    <link rel="stylesheet" href="~/css/profileuserr.css">
 </head>
 <body onclick="closeAll(event)">
     <!-- Sidebar -->
@@ -135,7 +577,9 @@
                                             <i class="fas fa-ellipsis-h"></i>
                                         </button>
                                         <div class="post-menu" id="postMenu-@post.Id">
-
+                                            <div class="menu-item" onclick="window.location.href='@Url.Action("PostDetail", "Home", new { id = post.Id })'">
+                                                <i class="fas fa-eye"></i> View Detail
+                                            </div>
                                             <div class="menu-item" onclick="editPost(@post.Id)">
                                                 <i class="fas fa-edit"></i> Edit
                                             </div>
@@ -152,7 +596,9 @@
                                             <i class="fas fa-ellipsis-h"></i>
                                         </button>
                                         <div class="post-menu" id="postMenu-@post.Id">
-
+                                            <div class="menu-item" onclick="window.location.href='@Url.Action("PostDetail", "Home", new { id = post.Id })'">
+                                                <i class="fas fa-eye"></i> View Detail
+                                            </div>
                                             <div class="menu-item" onclick="reportPost(@post.Id)">
                                                 <i class="fas fa-flag"></i> Report
                                             </div>
@@ -283,7 +729,7 @@
                 }
             </div>
 
-            <!-- Songs section -->
+  
             <div class="content" id="song" style="display: none;">
                 @if (!userSongs.Any())
                 {
@@ -292,11 +738,13 @@
                 else
                 {
                     <div class="song-grid">
-
                         @foreach (var song in userSongs)
                         {
-                            <div class="song">
-                                <div class="song-card" data-song-id="@song.Id">
+                            <div class="song" data-song-id="@song.Id">
+                                <div class="song-artist-badge">
+                                    <i class="fas fa-music"></i> @song.Post.User.Username
+                                </div>
+                                <div class="song-card">
                                     <div class="song-cover">
                                         @if (!string.IsNullOrEmpty(song.CoverImage))
                                         {
@@ -305,12 +753,17 @@
                                         else
                                         {
                                             <div class="default-cover">
-                                                <span class="song-number">@song.Title</span>
+                                                <span>@song.Title</span>
                                             </div>
                                         }
                                     </div>
                                     <div class="song-item">
                                         <div class="song-info">
+                                            <div class="time-title">
+                                                <span title="@song.Title">@song.Title</span>
+                                                <div class="time-display" id="time-display-@song.Id">0:00</div>
+                                            </div>
+
                                             <div class="song-info-container">
                                                 <div class="custom-audio-player" data-song-url="@song.FileUrl">
                                                     <div class="play-button">
@@ -318,11 +771,6 @@
                                                     </div>
 
                                                     <div class="play-progress">
-                                                        <div class="time-title">
-                                                            <div class="time-display">0:00 </div>
-                                                            
-                                                        </div>
-
                                                         <div class="progress-container" id="progress-container-@song.Id">
                                                             <div class="progress-bar" id="progress-bar-@song.Id"></div>
                                                         </div>
@@ -332,26 +780,28 @@
                                                         <source src="@song.FileUrl" type="audio/mpeg">
                                                     </audio>
                                                 </div>
+
                                                 <div class="volume-control">
-                                                    <i class="fas fa-volume-up"></i>
+                                                    <i class="fas fa-volume-up" id="volume-icon-@song.Id"></i>
                                                     <input type="range" min="0" max="1" step="0.1" value="1" class="volume-slider" id="volume-slider-@song.Id">
                                                 </div>
-                                                @if (!string.IsNullOrEmpty(song.Post.LinkYoutube))
+
+                                                @if (!string.IsNullOrEmpty(song.Post?.LinkYoutube))
                                                 {
                                                     <a href="@song.Post.LinkYoutube" target="_blank" class="youtube-link">
                                                         <i class="fab fa-youtube"></i>
-                                                        <h3>Youtube</h3>
+                                                        <h3>YouTube</h3>
                                                     </a>
                                                 }
+
+                                                <button class="view-detail-btn" onclick="window.location.href='@Url.Action("PostDetail", "Home", new { id = @song.Post.Id })'">
+                                                    <i class="fas fa-eye"></i> View Details
+                                                </button>
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-      
                         }
                     </div>
                 }

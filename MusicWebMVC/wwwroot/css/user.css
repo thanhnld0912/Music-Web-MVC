@@ -322,19 +322,179 @@ h2 {
 
 .pagination {
     margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .page-btn {
-    background: red;
+    background-color: red;
     color: white;
     border: none;
-    border-radius: 50%;
-    padding: 10px 15px;
+    border-radius: 8px; /* nhẹ bo viền giống ảnh */
+    width: 40px;
+    height: 40px;
     margin: 5px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
     .page-btn.active {
-        background: white;
+        background-color: white;
         color: black;
     }
+
+    .page-btn:hover:not(.active) {
+        background-color: #c60000;
+    }
+
+.page-redirect-btn {
+    background-color: #404040;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .page-redirect-btn:hover {
+        background-color: #5a5a5a;
+    }
+
+.confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-modal-content {
+    background-color: #f2f2f2;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 350px;
+    color: black;
+}
+
+    .confirm-modal-content h3 {
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+.confirm-modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn.yes {
+    background: #5a5a5a;
+    color: white;
+}
+
+.btn.no {
+    background: red;
+    color: white;
+}
+
+.disable-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.disable-modal-content {
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px 40px;
+    width: 450px;
+    position: relative;
+    border: 2px solid #3b82f6; /* viền xanh */
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.disable-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .disable-modal-header h1 {
+        font-weight: bold;
+        font-size: 20px;
+        margin: 0;
+        text-align: center;
+        flex-grow: 1;
+    }
+
+.modal-close {
+    font-size: 24px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.disable-modal-body {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.disable-modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-yes, .btn-no {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.btn-yes {
+    background-color: #444;
+    color: white;
+}
+
+.btn-no {
+    background-color: red;
+    color: white;
+}

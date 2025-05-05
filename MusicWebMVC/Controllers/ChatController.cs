@@ -144,7 +144,7 @@ namespace MusicWebMVC.Controllers
                 canMessage = true;
 
             if (!canMessage)
-                return Json(new { success = false, message = "You cannot message this user" });
+                return Json(new { success = false, message = "You cannot message this user, You need to follow each other" });
 
             // Create message
             var message = new Message
@@ -197,20 +197,25 @@ namespace MusicWebMVC.Controllers
 
             var currentUserId = int.Parse(HttpContext.Session.GetString("UserId"));
 
-            // Find users who the current user follows or who follow the current user
-            // Or find admin users
-            var follows = await _context.Follows
-                .Where(f => f.FollowerId == currentUserId || f.FollowingId == currentUserId)
-                .Select(f => f.FollowerId == currentUserId ? f.FollowingId : f.FollowerId)
+            // Get users who have mutual follows (both following each other)
+            var mutualFollows = await _context.Follows
+                .Where(f1 => f1.FollowerId == currentUserId)
+                .Join(_context.Follows,
+                    f1 => f1.FollowingId,
+                    f2 => f2.FollowerId,
+                    (f1, f2) => new { FollowingId = f1.FollowingId })
+                .Where(join => join.FollowingId != currentUserId)
+                .Select(join => join.FollowingId)
                 .Distinct()
                 .ToListAsync();
 
+            // Also include admin users regardless of follow status
             var adminUserIds = await _context.Users
                 .Where(u => u.Role == "Admin")
                 .Select(u => u.Id)
                 .ToListAsync();
 
-            var userIds = follows.Union(adminUserIds).Distinct();
+            var userIds = mutualFollows.Union(adminUserIds).Distinct();
 
             // Search these users by username
             var users = await _context.Users
@@ -219,7 +224,8 @@ namespace MusicWebMVC.Controllers
                 {
                     Id = u.Id,
                     Username = u.Username,
-                    AvatarUrl = u.AvatarUrl // Replace with actual avatar URL when available
+                    AvatarUrl = u.AvatarUrl ?? "/img/avatar.jpg",
+                    IsMutualFollow = mutualFollows.Contains(u.Id)
                 })
                 .ToListAsync();
 
@@ -244,6 +250,37 @@ namespace MusicWebMVC.Controllers
                 .FirstOrDefaultAsync();
 
             return Json(user);
+        }
+        [HttpGet("Chat/GetMutualConnections")]
+        public async Task<IActionResult> GetMutualConnections()
+        {
+            var currentUserId = int.Parse(HttpContext.Session.GetString("UserId"));
+
+            // Get users who have mutual follows (both following each other)
+            var mutualFollows = await _context.Follows
+                .Where(f1 => f1.FollowerId == currentUserId)
+                .Join(_context.Follows,
+                    f1 => f1.FollowingId,
+                    f2 => f2.FollowerId,
+                    (f1, f2) => new { FollowingId = f1.FollowingId })
+                .Where(join => join.FollowingId != currentUserId)
+                .Select(join => join.FollowingId)
+                .Distinct()
+                .ToListAsync();
+
+            // Get user details
+            var users = await _context.Users
+                .Where(u => mutualFollows.Contains(u.Id))
+                .Select(u => new
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    AvatarUrl = u.AvatarUrl ?? "/img/avatar.jpg",
+                    IsMutualFollow = true
+                })
+                .ToListAsync();
+
+            return Json(users);
         }
     }
 

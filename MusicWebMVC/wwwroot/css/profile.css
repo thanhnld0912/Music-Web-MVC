@@ -17,7 +17,7 @@ body {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #888 #222;
-}
+}type
 
 /* Top Navigation Wrapper */
 .top-nav-logo {
@@ -159,6 +159,10 @@ body {
 
 
 
+
+
+
+
 .tab-button {
     padding: 10px 20px;
     border: none;
@@ -268,7 +272,7 @@ body {
         background: #4141d4;
     }
 
-.type-account {
+/*.type-account {
     padding: 60px 0;
   
     border-radius: 10px;
@@ -279,19 +283,80 @@ body {
 }
 
 .type-logo img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     border-radius: 40%;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
     position: absolute;
-    right: 60px;
-    top: 35px;
+    right: 40px;
+    top: 20px;
+}*/
+
+/*.type-account h3 {
+    margin: 0;
+}*/
+
+
+
+  /*  .type-logo img:hover {
+        transform: scale(1.1);
+    }*/
+
+
+.main-content {
+    padding: 20px;
+    background-color: #333; /* Màu xám đậm cho khung */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 85%; /* Thu nhỏ khung xuống còn 85% chiều rộng */
+    max-width: 1000px; /* Giảm chiều rộng tối đa */
+    margin-left: 70px;
+    box-sizing: border-box;
 }
 
-    .type-logo img:hover {
-        transform: scale(1.1);
+.type-account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+    .type-account h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        color: white; /* Màu chữ trắng để nổi bật trên nền xám */
     }
+
+.type-logo-level {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  
+}
+
+.type-level {
+    font-size: 18px;
+    margin: 0;
+    color: white;
+}
+
+.type-logo {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .type-logo img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+
 
 
 .info-box {
@@ -553,3 +618,127 @@ body {
     .profile-menu.show {
         display: block;
     }
+
+.support-container {
+    background-color: none;
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 400px;
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+    .support-container h4 {
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+.support-button {
+    background-color: #e6e5eb;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+    .support-button:hover {
+        background-color: #d9d8e3;
+    }
+
+    .support-button:focus {
+        outline: none;
+    }
+
+.support-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.support-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+}
+
+.support-subtitle {
+    font-size: 13px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.support-icon {
+    display: flex;
+    align-items: center;
+}
+
+    .support-icon svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
+
+
+@media screen and (max-width: 768px) {
+    .information-account {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar-container {
+        left: 120px;
+    }
+
+    .type-logo img {
+        top: 7px;
+        right: 30px;
+    }
+
+    .information-tab {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+        .information-tab button {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+    .type-account {
+        padding: 30px 0;
+    }
+
+        .type-account h3 {
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+    .information-detail {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .info-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+        .info-box input {
+            font-size: 14px;
+        }
+}
+
+

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
 using MusicWebMVC.Hubs;
 using MusicWebMVC.Models;
+using MusicWebMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 
 
+// Đăng ký dịch vụ Email
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+
+
 // COnfiguration login google
 builder.Services.AddAuthentication(options =>
 {
@@ -46,9 +53,9 @@ builder.Services.AddAuthentication(options =>
     options.ClientId = builder.Configuration.GetSection("GoogleKeys:ClientId").Value;
     options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
 });
-
-
 //---------Configuration Login Google
+
+builder.Services.AddSingleton<IVNPayService, VNPayService>();
 
 var app = builder.Build();
 
@@ -86,7 +93,7 @@ using (var scope = app.Services.CreateScope())
     // Gọi phương thức Seed để thêm người dùng admin nếu chưa có
     ApplicationDbContext.Seed(context);
 }
-
+app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
