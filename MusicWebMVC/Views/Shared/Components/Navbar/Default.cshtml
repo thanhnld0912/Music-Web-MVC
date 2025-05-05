@@ -438,61 +438,65 @@
             }
 
             // Show notification popup
-            function showNotificationPopup(message, type) {
-                // Set popup content based on notification type
-                let iconClass = 'fa-bell';
-                let colorClass = '';
+                  function showNotificationPopup(message, type) {
+            // Set popup content based on notification type
+            let iconClass = 'fa-bell';
+            let colorClass = '';
 
-                switch(type?.toLowerCase()) {
-                    case 'like':
-                        iconClass = 'fa-heart';
-                        colorClass = 'notification-like';
-                        break;
-                    case 'comment':
-                        iconClass = 'fa-comment';
-                        colorClass = 'notification-comment';
-                        break;
-                    case 'dislike':
-                        iconClass = 'fa-thumbs-down';
-                        colorClass = 'notification-dislike';
-                        break;
-                    case 'follow':
-                        iconClass = 'fa-user-plus';
-                        colorClass = 'notification-follow';
-                        break;
-                    case 'reportcomment':
-                        iconClass = 'fa-flag';
-                        colorClass = 'notification-report';
-                        break;
-                }
-
-                notificationPopup.className = `notification-popup ${colorClass}`;
-                notificationPopup.innerHTML = `
-                    <div class="notification-popup-icon">
-                        <i class="fas ${iconClass}"></i>
-                    </div>
-                    <div class="notification-popup-content">
-                        <div class="notification-popup-message">${message}</div>
-                    </div>
-                    <div class="notification-popup-close">
-                        <i class="fas fa-times"></i>
-                    </div>
-                `;
-
-                // Show popup
-                notificationPopup.style.display = 'flex';
-
-                // Add click handler to close button
-                const closeBtn = notificationPopup.querySelector('.notification-popup-close');
-                closeBtn.addEventListener('click', function() {
-                    notificationPopup.style.display = 'none';
-                });
-
-                // Auto-hide after 5 seconds
-                setTimeout(() => {
-                    notificationPopup.style.display = 'none';
-                }, 5000);
+            switch(type?.toLowerCase()) {
+                case 'like':
+                    iconClass = 'fa-heart';
+                    colorClass = 'notification-like';
+                    break;
+                case 'comment':
+                    iconClass = 'fa-comment';
+                    colorClass = 'notification-comment';
+                    break;
+                case 'dislike':
+                    iconClass = 'fa-thumbs-down';
+                    colorClass = 'notification-dislike';
+                    break;
+                case 'follow':
+                    iconClass = 'fa-user-plus';
+                    colorClass = 'notification-follow';
+                    break;
+                case 'reportcomment':
+                    iconClass = 'fa-flag';
+                    colorClass = 'notification-report';
+                    break;
+                case 'Post': // Thêm case mới cho post
+                    iconClass = 'fa-pencil-alt'; // icon cây bút viết bài
+                    colorClass = 'notification-post'; // class riêng cho post
+                    break;
             }
+
+            notificationPopup.className = `notification-popup ${colorClass}`;
+            notificationPopup.innerHTML = `
+                <div class="notification-popup-icon">
+                    <i class="fas ${iconClass}"></i>
+                </div>
+                <div class="notification-popup-content">
+                    <div class="notification-popup-message">${message}</div>
+                </div>
+                <div class="notification-popup-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            `;
+
+            // Show popup
+            notificationPopup.style.display = 'flex';
+
+            // Add click handler to close button
+            const closeBtn = notificationPopup.querySelector('.notification-popup-close');
+            closeBtn.addEventListener('click', function() {
+                notificationPopup.style.display = 'none';
+            });
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                notificationPopup.style.display = 'none';
+            }, 5000);
+        }
 
             // Format timestamp to "time ago" format
             function formatTimeAgo(date) {
@@ -657,7 +661,7 @@
         }
 
         // Show new message dialog
-        function showNewMessageDialog() {
+         function showNewMessageDialog() {
             // Create dialog element
             const dialog = document.createElement('div');
             dialog.className = 'new-message-dialog';
@@ -669,6 +673,9 @@
                     </div>
                     <div class="new-message-dialog-body">
                         <input type="text" id="userSearchInput" placeholder="Search for users...">
+                        <div class="search-label">Mutual Connections</div>
+                        <div id="mutualConnectionsList"></div>
+                        <div class="search-label">Search</div>
                         <div id="userSearchResults"></div>
                     </div>
                 </div>
@@ -688,7 +695,7 @@
                     align-items: center;
                     justify-content: center;
                     z-index: 2000;
-                    color : black;
+                    color: black;
                 }
                 .new-message-dialog-content {
                     width: 400px;
@@ -725,9 +732,14 @@
                     border-radius: 6px;
                     margin-bottom: 15px;
                 }
-                #userSearchResults {
-                    max-height: 300px;
+                #userSearchResults, #mutualConnectionsList {
+                    max-height: 200px;
                     overflow-y: auto;
+                }
+                .search-label {
+                    font-weight: 500;
+                    margin: 10px 0;
+                    color: #65676b;
                 }
                 .user-result-item {
                     display: flex;
@@ -749,6 +761,14 @@
                 .user-result-name {
                     font-weight: 500;
                 }
+                .mutual-badge {
+                    margin-left: auto;
+                    background-color: #e4f3ff;
+                    color: #1877f2;
+                    padding: 2px 8px;
+                    border-radius: 10px;
+                    font-size: 12px;
+                }
             `;
             document.head.appendChild(style);
             document.body.appendChild(dialog);
@@ -762,6 +782,54 @@
             // Search input
             const searchInput = dialog.querySelector('#userSearchInput');
             const searchResults = dialog.querySelector('#userSearchResults');
+            const mutualConnectionsList = dialog.querySelector('#mutualConnectionsList');
+
+            // Load mutual connections immediately when dialog opens
+            loadMutualConnections();
+
+                    function loadMutualConnections() {
+            // Get all mutual connections (users with mutual follows)
+            fetch(`/Chat/GetMutualConnections`)
+                .then(response => response.json())
+                .then(data => {
+                    mutualConnectionsList.innerHTML = '';
+
+                    if (!Array.isArray(data) || data.length === 0) {
+                        mutualConnectionsList.innerHTML = '<div class="empty-search">No mutual connections found</div>';
+                        return;
+                    }
+
+                    data.forEach(user => {
+                        createUserItem(user, mutualConnectionsList);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading mutual connections:', error);
+                    mutualConnectionsList.innerHTML = '<div class="empty-search">Error loading connections</div>';
+                });
+        }
+
+            function createUserItem(user, container) {
+                const userItem = document.createElement('div');
+                userItem.className = 'user-result-item';
+                userItem.dataset.userId = user.id;
+
+                userItem.innerHTML = `
+                    <img src="${user.avatarUrl || '/img/avatar.jpg'}" alt="Avatar" class="user-result-avatar">
+                    <div class="user-result-name">${user.username}</div>
+                    ${user.isMutualFollow ? '<div class="mutual-badge">Mutual</div>' : ''}
+                `;
+
+                // Open chat window when clicked
+                userItem.addEventListener('click', function() {
+                    const userId = this.dataset.userId;
+                    openChatWindow(userId, user.username, user.avatarUrl);
+                    document.body.removeChild(dialog);
+                });
+
+                container.appendChild(userItem);
+                return userItem;
+            }
 
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.trim();
@@ -770,7 +838,7 @@
                     return;
                 }
 
-                // Search for users (followers and following)
+                // Search for users (only mutual follows and admins)
                 fetch(`/Chat/SearchUsers?term=${encodeURIComponent(searchTerm)}`)
                     .then(response => response.json())
                     .then(data => {
@@ -782,23 +850,7 @@
                         }
 
                         data.forEach(user => {
-                            const userItem = document.createElement('div');
-                            userItem.className = 'user-result-item';
-                            userItem.dataset.userId = user.id;
-
-                            userItem.innerHTML = `
-                                <img src="${user.avatarUrl || '/img/avatar.jpg'}" alt="Avatar" class="user-result-avatar">
-                                <div class="user-result-name">${user.username}</div>
-                            `;
-
-                            // Open chat window when clicked
-                            userItem.addEventListener('click', function() {
-                                const userId = this.dataset.userId;
-                                openChatWindow(userId, user.username, user.avatarUrl);
-                                document.body.removeChild(dialog);
-                            });
-
-                            searchResults.appendChild(userItem);
+                            createUserItem(user, searchResults);
                         });
                     })
                     .catch(error => {
@@ -952,7 +1004,7 @@
         }
 
         // Send message
-        function sendMessage(userId, username, content) {
+                function sendMessage(userId, username, content) {
             // Get current user ID
             const currentUserId = '@Context.Session.GetString("UserId")';
             if (!currentUserId) return;
@@ -975,10 +1027,27 @@
             .then(data => {
                 if (!data.success) {
                     console.error('Error sending message:', data.message);
+
+                    // Remove the optimistically added message
+                    const messagesContainer = document.getElementById(`chatMessages-${userId}`);
+                    if (messagesContainer && messagesContainer.lastChild) {
+                        messagesContainer.removeChild(messagesContainer.lastChild);
+                    }
+
+                    // Show error notification
+                    showErrorNotification(data.message || "Cannot send message to this user. You need to follow each other first.");
                 }
             })
             .catch(error => {
                 console.error('Error sending message:', error);
+
+                // Remove the optimistically added message on error
+                const messagesContainer = document.getElementById(`chatMessages-${userId}`);
+                if (messagesContainer && messagesContainer.lastChild) {
+                    messagesContainer.removeChild(messagesContainer.lastChild);
+                }
+
+                showErrorNotification("Failed to send message. Please try again.");
             });
         }
 
@@ -1092,6 +1161,61 @@
                     });
             });
         }
+                function showErrorNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'error-notification';
+            notification.innerHTML = `
+                <div class="error-notification-content">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <div class="error-notification-text">${message}</div>
+                </div>
+            `;
 
+            // Add notification styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .error-notification {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background-color: #fff0f0;
+                    border-left: 4px solid #ff3333;
+                    border-radius: 4px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    padding: 15px;
+                    z-index: 2000;
+                    max-width: 300px;
+                    animation: slideIn 0.3s, fadeOut 0.3s 4.7s;
+                    color: #333;
+                }
+                .error-notification-content {
+                    display: flex;
+                    align-items: center;
+                }
+                .error-notification-content i {
+                    color: #ff3333;
+                    margin-right: 10px;
+                    font-size: 18px;
+                }
+                .error-notification-text {
+                    font-size: 14px;
+                }
+        @@keyframes slideIn {
+                    from { transform: translateY(100%); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+        @@keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(notification);
+
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 5000);
+        }
     </script>
 </body>

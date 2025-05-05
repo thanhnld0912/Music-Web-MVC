@@ -35,6 +35,12 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 
 
+// Đăng ký dịch vụ Email
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+
+
 // COnfiguration login google
 builder.Services.AddAuthentication(options =>
 {
@@ -91,7 +97,7 @@ using (var scope = app.Services.CreateScope())
     // Gọi phương thức Seed để thêm người dùng admin nếu chưa có
     ApplicationDbContext.Seed(context);
 }
-
+app.MapControllers();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

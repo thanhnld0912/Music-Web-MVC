@@ -39,7 +39,7 @@ function initializeGlobalPlayer() {
     // Check if user is VIP and add sleep timer if they are
     //checkUserVIP().then(isVIP => {
     //    if (isVIP) {
-            createSleepTimerUI();
+    createSleepTimerUI();
     //    }
     //});
 
@@ -376,6 +376,8 @@ function playPreviousSong() {
 
 
 // Phát bài hát với global player
+
+// Phát bài hát với global player
 function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
     if (!globalAudio || !songUrl) return;
 
@@ -433,12 +435,14 @@ function playWithGlobalPlayer(songUrl, songInfo, isStandalone = false) {
 
             // Lưu trạng thái
             savePlayerState();
+
+            // Lưu bài hát vào RecentPlays của người dùng hiện tại
+            saveRecentPlay(songInfo);
         }).catch(error => {
             console.error('Không thể phát nhạc:', error);
         });
     }
 }
-
 // Cập nhật UI của global player
 function updateGlobalPlayerUI(songInfo) {
     if (!songInfo) return;
@@ -907,17 +911,25 @@ function setupSleepTimerEvents() {
     }
 
     timerToggle.addEventListener('click', function () {
-        console.log('Sleep timer toggle clicked');  // Debug logging
-        if (timerOptions.style.display === 'none') {
-            timerOptions.style.display = 'flex';
-        } else {
-            timerOptions.style.display = 'none';
-        }
+        checkUserVIP().then(isVIP => {
+            if (isVIP) {
+                if (timerOptions.style.display === 'none') {
+                    timerOptions.style.display = 'flex';
+                } else {
+                    timerOptions.style.display = 'none';
+                }
 
-        const customInput = document.getElementById('custom-timer-input');
-        if (customInput) {
-            customInput.style.display = 'none';
-        }
+                const customInput = document.getElementById('custom-timer-input');
+                if (customInput) {
+                    customInput.style.display = 'none';
+                }
+            }
+            else {
+                showNotification("You need register VIP to use this function", "warning")
+                return;
+            }
+        });
+
     });
 
     // Time option buttons
@@ -1058,4 +1070,42 @@ async function checkUserVIP() {
         console.error('Error checking VIP status:', error);
         return false; // Default to non-VIP in case of error
     }
+}
+function saveRecentPlay(songInfo) {
+    let songId = null;
+    // Extract song ID from songInfo object or URL
+    if (songInfo.id) {
+        songId = parseInt(songInfo.id);
+    }
+    console.log('song id:', songId);
+    // If no songId is available, we can't save the play
+    if (!songId) {
+        console.log('Could not determine song ID for recent play:', songInfo);
+        return;
+    }
+
+    // Use XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/api/SaveRecentPlay', true);
+
+    // Set the correct content type for JSON
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function () {
+        if (xhr.status === 401) {
+            // Silently ignore 401 Unauthorized errors
+            return;
+        } else if (xhr.status >= 200 && xhr.status < 300) {
+            console.log('Saved recent play successfully');
+        } else {
+            console.log('Could not save recent play, status:', xhr.status);
+        }
+    };
+
+    xhr.onerror = function () {
+        console.log('Error in saving recent play:', xhr.statusText);
+    };
+
+    // Send the request with song ID as a JSON object
+    xhr.send(JSON.stringify({ songId: songId }));
 }

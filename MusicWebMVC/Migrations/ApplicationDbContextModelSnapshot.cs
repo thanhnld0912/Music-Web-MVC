@@ -392,6 +392,32 @@ namespace MusicWebMVC.Migrations
                     b.ToTable("PostReports");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.RecentPlay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("PlayedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SongId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SongId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RecentPlays");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Song", b =>
                 {
                     b.Property<int>("Id")
@@ -480,6 +506,15 @@ namespace MusicWebMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmailConfirmationToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EmailConfirmationTokenExpiry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -496,11 +531,21 @@ namespace MusicWebMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PasswordResetToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PasswordResetTokenExpiry")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("level")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -717,6 +762,25 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MusicWebMVC.Models.RecentPlay", b =>
+                {
+                    b.HasOne("MusicWebMVC.Models.Song", "Song")
+                        .WithMany("RecentPlays")
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MusicWebMVC.Models.User", "User")
+                        .WithMany("RecentPlays")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Song");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MusicWebMVC.Models.Song", b =>
                 {
                     b.HasOne("MusicWebMVC.Models.User", "User")
@@ -772,6 +836,8 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("Likes");
 
                     b.Navigation("PlaylistSongs");
+
+                    b.Navigation("RecentPlays");
                 });
 
             modelBuilder.Entity("MusicWebMVC.Models.User", b =>
@@ -793,6 +859,8 @@ namespace MusicWebMVC.Migrations
                     b.Navigation("PostReports");
 
                     b.Navigation("Posts");
+
+                    b.Navigation("RecentPlays");
 
                     b.Navigation("Songs");
                 });

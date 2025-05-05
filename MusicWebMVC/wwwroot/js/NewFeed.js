@@ -396,7 +396,88 @@ function submitComment(event) {
         xhr.send(JSON.stringify(commentData));
     }
 }
+function submitEmbeddedComment(event, postId) {
+    event.preventDefault();
 
+    if (!currentUserId) {
+        showNotification("Vui lòng đăng nhập để bình luận", "warning");
+        return;
+    }
+
+    const inputElement = document.getElementById(`commentInput-${postId}`);
+    const commentText = inputElement.value.trim();
+
+    if (commentText) {
+        // Create comment data object
+        const commentData = {
+            content: commentText,
+            userId: currentUserId
+        };
+
+        // Create AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `/Post/AddComment/${postId}`, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        const commentsList = document.getElementById(`comments-list-${postId}`);
+
+                        // Save comment to cache
+                        if (!commentsStore[postId]) {
+                            commentsStore[postId] = [];
+                        }
+                        commentsStore[postId].push(response);
+
+                        // Create and display new comment
+                        const commentItem = createCommentElementForMySelf(response);
+
+                        // Replace "No comments yet" message if it exists
+                        const noCommentsMsg = commentsList.querySelector('p');
+                        if (noCommentsMsg && noCommentsMsg.textContent.includes('No comments yet')) {
+                            commentsList.innerHTML = '';
+                        }
+
+                        commentsList.insertBefore(commentItem, commentsList.firstChild);
+
+                        // Update comment count badge
+                        updateCommentCountBadge(postId, commentsStore[postId].length);
+
+                        // Clear input
+                        inputElement.value = '';
+
+                        // Add "View all comments" link if this is the second comment
+                        if (commentsStore[postId].length > 1) {
+                            const viewAllLink = commentsList.querySelector('.view-all-comments');
+                            if (!viewAllLink) {
+                                const viewAllDiv = document.createElement('div');
+                                viewAllDiv.className = 'view-all-comments';
+                                viewAllDiv.onclick = function () {
+                                    toggleCommentSection(document.querySelector(`.post[data-post-id="${postId}"] .comment-btn`), postId);
+                                };
+                                viewAllDiv.textContent = `View all ${commentsStore[postId].length} comments`;
+                                commentsList.appendChild(viewAllDiv);
+                            } else {
+                                viewAllLink.textContent = `View all ${commentsStore[postId].length} comments`;
+                            }
+                        }
+
+                    } catch (error) {
+                        console.error("Lỗi khi phân tích phản hồi:", error);
+                    }
+                } else {
+                    console.error("Lỗi khi thêm bình luận:", xhr.responseText);
+                    showNotification("Không thể thêm bình luận. Vui lòng thử lại sau.", "error");
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(commentData));
+    }
+}
 function createCommentElement(comment) {
     const commentItem = document.createElement('div');
     commentItem.className = 'fb-comment-item';
@@ -413,7 +494,7 @@ function createCommentElement(comment) {
 
     if (isCurrentUserComment) {
         actionButtons += `
-                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditModalComment(${comment.id})">Edit</span>
                 <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
             `;
     } else {
@@ -436,8 +517,8 @@ function createCommentElement(comment) {
                 <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
                     <textarea class="edit-comment-textarea">${comment.content}</textarea>
                     <div class="edit-comment-buttons">
-                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
-                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
+                        <button class="cancel-edit-btn" onclick="cancelEditModalComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveModalCommentEdit(${comment.id})">Save</button>
                     </div>
                 </div>
             </div>
@@ -461,7 +542,7 @@ function createCommentElementForMySelf(comment) {
 
     if (isCurrentUserComment) {
         actionButtons += `
-                <span class="fb-comment-action edit-comment-btn" onclick="showEditCommentForm(${comment.id})">Edit</span>
+                <span class="fb-comment-action edit-comment-btn" onclick="showEditModalComment(${comment.id})">Edit</span>
                 <span class="fb-comment-action delete-comment-btn" onclick="confirmDeleteComment(${comment.id})">Delete</span>
             `;
     } else {
@@ -484,8 +565,8 @@ function createCommentElementForMySelf(comment) {
                 <div class="comment-edit-form" id="edit-form-${comment.id}" style="display: none;">
                     <textarea class="edit-comment-textarea">${comment.content}</textarea>
                     <div class="edit-comment-buttons">
-                        <button class="cancel-edit-btn" onclick="cancelEditComment(${comment.id})">Cancel</button>
-                        <button class="save-edit-btn" onclick="saveCommentEdit(${comment.id})">Save</button>
+                        <button class="cancel-edit-btn" onclick="cancelEditModalComment(${comment.id})">Cancel</button>
+                        <button class="save-edit-btn" onclick="saveModalCommentEdit(${comment.id})">Save</button>
                     </div>
                 </div>
             </div>
@@ -495,25 +576,90 @@ function createCommentElementForMySelf(comment) {
 }
 
 // Handle showing the edit form
-function showEditCommentForm(commentId) {
-    // Hide the comment text and show the edit form
-    document.getElementById(`comment-text-${commentId}`).style.display = 'none';
-    document.getElementById(`edit-form-${commentId}`).style.display = 'block';
+// For modal comments
+function showEditModalComment(commentId) {
+    // Find only in the comment overlay
+    const commentOverlay = document.getElementById('comment-overlay');
+    const commentText = commentOverlay.querySelector(`#comment-text-${commentId}`);
+    const editForm = commentOverlay.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'none';
+    if (editForm) editForm.style.display = 'block';
 }
 
-// Handle canceling edit
-function cancelEditComment(commentId) {
-    // Show the comment text and hide the edit form
-    document.getElementById(`comment-text-${commentId}`).style.display = 'block';
-    document.getElementById(`edit-form-${commentId}`).style.display = 'none';
+function cancelEditModalComment(commentId) {
+    // Find only in the comment overlay
+    const commentOverlay = document.getElementById('comment-overlay');
+    const commentText = commentOverlay.querySelector(`#comment-text-${commentId}`);
+    const editForm = commentOverlay.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'block';
+    if (editForm) editForm.style.display = 'none';
 }
 
-// Save edited comment
-function saveCommentEdit(commentId) {
-    const commentItem = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
-    const editForm = commentItem.querySelector('.edit-comment-textarea');
+// For embedded comments
+function showEditEmbeddedComment(commentId) {
+    // Find only in the post comments section
+    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+    const postComments = document.getElementById(`post-comments-${postId}`);
+    const commentText = postComments.querySelector(`#comment-text-${commentId}`);
+    const editForm = postComments.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'none';
+    if (editForm) editForm.style.display = 'block';
+}
+
+function cancelEditEmbeddedComment(commentId) {
+    // Find only in the post comments section
+    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+    const postComments = document.getElementById(`post-comments-${postId}`);
+    const commentText = postComments.querySelector(`#comment-text-${commentId}`);
+    const editForm = postComments.querySelector(`#edit-form-${commentId}`);
+
+    if (commentText) commentText.style.display = 'block';
+    if (editForm) editForm.style.display = 'none';
+}
+
+// Helper function to find post ID from a comment element
+function getPostIdFromCommentElement(commentId) {
+    const commentElement = document.querySelector(`.fb-comment-item[data-comment-id="${commentId}"]`);
+    if (!commentElement) return null;
+
+    // Walk up the DOM to find the closest post element
+    let parent = commentElement.parentElement;
+    while (parent && !parent.classList.contains('post')) {
+        parent = parent.parentElement;
+    }
+
+    return parent ? parent.getAttribute('data-post-id') : null;
+}
+
+// Save function needs to update both places
+function saveModalCommentEdit(commentId) {
+    // Get the edit form textarea from the modal
+    const commentOverlay = document.getElementById('comment-overlay');
+    const editForm = commentOverlay.querySelector(`#edit-form-${commentId} .edit-comment-textarea`);
+
+    if (!editForm) return;
+
     const newContent = editForm.value.trim();
+    saveCommentEditCommon(commentId, newContent);
+}
 
+function saveEmbeddedCommentEdit(commentId) {
+    // Get the edit form textarea from the embedded section
+    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+    const postComments = document.getElementById(`post-comments-${postId}`);
+    const editForm = postComments.querySelector(`#edit-form-${commentId} .edit-comment-textarea`);
+
+    if (!editForm) return;
+
+    const newContent = editForm.value.trim();
+    saveCommentEditCommon(commentId, newContent);
+}
+
+// Common function to handle the AJAX request and update both views
+function saveCommentEditCommon(commentId, newContent) {
     if (!newContent) {
         showNotification("Comment cannot be empty", "warning");
         return;
@@ -533,14 +679,22 @@ function saveCommentEdit(commentId) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 try {
-                    const response = JSON.parse(xhr.responseText);
+                    // Update the comment content in both places
+                    document.querySelectorAll(`#comment-text-${commentId}`).forEach(element => {
+                        if (element) element.textContent = newContent;
+                    });
 
-                    // Update the comment content
-                    const commentTextEl = document.getElementById(`comment-text-${commentId}`);
-                    commentTextEl.textContent = newContent;
+                    // Hide the edit form and show the updated comment text in both places
+                    const modalElement = document.querySelector(`#comment-overlay #comment-text-${commentId}`);
+                    const modalForm = document.querySelector(`#comment-overlay #edit-form-${commentId}`);
+                    if (modalElement) modalElement.style.display = 'block';
+                    if (modalForm) modalForm.style.display = 'none';
 
-                    // Hide the edit form and show the updated comment text
-                    cancelEditComment(commentId);
+                    const postId = currentPostId || getPostIdFromCommentElement(commentId);
+                    const embeddedElement = document.querySelector(`#post-comments-${postId} #comment-text-${commentId}`);
+                    const embeddedForm = document.querySelector(`#post-comments-${postId} #edit-form-${commentId}`);
+                    if (embeddedElement) embeddedElement.style.display = 'block';
+                    if (embeddedForm) embeddedForm.style.display = 'none';
 
                     // Update the comment in the comments store
                     if (commentsStore[currentPostId]) {
@@ -564,6 +718,43 @@ function saveCommentEdit(commentId) {
 
     xhr.send(JSON.stringify(editData));
 }
+document.getElementById('commentInput').addEventListener('input', function () {
+    const currentLength = this.value.length;
+    const maxLength = 200;
+    const remainingChars = maxLength - currentLength;
+    const limitElement = document.getElementById('commentLimit');
+
+    if (currentLength >= maxLength) {
+        this.style.borderColor = 'red';
+        limitElement.style.color = 'red';
+        limitElement.textContent = `You've exceeded the max limit of ${maxLength} characters!`;
+    } else {
+        this.style.borderColor = 'green';
+        limitElement.style.color = 'green';
+        limitElement.textContent = `Max ${remainingChars} characters left`;
+    }
+});
+
+// Event listener for embedded comment inputs (all posts)
+document.querySelectorAll('[id^="commentInput-"]').forEach(input => {
+    input.addEventListener('input', function () {
+        const currentLength = this.value.length;
+        const maxLength = 200;
+        const remainingChars = maxLength - currentLength;
+        const limitElement = this.closest('.fb-comment-section').querySelector('.comment-limit-info span');
+
+        if (currentLength >= maxLength) {
+            this.style.borderColor = 'red';
+            limitElement.style.color = 'red';
+            limitElement.textContent = `You've exceeded the max limit of ${maxLength} characters!`;
+        } else {
+            this.style.borderColor = 'green';
+            limitElement.style.color = 'green';
+            limitElement.textContent = `Max ${remainingChars} characters left`;
+        }
+    });
+});
+
 
 // Confirm before deleting comment
 function confirmDeleteComment(commentId) {
@@ -733,7 +924,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Play button click handler to trigger global player
-        // Play button click handler to trigger global player
+      
         playBtn.addEventListener('click', function (event) {
             event.stopPropagation(); // Prevent event bubbling
 
@@ -741,19 +932,24 @@ document.addEventListener('DOMContentLoaded', function () {
             const songItem = player.closest('.song-item');
             const post = songItem.closest('.post');
 
+            // Extract song ID from the audio element's ID
+            const audioElement = player.querySelector('audio');
+            const songId = audioElement ? audioElement.id.replace('audio-', '') : null;
+
             const songTitle = songItem.querySelector('.song-info span')?.textContent.trim() ||
                 "Unknown Song";
             const artistName = post.querySelector('.post-author')?.textContent ||
                 "Unknown Artist";
-            const imageUrl = post.querySelector('.post-image')?.src || null;
+            const imageUrl = post.querySelector('.song-image')?.src || null;
 
-            // Create song info object
+            // Create song info object with songId included
             const songInfo = {
                 url: songUrl,
                 title: songTitle,
                 artist: artistName,
                 imageUrl: imageUrl,
-                element: player
+                element: player,
+                id: songId // Add the song ID to the songInfo object
             };
 
             // Just play the song without modifying any playlist
@@ -907,6 +1103,7 @@ function editPost(postId) {
 }
 
 // Save post edit
+// Save post edit with image handling
 function savePostEdit() {
     const postId = document.getElementById('edit-post-id').value;
     const content = document.getElementById('edit-post-content').value.trim();
@@ -916,15 +1113,49 @@ function savePostEdit() {
         return;
     }
 
+    // First check if there's a new image to upload
+    if (newImageFile) {
+        // Create FormData for image upload
+        const imageFormData = new FormData();
+        imageFormData.append('image', newImageFile);
+
+        // Upload the image first
+        const uploadXhr = new XMLHttpRequest();
+        uploadXhr.open("POST", "/Post/UploadImage", true);
+
+        uploadXhr.onreadystatechange = function () {
+            if (uploadXhr.readyState === 4) {
+                if (uploadXhr.status === 200) {
+                    try {
+                        const uploadResponse = JSON.parse(uploadXhr.responseText);
+                        // Now we have the image URL, proceed with post update
+                        updatePost(postId, content, uploadResponse.imageUrl);
+                    } catch (error) {
+                        console.error("Error parsing upload response:", error);
+                        showNotification("Could not upload image. Please try again.", "error");
+                    }
+                } else {
+                    console.error("Error uploading image:", uploadXhr.responseText);
+                    showNotification("Could not upload image. Please try again.", "error");
+                }
+            }
+        };
+
+        uploadXhr.send(imageFormData);
+    } else {
+        // No new image, just update the post with original image or null
+        updatePost(postId, content, originalImageUrl);
+    }
+}
+
+// Helper function to update post after handling image
+function updatePost(postId, content, imageUrl) {
     // Create edit data
     const editData = {
         userId: parseInt(currentUserId),
         content: content,
-        imageUrl: originalImageUrl
+        imageUrl: imageUrl
     };
-
-    // If there's a new image, we would handle image upload here
-    // For now, we'll just use the original image URL
 
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `/Post/EditPost/${postId}`, true);
@@ -946,13 +1177,13 @@ function savePostEdit() {
 
                         // Update image if needed
                         const imageEl = postElement.querySelector('.post-image');
-                        if (editData.imageUrl) {
+                        if (imageUrl) {
                             if (imageEl) {
-                                imageEl.src = editData.imageUrl;
+                                imageEl.src = imageUrl;
                             } else {
                                 const contentDiv = postElement.querySelector('.post-content');
                                 const newImg = document.createElement('img');
-                                newImg.src = editData.imageUrl;
+                                newImg.src = imageUrl;
                                 newImg.className = 'post-image';
                                 contentDiv.appendChild(newImg);
                             }
@@ -1291,3 +1522,389 @@ function showNotification(message, type = 'info') {
         }
     }, 4000);
 }
+
+
+// Variables for slideshow
+let slideIndex = 1;
+let slideTimer;
+const slideDelay = 5000; // 5 seconds between slides
+
+// Initialize slideshow when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Restructure the slides to have two song cards per slide
+    restructureSlides();
+
+    // Show the first slide
+    showSongSlides(slideIndex);
+
+    // Start automatic slideshow
+    startSlideTimer();
+});
+
+// Restructure the slides to have two song cards per slide
+function restructureSlides() {
+    const songSlideContainer = document.querySelector('.song-slideshow-container');
+    const originalSlides = Array.from(document.querySelectorAll('.song-slide'));
+
+    // Remove all slides
+    originalSlides.forEach(slide => slide.remove());
+
+    // Create new slides with two song cards each
+    for (let i = 0; i < originalSlides.length; i += 2) {
+        const newSlide = document.createElement('div');
+        newSlide.className = 'song-slide fade';
+
+        const slideContent = document.createElement('div');
+        slideContent.className = 'song-slide-content';
+
+        // Add the current song card
+        const card1 = originalSlides[i].querySelector('.song-card');
+        slideContent.appendChild(card1.cloneNode(true));
+
+        // Add the next song card if it exists
+        if (i + 1 < originalSlides.length) {
+            const card2 = originalSlides[i + 1].querySelector('.song-card');
+            slideContent.appendChild(card2.cloneNode(true));
+        } else {
+            // Create an empty placeholder if there's an odd number of cards
+            const emptyCard = document.createElement('div');
+            emptyCard.className = 'song-card empty-card';
+            slideContent.appendChild(emptyCard);
+        }
+
+        newSlide.appendChild(slideContent);
+        songSlideContainer.appendChild(newSlide);
+    }
+
+    // Update the dots
+    updateSlideDots();
+}
+
+// Update the slide dots to match the new number of slides
+function updateSlideDots() {
+    const dotsContainer = document.querySelector('.slide-dots-container');
+    dotsContainer.innerHTML = '';
+
+    const slides = document.querySelectorAll('.song-slide');
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'slide-dot';
+        dot.onclick = function () { currentSongSlide(i + 1); };
+        dotsContainer.appendChild(dot);
+    }
+}
+
+// Next/previous controls
+function plusSongSlides(n) {
+    showSongSlides(slideIndex += n);
+    resetSlideTimer();
+}
+
+// Thumbnail image controls
+function currentSongSlide(n) {
+    showSongSlides(slideIndex = n);
+    resetSlideTimer();
+}
+
+// Reset the slide timer
+function resetSlideTimer() {
+    clearTimeout(slideTimer);
+    startSlideTimer();
+}
+
+// Start the slide timer
+function startSlideTimer() {
+    slideTimer = setTimeout(function () {
+        plusSongSlides(1);
+    }, slideDelay);
+}
+
+// Show the slides
+function showSongSlides(n) {
+    let i;
+    const slides = document.querySelectorAll(".song-slide");
+    const dots = document.querySelectorAll(".slide-dot");
+
+    if (slides.length === 0) return;
+
+    // Loop around if past the end or beginning
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+
+    // Add slide animation classes
+    for (i = 0; i < slides.length; i++) {
+        if (i === slideIndex - 1) {
+            slides[i].classList.add("slide-in");
+            slides[i].classList.remove("slide-out");
+        } else {
+            slides[i].classList.add("slide-out");
+            slides[i].classList.remove("slide-in");
+        }
+        slides[i].style.display = "none";
+    }
+
+    // Update dot classes
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-slide-dot", "");
+    }
+
+    // Show the current slide and activate its dot
+    slides[slideIndex - 1].style.display = "block";
+    if (dots.length > 0) {
+        dots[slideIndex - 1].className += " active-slide-dot";
+    }
+
+    // Set up play button event listeners
+    const slidePlayButtons = document.querySelectorAll('.slide-play-btn');
+
+    slidePlayButtons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            event.stopPropagation();
+
+            const songUrl = this.getAttribute('data-song-url');
+            const songId = this.getAttribute('data-song-id');
+
+            // Find the song card element
+            const songCard = this.closest('.song-card');
+            if (!songCard) return;
+
+            // Get song information
+            const songTitle = songCard.querySelector('.song-title')?.textContent || "Unknown Song";
+            const artistName = songCard.querySelector('.song-artist')?.textContent || "Unknown Artist";
+            const imageUrl = songCard.querySelector('img')?.src || null;
+
+            // Create song info object with id included
+            const songInfo = {
+                url: songUrl,
+                title: songTitle,
+                artist: artistName,
+                imageUrl: imageUrl,
+                element: songCard,
+                id: songId // Include the song ID
+            };
+
+            // Play using the global player
+            if (typeof window.playWithGlobalPlayer === 'function') {
+                window.playWithGlobalPlayer(songUrl, songInfo, true);
+            }
+        });
+    });
+}
+
+// Add event listeners for song card interactions
+document.addEventListener('click', function (e) {
+    const target = e.target;
+
+    // Play button click
+    if (target.closest('.slide-play-btn')) {
+        e.preventDefault();
+        const playBtn = target.closest('.slide-play-btn');
+        const songUrl = playBtn.getAttribute('data-song-url');
+        const songId = playBtn.getAttribute('data-song-id');
+
+        if (songUrl && typeof playInGlobalPlayer === 'function') {
+            playInGlobalPlayer(songUrl, songId);
+        }
+    }
+});
+
+
+
+
+// Recent Plays Slideshow - Modified to show 3 songs per slide
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Create slides containing 3 song cards each
+    organizeRecentPlaySlides();
+
+    // Initialize slideshow variables
+    let recentPlaySlideIndex = 1;
+    const recentPlaySlides = document.querySelectorAll('.recent-play-slide');
+    // Removed auto-slide timer variable
+
+    // Initialize slideshow
+    initRecentPlaySlideshow();
+
+    // Handle navigation buttons
+    const prevRecentButton = document.querySelector('.prev-recent');
+    const nextRecentButton = document.querySelector('.next-recent');
+
+    if (prevRecentButton) {
+        prevRecentButton.addEventListener('click', function () {
+            plusRecentPlaySlides(-1);
+        });
+    }
+
+    if (nextRecentButton) {
+        nextRecentButton.addEventListener('click', function () {
+            plusRecentPlaySlides(1);
+        });
+    }
+
+    // Group song cards into slides of 3
+    function organizeRecentPlaySlides() {
+        const container = document.querySelector('.recent-plays-container');
+        if (!container) return;
+
+        // Get all individual song cards
+        const songCards = document.querySelectorAll('.recent-plays-container .song-card');
+        if (songCards.length === 0) return;
+
+        // Create new structure
+        const tempContainer = document.createElement('div');
+
+        // Calculate how many slides we need (3 cards per slide)
+        const slideCount = Math.ceil(songCards.length / 3);
+
+        for (let i = 0; i < slideCount; i++) {
+            // Create slide
+            const slide = document.createElement('div');
+            slide.className = 'recent-play-slide fade';
+
+            // Create flex container for the 3 cards
+            const flexContainer = document.createElement('div');
+            flexContainer.className = 'recent-play-flex-container';
+
+            // Add up to 3 cards to this slide
+            for (let j = 0; j < 3; j++) {
+                const cardIndex = i * 3 + j;
+                if (cardIndex < songCards.length) {
+                    flexContainer.appendChild(songCards[cardIndex].cloneNode(true));
+                }
+            }
+
+            slide.appendChild(flexContainer);
+            tempContainer.appendChild(slide);
+        }
+
+        // Find and preserve navigation buttons
+        const prevBtn = container.querySelector('.prev-recent');
+        const nextBtn = container.querySelector('.next-recent');
+        const dotsContainer = container.querySelector('.recent-plays-dots-container');
+
+        // Replace container content
+        container.innerHTML = tempContainer.innerHTML;
+
+        // Add back navigation elements
+        if (prevBtn) container.appendChild(prevBtn);
+        if (nextBtn) container.appendChild(nextBtn);
+        if (dotsContainer) container.appendChild(dotsContainer);
+    }
+
+    // Initialize slideshow
+    function initRecentPlaySlideshow() {
+        if (recentPlaySlides.length === 0) return;
+
+        // Hide all slides
+        recentPlaySlides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+
+        // Show first slide
+        recentPlaySlides[0].style.display = 'block';
+
+        // Create navigation dots
+        createRecentPlayDots();
+
+        // Active first dot
+        const dots = document.querySelectorAll('.recent-play-dot');
+        if (dots.length > 0) {
+            dots[0].classList.add('active');
+        }
+
+        // Auto-slide functionality removed
+    }
+
+    // Create dots for navigation
+    function createRecentPlayDots() {
+        const dotsContainer = document.querySelector('.recent-plays-dots-container');
+        if (!dotsContainer) return;
+
+        dotsContainer.innerHTML = '';
+
+        for (let i = 0; i < recentPlaySlides.length; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'recent-play-dot';
+            dot.addEventListener('click', function () {
+                // No need to clear timeout since auto-slide is removed
+                currentRecentPlaySlide(i + 1);
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    // Go to specific slide
+    function currentRecentPlaySlide(n) {
+        showRecentPlaySlides(recentPlaySlideIndex = n);
+    }
+
+    // Navigate to next/previous slide
+    function plusRecentPlaySlides(n) {
+        showRecentPlaySlides(recentPlaySlideIndex += n);
+    }
+
+    // Show slides and update dots
+    function showRecentPlaySlides(n) {
+        const dots = document.querySelectorAll('.recent-play-dot');
+
+        // Handle case where index exceeds slide count
+        if (n > recentPlaySlides.length) {
+            recentPlaySlideIndex = 1;
+        }
+        if (n < 1) {
+            recentPlaySlideIndex = recentPlaySlides.length;
+        }
+
+        // Hide all slides
+        recentPlaySlides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+
+        // Remove active from all dots
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+        });
+
+        // Show current slide and activate corresponding dot
+        recentPlaySlides[recentPlaySlideIndex - 1].style.display = 'block';
+        if (dots.length > 0) {
+            dots[recentPlaySlideIndex - 1].classList.add('active');
+        }
+
+        // Auto-slide functionality removed
+    }
+
+    // Auto-advance function removed
+
+    // Handle play button clicks in recent plays
+    const recentPlayBtns = document.querySelectorAll('.recent-play-slide .slide-play-btn');
+    recentPlayBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation(); // Prevent navigation to song page
+
+            const songUrl = this.getAttribute('data-song-url');
+            const songId = this.getAttribute('data-song-id');
+            const songCard = this.closest('.song-card');
+
+            if (!songCard) return;
+
+            const songTitle = songCard.querySelector('.song-title')?.textContent || "Unknown Song";
+            const artistName = songCard.querySelector('.song-artist')?.textContent || "Unknown Artist";
+            const imageUrl = songCard.querySelector('img')?.src || null;
+
+            const songInfo = {
+                url: songUrl,
+                title: songTitle,
+                artist: artistName,
+                imageUrl: imageUrl,
+                element: songCard,
+                id: songId
+            };
+
+            // Play song with global player
+            if (typeof window.playWithGlobalPlayer === 'function') {
+                window.playWithGlobalPlayer(songUrl, songInfo, true);
+            }
+        });
+    });
+});

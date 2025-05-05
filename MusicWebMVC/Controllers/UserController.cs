@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using MusicWebMVC.Data;
+using MusicWebMVC.Hubs;
 using MusicWebMVC.Models;
 
 
@@ -9,10 +11,11 @@ namespace MusicWebMVC.Controllers
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public UserController(ApplicationDbContext context)
+        private readonly IHubContext<NotificationHub> _hubContext;
+        public UserController(ApplicationDbContext context, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
+            _hubContext = hubContext;
         }
 
 
@@ -56,41 +59,83 @@ namespace MusicWebMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Follow(int followingId)
         {
-            // Existing code remains unchanged
             // Check if user is authenticated
             if (!int.TryParse(HttpContext.Session.GetString("UserId"), out int currentUserId))
             {
                 return Json(new { success = false, message = "User not authenticated" });
             }
-            // Check if users exist
-            var currentUser = await _context.Users.FindAsync(currentUserId);
-            var userToFollow = await _context.Users.FindAsync(followingId);
-            if (currentUser == null || userToFollow == null)
+
+            try
             {
-                return Json(new { success = false, message = "User not found" });
+                // Check if users exist
+                var currentUser = await _context.Users.FindAsync(currentUserId);
+                var userToFollow = await _context.Users.FindAsync(followingId);
+
+                if (currentUser == null || userToFollow == null)
+                {
+                    return Json(new { success = false, message = "User not found" });
+                }
+
+                // Prevent following oneself
+                if (currentUserId == followingId)
+                {
+                    return Json(new { success = false, message = "Cannot follow yourself" });
+                }
+
+                // Check if already following
+                var existingFollow = await _context.Follows
+                    .FirstOrDefaultAsync(f => f.FollowerId == currentUserId && f.FollowingId == followingId);
+
+                if (existingFollow != null)
+                {
+                    return Json(new { success = false, message = "Already following this user" });
+                }
+
+                // Create new follow relationship
+                var follow = new Follow
+                {
+                    FollowerId = currentUserId,
+                    FollowingId = followingId,
+                    FollowedAt = DateTime.Now
+                };
+
+                _context.Follows.Add(follow);
+
+                // Create notification for the user being followed
+                var notification = new Notification
+                {
+                    UserId = followingId, // User being followed receives notification
+                    PostId = null, // No post associated with follow action
+                    Type = "Follow",
+                    Url = $"/Home/ProfileUser?id={currentUserId}", // Link to follower's profile
+                    Message = $"{currentUser.Username} started following you."
+                };
+
+                _context.Notifications.Add(notification);
+                await _context.SaveChangesAsync();
+
+                // Send real-time notification via SignalR
+                string receiverUserId = followingId.ToString();
+                await _hubContext.Clients.Group(receiverUserId).SendAsync(
+                    "ReceiveNotification",
+                    receiverUserId,
+                    notification.Message,
+                    notification.Type,
+                    notification.Url
+                );
+
+                return Json(new { success = true });
             }
-            // Prevent following oneself
-            if (currentUserId == followingId)
+            catch (Exception ex)
             {
-                return Json(new { success = false, message = "Cannot follow yourself" });
+                Console.WriteLine($"Error: {ex.InnerException?.Message ?? ex.Message}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "An error occurred",
+                    error = ex.InnerException?.Message ?? ex.Message
+                });
             }
-            // Check if already following
-            var existingFollow = await _context.Follows
-                .FirstOrDefaultAsync(f => f.FollowerId == currentUserId && f.FollowingId == followingId);
-            if (existingFollow != null)
-            {
-                return Json(new { success = false, message = "Already following this user" });
-            }
-            // Create new follow relationship
-            var follow = new Follow
-            {
-                FollowerId = currentUserId,
-                FollowingId = followingId,
-                FollowedAt = DateTime.Now
-            };
-            _context.Follows.Add(follow);
-            await _context.SaveChangesAsync();
-            return Json(new { success = true });
         }
 
         [HttpPost]
@@ -128,24 +173,18 @@ namespace MusicWebMVC.Controllers
                     return Unauthorized(new { isVip = false, message = "You need to be logged in to use this feature" });
                 }
 
-                /* 
+
                 // Real implementation would check if the user has VIP role
                 var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
-                bool isVip = user != null && user.Role == "VIP";
+                bool isVip = user != null && user.IsVIP == true;
 
-                return Ok(new { 
-                    isVip = isVip, 
-                    message = isVip ? "VIP user confirmed" : "This feature requires a VIP subscription" 
-                });
-                */
-
-                // For testing purposes, we're returning true for all users
                 return Ok(new
                 {
-                    isVip = true,
-                    message = "VIP user confirmed"
+                    isVip = isVip,
+                    message = isVip ? "VIP user confirmed" : "This feature requires a VIP subscription"
                 });
+
             }
             catch (Exception ex)
             {

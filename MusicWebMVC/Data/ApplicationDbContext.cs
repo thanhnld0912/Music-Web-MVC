@@ -21,6 +21,7 @@ namespace MusicWebMVC.Data
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<PostReport> PostReports { get; set; }
+        public DbSet<RecentPlay> RecentPlays { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -187,6 +188,18 @@ namespace MusicWebMVC.Data
                 .WithMany()
                 .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict);
+            // Add the RecentPlay relationships
+            modelBuilder.Entity<RecentPlay>()
+                .HasOne(rp => rp.User)
+                .WithMany(u => u.RecentPlays)
+                .HasForeignKey(rp => rp.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<RecentPlay>()
+                .HasOne(rp => rp.Song)
+                .WithMany(s => s.RecentPlays)
+                .HasForeignKey(rp => rp.SongId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         public static void Seed(ApplicationDbContext context)
@@ -201,7 +214,9 @@ namespace MusicWebMVC.Data
                     Password = "Admin@123", // Bạn có thể mã hóa mật khẩu nếu cần
                     Role = "Admin",  // Đặt vai trò là Admin
                     CreatedAt = DateTime.Now,
-                    Bio = "Administrator of the MusicWeb platform"
+                    Bio = "Administrator of the MusicWeb platform",
+                    level = "Bronze",
+                    IsVIP = true
                 };
 
                 context.Users.Add(adminUser);
